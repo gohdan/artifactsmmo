@@ -89,6 +89,7 @@ def do_gathering():
         print("Not skill level required")
     elif response.status_code == 497:
         print("Inventory is full")
+        cooldown = 0
     elif response.status_code == 498:
         print("Character not found")
     elif response.status_code == 499:
