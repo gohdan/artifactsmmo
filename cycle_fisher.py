@@ -4,6 +4,7 @@ with open("functions.py") as functions:
     exec(functions.read())
 
 inventory_limit = 100
+gudgeon_qty = 30
 
 while True:
 
@@ -22,5 +23,5 @@ while True:
     x, y = 4, 1
     do_move(x, y)
 
-    do_bank_deposit("gudgeon", inventory_limit)
+    do_bank_deposit("gudgeon", gudgeon_qty)
 
