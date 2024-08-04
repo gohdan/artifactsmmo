@@ -22,7 +22,7 @@ while True:
     print("move to workshop mining")
     x, y = 1, 5
     do_move(x, y)
-    cycle_craft("copper", copper_qty)
+    cycle_crafting("copper", copper_qty)
 
     # ======= BANKING ======
 
