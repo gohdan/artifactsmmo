@@ -32,20 +32,20 @@ while True:
     cycle_fight(10)
     
     # red slime (7)
-    print ("=== fight red slime ===")
-    x, y = 2, -2
-    do_move(x, y)
-    do_unequip("weapon")
-    do_equip("wooden_staff", "weapon")
-    cycle_fight(10)
+    # print ("=== fight red slime ===")
+    # x, y = 2, -2
+    # do_move(x, y)
+    # do_unequip("weapon")
+    # do_equip("wooden_staff", "weapon")
+    # cycle_fight(10)
 
-    cow (8)
-    print ("=== fight cow ===")
-    x, y = 0, 2
-    do_move(x, y)
-    do_unequip("weapon")
-    do_equip("wooden_staff", "weapon")
-    cycle_fight(10)
+    # cow (8)
+    # print ("=== fight cow ===")
+    # x, y = 0, 2
+    # do_move(x, y)
+    # do_unequip("weapon")
+    # do_equip("wooden_staff", "weapon")
+    # cycle_fight(10)
 
     # ======= BANKING ======
 
