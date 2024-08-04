@@ -1,0 +1,10 @@
+Wooden Stick (1) (wooden_stick)
+4 Attack Earth
+
+Wooden Staff (1) (wooden_staff)
+8 Attack Earth
+
+Copper Dagger (1) (copper_dagger)
+8 Attack Air
+
+

@@ -1,0 +1,45 @@
+Chicken (1)
+60 HP
+4 Water attack
+
+Yellow slime (2)
+70 HP
+8 Earth attack
+25% Res Earth
+
+Green slime (4)
+80 HP
+12 Air attack
+25% Res Air
+
+Blue slime (6)
+120 HP
+15 Water attack
+25% Res Water
+
+Red slime (7)
+120 HP
+18 Fire attack
+25% Res Fire
+
+Cow (8)
+280 HP
+21 Air attack
+-30% Res Earth
+30% Res Water
+
+
+
+Mushmush (10)
+Flying Serpent (12)
+Wolf (15)
+Skeleton (18)
+Pig (19)
+Ogre (20)
+Vampire (24)
+Bandit Lizard (25)
+Death Knight (28)
+Owlbear (30)
+Lich (30)
+Demon (30)
+

@@ -1,0 +1,30 @@
+Woodcutting:
+
+1
+Ash plank 13XP
+
+Mining:
+
+1
+Copper 13XP
+
+
+Weaponcrafting:
+
+1
+Wooden Stick 55XP
+Wooden Staff 55XP
+Copper Dagger 55XP
+
+
+Gearcrafting:
+
+1
+Wooden Shield 58XP
+Copper Boots
+Copper Helmet 55XP
+
+Jewelrycrafting:
+
+1
+Copper ring

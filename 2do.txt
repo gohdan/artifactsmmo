@@ -1,0 +1,30 @@
+Task Master
+Grand Exchange
+
+Ash wood => Ash plank
+Ash plank => Wooden shield
+Ash plank => Wooden stick 
+Ash plank + Wooden stick => Wooden staff
+
+Copper ore => Copper
+
+Consumables
+Weapon - Weaponcrafting 5
+Body Armor - Gearcrafting 5
+Leg Armor - Gearcrafting 5
+Amulet - Jewelrycrafting 5
+Helmet - Gearcrafting 10
+Boots - Gearcrafting 10
+Shield - Gearcrafting 10
+Ring - Jewelrycrafting 10
+
+Spruce (Woodcutting 10)
+Birch (Woodcutting 20)
+
+Shrimp (Fishing 10)
+Trout (Fishing 20)
+Bass (Fishing 30)
+
+Iron (Mining 10)
+Coal (Mining 20)
+Gold Rocks (Mining 30)
