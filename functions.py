@@ -2,8 +2,8 @@ import requests
 import time
 import json
 
-with open("_auth_data.py") as functions:
-    exec(functions.read())
+with open("_auth_data.py") as auth_data:
+    exec(auth_data.read())
 
 # _auth_data.py template:
 # token = "your_api_token"
@@ -17,6 +17,8 @@ with open("_auth_data.py") as functions:
 
 character_type = character_type if 'character_type' in locals() else 'main'
 print("character_type:", character_type)
+character = characters[character_type]
+print("character:", character)
 
 server = "https://api.artifactsmmo.com"
 
