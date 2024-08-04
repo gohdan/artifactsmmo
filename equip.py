@@ -1,10 +1,11 @@
+character_type = "main"
 
 with open("functions.py") as functions:
     exec(functions.read())
 
 print ("=== equip ===")
 
-#do_equip("wooden_stick", "weapon")
+#do_equip("wooden_staff", "weapon")
 
 #do_equip("copper_boots", "boots")
 
