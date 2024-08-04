@@ -1,3 +1,4 @@
+character_type = "main"
 
 with open("functions.py") as functions:
     exec(functions.read())
