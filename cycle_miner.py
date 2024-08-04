@@ -35,4 +35,6 @@ while True:
     do_bank_deposit("copper_ore", 1)
 
     do_bank_deposit("copper", copper_qty)
+    do_bank_deposit("topaz", 1)
+    do_bank_deposit("emerald", 1)
 
