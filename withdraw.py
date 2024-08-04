@@ -1,3 +1,4 @@
+character_type = "main"
 
 with open("functions.py") as functions:
     exec(functions.read())
@@ -10,6 +11,10 @@ do_move(x, y)
 #do_bank_withdraw("ash_plank", 16)
 #do_bank_withdraw("copper_ore", 136)
 #do_bank_withdraw("copper", 32)
-#do_bank_withdraw("wooden_shield", 2)
+
 #do_bank_withdraw("wooden_staff", 1)
+#do_bank_withdraw("wooden_shield", 1)
+#do_bank_withdraw("copper_helmet", 1)
+#do_bank_withdraw("copper_boots", 1)
+#do_bank_withdraw("copper_ring", 2)
 
