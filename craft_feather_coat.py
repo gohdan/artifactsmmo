@@ -1,7 +1,8 @@
+character_type = "crafter"
+
 with open("functions.py") as functions:
     exec(functions.read())
 
-# bank
 print("=== craft feather coat ===")
 
 print("move to bank")
@@ -16,3 +17,4 @@ x, y = 3, 1
 do_move(x, y)
 
 do_crafting("feather_coat")
+

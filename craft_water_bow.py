@@ -3,7 +3,7 @@ character_type = "crafter"
 with open("functions.py") as functions:
     exec(functions.read())
 
-print("=== craft wooden shield ===")
+print("=== craft water bow ===")
 
 print("move to bank")
 x, y = 4, 1
@@ -11,10 +11,12 @@ do_move(x, y)
 
 print("withdraw ash plank")
 do_bank_withdraw("ash_plank", 3)
+print("withdraw blue slimeball")
+do_bank_withdraw("blue_slimeball", 2)
 
-print("move to workshop gearcrafting")
-x, y = 3, 1
+print("move to workshop weaponcrafting")
+x, y = 2, 1
 do_move(x, y)
 
-do_crafting("wooden_shield")
+do_crafting("water_bow")
 

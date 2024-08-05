@@ -1,7 +1,8 @@
+character_type = "crafter"
+
 with open("functions.py") as functions:
     exec(functions.read())
 
-# bank
 print("=== craft ash plank ===")
 
 print("move to bank")

@@ -1,3 +1,5 @@
+character_type = "crafter"
+
 with open("functions.py") as functions:
     exec(functions.read())
 

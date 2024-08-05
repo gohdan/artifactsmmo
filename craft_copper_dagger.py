@@ -1,7 +1,8 @@
+character_type = "crafter"
+
 with open("functions.py") as functions:
     exec(functions.read())
 
-# bank
 print("=== craft copper dagger ===")
 
 print("move to bank")
