@@ -59,4 +59,5 @@ while True:
     do_bank_deposit("feather", 5)
     do_bank_deposit("egg", 5)
     do_bank_deposit("raw_chicken", 5)
+    do_bank_deposit("golden_egg", 1)
 
