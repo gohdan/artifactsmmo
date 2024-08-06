@@ -28,9 +28,16 @@ Cow (8)
 -30% Res Earth
 30% Res Water
 
-
-
 Mushmush (10)
+350 HP
+16 Fire attack
+16 Water attack
+20% Res Fire
+20% Res Earth
+-30% Res Air
+
+
+
 Flying Serpent (12)
 Wolf (15)
 Skeleton (18)

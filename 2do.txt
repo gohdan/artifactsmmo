@@ -5,8 +5,6 @@ Fight cow (8)
 Fight red slime (7)
 Fight blue slime (6)
 Fight green slime (4)
-Fight yellow slime (2)
-
 
 
 Carpenter:
@@ -14,7 +12,10 @@ Ash wood (Woodcutting 1)
 Ash wood => Ash plank (Woodcutting 1)
 Spruce wood (Woodcutting 10)
 Spruce wood => Spruce plank (Woodcutting 10)
+Birch wood (Woodcutting 20)
+Birch wood, ash wood => Hardwood plank (Woodcutting 20)
 Fight chicken (1)
+Fight yellow slime (2)
 
 
 
@@ -23,14 +24,19 @@ Copper ore (Mining 1)
 Copper ore => Copper (Mining 1)
 Iron ore (Mining 10)
 Iron ore => Iron (Mining 10)
+Coal (Mining 20)
+Coal, Iron ore => Steel (Mining 20)
 Fight chicken (1)
+Fight yellow slime (2)
 
 
 
 Fisher:
 Gudgeon (Fishing 1)
 Shrimp (Fishing 10)
+Trout (Fishing 20)
 Fight chicken (1)
+Fight yellow slime (2)
 
 
 
@@ -43,18 +49,21 @@ Ash plank => Wooden shield (Gearcrafting 1)
 Copper => Copper helmet (Gearcrafting 1)
 Copper => Copper boots (Gearcrafting 1)
 Copper => Copper ring (Jewelrycrafting 1)
-
 Feather => Feather coat (Gearcrafting 5)
 Copper => Copper armor (Gearcrafting 5)
 Copper => Copper legs armor (Gearcrafting 5)
 Copper, green slime ball => Sticky dagger (Weaponcrafting 5)
 Copper, yellow slime ball => Sticky sword (Weaponcrafting 5)
 Ash plank, blue slime ball => Water bow (Weaponcrafting 5)
+Ash plank, red slime ball => Fire staff (Weaponcrafting 5)
+Blue slimeball, red slimeball, cowhide => Life Amulet (Jewelrycrafting 5)
 
 Gudgeon => Cooked gudgeon (Cooking 1)
 Raw chicken => Cooked chicken (Cooking 1)
+Raw beef => Cooked beef (Cooking 5)
 
 Fight chicken (1)
+Fight yellow slime (2)
 
 === 2DO ===
 
@@ -70,19 +79,11 @@ Craft only items that are scarce
 
 Resources:
 
-Birch (Woodcutting 20)
-
-Coal (Mining 20)
 Gold Rocks (Mining 30)
-
-Trout (Fishing 20)
 Bass (Fishing 30)
 
 
 Crafting:
-
-Fire staff (Weaponcrafting 5)
-Life Amulet (Jewelrycrafting 5)
 
 Weapon - Weaponcrafting 10
 Boots - Gearcrafting 10
@@ -92,7 +93,7 @@ Ring - Jewelrycrafting 10
 Leg Armor - Gearcrafting 10
 Body Armor - Gearcrafting 10
 Amulet - Jewelrycrafting 10
-
+Consumables - Cookcrafting 10
 
 
 Task Master

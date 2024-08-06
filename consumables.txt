@@ -1,8 +1,13 @@
 === Cooking 1 ===
 
 Cooked gudgeon (cooked_gudgeon) (gudgeon: 1)
-8 HP
+Restores 8HP at the start of the turn if the player has lost more than 50% of his health points.
 
 Cooked chicken (cooked_chicken) (raw_chicken: 1)
-10 HP
+Restores 10HP at the start of the turn if the player has lost more than 50% of his health points.
+
+=== Cooking 5 ===
+
+Cooked beef (cooked_beef) (raw_beef: 1)
+Gives 40 HP at the start of the fight
 

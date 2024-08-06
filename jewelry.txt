@@ -6,3 +6,7 @@ Copper Ring (copper_ring) (copper 4)
 2% Damage Water
 2% Damage Fire
 
+=== Jewelrycrafting 5 ===
+
+Life amulet (life_amulet) (blue_slimeball 1, red_slimeball 1, cowhide 2)
+40 HP
