@@ -290,7 +290,7 @@ def do_unequip(slot):
     else:
         print("Unequip successful")
         data = response.json()["data"]
-        print(*data["item"], sep='\n')
+        #print(*data["item"], sep='\n')
         cooldown = data["cooldown"]["total_seconds"]
 
     print("Cooldown:", cooldown)
@@ -344,7 +344,7 @@ def do_equip(code, slot):
     else:
         print("Equip successful")
         data = response.json()["data"]
-        print(*data["item"], sep='\n')
+        #print(*data["item"], sep='\n')
         cooldown = data["cooldown"]["total_seconds"]
 
     print("Cooldown:", cooldown)
@@ -415,6 +415,13 @@ def cycle_gathering(iterations):
 def cycle_fight(iterations):
     for i in range (iterations):
       i_human = i+1
+      print("equip consumables")
+      do_equip("cooked_beef", "consumable1")
+      do_equip("cooked_chicken", "consumable1")
+      do_equip("cooked_gudgeon", "consumable1")
+      do_equip("cooked_beef", "consumable2")
+      do_equip("cooked_chicken", "consumable2")
+      do_equip("cooked_gudgeon", "consumable2")
       print("fight", i_human, "/", iterations)
       do_fight()
 
