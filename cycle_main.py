@@ -7,6 +7,16 @@ while True:
 
     # ======= FIGHTING ======
 
+    # mushmush (10)
+    #print ("=== fight mushmush ===")
+    #x, y = 5, 3
+    #do_move(x, y)
+    #do_unequip("weapon")
+    #do_unequip("body_armor")
+    #do_equip("sticky_dagger", "weapon")
+    #do_equip("feather_coat", "body_armor")
+    #cycle_fight(10)
+
     # cow (8)
     print ("=== fight cow ===")
     x, y = 0, 2
@@ -74,4 +84,9 @@ while True:
     do_bank_deposit("raw_beef", 5)
     do_bank_deposit("milk_bucket", 5)
     do_bank_deposit("cowhide", 5)
+    do_bank_deposit("mushroom", 5)
+
+    do_bank_withdraw("cooked_beef", 10)
+    do_bank_withdraw("cooked_chicken", 10)
+    do_bank_withdraw("cooked_gudgeon", 10)
 
