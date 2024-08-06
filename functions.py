@@ -232,7 +232,7 @@ def do_bank_withdraw(item, qty):
         print("Character not found")
     elif response.status_code == 499:
         print("Character in cooldown")
-        cooldown = do_bank_withdraw(x, y);
+        cooldown = do_bank_withdraw(item, qty);
     elif response.status_code == 598:
         print("Bank not found on this map")
     elif response.status_code != 200:
