@@ -1,22 +1,26 @@
-Wooden Stick (1) (wooden_stick)
+=== Weaponcrafting 1 ===
+
+Wooden Stick (1) (wooden_stick) (ash_plank 3)
 4 Attack Earth
 
-Wooden Staff (1) (wooden_staff)
+Wooden Staff (1) (wooden_staff) (wooden_stick 1, ash_wood 4)
 8 Attack Earth
 
-Copper Dagger (1) (copper_dagger)
+Copper Dagger (1) (copper_dagger) (copper 3)
 8 Attack Air
+
+=== Weaponcrafting 5 ===
 
 Fire Staff (5) (fire_staff)
 16 Attack Fire
 
-Sticky Sword (5) (sticky_sword)
+Sticky Sword (5) (sticky_sword) (copper 4, yellow_slimeball 2)
 16 Attack Earth
 
-Water Bow (5) (water_bow)
+Water Bow (5) (water_bow) (ash_plank: 3, blue_slimeball: 2)
 16 Attack Water
 
-Sticky Dagger (5) (sticky_dagger)
+Sticky Dagger (5) (sticky_dagger) (copper 3, green_slimeball 2)
 16 Attack Air
 
 

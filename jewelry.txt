@@ -1,0 +1,8 @@
+=== Jewelrycrafting 1 ===
+
+Copper Ring (copper_ring) (copper 4)
+2% Damage Air
+2% Damage Earth
+2% Damage Water
+2% Damage Fire
+

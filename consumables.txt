@@ -1,0 +1,8 @@
+=== Cooking 1 ===
+
+Cooked gudgeon (cooked_gudgeon) (gudgeon: 1)
+8 HP
+
+Cooked chicken (cooked_chicken) (raw_chicken: 1)
+10 HP
+

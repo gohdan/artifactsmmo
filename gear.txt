@@ -1,0 +1,53 @@
+=== Gearcrafting 1 ===
+
+Boots:
+
+Copper boots (copper_boots) (copper 3)
+2 Haste
+2% Res Water
+2% Res Earth
+2% Res Fire
+2% Res Earth
+
+Helmet:
+
+Copper Helmet (copper_helmet) (copper 3)
+20 HP
+3% Damage Water
+3% Damage Earth
+3% Damage Fire
+3% Damage Air
+
+Shield:
+
+Wooden Shield (wooden_shield) (ash_plank 3)
+3% Res Fire
+3% Res Earth
+3% Res Water
+3% Res Air
+
+=== Gearcrafting 5 ===
+
+Body armor:
+
+Feather Coat (feather_coat) (feather 5)
+25 HP
+5% Damage Air
+5% Damage Water
+
+Copper Armor (copper_armor) (copper 5)
+25 HP
+5% Damage Earth
+5% Damage Fire
+
+Leg armor:
+
+Copper Legs Armor (copper_armor) (copper 4)
+25 HP
+1 Haste
+2% Damage Water
+2% Damage Earth
+2% Damage Fire
+2% Damage Air
+
+
