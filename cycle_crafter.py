@@ -130,9 +130,9 @@ while True:
     do_bank_deposit("golden_egg", 1)
     do_bank_deposit("gudgeon", 5)
 
-    do_bank_deposit("green_slime_ball", 2)
-    do_bank_deposit("yellow_slime_ball", 2)
-    do_bank_deposit("blue_slime_ball", 2)
+    do_bank_deposit("green_slimeball", 2)
+    do_bank_deposit("yellow_slimeball", 2)
+    do_bank_deposit("blue_slimeball", 2)
 
     do_bank_deposit("wooden_stick", 1)
     do_bank_deposit("wooden_shield", 1)
