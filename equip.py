@@ -16,3 +16,12 @@ print ("=== equip ===")
 
 #do_equip("copper_helmet", "helmet")
 
+#do_equip("copper_legs_armor", "leg_armor")
+
+#do_equip("cooked_chicken", "consumable1")
+#do_equip("cooked_gudgeon", "consumable2")
+
+#do_equip("sticky_sword", "weapon")
+
+#do_equip("copper_armor", "body_armor")
+
