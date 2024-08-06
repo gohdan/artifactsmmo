@@ -1,7 +1,6 @@
 === DONE ===
 
 Main:
-
 Fight cow (8)
 Fight red slime (7)
 Fight blue slime (6)
@@ -58,6 +57,16 @@ Raw chicken => Cooked chicken (Cooking 1)
 Fight chicken (1)
 
 === 2DO ===
+
+Actions:
+Deposit all items of certain type that is in inventory
+Withdraw items from bank only if there is enough of them
+Change equip only if it differs
+Before crafting check if there are all prerequisites in inventory 
+Get and equip consumables before fights
+Craft only items that are scarce
+
+
 
 Resources:
 
