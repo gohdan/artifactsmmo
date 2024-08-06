@@ -146,6 +146,7 @@ while True:
     do_bank_deposit("copper_armor", 1)
     do_bank_deposit("copper_legs_armor", 1)
     do_bank_deposit("sticky_dagger", 1)
+    do_bank_deposit("sticky_sword", 1)
     do_bank_deposit("water_bow", 1)
 
     do_bank_deposit("cooked_gudgeon", 1)
