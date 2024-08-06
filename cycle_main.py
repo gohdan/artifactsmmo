@@ -7,20 +7,24 @@ while True:
 
     # ======= FIGHTING ======
 
-    # yellow slime (2)
-    print ("=== fight yellow slime ===")
-    x, y = 1, -2
+    # cow (8)
+    print ("=== fight cow ===")
+    x, y = 0, 2
     do_move(x, y)
     do_unequip("weapon")
-    do_equip("copper_dagger", "weapon")
+    do_unequip("body_armor")
+    do_equip("sticky_sword", "weapon")
+    do_equip("copper_armor", "body_armor")
     cycle_fight(10)
-
-    # green slime (4)
-    print ("=== fight green slime ===")
-    x, y = 3, -2
+    
+    # red slime (7)
+    print ("=== fight red slime ===")
+    x, y = 2, -2
     do_move(x, y)
     do_unequip("weapon")
-    do_equip("wooden_staff", "weapon")
+    do_unequip("body_armor")
+    do_equip("sticky_sword", "weapon")
+    do_equip("copper_armor", "body_armor")
     cycle_fight(10)
 
     # blue slime (6)
@@ -28,24 +32,33 @@ while True:
     x, y = 0, -2
     do_move(x, y)
     do_unequip("weapon")
-    do_equip("wooden_staff", "weapon")
+    do_unequip("body_armor")
+    #do_equip("wooden_staff", "weapon")
+    do_equip("sticky_sword", "weapon")
+    do_equip("copper_armor", "body_armor")
     cycle_fight(10)
-    
-    # red slime (7)
-    # print ("=== fight red slime ===")
-    # x, y = 2, -2
-    # do_move(x, y)
-    # do_unequip("weapon")
-    # do_equip("wooden_staff", "weapon")
-    # cycle_fight(10)
 
-    # cow (8)
-    # print ("=== fight cow ===")
-    # x, y = 0, 2
-    # do_move(x, y)
-    # do_unequip("weapon")
-    # do_equip("wooden_staff", "weapon")
-    # cycle_fight(10)
+    # green slime (4)
+    print ("=== fight green slime ===")
+    x, y = 3, -2
+    do_move(x, y)
+    do_unequip("weapon")
+    do_unequip("body_armor")
+    #do_equip("wooden_staff", "weapon")
+    do_equip("sticky_sword", "weapon")
+    do_equip("copper_armor", "body_armor")
+    cycle_fight(10)
+
+    # yellow slime (2)
+    print ("=== fight yellow slime ===")
+    x, y = 1, -2
+    do_move(x, y)
+    do_unequip("weapon")
+    do_unequip("body_armor")
+    #do_equip("copper_dagger", "weapon")
+    do_equip("sticky_dagger", "weapon")
+    do_equip("feather_coat", "body_armor")
+    cycle_fight(10)
 
     # ======= BANKING ======
 
@@ -58,5 +71,7 @@ while True:
     do_bank_deposit("green_slimeball", 5)
     do_bank_deposit("blue_slimeball", 5)
     do_bank_deposit("red_slimeball", 5)
-
+    do_bank_deposit("raw_beef", 5)
+    do_bank_deposit("milk_bucket", 5)
+    do_bank_deposit("cowhide", 5)
 
