@@ -8,14 +8,14 @@ while True:
     # ======= FIGHTING ======
 
     # mushmush (10)
-    #print ("=== fight mushmush ===")
-    #x, y = 5, 3
-    #do_move(x, y)
-    #do_unequip("weapon")
-    #do_unequip("body_armor")
-    #do_equip("sticky_dagger", "weapon")
-    #do_equip("feather_coat", "body_armor")
-    #cycle_fight(10)
+    print ("=== fight mushmush ===")
+    x, y = 5, 3
+    do_move(x, y)
+    do_unequip("weapon")
+    do_unequip("body_armor")
+    do_equip("iron_dagger", "weapon")
+    do_equip("feather_coat", "body_armor")
+    cycle_fight(10)
 
     # cow (8)
     print ("=== fight cow ===")
@@ -66,7 +66,8 @@ while True:
     do_unequip("weapon")
     do_unequip("body_armor")
     #do_equip("copper_dagger", "weapon")
-    do_equip("sticky_dagger", "weapon")
+    #do_equip("sticky_dagger", "weapon")
+    do_equip("iron_dagger", "weapon")
     do_equip("feather_coat", "body_armor")
     cycle_fight(10)
 
