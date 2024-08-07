@@ -39,10 +39,13 @@ do_move(x, y)
 #do_bank_deposit("water_bow", 1)
 #do_bank_deposit("fire_staff", 1)
 
+#do_bank_deposit("iron_dagger", 1)
+
 #do_bank_deposit("copper_ring", 7)
 #do_bank_deposit("life_amulet", 1)
 
 #do_bank_deposit("cooked_gudgeon", 1)
 #do_bank_deposit("cooked_chicken", 1)
 #do_bank_deposit("cooked_beef", 1)
+
 

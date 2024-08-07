@@ -25,6 +25,8 @@ do_move(x, y)
 #do_bank_withdraw("water_bow", 1)
 #do_bank_withdraw("fire_staff", 1)
 
+#do_bank_withdraw("iron_dagger", 1)
+
 #do_bank_withdraw("copper_ring", 2)
 #do_bank_withdraw("life_amulet", 1)
 
