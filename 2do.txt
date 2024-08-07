@@ -1,10 +1,12 @@
 === DONE ===
 
 Main:
+Fight mushmush (10)
 Fight cow (8)
 Fight red slime (7)
 Fight blue slime (6)
 Fight green slime (4)
+
 
 
 Carpenter:
@@ -57,6 +59,7 @@ Copper, yellow slime ball => Sticky sword (Weaponcrafting 5)
 Ash plank, blue slime ball => Water bow (Weaponcrafting 5)
 Ash plank, red slime ball => Fire staff (Weaponcrafting 5)
 Blue slimeball, red slimeball, cowhide => Life Amulet (Jewelrycrafting 5)
+Copper, iron => Iron dagger (Weaponcrafting 10)
 
 Gudgeon => Cooked gudgeon (Cooking 1)
 Raw chicken => Cooked chicken (Cooking 1)
@@ -83,17 +86,70 @@ Gold Rocks (Mining 30)
 Bass (Fishing 30)
 
 
+
 Crafting:
 
-Weapon - Weaponcrafting 10
-Boots - Gearcrafting 10
-Helmet - Gearcrafting 10
-Shield - Gearcrafting 10
-Ring - Jewelrycrafting 10
-Leg Armor - Gearcrafting 10
-Body Armor - Gearcrafting 10
-Amulet - Jewelrycrafting 10
-Consumables - Cookcrafting 10
+Consumables - Cookcrafting 10:
+Cooked Shrimp
+Cheese
+Fried Eggs
+Mushroom Soup
+Beef Stew
+
+Weapon - Weaponcrafting 10:
+Iron sword
+Greater wooden staff
+Fire bow
+
+Craft tools - Weaponcrafting 10:
+Iron pickaxe
+Iron axe
+Spruce fishing rod
+
+Boots - Gearcrafting 10:
+Iron boots
+
+Helmet - Gearcrafting 10:
+Adventurer Helmet
+Iron Helm
+Leather Hat
+
+Shield - Gearcrafting 10:
+Slime Shield
+
+Ring - Jewelrycrafting 10:
+Iron ring
+
+Leg Armor - Gearcrafting 10:
+Adventurer pants
+Iron Legs Armor
+
+
+Body Armor - Gearcrafting 10:
+Leather Armor
+Iron Armor
+Adventurer Vest
+
+Amulet - Jewelrycrafting 10:
+Fire & Earth Amulet
+Air & Water Amulet
+
+
+
+
+Monsters:
+Flying Serpent (12)
+Wolf (15)
+Skeleton (18)
+Pig (19)
+Ogre (20)
+Vampire (24)
+Bandit Lizard (25)
+Death Knight (28)
+Owlbear (30)
+Lich (30)
+Demon (30)
+
 
 
 Task Master
