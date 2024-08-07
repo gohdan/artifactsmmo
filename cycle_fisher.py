@@ -26,7 +26,7 @@ while True:
 
     # trout (fishing 20)
     print ("=== gather trout ===")
-    x, y = -2, 7
+    x, y = -2, 6
     do_move(x, y)
     cycle_gathering(inventory_limit)
 
