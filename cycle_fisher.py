@@ -32,9 +32,9 @@ while True:
 
     # ======= FIGHTING ======
 
-    # chicken (1)
-    print ("=== fight chicken ===")
-    x, y = 0, 1
+    # green slime (4)
+    print ("=== fight green slime ===")
+    x, y = 3, -2
     do_move(x, y)
     do_unequip("weapon")
     do_unequip("body_armor")
@@ -54,6 +54,18 @@ while True:
     do_equip("feather_coat", "body_armor")
     cycle_fight(10)
 
+    # chicken (1)
+    print ("=== fight chicken ===")
+    x, y = 0, 1
+    do_move(x, y)
+    do_unequip("weapon")
+    do_unequip("body_armor")
+    #do_equip("wooden_staff", "weapon")
+    do_equip("sticky_sword", "weapon")
+    do_equip("copper_armor", "body_armor")
+    cycle_fight(10)
+
+
     # ======= BANKING ======
 
     # bank
@@ -72,4 +84,4 @@ while True:
     do_bank_deposit("golden_egg", 1)
 
     do_bank_deposit("yellow_slimeball", 5)
-
+    do_bank_deposit("green_slimeball", 5)

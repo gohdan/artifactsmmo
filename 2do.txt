@@ -5,7 +5,6 @@ Fight mushmush (10)
 Fight cow (8)
 Fight red slime (7)
 Fight blue slime (6)
-Fight green slime (4)
 
 
 
@@ -18,7 +17,7 @@ Birch wood (Woodcutting 20)
 Birch wood, ash wood => Hardwood plank (Woodcutting 20)
 Fight chicken (1)
 Fight yellow slime (2)
-
+Fight green slime (4)
 
 
 Miner:
@@ -30,7 +29,7 @@ Coal (Mining 20)
 Coal, Iron ore => Steel (Mining 20)
 Fight chicken (1)
 Fight yellow slime (2)
-
+Fight green slime (4)
 
 
 Fisher:
@@ -39,7 +38,7 @@ Shrimp (Fishing 10)
 Trout (Fishing 20)
 Fight chicken (1)
 Fight yellow slime (2)
-
+Fight green slime (4)
 
 
 Crafter:
@@ -67,6 +66,7 @@ Raw beef => Cooked beef (Cooking 5)
 
 Fight chicken (1)
 Fight yellow slime (2)
+Fight green slime (4)
 
 === 2DO ===
 
