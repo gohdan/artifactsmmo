@@ -43,3 +43,12 @@ Flying Serpent (12)
 -20% Res Water
 40% Res Air
 
+Wolf (15)
+400 HP
+18 Water attack
+18 Air attack
+-10% Res Fire
+-10% Res Earth
+10% Res Water
+10% Res Air
+
