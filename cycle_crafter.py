@@ -10,9 +10,11 @@ while True:
     # 1 cycle of wood - ash_plank 9 (ash_wood 54)
     # 1 cycle of wood - spruce_plank 4
     # 1 full cycle of copper - copper 26 (copper_ore 156)
-    # 1 cycle of copper - copper 18 (copper_ore 18 * 6 = 150)
+    # 1 cycle of copper - copper 14 (copper_ore 14 * 6 = 84)
+    # 1 cycle of iron - iron 14
     # 1 cycle of feather - feather 5
     # 1 cycle of yellow slime ball - yellow_slimeball 2
+    # 1 cycle of yellow slime ball - yellow_slimeball 0
     # 1 cycle of green slime ball - green_slimeball 2
     # 1 cycle of blue slime ball - blue_slimeball 3
     # 1 cycle of blue slime ball - blue_slimeball 1
@@ -39,7 +41,10 @@ while True:
 
     print("withdraw copper")
     #do_bank_withdraw("copper", 26)
-    do_bank_withdraw("copper", 18)
+    do_bank_withdraw("copper", 14)
+
+    print("withdraw iron")
+    do_bank_withdraw("iron", 14)
 
     print("withdraw feather")
     do_bank_withdraw("feather", 5)
@@ -47,8 +52,8 @@ while True:
     print("withdraw green slimeball")
     do_bank_withdraw("green_slimeball", 2)
 
-    print("withdraw yellow slimeball")
-    do_bank_withdraw("yellow_slimeball", 2)
+    #print("withdraw yellow slimeball")
+    #do_bank_withdraw("yellow_slimeball", 2)
 
     print("withdraw blue slimeball")
     #do_bank_withdraw("blue_slimeball", 3)
@@ -85,6 +90,8 @@ while True:
     x, y = 2, 1
     do_move(x, y)
 
+    # 10, iron: 8
+    do_crafting("iron_sword")
     # 10, ash_plank: 3, spruce_plank: 4
     do_crafting("greater_wooden_staff")
     # 10, copper: 2, iron: 6
@@ -95,7 +102,7 @@ while True:
     # 5, copper: 3, green_slimeball: 2
     # do_crafting("sticky_dagger")
     # 5, copper: 4, yellow_slimeball: 2
-    do_crafting("sticky_sword")
+    # do_crafting("sticky_sword")
     # 5, ash_plank: 3, blue_slimeball: 2
     # do_crafting("water_bow")
 
@@ -146,7 +153,8 @@ while True:
     do_unequip("weapon")
     do_unequip("body_armor")
     #do_equip("wooden_staff", "weapon")
-    do_equip("sticky_sword", "weapon")
+    #do_equip("sticky_sword", "weapon")
+    do_equip("iron_sword", "weapon")
     do_equip("copper_armor", "body_armor")
     cycle_fight(10)
 
@@ -157,7 +165,8 @@ while True:
     do_unequip("weapon")
     do_unequip("body_armor")
     #do_equip("wooden_staff", "weapon")
-    do_equip("sticky_sword", "weapon")
+    #do_equip("sticky_sword", "weapon")
+    do_equip("iron_sword", "weapon")
     do_equip("copper_armor", "body_armor")
     cycle_fight(10)
 
@@ -179,7 +188,8 @@ while True:
     do_unequip("weapon")
     do_unequip("body_armor")
     #do_equip("wooden_staff", "weapon")
-    do_equip("sticky_sword", "weapon")
+    #do_equip("sticky_sword", "weapon")
+    do_equip("iron_sword", "weapon")
     do_equip("copper_armor", "body_armor")
     cycle_fight(10)
 
@@ -226,6 +236,7 @@ while True:
     do_bank_deposit("fire_staff", 1)
     do_bank_deposit("iron_dagger", 1)
     do_bank_deposit("greater_wooden_staff", 1)
+    do_bank_deposit("sticky_sword", 1)
 
     do_bank_deposit("cooked_gudgeon", 1)
     do_bank_deposit("cooked_chicken", 1)
@@ -233,13 +244,13 @@ while True:
     do_bank_deposit("cooked_shrimp", 1)
 
     do_bank_deposit("sticky_dagger", 2)
-    do_bank_deposit("sticky_sword", 2)
+    do_bank_deposit("iron_sword", 2)
     do_bank_deposit("copper_armor", 2)
     do_bank_deposit("feather_coat", 2)
 
     # equip changeable weapon and armor back
     do_bank_withdraw("sticky_dagger", 1)
-    do_bank_withdraw("sticky_sword", 1)
+    do_bank_withdraw("iron_sword", 1)
     do_bank_withdraw("copper_armor", 1)
     do_bank_withdraw("feather_coat", 1)
 
