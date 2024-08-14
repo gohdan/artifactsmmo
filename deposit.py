@@ -14,7 +14,7 @@ do_move(x, y)
 #do_bank_deposit("spruce_wood", 4)
 #do_bank_deposit("birch_wood", 2)
 
-#do_bank_deposit("ash_plank", 23)
+#do_bank_deposit("ash_plank", 6)
 #do_bank_deposit("spruce_plank", 2)
 #do_bank_deposit("hardwood_plank", 3)
 
@@ -52,19 +52,20 @@ do_move(x, y)
 #do_bank_deposit("wooden_staff", 1)
 #do_bank_deposit("copper_dagger", 1)
 #do_bank_deposit("sticky_dagger", 1)
-#do_bank_deposit("sticky_sword", 20)
+#do_bank_deposit("sticky_sword", 14)
 #do_bank_deposit("water_bow", 1)
 #do_bank_deposit("fire_staff", 1)
 #do_bank_deposit("iron_dagger", 1)
 #do_bank_deposit("greater_wooden_staff", 1)
+#do_bank_deposit("iron_sword", 1)
 
 # gear
 
 #do_bank_deposit("wooden_shield", 1)
 #do_bank_deposit("copper_helmet", 1)
 #do_bank_deposit("copper_boots", 1)
-#do_bank_deposit("feather_coat", 76)
-#do_bank_deposit("copper_armor", 20)
+#do_bank_deposit("feather_coat", 36)
+#do_bank_deposit("copper_armor", 14)
 #do_bank_deposit("copper_legs_armor", 1)
 
 # jewelry
