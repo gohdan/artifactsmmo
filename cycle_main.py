@@ -8,7 +8,7 @@ while True:
     # ======= FIGHTING ======
 
     # flying serpent (10)
-    # pring ("=== fight flying serpent ===")
+    print ("=== fight flying serpent ===")
     x, y = 5, 4
     do_move(x, y)
     do_unequip("weapon")
