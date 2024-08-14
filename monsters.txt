@@ -36,5 +36,10 @@ Mushmush (10)
 20% Res Earth
 -30% Res Air
 
-
+Flying Serpent (12)
+360 HP
+34 Air attack
+-20% Res Fire
+-20% Res Water
+40% Res Air
 

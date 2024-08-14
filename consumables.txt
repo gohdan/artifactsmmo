@@ -11,3 +11,9 @@ Restores 10HP at the start of the turn if the player has lost more than 50% of h
 Cooked beef (cooked_beef) (raw_beef: 1)
 Gives 40 HP at the start of the fight
 
+=== Cooking 10 ===
+
+Cooked Shrimp (cooked_shrimp) (shrimp: 1)
+Restores 20HP at the start of the turn if the player has lost more than 50% of his health points.
+
+

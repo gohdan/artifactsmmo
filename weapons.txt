@@ -27,3 +27,7 @@ Water Bow (water_bow) (ash_plank: 3, blue_slimeball: 2)
 
 Iron dagger (iron_dagger) (copper 2, iron 6)
 24 Attack Air
+
+Greater Wooden Staff (greater_wooden_staff) (ash_plank 3, spruce_plank 4)
+24 Attack Water
+

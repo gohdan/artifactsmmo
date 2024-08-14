@@ -1,6 +1,7 @@
 === DONE ===
 
 Main:
+Fight flying serpent (12)
 Fight mushmush (10)
 Fight cow (8)
 Fight red slime (7)
@@ -18,6 +19,7 @@ Birch wood, ash wood => Hardwood plank (Woodcutting 20)
 Fight chicken (1)
 Fight yellow slime (2)
 Fight green slime (4)
+Fight blue slime (6)
 
 
 Miner:
@@ -27,18 +29,23 @@ Iron ore (Mining 10)
 Iron ore => Iron (Mining 10)
 Coal (Mining 20)
 Coal, Iron ore => Steel (Mining 20)
+Gold ore (Mining 30)
+Gold ore => Gold (Mining 30)
 Fight chicken (1)
 Fight yellow slime (2)
 Fight green slime (4)
+Fight blue slime (6)
 
 
 Fisher:
 Gudgeon (Fishing 1)
 Shrimp (Fishing 10)
 Trout (Fishing 20)
+Bass (Fishing 30)
 Fight chicken (1)
 Fight yellow slime (2)
 Fight green slime (4)
+Fight blue slime (6)
 
 
 Crafter:
@@ -59,14 +66,17 @@ Ash plank, blue slime ball => Water bow (Weaponcrafting 5)
 Ash plank, red slime ball => Fire staff (Weaponcrafting 5)
 Blue slimeball, red slimeball, cowhide => Life Amulet (Jewelrycrafting 5)
 Copper, iron => Iron dagger (Weaponcrafting 10)
+Ash plank, spruce plank => Greater wooden staff (Weaponcrafting 10)
 
 Gudgeon => Cooked gudgeon (Cooking 1)
 Raw chicken => Cooked chicken (Cooking 1)
 Raw beef => Cooked beef (Cooking 5)
+Shrimp => Cooked shrimp (Cooking 10)
 
 Fight chicken (1)
 Fight yellow slime (2)
 Fight green slime (4)
+Fight blue slime (6)
 
 === 2DO ===
 
@@ -80,17 +90,9 @@ Craft only items that are scarce
 
 
 
-Resources:
-
-Gold Rocks (Mining 30)
-Bass (Fishing 30)
-
-
-
 Crafting:
 
 Consumables - Cookcrafting 10:
-Cooked Shrimp
 Cheese
 Fried Eggs
 Mushroom Soup
@@ -98,7 +100,6 @@ Beef Stew
 
 Weapon - Weaponcrafting 10:
 Iron sword
-Greater wooden staff
 Fire bow
 
 Craft tools - Weaponcrafting 10:
@@ -138,7 +139,6 @@ Air & Water Amulet
 
 
 Monsters:
-Flying Serpent (12)
 Wolf (15)
 Skeleton (18)
 Pig (19)
@@ -150,6 +150,9 @@ Owlbear (30)
 Lich (30)
 Demon (30)
 
+
+
+Bank info - https://api.artifactsmmo.com/my/bank/items?page=1&size=100
 
 
 Task Master
