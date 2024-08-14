@@ -31,3 +31,6 @@ Iron dagger (iron_dagger) (copper 2, iron 6)
 Greater Wooden Staff (greater_wooden_staff) (ash_plank 3, spruce_plank 4)
 24 Attack Water
 
+Iron sword (iron_sword) (iron 8)
+24 Attack Earth
+
