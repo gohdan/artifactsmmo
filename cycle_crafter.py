@@ -221,11 +221,7 @@ while True:
     do_bank_deposit("copper_ring", 1)
     do_bank_deposit("life_amulet", 1)
 
-    do_bank_deposit("feather_coat", 1)
-    do_bank_deposit("copper_armor", 1)
     do_bank_deposit("copper_legs_armor", 1)
-    do_bank_deposit("sticky_dagger", 1)
-    do_bank_deposit("sticky_sword", 1)
     do_bank_deposit("water_bow", 1)
     do_bank_deposit("fire_staff", 1)
     do_bank_deposit("iron_dagger", 1)
@@ -235,6 +231,11 @@ while True:
     do_bank_deposit("cooked_chicken", 1)
     do_bank_deposit("cooked_beef", 1)
     do_bank_deposit("cooked_shrimp", 1)
+
+    do_bank_deposit("sticky_dagger", 2)
+    do_bank_deposit("sticky_sword", 2)
+    do_bank_deposit("copper_armor", 2)
+    do_bank_deposit("feather_coat", 2)
 
     # equip changeable weapon and armor back
     do_bank_withdraw("sticky_dagger", 1)
