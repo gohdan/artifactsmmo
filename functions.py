@@ -416,9 +416,11 @@ def cycle_fight(iterations):
     for i in range (iterations):
       i_human = i+1
       print("equip consumables")
+      do_equip("cooked_shrimp", "consumable1")
       do_equip("cooked_beef", "consumable1")
       do_equip("cooked_chicken", "consumable1")
       do_equip("cooked_gudgeon", "consumable1")
+      do_equip("cooked_shrimp", "consumable2")
       do_equip("cooked_beef", "consumable2")
       do_equip("cooked_chicken", "consumable2")
       do_equip("cooked_gudgeon", "consumable2")
