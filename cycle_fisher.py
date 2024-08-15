@@ -4,10 +4,10 @@ with open("functions.py") as functions:
     exec(functions.read())
 
 inventory_limit = 60
-gudgeon_qty = 20
-shrimp_qty = 20
-trout_qty = 20
-bass_qty = 20
+gudgeon_qty = 25
+shrimp_qty = 25
+trout_qty = 25
+bass_qty = 25
 
 while True:
 
