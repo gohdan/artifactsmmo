@@ -28,9 +28,10 @@ do_move(x, y)
 
 # fishing
 
-#do_bank_deposit("gudgeon", 30)
-#do_bank_deposit("shrimp", 26)
-#do_bank_deposit("trout", 27)
+#do_bank_deposit("gudgeon", 13)
+#do_bank_deposit("shrimp", 12)
+#do_bank_deposit("trout", 35)
+#do_bank_deposit("bass", 51)
 
 
 
