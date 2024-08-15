@@ -7,8 +7,8 @@ while True:
     # ======= CRAFTING ======
 
     # 1 full cycle of wood - ash_plank 15, ash_wood 4 (ash_wood 94)
-    # 1 cycle of wood - ash_plank 9 (ash_wood 54)
-    # 1 cycle of wood - spruce_plank 4
+    # 1 cycle of wood - ash_plank 6 (ash_wood 36)
+    # 1 cycle of wood - spruce_plank 8
     # 1 full cycle of copper - copper 26 (copper_ore 156)
     # 1 cycle of copper - copper 14 (copper_ore 14 * 6 = 84)
     # 1 cycle of iron - iron 14
@@ -34,10 +34,10 @@ while True:
 
     # print("withdraw ash plank")
     # do_bank_withdraw("ash_plank", 9)
-    do_bank_withdraw("ash_plank", 12)
+    do_bank_withdraw("ash_plank", 6)
 
     # print("withdraw spruce plank")
-    do_bank_withdraw("spruce_plank", 4)
+    do_bank_withdraw("spruce_plank", 8)
 
     print("withdraw copper")
     #do_bank_withdraw("copper", 26)
@@ -96,9 +96,11 @@ while True:
     do_crafting("greater_wooden_staff")
     # 10, copper: 2, iron: 6
     do_crafting("iron_dagger")
+    # 10, spruce_plank: 4, red_slimeball: 2
+    do_crafting("fire_bow")
 
     # 5, ash_plank: 3, red_slimeball: 2
-    do_crafting("fire_staff")
+    # do_crafting("fire_staff")
     # 5, copper: 3, green_slimeball: 2
     # do_crafting("sticky_dagger")
     # 5, copper: 4, yellow_slimeball: 2
@@ -204,7 +206,7 @@ while True:
     # just in case
     do_bank_deposit("ash_wood", 1)
     do_bank_deposit("ash_plank", 9)
-    do_bank_deposit("spruce_plank", 4)
+    do_bank_deposit("spruce_plank", 8)
     do_bank_deposit("copper", 18)
     do_bank_deposit("iron", 14)
 
@@ -238,6 +240,7 @@ while True:
     do_bank_deposit("iron_dagger", 1)
     do_bank_deposit("greater_wooden_staff", 1)
     do_bank_deposit("sticky_sword", 1)
+    do_bank_deposit("fire_bow", 1)
 
     do_bank_deposit("cooked_gudgeon", 1)
     do_bank_deposit("cooked_chicken", 1)
