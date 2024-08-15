@@ -206,6 +206,7 @@ while True:
     do_bank_deposit("ash_plank", 9)
     do_bank_deposit("spruce_plank", 4)
     do_bank_deposit("copper", 18)
+    do_bank_deposit("iron", 14)
 
     do_bank_deposit("feather", 4)
     do_bank_deposit("egg", 4)
