@@ -11,7 +11,7 @@ Copper Dagger (copper_dagger) (copper 3)
 
 === Weaponcrafting 5 ===
 
-Fire Staff (fire_staff)
+Fire Staff (fire_staff) (ash_plank 3, red_slimeball 2)
 16 Attack Fire
 
 Sticky Dagger (sticky_dagger) (copper 3, green_slimeball 2)
@@ -33,4 +33,7 @@ Greater Wooden Staff (greater_wooden_staff) (ash_plank 3, spruce_plank 4)
 
 Iron sword (iron_sword) (iron 8)
 24 Attack Earth
+
+Fire bow (fire_bow) (spruce_plank 4, red_slimeball 2)
+24 Attack Fire
 

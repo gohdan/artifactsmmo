@@ -68,6 +68,7 @@ Blue slimeball, red slimeball, cowhide => Life Amulet (Jewelrycrafting 5)
 Copper, iron => Iron dagger (Weaponcrafting 10)
 Ash plank, spruce plank => Greater wooden staff (Weaponcrafting 10)
 Iron => Iron sword (Weaponcrafting 10)
+Spruce plank, red slime ball => Fire bow (Weaponcrafting 10)
 
 Gudgeon => Cooked gudgeon (Cooking 1)
 Raw chicken => Cooked chicken (Cooking 1)
@@ -99,8 +100,10 @@ Fried Eggs
 Mushroom Soup
 Beef Stew
 
-Weapon - Weaponcrafting 10:
-Fire bow
+Weapon - Weaponcrafting 15:
+Multislimes sword
+Mushstaff
+Mushmush bow
 
 Craft tools - Weaponcrafting 10:
 Iron pickaxe
@@ -109,6 +112,7 @@ Spruce fishing rod
 
 Boots - Gearcrafting 10:
 Iron boots
+Leather boots
 
 Helmet - Gearcrafting 10:
 Adventurer Helmet
@@ -124,7 +128,6 @@ Iron ring
 Leg Armor - Gearcrafting 10:
 Adventurer pants
 Iron Legs Armor
-
 
 Body Armor - Gearcrafting 10:
 Leather Armor
