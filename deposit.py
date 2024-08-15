@@ -15,15 +15,15 @@ do_move(x, y)
 #do_bank_deposit("birch_wood", 2)
 
 #do_bank_deposit("ash_plank", 6)
-#do_bank_deposit("spruce_plank", 2)
+#do_bank_deposit("spruce_plank", 4)
 #do_bank_deposit("hardwood_plank", 3)
 
 # mining
 
 #do_bank_deposit("copper_ore", 14)
-#do_bank_deposit("copper", 2)
+#do_bank_deposit("copper", 1)
 #do_bank_deposit("iron_ore", 27)
-#do_bank_deposit("iron", 20)
+#do_bank_deposit("iron", 108)
 #do_bank_deposit("steel", 3)
 
 # fishing
@@ -35,16 +35,16 @@ do_move(x, y)
 
 
 
-#do_bank_deposit("feather", 4)
-#do_bank_deposit("egg", 2)
+#do_bank_deposit("feather", 1)
+#do_bank_deposit("egg", 3)
 #do_bank_deposit("raw_chicken", 2)
 #do_bank_deposit("raw_beef", 3)
 #do_bank_deposit("milk_bucket", 5)
 #do_bank_deposit("cowhide", 4)
 
 #do_bank_deposit("yellow_slimeball", 4)
-#do_bank_deposit("green_slimeball", 4)
-#do_bank_deposit("blue_slimeball", 1)
+#do_bank_deposit("green_slimeball", 1)
+#do_bank_deposit("blue_slimeball", 3)
 #do_bank_deposit("red_slimeball", 1)
 
 # weapon
@@ -65,8 +65,8 @@ do_move(x, y)
 #do_bank_deposit("wooden_shield", 1)
 #do_bank_deposit("copper_helmet", 1)
 #do_bank_deposit("copper_boots", 1)
-#do_bank_deposit("feather_coat", 36)
-#do_bank_deposit("copper_armor", 14)
+#do_bank_deposit("feather_coat", 1)
+#do_bank_deposit("copper_armor", 1)
 #do_bank_deposit("copper_legs_armor", 1)
 
 # jewelry
