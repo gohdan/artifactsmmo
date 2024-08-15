@@ -1,4 +1,4 @@
-character_type = "main"
+character_type = "crafter"
 
 with open("functions.py") as functions:
     exec(functions.read())
@@ -14,7 +14,7 @@ do_move(x, y)
 #do_bank_deposit("spruce_wood", 4)
 #do_bank_deposit("birch_wood", 2)
 
-#do_bank_deposit("ash_plank", 6)
+#do_bank_deposit("ash_plank", 4)
 #do_bank_deposit("spruce_plank", 4)
 #do_bank_deposit("hardwood_plank", 3)
 
@@ -23,7 +23,7 @@ do_move(x, y)
 #do_bank_deposit("copper_ore", 14)
 #do_bank_deposit("copper", 1)
 #do_bank_deposit("iron_ore", 27)
-#do_bank_deposit("iron", 108)
+#do_bank_deposit("iron", 20)
 #do_bank_deposit("steel", 3)
 
 # fishing
@@ -35,9 +35,9 @@ do_move(x, y)
 
 
 
-#do_bank_deposit("feather", 1)
+#do_bank_deposit("feather", 2)
 #do_bank_deposit("egg", 3)
-#do_bank_deposit("raw_chicken", 2)
+#do_bank_deposit("raw_chicken", 1)
 #do_bank_deposit("raw_beef", 3)
 #do_bank_deposit("milk_bucket", 5)
 #do_bank_deposit("cowhide", 4)
@@ -58,7 +58,8 @@ do_move(x, y)
 #do_bank_deposit("fire_staff", 1)
 #do_bank_deposit("iron_dagger", 1)
 #do_bank_deposit("greater_wooden_staff", 1)
-#do_bank_deposit("iron_sword", 1)
+#do_bank_deposit("iron_sword", 2)
+#do_bank_deposit("fire_bow", 1)
 
 # gear
 
