@@ -97,7 +97,7 @@ while True:
     # 10, copper: 2, iron: 6
     #do_crafting("iron_dagger")
     # 10, spruce_plank: 4, red_slimeball: 2
-    3do_crafting("fire_bow")
+    #do_crafting("fire_bow")
 
     # 5, ash_plank: 3, red_slimeball: 2
     # do_crafting("fire_staff")
