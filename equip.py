@@ -5,6 +5,7 @@ with open("functions.py") as functions:
 
 print ("=== equip ===")
 
+#do_equip("copper_dagger", "weapon")
 #do_equip("wooden_staff", "weapon")
 #do_equip("sticky_sword", "weapon")
 
