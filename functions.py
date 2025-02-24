@@ -114,6 +114,20 @@ def do_gathering():
     time.sleep(cooldown)
 
 def do_fight():
+
+    while True:
+        hp = get_character_parameter(character, "hp")
+        max_hp = get_character_parameter(character, "max_hp")
+
+        print ("hp:", hp)
+        print ("max_hp:", max_hp)
+
+        if hp < max_hp:
+            print ("hp < max_hp, do rest")
+            do_rest(character)
+        else:
+            break
+
     url = f"{server}/my/{character}/action/fight"
 
     headers = {
@@ -472,3 +486,45 @@ def get_character_parameter(char_name, parameter):
             break
 
     return param;
+
+def do_rest(character):
+
+    print("character:", character)
+    url = f"{server}/my/{character}/action/rest"
+
+    headers = {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Authorization": f"Bearer {token}"
+    }
+
+    raw_data = f'{{"code" : "{code}", "slot" : "{slot}"}}'
+
+    response = requests.post(url, headers=headers, data=raw_data)
+
+    cooldown = 1
+
+    if response.status_code == 486:
+        print("Character is locked. Action is already in progress")
+    elif response.status_code == 498:
+        print("Character not found")
+    elif response.status_code == 499:
+        print("Character in cooldown")
+        cooldown = do_equip(slot);
+    elif response.status_code != 200:
+        print("An error occured while doing api request")
+        print("status code:", response.status_code)
+    else:
+        print("Rest successful")
+        data = response.json()["data"]
+        cooldown = data["cooldown"]["total_seconds"]
+
+    print("Cooldown:", cooldown)
+    if cooldown is None:
+        print("cooldown is None, setting it to 60")
+        cooldown = 60
+        print("Cooldown:", cooldown)
+
+    time.sleep(cooldown)
+
+
