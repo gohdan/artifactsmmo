@@ -3,23 +3,20 @@ character_type ="carpenter"
 with open("functions.py") as functions:
     exec(functions.read())
 
-ash_wood_in_ash_plank = 6
-minimal_ash_wood_qty = 4
 minimal_empty_inventory = 10 # for monsters drop
 
-# 6 (ash_plank) + 4 (wooden_stick) + 2 (hardwood_plank)
-#ash_limit = 42
-#ash_plank_qty = 6
-#ash_wood_qty = 6
-#ash_limit = 88
-#ash_plank_qty = 14
-#ash_wood_qty = 4
+# ash_tree: 6 (ash_plank) + 4 (wooden_stick) + 2 (hardwood_plank)
 
-# 6
-#spruce_limit = 36
-#spruce_plank_qty = 6
+ash_wood_in_plank = 6
+minimal_ash_wood_qty = 4
+
+spruce_in_plank = 6
+
+# default values are null
+ash_limit = 0
 spruce_limit = 0
 spruce_plank_qty = 0
+
 
 # x4
 #birch_limit = 28
@@ -50,32 +47,42 @@ while True:
         case woodcutting_level if 1 <= woodcutting_level <  10:
             print ("gather ash")
             ash_limit = inventory_limit
-            ash_plank_qty = (ash_limit - minimal_ash_wood_qty) // ash_wood_in_ash_plank
-            ash_wood_qty = ash_limit - (ash_plank_qty * ash_wood_in_ash_plank)
+            ash_plank_qty = (ash_limit - minimal_ash_wood_qty) // ash_wood_in_plank
+            ash_wood_qty = ash_limit - (ash_plank_qty * ash_wood_in_plank)
         case woodcutting_level if 11 <= woodcutting_level < 20:
             print ("gather ash and spruce")
-            # 2do: add spruce
-            ash_limit = inventory_limit
-            ash_plank_qty = (ash_limit - minimal_ash_wood_qty) // ash_wood_in_ash_plank
-            ash_wood_qty = ash_limit - (ash_plank_qty * ash_wood_in_ash_plank)
+
+            ash_limit = inventory_limit // 2
+            ash_plank_qty = (ash_limit - minimal_ash_wood_qty) // ash_wood_in_plank
+            ash_wood_qty = ash_limit - (ash_plank_qty * ash_wood_in_plank)
+
+            spruce_limit = inventory_limit - ash_limit
+            spruce_plank_qty = spruce_limit // spruce_in_plank
+            spruce_limit = spruce_plank_qty * spruce_in_plank
+
         case woodcutting_level if 21 <= woodcutting_level:
             print ("gather birch, spruce and birch")
             # 2do: add spruce and birch
             ash_limit = inventory_limit
-            ash_plank_qty = (ash_limit  - minimal_ash_wood_qty)// ash_wood_in_ash_plank
-            ash_wood_qty = ash_limit - (ash_plank_qty * ash_wood_in_ash_plank)
+            ash_plank_qty = (ash_limit  - minimal_ash_wood_qty)// ash_wood_in_plank
+            ash_wood_qty = ash_limit - (ash_plank_qty * ash_wood_in_plank)
         case _:
             # default values
             print ("gather ash (non-matching woodcutting level)")
             ash_limit = inventory_limit
-            ash_plank_qty = (ash_limit  - minimal_ash_wood_qty) // ash_wood_in_ash_plank
+            ash_plank_qty = (ash_limit  - minimal_ash_wood_qty) // ash_wood_in_plank
             ash_wood_qty = ash_limit - ash_plank_qty
 
-    print ("ash wood in ash plank:", ash_wood_in_ash_plank)
+    print ("ash wood in ash plank:", ash_wood_in_plank)
     print ("minimal ash wood qty:", minimal_ash_wood_qty)
     print ("ash_limit:", ash_limit)
     print ("ash_plank_qty:", ash_plank_qty)
     print ("ash_wood_qty:", ash_wood_qty)
+
+    print ("spruce in plank:", spruce_in_plank)
+    print ("spruce_limit:", spruce_limit)
+    print ("spruce_plank_qty:", spruce_plank_qty)
+
 
     # ======= GATHERING ======
 
@@ -86,16 +93,18 @@ while True:
     #cycle_gathering(birch_limit)
 
     # spruce tree (woodcutting 10)
-    #print("=== gather spruce tree ===")
-    #x, y = 2, 6
-    #do_move(x, y)
-    #cycle_gathering(spruce_limit)
+    if 0 != spruce_limit:
+        print("=== gather spruce tree ===")
+        x, y = 2, 6
+        do_move(x, y)
+        cycle_gathering(spruce_limit)
 
     # ash tree (woodcutting 1)
-    print("=== gather ash tree ===")
-    x, y = -1, 0
-    do_move(x, y)
-    cycle_gathering(ash_limit)
+    if 0 != ash_limit:
+        print("=== gather ash tree ===")
+        x, y = -1, 0
+        do_move(x, y)
+        cycle_gathering(ash_limit)
 
     # ======= CRAFTING ======
 
@@ -103,9 +112,14 @@ while True:
     print("move to workshop woodcutting")
     x, y = -2, -3
     do_move(x, y)
+
     #cycle_crafting("hardwood_plank", hardwood_plank_qty)
-    #cycle_crafting("spruce_plank", spruce_plank_qty)
-    cycle_crafting("ash_plank", ash_plank_qty)
+
+    if 0 != spruce_limit:
+        cycle_crafting("spruce_plank", spruce_plank_qty)
+
+    if 0 != ash_limmit:
+        cycle_crafting("ash_plank", ash_plank_qty)
 
     # ======= FIGHTING ======
 
@@ -176,7 +190,7 @@ while True:
 
     do_bank_deposit("ash_wood", ash_wood_qty)
     do_bank_deposit("ash_plank", ash_plank_qty)
-    #do_bank_deposit("spruce_plank", spruce_plank_qty)
+    do_bank_deposit("spruce_plank", spruce_plank_qty)
     #do_bank_deposit("hardwood_plank", hardwood_plank_qty)
 
     do_bank_deposit("feather", 4)
