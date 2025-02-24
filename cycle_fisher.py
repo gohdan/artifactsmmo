@@ -142,6 +142,7 @@ while True:
     #do_bank_deposit("trout", trout_qty)
     #do_bank_deposit("bass", bass_qty)
 
+    do_bank_deposit("algae", 1)
     do_bank_deposit("feather", 4)
     do_bank_deposit("egg", 4)
     do_bank_deposit("raw_chicken", 4)
