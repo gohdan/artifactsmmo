@@ -59,7 +59,7 @@ while True:
 
     #print("withdraw copper")
     #do_bank_withdraw("copper", 26)
-    do_bank_withdraw("copper", 13)
+    do_bank_withdraw("copper", 4)
 
     #print("withdraw iron")
     #do_bank_withdraw("iron", 14)
@@ -96,7 +96,7 @@ while True:
     #do_bank_withdraw("shrimp", 1)
 
     #print("move to workshop jewelrycrafting")
-    #x, y = 1, 3
+    x, y = 1, 3
     do_move(x, y)
 
     # 1, copper: 4
