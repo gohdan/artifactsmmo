@@ -498,9 +498,7 @@ def do_rest(character):
         "Authorization": f"Bearer {token}"
     }
 
-    raw_data = f'{{"code" : "{code}", "slot" : "{slot}"}}'
-
-    response = requests.post(url, headers=headers, data=raw_data)
+    response = requests.post(url, headers=headers)
 
     cooldown = 1
 
