@@ -433,3 +433,42 @@ def cycle_crafting(code, iterations):
       print("craft", code, i_human, "/", iterations)
       do_crafting(code)
 
+def get_characters_array():
+
+    print("*** get characters array")
+    url = f"{server}/my/characters"
+
+    headers = {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Authorization": f"Bearer {token}"
+    }
+
+    response = requests.get(url, headers=headers)
+
+    if response.status_code != 200:
+        print("An error occured while doing api request")
+        print("status code:", response.status_code)
+        return 0
+    else:
+        print("Request successful")
+        data = response.json()["data"]
+        return data
+
+def get_character_parameter(char_name, parameter):
+
+    print ("*** get character parameter")
+    print ("character name: ", char_name)
+    print ("parameter: ", parameter)
+
+    param = ""
+    data = get_characters_array()
+
+    for char in data:
+        name = char['name']
+        if name == char_name:
+            param = char[parameter]
+            print (name, parameter, ":", param)
+            break
+
+    return param;

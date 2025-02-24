@@ -3,7 +3,23 @@ character_type ="main"
 with open("functions.py") as functions:
     exec(functions.read())
 
+minimal_empty_inventory = 10 # for monsters drop
+
 while True:
+    # ======= INVENTORY LIMITS ======
+
+    print ("get character parameters")
+    level = get_character_parameter(character, "level")
+    inventory_max_items = get_character_parameter(character, "inventory_max_items")
+    print ("end: get character parameters")
+
+    print ("level: ", level)
+    print ("inventory_max_items: ", inventory_max_items)
+
+    # save some space for monsters drop
+    print ("minimal empty inventory:", minimal_empty_inventory)
+    inventory_limit = inventory_max_items - minimal_empty_inventory
+    print ("inventory_limit: ", inventory_limit)
 
     # ======= FIGHTING ======
 
@@ -72,16 +88,16 @@ while True:
     #cycle_fight(10)
 
     # yellow slime (2)
-    print ("=== fight yellow slime ===")
-    x, y = 1, -2
-    do_move(x, y)
+    #print ("=== fight yellow slime ===")
+    #x, y = 1, -2
+    #do_move(x, y)
     #do_unequip("weapon")
     #do_unequip("body_armor")
     ##do_equip("copper_dagger", "weapon")
     ##do_equip("sticky_dagger", "weapon")
     #do_equip("iron_dagger", "weapon")
     #do_equip("feather_coat", "body_armor")
-    cycle_fight(10)
+    #cycle_fight(10)
 
     # chicken (1)
     print ("=== fight chicken ===")
@@ -107,7 +123,7 @@ while True:
     do_bank_deposit("raw_chicken", 5)
     do_bank_deposit("golden_egg", 1)
 
-    do_bank_deposit("yellow_slimeball", 5)
+    #do_bank_deposit("yellow_slimeball", 5)
     #do_bank_deposit("green_slimeball", 5)
     #do_bank_deposit("blue_slimeball", 5)
     #do_bank_deposit("red_slimeball", 5)

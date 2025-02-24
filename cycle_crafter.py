@@ -3,7 +3,25 @@ character_type ="crafter"
 with open("functions.py") as functions:
     exec(functions.read())
 
+minimal_empty_inventory = 10 # for monsters drop
+
 while True:
+    print ("get character parameters")
+    level = get_character_parameter(character, "level")
+    inventory_max_items = get_character_parameter(character, "inventory_max_items")
+    print ("end: get character parameters")
+
+    print ("level: ", level)
+    print ("inventory_max_items: ", inventory_max_items)
+
+    # save some space for monsters drop
+    print ("minimal empty inventory:", minimal_empty_inventory)
+    inventory_limit = inventory_max_items - minimal_empty_inventory
+    print ("inventory_limit: ", inventory_limit)
+
+
+
+
     # ======= CRAFTING ======
 
     # 1 full cycle of wood - ash_plank 15, ash_wood 4 (ash_wood 94)
@@ -29,10 +47,10 @@ while True:
     x, y = 4, 1
     do_move(x, y)
 
-    print("withdraw ash wood")
-    do_bank_withdraw("ash_wood", 4)
+    #print("withdraw ash wood")
+    #do_bank_withdraw("ash_wood", 4)
 
-    print("withdraw ash plank")
+    #print("withdraw ash plank")
     #do_bank_withdraw("ash_plank", 9)
     do_bank_withdraw("ash_plank", 6)
 
@@ -46,8 +64,8 @@ while True:
     #print("withdraw iron")
     #do_bank_withdraw("iron", 14)
 
-    #print("withdraw feather")
-    #do_bank_withdraw("feather", 5)
+    print("withdraw feather")
+    do_bank_withdraw("feather", 5)
 
     #print("withdraw green slimeball")
     #do_bank_withdraw("green_slimeball", 2)
@@ -77,8 +95,8 @@ while True:
     #print("withdraw shrimp")
     #do_bank_withdraw("shrimp", 1)
 
-    print("move to workshop jewelrycrafting")
-    x, y = 1, 3
+    #print("move to workshop jewelrycrafting")
+    #x, y = 1, 3
     do_move(x, y)
 
     # 1, copper: 4
@@ -120,11 +138,11 @@ while True:
     do_move(x, y)
 
     # 5, feather: 5
-    #do_crafting("feather_coat")
+    do_crafting("feather_coat")
     # 5, copper: 5
-    #do_crafting("copper_armor")
+    do_crafting("copper_armor")
     # 5, copper: 4
-    #do_crafting("copper_legs_armor")
+    do_crafting("copper_legs_armor")
 
     # 1, ash_plank: 3
     do_crafting("wooden_shield")

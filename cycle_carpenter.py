@@ -3,13 +3,17 @@ character_type ="carpenter"
 with open("functions.py") as functions:
     exec(functions.read())
 
+ash_wood_in_ash_plank = 6
+minimal_ash_wood_qty = 4
+minimal_empty_inventory = 10 # for monsters drop
+
 # 6 (ash_plank) + 4 (wooden_stick) + 2 (hardwood_plank)
 #ash_limit = 42
 #ash_plank_qty = 6
 #ash_wood_qty = 6
-ash_limit = 88
-ash_plank_qty = 14
-ash_wood_qty = 4
+#ash_limit = 88
+#ash_plank_qty = 14
+#ash_wood_qty = 4
 
 # 6
 #spruce_limit = 36
@@ -25,6 +29,53 @@ hardwood_plank_qty = 0
 
 
 while True:
+    # ======= INVENTORY LIMITS ======
+
+    print ("get character parameters")
+    level = get_character_parameter(character, "level")
+    woodcutting_level = get_character_parameter(character, "woodcutting_level")
+    inventory_max_items = get_character_parameter(character, "inventory_max_items")
+    print ("end: get character parameters")
+
+    print ("level: ", level)
+    print ("woodcutting level: ", woodcutting_level)
+    print ("inventory_max_items: ", inventory_max_items)
+
+    # save some space for monsters drop
+    print ("minimal empty inventory:", minimal_empty_inventory)
+    inventory_limit = inventory_max_items - minimal_empty_inventory
+    print ("inventory_limit: ", inventory_limit)
+
+    match woodcutting_level:
+        case woodcutting_level if 1 <= woodcutting_level <  10:
+            print ("gather ash")
+            ash_limit = inventory_limit
+            ash_plank_qty = (ash_limit - minimal_ash_wood_qty) // ash_wood_in_ash_plank
+            ash_wood_qty = ash_limit - (ash_plank_qty * ash_wood_in_ash_plank)
+        case woodcutting_level if 11 <= woodcutting_level < 20:
+            print ("gather ash and spruce")
+            # 2do: add spruce
+            ash_limit = inventory_limit
+            ash_plank_qty = (ash_limit - minimal_ash_wood_qty) // ash_wood_in_ash_plank
+            ash_wood_qty = ash_limit - (ash_plank_qty * ash_wood_in_ash_plank)
+        case woodcutting_level if 21 <= woodcutting_level:
+            print ("gather birch, spruce and birch")
+            # 2do: add spruce and birch
+            ash_limit = inventory_limit
+            ash_plank_qty = (ash_limit  - minimal_ash_wood_qty)// ash_wood_in_ash_plank
+            ash_wood_qty = ash_limit - (ash_plank_qty * ash_wood_in_ash_plank)
+        case _:
+            # default values
+            print ("gather ash (non-matching woodcutting level)")
+            ash_limit = inventory_limit
+            ash_plank_qty = (ash_limit  - minimal_ash_wood_qty) // ash_wood_in_ash_plank
+            ash_wood_qty = ash_limit - ash_plank_qty
+
+    print ("ash wood in ash plank:", ash_wood_in_ash_plank)
+    print ("minimal ash wood qty:", minimal_ash_wood_qty)
+    print ("ash_limit:", ash_limit)
+    print ("ash_plank_qty:", ash_plank_qty)
+    print ("ash_wood_qty:", ash_wood_qty)
 
     # ======= GATHERING ======
 
@@ -91,16 +142,30 @@ while True:
     #do_equip("feather_coat", "body_armor")
     #cycle_fight(10)
 
-    # chicken (1)
-    print ("=== fight chicken ===")
-    x, y = 0, 1
-    do_move(x, y)
-    #do_unequip("weapon")
-    #do_unequip("body_armor")
-    ##do_equip("wooden_staff", "weapon")
-    #do_equip("sticky_sword", "weapon")
-    #do_equip("copper_armor", "body_armor")
-    cycle_fight(10)
+    match level:
+        case level if 1 <= level <  2:
+            # chicken (1)
+            print ("=== fight chicken ===")
+            x, y = 0, 1
+            do_move(x, y)
+            #do_unequip("weapon")
+            #do_unequip("body_armor")
+            ##do_equip("wooden_staff", "weapon")
+            #do_equip("sticky_sword", "weapon")
+            #do_equip("copper_armor", "body_armor")
+            cycle_fight(10)
+        case _:
+            # default values
+            # chicken (1)
+            print ("=== fight chicken ===")
+            x, y = 0, 1
+            do_move(x, y)
+            #do_unequip("weapon")
+            #do_unequip("body_armor")
+            ##do_equip("wooden_staff", "weapon")
+            #do_equip("sticky_sword", "weapon")
+            #do_equip("copper_armor", "body_armor")
+            cycle_fight(10)
 
     # ======= BANKING ======
 

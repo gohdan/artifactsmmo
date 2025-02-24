@@ -3,8 +3,11 @@ character_type ="fisher"
 with open("functions.py") as functions:
     exec(functions.read())
 
+minimal_empty_inventory = 10 # for monsters drop
+
 #inventory_limit = 60
-inventory_limit = 90
+#inventory_limit = 90
+
 #gudgeon_qty = 25
 gudgeon_qty = 60
 #shrimp_qty = 25
@@ -12,6 +15,46 @@ gudgeon_qty = 60
 #bass_qty = 25
 
 while True:
+    # ======= INVENTORY LIMITS ======
+
+    print ("get character parameters")
+    level = get_character_parameter(character, "level")
+    fishing_level = get_character_parameter(character, "fishing_level")
+    inventory_max_items = get_character_parameter(character, "inventory_max_items")
+    print ("end: get character parameters")
+
+    print ("level: ", level)
+    print ("fishing level: ", fishing_level)
+    print ("inventory_max_items: ", inventory_max_items)
+
+    # save some space for monsters drop
+    print ("minimal empty inventory:", minimal_empty_inventory)
+    inventory_limit = inventory_max_items - minimal_empty_inventory
+    print ("inventory_limit: ", inventory_limit)
+
+
+    match fishing_level:
+        case fishing_level if 1 <= fishing_level < 10:
+            print ("gather gudgeon")
+            gudgeon_qty = inventory_limit
+        case fishing_level if 10 <= fishing_level < 20:
+            print ("gather gudgeon and shrimp")
+            #2do: add shrimp
+            gudgeon_qty = inventory_limit
+        case fishing_level if 20 <= fishing_level < 30:
+            print ("gather gudgeon, shrimp and trout")
+            #2do: add shrimp and trout
+            gudgeon_qty = inventory_limit
+        case fishing_level if 30 <= fishing_level:
+            print ("gather gudgeon, shrimp, trout and bass")
+            #2do: add shrimp, trout and bass
+            gudgeon_qty = inventory_limit
+        case _:
+            # default values
+            print ("gather gudgeon (default values)")
+            gudgeon_qty = inventory_limit
+
+    print ("gudgeon_qty:", gudgeon_qty)
 
     # ======= GATHERING ======
 
@@ -37,7 +80,7 @@ while True:
     print ("=== gather gudgeon ===")
     x, y = 4, 2
     do_move(x, y)
-    cycle_gathering(inventory_limit)
+    cycle_gathering(gudgeon_qty)
 
     # ======= FIGHTING ======
 

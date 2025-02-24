@@ -3,11 +3,14 @@ character_type ="miner"
 with open("functions.py") as functions:
     exec(functions.read())
 
+minimal_empty_inventory = 10 # for monsters drop
+copper_ore_in_copper_qty = 6
+
 # x6
 #copper_limit = 18
 #copper_qty = 3
-copper_limit = 90
-copper_qty = 15
+#copper_limit = 90
+#copper_qty = 15
 
 # x6 + 4 * steel_qty
 #iron_limit = 30 + 20
@@ -22,6 +25,53 @@ copper_qty = 15
 #gold_qty = 5
 
 while True:
+    # ======= INVENTORY LIMITS ======
+
+    print ("get character parameters")
+    level = get_character_parameter(character, "level")
+    mining_level = get_character_parameter(character, "mining_level")
+    inventory_max_items = get_character_parameter(character, "inventory_max_items")
+    print ("end: get character parameters")
+
+    print ("level: ", level)
+    print ("mining level: ", mining_level)
+    print ("inventory_max_items: ", inventory_max_items)
+
+    # save some space for monsters drop
+    print ("minimal empty inventory:", minimal_empty_inventory)
+    inventory_limit = inventory_max_items - minimal_empty_inventory
+    print ("inventory_limit: ", inventory_limit)
+
+
+    match mining_level:
+        case mining_level if 1 <= mining_level < 10:
+            print ("gather copper")
+            copper_qty = inventory_limit // copper_ore_in_copper_qty
+            copper_limit = copper_qty * copper_ore_in_copper_qty
+        case mining_level if 10 <= mining_level < 20:
+            print ("gather copper and iron")
+            #2do: add iron
+            copper_qty = inventory_limit // copper_ore_in_copper_qty
+            copper_limit = copper_qty * copper_ore_in_copper_qty
+        case mining_level if 20 <= mining_level < 30:
+            print ("gather copper, iron and coal")
+            #2do: add iron and coal
+            copper_qty = inventory_limit // copper_ore_in_copper_qty
+            copper_limit = copper_qty * copper_ore_in_copper_qty
+        case mining_level if 30 <= mining_level:
+            print ("gather copper, iron, coal and gold")
+            #2do: add iron, coal and gold
+            copper_qty = inventory_limit // copper_ore_in_copper_qty
+            copper_limit = copper_qty * copper_ore_in_copper_qty
+        case _:
+            # default values
+            print ("gather copper (default values)")
+            copper_qty = inventory_limit // copper_ore_in_copper_qty
+            copper_limit = copper_qty * copper_ore_in_copper_qty
+
+    print ("copper ore in copper:", copper_ore_in_copper_qty)
+    print ("copper_qty:", copper_qty)
+    print ("copper_limit:", copper_limit)
 
     # ======= GATHERING ======
 
