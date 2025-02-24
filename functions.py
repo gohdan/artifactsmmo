@@ -145,6 +145,8 @@ def do_fight():
 
     if response.status_code == 486:
         print("Character is locked. Action is already in progress")
+    elif response.status_code == 497:
+        print("Character inventory is full")
     elif response.status_code == 498:
         print("Character not found")
     elif response.status_code == 499:
