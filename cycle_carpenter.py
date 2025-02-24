@@ -26,22 +26,48 @@ hardwood_plank_qty = 0
 
 
 while True:
+    # ======= CHARACTER INFO ======
+
+    level = get_character_parameter(character, "level")
+    print ("level: ", level)
+
+    match level:
+        case level if 1 <= level < 10:
+            belongings = {
+                "wooden_stick": 1
+            }
+        case _:
+            # default values
+            belongings = {
+                "wooden_stick": 1
+            }
+
+    print ("belongings:", belongings)
+
+    # ======= BANKING ======
+
+    # banking
+    print ("=== banking ===")
+    x, y = 4, 1
+    do_move(x, y)
+
+    inventory = get_character_parameter(character, "inventory")
+    print(inventory)
+
+    do_bank_deposit_unnecessary(inventory, belongings)
+
     # ======= INVENTORY LIMITS ======
 
-    print ("get character parameters")
-    level = get_character_parameter(character, "level")
-    woodcutting_level = get_character_parameter(character, "woodcutting_level")
     inventory_max_items = get_character_parameter(character, "inventory_max_items")
-    print ("end: get character parameters")
-
-    print ("level: ", level)
-    print ("woodcutting level: ", woodcutting_level)
     print ("inventory_max_items: ", inventory_max_items)
 
     # save some space for monsters drop
     print ("minimal empty inventory:", minimal_empty_inventory)
     inventory_limit = inventory_max_items - minimal_empty_inventory
     print ("inventory_limit: ", inventory_limit)
+
+    woodcutting_level = get_character_parameter(character, "woodcutting_level")
+    print ("woodcutting level: ", woodcutting_level)
 
     match woodcutting_level:
         case woodcutting_level if 1 <= woodcutting_level <  10:
@@ -118,7 +144,7 @@ while True:
     if 0 != spruce_limit:
         cycle_crafting("spruce_plank", spruce_plank_qty)
 
-    if 0 != ash_limmit:
+    if 0 != ash_limit:
         cycle_crafting("ash_plank", ash_plank_qty)
 
     # ======= FIGHTING ======
@@ -180,25 +206,4 @@ while True:
             #do_equip("sticky_sword", "weapon")
             #do_equip("copper_armor", "body_armor")
             cycle_fight(10)
-
-    # ======= BANKING ======
-
-    # banking
-    print ("=== banking ===")
-    x, y = 4, 1
-    do_move(x, y)
-
-    do_bank_deposit("ash_wood", ash_wood_qty)
-    do_bank_deposit("ash_plank", ash_plank_qty)
-    do_bank_deposit("spruce_plank", spruce_plank_qty)
-    #do_bank_deposit("hardwood_plank", hardwood_plank_qty)
-
-    do_bank_deposit("feather", 4)
-    do_bank_deposit("egg", 4)
-    do_bank_deposit("raw_chicken", 4)
-    do_bank_deposit("golden_egg", 1)
-
-    #do_bank_deposit("yellow_slimeball", 4)
-    #do_bank_deposit("green_slimeball", 4)
-    #do_bank_deposit("blue_slimeball", 4)
 
