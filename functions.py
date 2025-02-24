@@ -527,4 +527,15 @@ def do_rest(character):
 
     time.sleep(cooldown)
 
+def do_bank_deposit_unnecessary(inventory, belongins):
+    print ("*** do_bank_deposit_unnecessary")
+    print ("belongings:", belongings)
+    print ("inventory:", inventory)
+
+    for item in inventory:
+        name = item['code']
+        if "" != name and name not in belongings:
+            qty = item['quantity']
+            print ("do deposit:", name, qty)
+            do_bank_deposit(name, qty)
 
