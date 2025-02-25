@@ -46,6 +46,29 @@ while True:
     inventory_limit = inventory_max_items - minimal_empty_inventory
     print ("inventory_limit: ", inventory_limit)
 
+    alchemy_level = get_character_parameter(character, "alchemy_level")
+    print ("alchemy level: ", alchemy_level)
+
+    match alchemy_level:
+        case alchemy_level if 1 <= alchemy_level < 5:
+            print ("gather sunflower")
+            sunflower_limit = 10
+        case _:
+            # default values
+            print ("gather sunflower (default values)")
+            sunflower_limit = 10
+
+    # ======= GATHERING ======
+
+    # sunflower (alchemy 1)
+    if 0 != sunflower_limit:
+        print("=== gather sunflower ===")
+        x, y = 2, 2
+        do_move(x, y)
+        cycle_gathering(sunflower_limit)
+
+    exit()
+
     # ======= CRAFTING ======
 
     # 1 full cycle of wood - ash_plank 15, ash_wood 4 (ash_wood 94)
