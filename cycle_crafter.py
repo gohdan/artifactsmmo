@@ -3,7 +3,7 @@ character_type ="crafter"
 with open("functions.py") as functions:
     exec(functions.read())
 
-minimal_empty_inventory = 10 # for occasional drop
+minimal_empty_inventory = 15 # for occasional drop
 
 while True:
     # ======= CHARACTER INFO ======
@@ -45,6 +45,16 @@ while True:
     bank_info = get_bank_info()
     print (bank_info)
 
+    bank_contents = get_bank_items()
+    print (bank_contents)
+
+    bank_items = {}
+    for i in bank_contents:
+        bank_items[i['code']] = i['quantity']
+
+    print("bank_items:")
+    print(bank_items)
+
     # ======= INVENTORY LIMITS ======
 
     inventory_max_items = get_character_parameter(character, "inventory_max_items")
@@ -54,6 +64,10 @@ while True:
     print ("minimal empty inventory:", minimal_empty_inventory)
     inventory_limit = inventory_max_items - minimal_empty_inventory
     print ("inventory_limit: ", inventory_limit)
+
+    withdraw = {}
+
+    # ======= DETERMINE: ALCHEMY ======
 
     alchemy_level = get_character_parameter(character, "alchemy_level")
     print ("alchemy level: ", alchemy_level)
@@ -71,32 +85,64 @@ while True:
     inventory_available = inventory_limit - sunflower_limit
     print("inventory_available: {}".format(inventory_available))
 
-    bank_contents = get_bank_items()
-    print (bank_contents)
+    # ======= DETERMINE: COOKING ======
 
-    bank_items = {}
-    for i in bank_contents:
-        bank_items[i['code']] = i['quantity']
+    craft_cooking = {}
 
-    print("bank_items:")
-    print(bank_items)
+    cooking_level = get_character_parameter(character, "cooking_level")
+    print ("cooking level: ", cooking_level)
 
-    if "gudgeon" in bank_items:
-        print("have gudgeon")
-        if bank_items['gudgeon'] > inventory_available:
-            gudgeon_qty = inventory_available
-        else:
-            gudgeon_qty = bank_items['gudgeon']
-    print("gudgeon_qty: {}".format(gudgeon_qty))
+    # 10, shrimp: 1
+    #do_crafting("cooked_shrimp")
+    # 5, raw_beef: 1
+    #do_crafting("cooked_beef")
 
-    inventory_available = inventory_available - gudgeon_qty
-    print("inventory_available: {}".format(inventory_available))
+    match cooking_level:
+        case cooking_level if 1 <= cooking_level:
+            print("cook gudgeon and chicken")
+            target_items = ['cooked_chicken', 'cooked_gudgeon']
+        case _:
+            # default values
+            print("cook gudgeon and chicken (default values)")
+            target_items = ['cooked_chicken', 'cooked_gudgeon']
+    print("target_items: {}".format(target_items))
+
+    for target_item in target_items:
+        print("checking requisites of {}".format(target_item))
+        match target_item:
+            case target_item if "cooked_gudgeon" == target_item:
+                requisites = {'gudgeon': 1}
+            case target_item if "cooked_chicken" == target_item:
+                requisites = {'raw_chicken': 1}
+            case _:
+                # default values
+                print("didn't found requisites")
+                requisites = {}
+
+        print("requisites: {}".format(requisites))
+        for requisite in requisites:
+            if requisite in bank_items:
+                print("have {} in bank".format(requisite))
+                if bank_items[requisite] > inventory_available:
+                    withdraw_qty = inventory_available
+                else:
+                    withdraw_qty = bank_items[requisite]
+                print("withdraw_qty: {}".format(withdraw_qty))
+                if 0 != withdraw_qty:
+                    withdraw[requisite] = withdraw_qty
+                    craft_cooking[target_item] = withdraw_qty
+                    inventory_available = inventory_available - withdraw_qty
+                    print("inventory_available: {}".format(inventory_available))
+
+    print("craft_cooking: {}".format(craft_cooking))
 
     # ======= WITHDRAW ======
 
-    print("withdraw gudgeon")
-    do_bank_withdraw("gudgeon", gudgeon_qty)
-
+    print("withdraw: {}".format(withdraw))
+    for i in withdraw:
+        print("{}: {}".format(i, withdraw[i]))
+        do_bank_withdraw(i, withdraw[i])
+            
     # ======= GATHERING ======
 
     # sunflower (alchemy 1)
@@ -105,6 +151,19 @@ while True:
         x, y = 2, 2
         do_move(x, y)
         cycle_gathering(sunflower_limit)
+        
+    # ======= COOKING ======
+
+    print("move to workshop cooking")
+    x, y = 1, 1
+    do_move(x, y)
+
+    print("craft_cooking: {}".format(craft_cooking))
+
+    for item in craft_cooking:
+        for i in range(0, craft_cooking[item]):
+            print("crafting {} {} of {}".format(item, i+1, craft_cooking[item]))
+            do_crafting(item)
 
     # ======= CRAFTING ======
 
@@ -121,8 +180,6 @@ while True:
     # 1 cycle of blue slime ball - blue_slimeball 3
     # 1 cycle of blue slime ball - blue_slimeball 1
     # 1 cycle of red slime ball - red_slimeball 3
-    # 1 cycle of gudgeon - gudgeon 1
-    # 1 cycle of raw chicken - raw_chicken 1
     # 1 cycle of cowhide - cowhide 2
     # 1 cycle of raw beef - raw_beef 1
     # 1 cycle of shrimp - shrimp 1
@@ -166,9 +223,6 @@ while True:
 
     #print("withdraw cowhide")
     #do_bank_withdraw("cowhide", 2)
-
-    print("withdraw raw chicken")
-    do_bank_withdraw("raw_chicken", 1)
 
     #print("withdraw raw beef")
     #do_bank_withdraw("raw_beef", 1)
@@ -232,24 +286,8 @@ while True:
     # 1, copper: 3
     do_crafting("copper_boots")
 
-    print("move to workshop cooking")
-    x, y = 1, 1
-    do_move(x, y)
 
-    # 10, shrimp: 1
-    #do_crafting("cooked_shrimp")
-    # 5, raw_beef: 1
-    #do_crafting("cooked_beef")
 
-    # 1, gudgeon: 1
-
-    if 0 != gudgeon_qty:
-        for i in range(0, gudgeon_qty):
-            print("crafting cooked_gudgeon {} of {}".format(i+1, gudgeon_qty))
-            do_crafting("cooked_gudgeon")
-
-    # 1, raw_chicken: 1
-    do_crafting("cooked_chicken")
 
     # ======= FIGHTING ======
 
