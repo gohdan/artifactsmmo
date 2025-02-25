@@ -244,8 +244,8 @@ while True:
     # 1, gudgeon: 1
 
     if 0 != gudgeon_qty:
-        for i in range(1, gudgeon_qty):
-            print("crafting cooked_gudgeon {} of {}".format(i, gudgeon_qty))
+        for i in range(0, gudgeon_qty):
+            print("crafting cooked_gudgeon {} of {}".format(i+1, gudgeon_qty))
             do_crafting("cooked_gudgeon")
 
     # 1, raw_chicken: 1
