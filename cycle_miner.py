@@ -4,13 +4,14 @@ with open("functions.py") as functions:
     exec(functions.read())
 
 minimal_empty_inventory = 10 # for monsters drop
-copper_ore_in_copper_qty = 6
+copper_ore_in_copper_qty = 10
+iron_ore_in_iron_qty = 10
 
-# x6
-#copper_limit = 18
-#copper_qty = 3
-#copper_limit = 90
-#copper_qty = 15
+# default null values
+
+copper_limit = 0
+iron_limit = 0
+
 
 # x6 + 4 * steel_qty
 #iron_limit = 30 + 20
@@ -25,23 +26,50 @@ copper_ore_in_copper_qty = 6
 #gold_qty = 5
 
 while True:
+    # ======= CHARACTER INFO ======
+
+    level = get_character_parameter(character, "level")
+    print ("level: ", level)
+
+    match level:
+        case level if 1 <= level < 10:
+            belongings = {
+                "wooden_stick": 1
+            }
+        case _:
+            # default values
+            belongings = {
+                "wooden_stick": 1
+            }
+
+    print ("belongings:", belongings)
+
+    # ======= BANKING ======
+
+    # banking
+    print ("=== banking ===")
+    x, y = 4, 1
+    do_move(x, y)
+
+    inventory = get_character_parameter(character, "inventory")
+    print(inventory)
+
+    do_bank_deposit_unnecessary(inventory, belongings)
+
     # ======= INVENTORY LIMITS ======
 
-    print ("get character parameters")
-    level = get_character_parameter(character, "level")
-    mining_level = get_character_parameter(character, "mining_level")
-    inventory_max_items = get_character_parameter(character, "inventory_max_items")
-    print ("end: get character parameters")
 
-    print ("level: ", level)
-    print ("mining level: ", mining_level)
+    inventory_max_items = get_character_parameter(character, "inventory_max_items")
+
     print ("inventory_max_items: ", inventory_max_items)
 
-    # save some space for monsters drop
+    # save some space for occasional drops
     print ("minimal empty inventory:", minimal_empty_inventory)
     inventory_limit = inventory_max_items - minimal_empty_inventory
     print ("inventory_limit: ", inventory_limit)
 
+    mining_level = get_character_parameter(character, "mining_level")
+    print ("mining level: ", mining_level)
 
     match mining_level:
         case mining_level if 1 <= mining_level < 10:
@@ -50,19 +78,39 @@ while True:
             copper_limit = copper_qty * copper_ore_in_copper_qty
         case mining_level if 10 <= mining_level < 20:
             print ("gather copper and iron")
-            #2do: add iron
-            copper_qty = inventory_limit // copper_ore_in_copper_qty
+
+            copper_limit = inventory_limit // 2
+            copper_qty = copper_limit // copper_ore_in_copper_qty
             copper_limit = copper_qty * copper_ore_in_copper_qty
+
+            iron_limit = inventory_limit - copper_limit
+            iron_qty = iron_limit // iron_ore_in_iron_qty
+            iron_limit = iron_qty * iron_ore_in_iron_qty
+
         case mining_level if 20 <= mining_level < 30:
             print ("gather copper, iron and coal")
             #2do: add iron and coal
-            copper_qty = inventory_limit // copper_ore_in_copper_qty
+
+            copper_limit = inventory_limit // 2
+            copper_qty = copper_limit // copper_ore_in_copper_qty
             copper_limit = copper_qty * copper_ore_in_copper_qty
+
+            iron_limit = inventory_limit - copper_limit
+            iron_qty = iron_limit // iron_ore_in_iron_qty
+            iron_limit = iron_qty * iron_ore_in_iron_qty
+
         case mining_level if 30 <= mining_level:
             print ("gather copper, iron, coal and gold")
             #2do: add iron, coal and gold
-            copper_qty = inventory_limit // copper_ore_in_copper_qty
+
+            copper_limit = inventory_limit // 2
+            copper_qty = copper_limit // copper_ore_in_copper_qty
             copper_limit = copper_qty * copper_ore_in_copper_qty
+
+            iron_limit = inventory_limit - copper_limit
+            iron_qty = iron_limit // iron_ore_in_iron_qty
+            iron_limit = iron_qty * iron_ore_in_iron_qty
+
         case _:
             # default values
             print ("gather copper (default values)")
@@ -73,6 +121,11 @@ while True:
     print ("copper_qty:", copper_qty)
     print ("copper_limit:", copper_limit)
 
+    print ("iron ore in iron:", iron_ore_in_iron_qty)
+    print ("iron_qty:", iron_qty)
+    print ("iron_limit:", iron_limit)
+
+ 
     # ======= GATHERING ======
 
     ## gold ore (mining 30)
@@ -87,17 +140,19 @@ while True:
     #do_move(x, y)
     #cycle_gathering(coal_limit)
 
-    ## iron (mining 10)
-    #print("=== gather iron ore ===")
-    #x, y = 1, 7
-    #do_move(x, y)
-    #cycle_gathering(iron_limit)
+    # iron (mining 10)
+    if 0 != iron_limit:
+        print("=== gather iron ore ===")
+        x, y = 1, 7
+        do_move(x, y)
+        cycle_gathering(iron_limit)
 
     # copper (mining 1)
-    print("=== gather copper ore ===")
-    x, y = 2, 0
-    do_move(x, y)
-    cycle_gathering(copper_limit)
+    if 0 != copper_limit:
+        print("=== gather copper ore ===")
+        x, y = 2, 0
+        do_move(x, y)
+        cycle_gathering(copper_limit)
 
     # ======= CRAFTING ======
 
@@ -105,10 +160,14 @@ while True:
     print("move to workshop mining")
     x, y = 1, 5
     do_move(x, y)
-    #cycle_crafting("gold", gold_qty)
+
+    if 0 != iron_qty:
+        cycle_crafting("iron", iron_qty)
+    if 0 != copper_qty:
+        cycle_crafting("copper", copper_qty)
+
     #cycle_crafting("steel", steel_qty)
-    #cycle_crafting("iron", iron_qty)
-    cycle_crafting("copper", copper_qty)
+    #cycle_crafting("gold", gold_qty)
 
     # ======= FIGHTING ======
 
@@ -155,37 +214,4 @@ while True:
     #do_equip("sticky_sword", "weapon")
     #do_equip("copper_armor", "body_armor")
     cycle_fight(10)
-
-    # ======= BANKING ======
-
-    # bank
-    print ("=== bank ===")
-    x, y = 4, 1
-    do_move(x, y)
-
-    # just in case
-    do_bank_deposit("copper_ore", 1)
-    do_bank_deposit("copper", copper_qty)
-    do_bank_deposit("topaz", 1)
-    do_bank_deposit("emerald", 1)
-
-    #do_bank_deposit("iron_ore", 1)
-    #do_bank_deposit("coal", 1)
-    #do_bank_deposit("gold_ore", 1)
-
-    #do_bank_deposit("iron", iron_qty)
-    #do_bank_deposit("steel", steel_qty)
-    #do_bank_deposit("gold", gold_qty)
-
-    #do_bank_deposit("ruby", 1)
-    #do_bank_deposit("sapphire", 1)
-
-    do_bank_deposit("feather", 4)
-    do_bank_deposit("egg", 4)
-    do_bank_deposit("raw_chicken", 4)
-    do_bank_deposit("golden_egg", 1)
-
-    #do_bank_deposit("yellow_slimeball", 4)
-    #do_bank_deposit("green_slimeball", 4)
-    #do_bank_deposit("blue_slimeball", 4)
 
