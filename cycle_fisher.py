@@ -5,33 +5,55 @@ with open("functions.py") as functions:
 
 minimal_empty_inventory = 10 # for monsters drop
 
-#inventory_limit = 60
-#inventory_limit = 90
-
-#gudgeon_qty = 25
-gudgeon_qty = 60
-#shrimp_qty = 25
-#trout_qty = 25
-#bass_qty = 25
+# default null values
+gudgeon_qty = 0
+shrimp_qty = 0
+trout_qty = 0
+bass_qty = 0
 
 while True:
+    # ======= CHARACTER INFO ======
+
+    level = get_character_parameter(character, "level")
+    print ("level: ", level)
+
+    match level:
+        case level if 1 <= level < 10:
+            belongings = {
+                "wooden_stick": 1
+            }
+        case _:
+            # default values
+            belongings = {
+                "wooden_stick": 1
+            }
+
+    print ("belongings:", belongings)
+
+    # ======= BANKING ======
+
+    # banking
+    print ("=== banking ===")
+    x, y = 4, 1
+    do_move(x, y)
+
+    inventory = get_character_parameter(character, "inventory")
+    print(inventory)
+
+    do_bank_deposit_unnecessary(inventory, belongings)
+
     # ======= INVENTORY LIMITS ======
 
-    print ("get character parameters")
-    level = get_character_parameter(character, "level")
-    fishing_level = get_character_parameter(character, "fishing_level")
     inventory_max_items = get_character_parameter(character, "inventory_max_items")
-    print ("end: get character parameters")
-
-    print ("level: ", level)
-    print ("fishing level: ", fishing_level)
     print ("inventory_max_items: ", inventory_max_items)
 
-    # save some space for monsters drop
+    # save some space for occasional drop
     print ("minimal empty inventory:", minimal_empty_inventory)
     inventory_limit = inventory_max_items - minimal_empty_inventory
     print ("inventory_limit: ", inventory_limit)
 
+    fishing_level = get_character_parameter(character, "fishing_level")
+    print ("fishing level: ", fishing_level)
 
     match fishing_level:
         case fishing_level if 1 <= fishing_level < 10:
@@ -40,21 +62,25 @@ while True:
         case fishing_level if 10 <= fishing_level < 20:
             print ("gather gudgeon and shrimp")
             #2do: add shrimp
-            gudgeon_qty = inventory_limit
+            gudgeon_qty = inventory_limit // 2
+            shrimp_qty = inventory_limit - gudgeon_qty
         case fishing_level if 20 <= fishing_level < 30:
             print ("gather gudgeon, shrimp and trout")
             #2do: add shrimp and trout
-            gudgeon_qty = inventory_limit
+            gudgeon_qty = inventory_limit // 2
+            shrimp_qty = inventory_limit - gudgeon_qty
         case fishing_level if 30 <= fishing_level:
             print ("gather gudgeon, shrimp, trout and bass")
             #2do: add shrimp, trout and bass
-            gudgeon_qty = inventory_limit
+            gudgeon_qty = inventory_limit // 2
+            shrimp_qty = inventory_limit - gudgeon_qty
         case _:
             # default values
             print ("gather gudgeon (default values)")
             gudgeon_qty = inventory_limit
 
     print ("gudgeon_qty:", gudgeon_qty)
+    print ("shrimp_qty:", shrimp_qty)
 
     # ======= GATHERING ======
 
@@ -70,17 +96,19 @@ while True:
     #do_move(x, y)
     #cycle_gathering(inventory_limit)
 
-    ## shrimp (fishing 10)
-    #print ("=== gather shrimp ===")
-    #x, y = 5, 2
-    #do_move(x, y)
-    #cycle_gathering(inventory_limit)
+    # shrimp (fishing 10)
+    if 0 != shrimp_qty:
+        print ("=== gather shrimp ===")
+        x, y = 5, 2
+        do_move(x, y)
+        cycle_gathering(shrimp_qty)
 
     # gudgeon (fishing 1)
-    print ("=== gather gudgeon ===")
-    x, y = 4, 2
-    do_move(x, y)
-    cycle_gathering(gudgeon_qty)
+    if 0 != gudgeon_qty:
+        print ("=== gather gudgeon ===")
+        x, y = 4, 2
+        do_move(x, y)
+        cycle_gathering(gudgeon_qty)
 
     # ======= FIGHTING ======
 
@@ -127,28 +155,4 @@ while True:
     #do_equip("sticky_sword", "weapon")
     #do_equip("copper_armor", "body_armor")
     cycle_fight(10)
-
-
-    # ======= BANKING ======
-
-    # bank
-    print ("=== bank ===")
-    x, y = 4, 1
-    do_move(x, y)
-
-    do_bank_deposit("gudgeon", gudgeon_qty)
-    #do_bank_deposit("shrimp", shrimp_qty)
-    #do_bank_deposit("golden_shrimp", 1)
-    #do_bank_deposit("trout", trout_qty)
-    #do_bank_deposit("bass", bass_qty)
-
-    do_bank_deposit("algae", 1)
-    do_bank_deposit("feather", 4)
-    do_bank_deposit("egg", 4)
-    do_bank_deposit("raw_chicken", 4)
-    do_bank_deposit("golden_egg", 1)
-
-    #do_bank_deposit("yellow_slimeball", 4)
-    #do_bank_deposit("green_slimeball", 4)
-    #do_bank_deposit("blue_slimeball", 4)
 
