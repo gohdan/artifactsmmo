@@ -195,6 +195,8 @@ def do_bank_deposit(item, qty):
 
     if response.status_code == 404:
         print("Item not found")
+    elif response.status_code == 422:
+        print("Unprocessible query")
     elif response.status_code == 478:
         print("Missing item or insufficient quantity in your inventory")
     elif response.status_code == 486:
@@ -542,4 +544,55 @@ def do_bank_deposit_unnecessary(inventory, belongins):
             qty = item['quantity']
             print ("do deposit:", name, qty)
             do_bank_deposit(name, qty)
+
+def get_bank_info():
+    print("*** get_bank_info")
+
+    url = f"{server}/my/bank"
+
+    headers = {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Authorization": f"Bearer {token}"
+    }
+
+    response = requests.get(url, headers=headers)
+
+    data = ""
+
+    if response.status_code != 200:
+        print("An error occured while doing api request")
+        print("status code:", response.status_code)
+    else:
+        print("Request successful")
+        data = response.json()["data"]
+        print(*data, sep='\n')
+        #cooldown = data["cooldown"]["total_seconds"]
+
+    return data
+
+def get_bank_items():
+    print("*** get_bank_items")
+
+    url = f"{server}/my/bank/items"
+
+    headers = {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Authorization": f"Bearer {token}"
+    }
+
+    response = requests.get(url, headers=headers)
+
+    data = ""
+
+    if response.status_code != 200:
+        print("An error occured while doing api request")
+        print("status code:", response.status_code)
+    else:
+        print("Request successful")
+        data = response.json()["data"]
+        print(*data, sep='\n')
+
+    return data
 

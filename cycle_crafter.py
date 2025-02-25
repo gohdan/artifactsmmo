@@ -42,10 +42,8 @@ while True:
 
     do_bank_deposit_unnecessary(inventory, belongings)
 
-    #bank_contents = ""
-    #bank_contents = get_bank_contents()
-    #print (bank_contents)
-    #exit()
+    bank_info = get_bank_info()
+    print (bank_info)
 
     # ======= INVENTORY LIMITS ======
 
@@ -61,13 +59,43 @@ while True:
     print ("alchemy level: ", alchemy_level)
 
     match alchemy_level:
-        case alchemy_level if 1 <= alchemy_level < 5:
+        case alchemy_level if 1 <= alchemy_level:
             print ("gather sunflower")
             sunflower_limit = 10
         case _:
             # default values
             print ("gather sunflower (default values)")
             sunflower_limit = 10
+    print("sunflower_limit: {}".format(sunflower_limit))
+
+    inventory_available = inventory_limit - sunflower_limit
+    print("inventory_available: {}".format(inventory_available))
+
+    bank_contents = get_bank_items()
+    print (bank_contents)
+
+    bank_items = {}
+    for i in bank_contents:
+        bank_items[i['code']] = i['quantity']
+
+    print("bank_items:")
+    print(bank_items)
+
+    if "gudgeon" in bank_items:
+        print("have gudgeon")
+        if bank_items['gudgeon'] > inventory_available:
+            gudgeon_qty = inventory_available
+        else:
+            gudgeon_qty = bank_items['gudgeon']
+    print("gudgeon_qty: {}".format(gudgeon_qty))
+
+    inventory_available = inventory_available - gudgeon_qty
+    print("inventory_available: {}".format(inventory_available))
+
+    # ======= WITHDRAW ======
+
+    print("withdraw gudgeon")
+    do_bank_withdraw("gudgeon", gudgeon_qty)
 
     # ======= GATHERING ======
 
@@ -138,9 +166,6 @@ while True:
 
     #print("withdraw cowhide")
     #do_bank_withdraw("cowhide", 2)
-
-    print("withdraw gudgeon")
-    do_bank_withdraw("gudgeon", 1)
 
     print("withdraw raw chicken")
     do_bank_withdraw("raw_chicken", 1)
@@ -215,8 +240,14 @@ while True:
     #do_crafting("cooked_shrimp")
     # 5, raw_beef: 1
     #do_crafting("cooked_beef")
+
     # 1, gudgeon: 1
-    do_crafting("cooked_gudgeon")
+
+    if 0 != gudgeon_qty:
+        for i in range(1, gudgeon_qty):
+            print("crafting cooked_gudgeon {} of {}".format(i, gudgeon_qty))
+            do_crafting("cooked_gudgeon")
+
     # 1, raw_chicken: 1
     do_crafting("cooked_chicken")
 
