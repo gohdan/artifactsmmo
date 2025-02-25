@@ -3,20 +3,45 @@ character_type ="main"
 with open("functions.py") as functions:
     exec(functions.read())
 
-minimal_empty_inventory = 10 # for monsters drop
+minimal_empty_inventory = 10 # for occasional drop
 
 while True:
+    # ======= CHARACTER INFO ======
+
+    level = get_character_parameter(character, "level")
+    print ("level: ", level)
+
+    match level:
+        case level if 1 <= level < 10:
+            belongings = {
+                "wooden_stick": 1
+            }
+        case _:
+            # default values
+            belongings = {
+                "wooden_stick": 1
+            }
+
+    print ("belongings:", belongings)
+
+    # ======= BANKING ======
+
+    # banking
+    print ("=== banking ===")
+    x, y = 4, 1
+    do_move(x, y)
+
+    inventory = get_character_parameter(character, "inventory")
+    print(inventory)
+
+    do_bank_deposit_unnecessary(inventory, belongings)
+
     # ======= INVENTORY LIMITS ======
 
-    print ("get character parameters")
-    level = get_character_parameter(character, "level")
     inventory_max_items = get_character_parameter(character, "inventory_max_items")
-    print ("end: get character parameters")
-
-    print ("level: ", level)
     print ("inventory_max_items: ", inventory_max_items)
 
-    # save some space for monsters drop
+    # save some space for occasional drop
     print ("minimal empty inventory:", minimal_empty_inventory)
     inventory_limit = inventory_max_items - minimal_empty_inventory
     print ("inventory_limit: ", inventory_limit)
@@ -110,31 +135,4 @@ while True:
     #do_equip("sticky_sword", "weapon")
     #do_equip("copper_armor", "body_armor")
     cycle_fight(10)
-
-    # ======= BANKING ======
-
-    # bank
-    print ("=== bank ===")
-    x, y = 4, 1
-    do_move(x, y)
-
-    do_bank_deposit("feather", 5)
-    do_bank_deposit("egg", 5)
-    do_bank_deposit("raw_chicken", 5)
-    do_bank_deposit("golden_egg", 1)
-
-    #do_bank_deposit("yellow_slimeball", 5)
-    #do_bank_deposit("green_slimeball", 5)
-    #do_bank_deposit("blue_slimeball", 5)
-    #do_bank_deposit("red_slimeball", 5)
-    #do_bank_deposit("raw_beef", 5)
-    #do_bank_deposit("milk_bucket", 5)
-    #do_bank_deposit("cowhide", 5)
-    #do_bank_deposit("mushroom", 5)
-    #do_bank_deposit("flying_wing", 1)
-    #do_bank_deposit("serpent_skin", 1)
-
-    #do_bank_withdraw("cooked_beef", 10)
-    #do_bank_withdraw("cooked_chicken", 10)
-    #do_bank_withdraw("cooked_gudgeon", 10)
 
