@@ -51,13 +51,17 @@ while True:
     x, y = 4, 1
     do_move(x, y)
 
+    gold_qty = get_character_parameter(character, "gold")
+    print("gold_qty:", gold_qty)
+
+    do_bank_deposit("gold", gold_qty)
+
     inventory = get_character_parameter(character, "inventory")
     print(inventory)
 
     do_bank_deposit_unnecessary(inventory, belongings)
 
     # ======= INVENTORY LIMITS ======
-
 
     inventory_max_items = get_character_parameter(character, "inventory_max_items")
 

@@ -174,16 +174,20 @@ def do_fight():
 
 def do_bank_deposit(item, qty):
 
-    print("item:", item,", qty:", qty)
-    url = f"{server}/my/{character}/action/bank/deposit"
+    print("item: {}, qty: {}".format(item,qty))
+
+    if "gold" == item:
+        url = f"{server}/my/{character}/action/bank/deposit/gold"
+        raw_data = f'{{"quantity": {qty}}}'
+    else:
+        url = f"{server}/my/{character}/action/bank/deposit"
+        raw_data = f'{{"code" : "{item}", "quantity": {qty}}}'
 
     headers = {
         "Content-Type": "application/json",
         "Accept": "application/json",
         "Authorization": f"Bearer {token}"
     }
-
-    raw_data = f'{{"code" : "{item}", "quantity": {qty}}}'
 
     response = requests.post(url, headers=headers, data=raw_data)
 
