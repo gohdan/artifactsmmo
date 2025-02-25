@@ -3,24 +3,48 @@ character_type ="crafter"
 with open("functions.py") as functions:
     exec(functions.read())
 
-minimal_empty_inventory = 10 # for monsters drop
+minimal_empty_inventory = 10 # for occasional drop
 
 while True:
-    print ("get character parameters")
-    level = get_character_parameter(character, "level")
-    inventory_max_items = get_character_parameter(character, "inventory_max_items")
-    print ("end: get character parameters")
+    # ======= CHARACTER INFO ======
 
+    level = get_character_parameter(character, "level")
     print ("level: ", level)
+
+    match level:
+        case level if 1 <= level < 10:
+            belongings = {
+                "wooden_stick": 1
+            }
+        case _:
+            # default values
+            belongings = {
+                "wooden_stick": 1
+            }
+
+    print ("belongings:", belongings)
+
+    # ======= BANKING ======
+
+    # banking
+    print ("=== banking ===")
+    x, y = 4, 1
+    do_move(x, y)
+
+    inventory = get_character_parameter(character, "inventory")
+    print(inventory)
+
+    do_bank_deposit_unnecessary(inventory, belongings)
+
+    # ======= INVENTORY LIMITS ======
+
+    inventory_max_items = get_character_parameter(character, "inventory_max_items")
     print ("inventory_max_items: ", inventory_max_items)
 
     # save some space for monsters drop
     print ("minimal empty inventory:", minimal_empty_inventory)
     inventory_limit = inventory_max_items - minimal_empty_inventory
     print ("inventory_limit: ", inventory_limit)
-
-
-
 
     # ======= CRAFTING ======
 
@@ -207,73 +231,10 @@ while True:
     do_move(x, y)
     #do_unequip("weapon")
     #do_unequip("body_armor")
-    do_equip("wooden_stick", "weapon")
+    #do_equip("wooden_stick", "weapon")
     ##do_equip("wooden_staff", "weapon")
     ##do_equip("sticky_sword", "weapon")
     #do_equip("iron_sword", "weapon")
     #do_equip("copper_armor", "body_armor")
     cycle_fight(10)
-
-
-    # ======= BANKING ======
-
-    # bank
-    print ("=== bank ===")
-    x, y = 4, 1
-    do_move(x, y)
-
-    # just in case
-    do_bank_deposit("ash_wood", 4)
-    do_bank_deposit("ash_plank", 6)
-    #do_bank_deposit("spruce_plank", 8)
-    do_bank_deposit("copper", 13)
-    #do_bank_deposit("iron", 14)
-
-    do_bank_deposit("feather", 4)
-    do_bank_deposit("egg", 4)
-    do_bank_deposit("raw_chicken", 4)
-    do_bank_deposit("golden_egg", 1)
-    do_bank_deposit("gudgeon", 4)
-    #do_bank_deposit("raw_beef", 4)
-
-    #do_bank_deposit("yellow_slimeball", 4)
-    #do_bank_deposit("green_slimeball", 4)
-    #do_bank_deposit("blue_slimeball", 4)
-    #do_bank_deposit("red_slimeball", 3)
-
-    #do_bank_deposit("cowhide", 2)
-
-    do_bank_deposit("wooden_stick", 1)
-    do_bank_deposit("wooden_shield", 1)
-    do_bank_deposit("wooden_staff", 1)
-    do_bank_deposit("copper_dagger", 1)
-    do_bank_deposit("copper_helmet", 1)
-    do_bank_deposit("copper_boots", 1)
-
-    do_bank_deposit("copper_ring", 1)
-    #do_bank_deposit("life_amulet", 1)
-
-    #do_bank_deposit("copper_legs_armor", 1)
-    #do_bank_deposit("water_bow", 1)
-    #do_bank_deposit("fire_staff", 1)
-    #do_bank_deposit("iron_dagger", 1)
-    #do_bank_deposit("greater_wooden_staff", 1)
-    #do_bank_deposit("sticky_sword", 1)
-    #do_bank_deposit("fire_bow", 1)
-
-    #do_bank_deposit("cooked_gudgeon", 1)
-    #do_bank_deposit("cooked_chicken", 1)
-    #do_bank_deposit("cooked_beef", 1)
-    #do_bank_deposit("cooked_shrimp", 1)
-
-    #do_bank_deposit("sticky_dagger", 2)
-    #do_bank_deposit("iron_sword", 2)
-    #do_bank_deposit("copper_armor", 2)
-    #do_bank_deposit("feather_coat", 2)
-
-    # equip changeable weapon and armor back
-    #do_bank_withdraw("sticky_dagger", 1)
-    #do_bank_withdraw("iron_sword", 1)
-    #do_bank_withdraw("copper_armor", 1)
-    #do_bank_withdraw("feather_coat", 1)
 
