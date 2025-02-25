@@ -67,8 +67,6 @@ while True:
         do_move(x, y)
         cycle_gathering(sunflower_limit)
 
-    exit()
-
     # ======= CRAFTING ======
 
     # 1 full cycle of wood - ash_plank 15, ash_wood 4 (ash_wood 94)
