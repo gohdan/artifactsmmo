@@ -447,7 +447,7 @@ def cycle_fight(iterations):
       #do_equip("cooked_beef", "consumable2")
       #do_equip("cooked_chicken", "consumable2")
       #do_equip("cooked_gudgeon", "consumable2")
-      print("fight {} / {}".format(i_human, iterations)
+      print("fight {} / {}".format(i_human, iterations))
       do_fight()
 
 def cycle_crafting(code, iterations):
