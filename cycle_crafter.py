@@ -92,7 +92,55 @@ while True:
     inventory_available = inventory_limit - sunflower_limit
     print("inventory_available: {}".format(inventory_available))
 
+    # ======= DETERMINE: JEWELRY ======
+
+    print("*** determine: jewelry ***")
+
+    craft_jewelry = {}
+
+    jewelrycrafting_level = get_character_parameter(character, "jewelrycrafting_level")
+    print ("jewelrycrafting level: ", jewelrycrafting_level)
+
+    match jewelrycrafting_level:
+        case jewelrycrafting_level if 1 <= jewelrycrafting_level:
+            print("craft copper ring")
+            target_items = ['copper_ring']
+        case _:
+            # default values
+            print("craft copper ring (default values)")
+            target_items = ['copper_ring']
+    print("target_items: {}".format(target_items))
+
+    for target_item in target_items:
+        print("checking requisites of {}".format(target_item))
+        match target_item:
+            case target_item if "copper_ring" == target_item:
+                requisites = {'copper': 6}
+            case _:
+                # default values
+                print("didn't found requisites")
+                requisites = {}
+
+        print("requisites: {}".format(requisites))
+        for requisite in requisites:
+            if requisite in bank_items:
+                print("have {}: {} in bank".format(requisite, requisites[requisite]))
+                if requisites[requisite] > inventory_available:
+                    withdraw_qty = 0
+                else:
+                    withdraw_qty = requisites[requisite]
+                print("withdraw_qty: {}".format(withdraw_qty))
+                if 0 != withdraw_qty:
+                    withdraw[requisite] = withdraw.get(requisite, 0) + withdraw_qty
+                    craft_jewelry[target_item] = craft_jewelry.get(target_item, 0) + 1
+                    inventory_available = inventory_available - withdraw_qty
+                    print("inventory_available: {}".format(inventory_available))
+
+    print("craft_jewelry: {}".format(craft_jewelry))
+
     # ======= DETERMINE: COOKING ======
+
+    print("*** determine: cooking ***")
 
     craft_cooking = {}
 
@@ -172,6 +220,23 @@ while True:
             print("crafting {} {} of {}".format(item, i+1, craft_cooking[item]))
             do_crafting(item)
 
+    # ======= JEWELRY ======
+
+    #print("move to workshop jewelrycrafting")
+    x, y = 1, 3
+    do_move(x, y)
+
+    # 1, copper: 4
+    # 5, blue_slimeball: 1, red_slimeball: 1, cowhide: 2
+    #do_crafting("life_amulet")
+
+    print("craft_jewelry: {}".format(craft_jewelry))
+
+    for item in craft_jewelry:
+        for i in range(0, craft_jewelry[item]):
+            print("crafting {} {} of {}".format(item, i+1, craft_jewelry[item]))
+            do_crafting(item)
+
     # ======= CRAFTING ======
 
     # 1 full cycle of wood - ash_plank 15, ash_wood 4 (ash_wood 94)
@@ -237,14 +302,6 @@ while True:
     #print("withdraw shrimp")
     #do_bank_withdraw("shrimp", 1)
 
-    #print("move to workshop jewelrycrafting")
-    x, y = 1, 3
-    do_move(x, y)
-
-    # 1, copper: 4
-    do_crafting("copper_ring")
-    # 5, blue_slimeball: 1, red_slimeball: 1, cowhide: 2
-    #do_crafting("life_amulet")
     
     print("move to workshop weaponcrafting")
     x, y = 2, 1
