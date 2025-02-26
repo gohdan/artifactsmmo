@@ -45,6 +45,13 @@ while True:
     bank_info = get_bank_info()
     print (bank_info)
 
+    if bank_info['gold'] > bank_info['next_expansion_cost']:
+        print("have enough gold to buy bank expansion, buying")
+        do_bank_withdraw("gold", bank_info['next_expansion_cost'])
+        buy_bank_expansion()
+    else:
+        print("do not have enough gold to buy bank expansion")
+
     bank_contents = get_bank_items()
     print (bank_contents)
 

@@ -198,6 +198,8 @@ def do_bank_deposit(item, qty):
         print("Item not found")
     elif response.status_code == 422:
         print("Unprocessible query")
+    elif response.status_code == 462:
+        print("Bank is full")
     elif response.status_code == 478:
         print("Missing item or insufficient quantity in your inventory")
     elif response.status_code == 486:
@@ -227,17 +229,22 @@ def do_bank_deposit(item, qty):
     time.sleep(cooldown)
 
 def do_bank_withdraw(item, qty):
+    print("do_bank_withdraw")
 
-    print("item:", item,", qty:", qty)
-    url = f"{server}/my/{character}/action/bank/withdraw"
+    print("item: {}, qty: {}".format(item,qty))
+
+    if "gold" == item:
+        url = f"{server}/my/{character}/action/bank/withdraw/gold"
+        raw_data = f'{{"quantity": {qty}}}'
+    else:
+        url = f"{server}/my/{character}/action/bank/withdraw"
+        raw_data = f'{{"code" : "{item}", "quantity": {qty}}}'
 
     headers = {
         "Content-Type": "application/json",
         "Accept": "application/json",
         "Authorization": f"Bearer {token}"
     }
-
-    raw_data = f'{{"code" : "{item}", "quantity": {qty}}}'
 
     response = requests.post(url, headers=headers, data=raw_data)
 
@@ -596,4 +603,45 @@ def get_bank_items():
         print(*data, sep='\n')
 
     return data
+def buy_bank_expansion():
+    print ("buy bank expansion")
 
+    url = f"{server}/my/{character}/action/bank/buy_expansion"
+
+    headers = {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Authorization": f"Bearer {token}"
+    }
+
+    response = requests.post(url, headers=headers)
+
+    cooldown = 1
+
+    if response.status_code == 486:
+        print("Character is locked. Action is already in progress")
+    elif response.status_code == 492:
+        print("Insufficient gold on character")
+    elif response.status_code == 498:
+        print("Character not found")
+    elif response.status_code == 499:
+        print("Character in cooldown")
+        cooldown = buy_bank_expansion(x, y);
+    elif response.status_code == 598:
+        print("Bank not found on this map")
+    elif response.status_code != 200:
+        print("An error occured while doing api request")
+        print("status code:", response.status_code)
+    else:
+        print("Request successful")
+        data = response.json()["data"]
+        print(*data["transaction"], sep='\n')
+        cooldown = data["cooldown"]["total_seconds"]
+
+    print("Cooldown:", cooldown)
+    if cooldown is None:
+        print("cooldown is None, setting it to 60")
+        cooldown = 60
+        print("Cooldown:", cooldown)
+
+    time.sleep(cooldown)
