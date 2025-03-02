@@ -92,6 +92,52 @@ while True:
     inventory_available = inventory_limit - sunflower_limit
     print("inventory_available: {}".format(inventory_available))
 
+    # ======= DETERMINE: WEAPONCRAFTING ======
+
+    print("*** determine: weaponcrafting ***")
+
+    craft_weapon = {}
+
+    weaponcrafting_level = get_character_parameter(character, "weaponcrafting_level")
+    print ("weaponcrafting level: ", weaponcrafting_level)
+
+    match weaponcrafting_level:
+        case weaponcrafting_level if 1 <= weaponcrafting_level:
+            print("craft copper dagger")
+            target_items = ['copper_dagger']
+        case _:
+            # default values
+            print("craft copper dagger (default values)")
+            target_items = ['copper_dagger']
+    print("target_items: {}".format(target_items))
+
+    for target_item in target_items:
+        print("checking requisites of {}".format(target_item))
+        match target_item:
+            case target_item if "copper_dagger" == target_item:
+                requisites = {'copper': 6}
+            case _:
+                # default values
+                print("didn't found requisites")
+                requisites = {}
+
+        print("requisites: {}".format(requisites))
+        for requisite in requisites:
+            if requisite in bank_items:
+                print("have {}: {} in bank".format(requisite, requisites[requisite]))
+                if requisites[requisite] > inventory_available:
+                    withdraw_qty = 0
+                else:
+                    withdraw_qty = requisites[requisite]
+                print("withdraw_qty: {}".format(withdraw_qty))
+                if 0 != withdraw_qty:
+                    withdraw[requisite] = withdraw.get(requisite, 0) + withdraw_qty
+                    craft_weapon[target_item] = craft_weapon.get(target_item, 0) + 1
+                    inventory_available = inventory_available - withdraw_qty
+                    print("inventory_available: {}".format(inventory_available))
+
+    print("craft_weapon: {}".format(craft_weapon))
+
     # ======= DETERMINE: JEWELRY ======
 
     print("*** determine: jewelry ***")
@@ -256,56 +302,16 @@ while True:
     # 1 cycle of raw beef - raw_beef 1
     # 1 cycle of shrimp - shrimp 1
 
-    print("move to bank")
-    x, y = 4, 1
-    do_move(x, y)
-
-    #print("withdraw ash wood")
-    #do_bank_withdraw("ash_wood", 4)
-
-    #print("withdraw ash plank")
-    #do_bank_withdraw("ash_plank", 9)
-    do_bank_withdraw("ash_plank", 6)
-
-    # print("withdraw spruce plank")
-    #do_bank_withdraw("spruce_plank", 8)
-
-    #print("withdraw copper")
-    #do_bank_withdraw("copper", 26)
-    do_bank_withdraw("copper", 4)
-
-    #print("withdraw iron")
-    #do_bank_withdraw("iron", 14)
-
-    print("withdraw feather")
-    do_bank_withdraw("feather", 5)
-
-    #print("withdraw green slimeball")
-    #do_bank_withdraw("green_slimeball", 2)
-
-    #print("withdraw yellow slimeball")
-    #do_bank_withdraw("yellow_slimeball", 2)
-
-    #print("withdraw blue slimeball")
-    #do_bank_withdraw("blue_slimeball", 3)
-    #do_bank_withdraw("blue_slimeball", 1)
-
-    #print("withdraw red slimeball")
-    #do_bank_withdraw("red_slimeball", 3)
-
-    #print("withdraw cowhide")
-    #do_bank_withdraw("cowhide", 2)
-
-    #print("withdraw raw beef")
-    #do_bank_withdraw("raw_beef", 1)
-
-    #print("withdraw shrimp")
-    #do_bank_withdraw("shrimp", 1)
-
-    
     print("move to workshop weaponcrafting")
     x, y = 2, 1
     do_move(x, y)
+
+    print("craft_weapon: {}".format(craft_weapon))
+
+    for item in craft_weapon:
+        for i in range(0, craft_weapon[item]):
+            print("crafting {} {} of {}".format(item, i+1, craft_weapon[item]))
+            do_crafting(item)
 
     # 10, iron: 8
     #do_crafting("iron_sword")
@@ -326,31 +332,29 @@ while True:
     # do_crafting("water_bow")
 
     # 1, ash_plank: 3
-    do_crafting("wooden_stick")
+    #do_crafting("wooden_stick")
     # 1, wooden_stick: 1, ash_wood: 4
-    do_crafting("wooden_staff")
+    #do_crafting("wooden_staff")
     # 1, copper: 3
-    do_crafting("copper_dagger")
+    #do_crafting("copper_dagger")
 
-    print("move to workshop gearcrafting")
-    x, y = 3, 1
-    do_move(x, y)
+    #print("move to workshop gearcrafting")
+    #x, y = 3, 1
+    #do_move(x, y)
 
     # 5, feather: 5
-    do_crafting("feather_coat")
+    #do_crafting("feather_coat")
     # 5, copper: 5
-    do_crafting("copper_armor")
+    #do_crafting("copper_armor")
     # 5, copper: 4
-    do_crafting("copper_legs_armor")
+    #do_crafting("copper_legs_armor")
 
     # 1, ash_plank: 3
-    do_crafting("wooden_shield")
+    #do_crafting("wooden_shield")
     # 1, copper: 3
-    do_crafting("copper_helmet")
+    #do_crafting("copper_helmet")
     # 1, copper: 3
-    do_crafting("copper_boots")
-
-
+    #do_crafting("copper_boots")
 
 
     # ======= FIGHTING ======
