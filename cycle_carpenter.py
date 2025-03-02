@@ -16,14 +16,11 @@ spruce_in_plank = 6
 ash_limit = 0
 spruce_limit = 0
 spruce_plank_qty = 0
-
-
-# x4
-#birch_limit = 28
-#hardwood_plank_qty = 7
 birch_limit = 0
 hardwood_plank_qty = 0
 
+birch_in_plank = 6
+ash_in_hardwood_plank = 4
 
 while True:
     # ======= CHARACTER INFO ======
@@ -92,12 +89,23 @@ while True:
             spruce_plank_qty = spruce_limit // spruce_in_plank
             spruce_limit = spruce_plank_qty * spruce_in_plank
 
-        case woodcutting_level if 21 <= woodcutting_level:
-            print ("gather birch, spruce and birch")
-            # 2do: add spruce and birch
-            ash_limit = inventory_limit
-            ash_plank_qty = (ash_limit  - minimal_ash_wood_qty)// ash_wood_in_plank
+        case woodcutting_level if 21 <= woodcutting_level < 30:
+            print ("gather ash, spruce and birch")
+
+            birch_limit = inventory_limit // 3
+            hardwood_plank_qty = birch_limit // birch_in_plank
+            birch_limit = hardwood_plank_qty * birch_in_plank
+
+            spruce_limit = inventory_limit // 3
+            spruce_plank_qty = spruce_limit // spruce_in_plank
+            spruce_limit = spruce_plank_qty * spruce_in_plank
+
+            minimal_ash_wood_qty = minimal_ash_wood_qty + hardwood_plank_qty * ash_in_hardwood_plank
+
+            ash_limit = inventory_limit - birch_limit - spruce_limit
+            ash_plank_qty = (ash_limit - minimal_ash_wood_qty) // ash_wood_in_plank
             ash_wood_qty = ash_limit - (ash_plank_qty * ash_wood_in_plank)
+
         case _:
             # default values
             print ("gather ash (non-matching woodcutting level)")
@@ -115,14 +123,18 @@ while True:
     print ("spruce_limit:", spruce_limit)
     print ("spruce_plank_qty:", spruce_plank_qty)
 
+    print ("birch in plank:", birch_in_plank)
+    print ("birch_limit:", birch_limit)
+    print ("hardwood_plank_qty:", hardwood_plank_qty)
 
     # ======= GATHERING ======
 
     # birch tree (woodcutting 20)
-    #print("=== gather birch tree ===")
-    #x, y = 3, 5
-    #do_move(x, y)
-    #cycle_gathering(birch_limit)
+    if 0 != birch_limit:
+        print("=== gather birch tree ===")
+        x, y = 3, 5
+        do_move(x, y)
+        cycle_gathering(birch_limit)
 
     # spruce tree (woodcutting 10)
     if 0 != spruce_limit:
@@ -145,7 +157,8 @@ while True:
     x, y = -2, -3
     do_move(x, y)
 
-    #cycle_crafting("hardwood_plank", hardwood_plank_qty)
+    if 0 != birch_limit:
+       cycle_crafting("hardwood_plank", hardwood_plank_qty)
 
     if 0 != spruce_limit:
         cycle_crafting("spruce_plank", spruce_plank_qty)
