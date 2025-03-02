@@ -72,14 +72,15 @@ while True:
             shrimp_qty = inventory_limit - gudgeon_qty
         case fishing_level if 20 <= fishing_level < 30:
             print ("gather gudgeon, shrimp and trout")
-            #2do: add shrimp and trout
-            gudgeon_qty = inventory_limit // 2
-            shrimp_qty = inventory_limit - gudgeon_qty
+            gudgeon_qty = inventory_limit // 3
+            shrimp_qty = inventory_limit // 3
+            trout_qty = inventory_limit - gudgeon_qty - shrimp_qty
         case fishing_level if 30 <= fishing_level:
             print ("gather gudgeon, shrimp, trout and bass")
-            #2do: add shrimp, trout and bass
-            gudgeon_qty = inventory_limit // 2
-            shrimp_qty = inventory_limit - gudgeon_qty
+            #2do: add bass
+            gudgeon_qty = inventory_limit // 3
+            shrimp_qty = inventory_limit // 3
+            trout_qty = inventory_limit - gudgeon_qty - shrimp_qty
         case _:
             # default values
             print ("gather gudgeon (default values)")
@@ -87,6 +88,7 @@ while True:
 
     print ("gudgeon_qty:", gudgeon_qty)
     print ("shrimp_qty:", shrimp_qty)
+    print ("trout_qty:", trout_qty)
 
     # ======= GATHERING ======
 
@@ -96,11 +98,12 @@ while True:
     #do_move(x, y)
     #cycle_gathering(inventory_limit)
 
-    ## trout (fishing 20)
-    #print ("=== gather trout ===")
-    #x, y = -2, 6
-    #do_move(x, y)
-    #cycle_gathering(inventory_limit)
+    # trout (fishing 20)
+    if 0 != trout_qty:
+        print ("=== gather trout ===")
+        x, y = -2, 6
+        do_move(x, y)
+        cycle_gathering(trout_qty)
 
     # shrimp (fishing 10)
     if 0 != shrimp_qty:
