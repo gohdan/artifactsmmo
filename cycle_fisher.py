@@ -101,7 +101,7 @@ while True:
     # trout (fishing 20)
     if 0 != trout_qty:
         print ("=== gather trout ===")
-        x, y = -2, 6
+        x, y = 7, 12
         do_move(x, y)
         cycle_gathering(trout_qty)
 
