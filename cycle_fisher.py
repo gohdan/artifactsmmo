@@ -3,7 +3,7 @@ character_type ="fisher"
 with open("functions.py") as functions:
     exec(functions.read())
 
-minimal_empty_inventory = 10 # for monsters drop
+minimal_empty_inventory = 15 # for occasional drop
 
 # default null values
 gudgeon_qty = 0
