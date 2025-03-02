@@ -6,20 +6,15 @@ with open("functions.py") as functions:
 minimal_empty_inventory = 15 # for occasional drop
 copper_ore_in_copper_qty = 10
 iron_ore_in_iron_qty = 10
+coal_in_steel_qty = 7
+iron_ore_in_steel_qty = 3
 
 # default null values
 
 copper_limit = 0
 iron_limit = 0
-
-
-# x6 + 4 * steel_qty
-#iron_limit = 30 + 20
-#iron_qty = 5
-
-# x4
-#coal_limit = 20
-#steel_qty = 5
+coal_limit = 0
+steel_limit = 0
 
 # x6
 #gold_ore_limit = 30
@@ -94,27 +89,36 @@ while True:
 
         case mining_level if 20 <= mining_level < 30:
             print ("gather copper, iron and coal")
-            #2do: add iron and coal
 
-            copper_limit = inventory_limit // 2
+            copper_limit = inventory_limit // 3
             copper_qty = copper_limit // copper_ore_in_copper_qty
             copper_limit = copper_qty * copper_ore_in_copper_qty
 
-            iron_limit = inventory_limit - copper_limit
+            iron_limit = inventory_limit // 3
             iron_qty = iron_limit // iron_ore_in_iron_qty
             iron_limit = iron_qty * iron_ore_in_iron_qty
+
+            steel_limit = inventory_limit - copper_limit - iron_limit
+            steel_qty = steel_limit // (coal_in_steel_qty + iron_ore_in_steel_qty)
+            coal_limit = steel_qty * coal_in_steel_qty
+            iron_limit = iron_limit + steel_qty * iron_ore_in_steel_qty
 
         case mining_level if 30 <= mining_level:
             print ("gather copper, iron, coal and gold")
-            #2do: add iron, coal and gold
+            # 2do: add gold
 
-            copper_limit = inventory_limit // 2
+            copper_limit = inventory_limit // 3
             copper_qty = copper_limit // copper_ore_in_copper_qty
             copper_limit = copper_qty * copper_ore_in_copper_qty
 
-            iron_limit = inventory_limit - copper_limit
+            iron_limit = inventory_limit // 3
             iron_qty = iron_limit // iron_ore_in_iron_qty
             iron_limit = iron_qty * iron_ore_in_iron_qty
+
+            steel_limit = inventory_limit - copper_limit - iron_limit
+            steel_qty = steel_limit // (coal_in_steel_qty + iron_ore_in_steel_qty)
+            coal_limit = steel_qty * coal_in_steel_qty
+            iron_limit = iron_limit + steel_qty * iron_ore_in_steel_qty
 
         case _:
             # default values
@@ -122,13 +126,18 @@ while True:
             copper_qty = inventory_limit // copper_ore_in_copper_qty
             copper_limit = copper_qty * copper_ore_in_copper_qty
 
-    print ("copper ore in copper:", copper_ore_in_copper_qty)
+    print ("copper_ore_in_copper_qty:", copper_ore_in_copper_qty)
     print ("copper_qty:", copper_qty)
     print ("copper_limit:", copper_limit)
 
-    print ("iron ore in iron:", iron_ore_in_iron_qty)
+    print ("iron_ore_in_iron_qty:", iron_ore_in_iron_qty)
     print ("iron_qty:", iron_qty)
     print ("iron_limit:", iron_limit)
+
+    print ("coal_in_steel_qty:", coal_in_steel_qty)
+    print ("iron_ore_in_steel_qty:", iron_ore_in_steel_qty)
+    print ("coal_limit:", coal_limit)
+    print ("steel_qty:", steel_qty)
 
  
     # ======= GATHERING ======
@@ -139,11 +148,12 @@ while True:
     #do_move(x, y)
     #cycle_gathering(gold_ore_limit)
 
-    ## coal (mining 20)
-    #print("=== gather coal ===")
-    #x, y = 1, 6
-    #do_move(x, y)
-    #cycle_gathering(coal_limit)
+    # coal (mining 20)
+    if 0 != coal_limit:
+        print("=== gather coal ===")
+        x, y = 1, 6
+        do_move(x, y)
+        cycle_gathering(coal_limit)
 
     # iron (mining 10)
     if 0 != iron_limit:
@@ -166,12 +176,13 @@ while True:
     x, y = 1, 5
     do_move(x, y)
 
+    if 0 != steel_qty:
+        cycle_crafting("steel", steel_qty)
     if 0 != iron_qty:
         cycle_crafting("iron", iron_qty)
     if 0 != copper_qty:
         cycle_crafting("copper", copper_qty)
 
-    #cycle_crafting("steel", steel_qty)
     #cycle_crafting("gold", gold_qty)
 
     # ======= FIGHTING ======
