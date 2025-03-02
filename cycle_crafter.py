@@ -266,23 +266,6 @@ while True:
             print("crafting {} {} of {}".format(item, i+1, craft_cooking[item]))
             do_crafting(item)
 
-    # ======= JEWELRY ======
-
-    #print("move to workshop jewelrycrafting")
-    x, y = 1, 3
-    do_move(x, y)
-
-    # 1, copper: 4
-    # 5, blue_slimeball: 1, red_slimeball: 1, cowhide: 2
-    #do_crafting("life_amulet")
-
-    print("craft_jewelry: {}".format(craft_jewelry))
-
-    for item in craft_jewelry:
-        for i in range(0, craft_jewelry[item]):
-            print("crafting {} {} of {}".format(item, i+1, craft_jewelry[item]))
-            do_crafting(item)
-
     # ======= CRAFTING ======
 
     # 1 full cycle of wood - ash_plank 15, ash_wood 4 (ash_wood 94)
@@ -356,6 +339,22 @@ while True:
     # 1, copper: 3
     #do_crafting("copper_boots")
 
+    # ======= JEWELRY ======
+
+    #print("move to workshop jewelrycrafting")
+    x, y = 1, 3
+    do_move(x, y)
+
+    # 1, copper: 4
+    # 5, blue_slimeball: 1, red_slimeball: 1, cowhide: 2
+    #do_crafting("life_amulet")
+
+    print("craft_jewelry: {}".format(craft_jewelry))
+
+    for item in craft_jewelry:
+        for i in range(0, craft_jewelry[item]):
+            print("crafting {} {} of {}".format(item, i+1, craft_jewelry[item]))
+            do_crafting(item)
 
     # ======= FIGHTING ======
 
