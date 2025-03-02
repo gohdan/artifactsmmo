@@ -3,7 +3,7 @@ character_type ="carpenter"
 with open("functions.py") as functions:
     exec(functions.read())
 
-minimal_empty_inventory = 10 # for monsters drop
+minimal_empty_inventory = 15 # for occasional drop
 
 # ash_tree: 6 (ash_plank) + 4 (wooden_stick) + 2 (hardwood_plank)
 
