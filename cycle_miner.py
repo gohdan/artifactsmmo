@@ -3,7 +3,7 @@ character_type ="miner"
 with open("functions.py") as functions:
     exec(functions.read())
 
-minimal_empty_inventory = 10 # for monsters drop
+minimal_empty_inventory = 15 # for occasional drop
 copper_ore_in_copper_qty = 10
 iron_ore_in_iron_qty = 10
 
