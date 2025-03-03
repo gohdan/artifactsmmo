@@ -548,10 +548,16 @@ def do_bank_deposit_unnecessary(inventory, belongins):
 
     for item in inventory:
         name = item['code']
-        if "" != name and name not in belongings:
-            qty = item['quantity']
-            print ("do deposit:", name, qty)
-            do_bank_deposit(name, qty)
+        if "" != name:
+            if name not in belongings:
+                qty = item['quantity']
+            else:
+                qty = item['quantity'] - belongings[name]
+
+            print("{} qty: {}".format(name, qty))
+            if 0 < qty:
+                print("do deposit:", name, qty)
+                do_bank_deposit(name, qty)
 
 def get_bank_info():
     print("*** get_bank_info")
@@ -603,6 +609,7 @@ def get_bank_items():
         print(*data, sep='\n')
 
     return data
+
 def buy_bank_expansion():
     print ("buy bank expansion")
 
@@ -645,3 +652,78 @@ def buy_bank_expansion():
         print("Cooldown:", cooldown)
 
     time.sleep(cooldown)
+
+def do_unequip_all():
+
+    print("*** do_unequip_all");
+
+    slots = {'weapon', 'shield', 'helmet', 'body_armor', 'leg_armor', 'boots', 'ring1', 'ring2', 'amulet', 'artifact1', 'artifact2', 'artifact3', 'utility1', 'utility2', 'bag', 'rune'}
+
+    for slot in slots:
+        do_unequip(slot)
+
+def do_bank_withdraw_belongings(inventory_items, belongings):
+
+    print("*** do_bank_withdraw_belongings")
+
+    bank_contents = get_bank_items()
+    print (bank_contents)
+
+    bank_items = {}
+    for i in bank_contents:
+        bank_items[i['code']] = i['quantity']
+
+    print("bank_items:{}".format(bank_items))
+    print("inventory_items:{}".format(inventory_items))
+    print("belongings:{}".format(belongings))
+
+    for item in belongings:
+        print("item: {}".format(item))
+        if item in inventory_items:
+            print("item is in inventory, withdraw qty we don't have")
+            qty = belongings[item] - inventory_items[item]
+        else:
+            print("item is not in inventory")
+            if item in bank_items:
+                print("item is in bank")
+                print("item qty in bank:{}".format(bank_items[item]))
+                if belongings[item] <= bank_items[item]:
+                    print("there is enough qty in bank")
+                    qty = belongings[item]
+                else:
+                    print("there is not enough qty in bank")
+                    qty = bank_items[item]
+            else:
+                print("item is not in bank")
+                qty = 0
+
+        print("{}: {}".format(item, qty))
+        if 0 < qty:
+            print("withdraw {}: {}".format(item, qty))
+            do_bank_withdraw(item, qty)
+
+
+def do_equip_to_monster(monster):
+
+    print("*** do_equip_to_monster")
+
+    print("monster:{}".format(monster))
+
+    inventory = get_character_parameter(character, "inventory")
+    print(inventory)
+
+    inventory_items = {}
+    for item in inventory:
+        inventory_items[item['code']] = item['quantity']
+
+    print("inventory_items:{}".format(inventory_items))
+
+    match monster:
+        case monster if "chicken" == monster:
+            if "wooden_staff" in inventory_items:
+                do_equip("wooden_staff", "weapon")
+            elif "copper_dagger" in inventory_items:
+                do_equip("copper_dagger", "weapon")
+            elif "wooden_stick" in inventory_items:
+                do_equip("wooden_stick", "weapon")
+

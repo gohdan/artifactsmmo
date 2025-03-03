@@ -28,11 +28,26 @@ while True:
     level = get_character_parameter(character, "level")
     print ("level: ", level)
 
+    do_unequip_all()
+
+    inventory = get_character_parameter(character, "inventory")
+    print(inventory)
+
+    inventory_items = {}
+    for item in inventory:
+        inventory_items[item['code']] = item['quantity']
+
+    print("inventory_items:{}".format(inventory_items))
+
     match level:
-        case level if 1 <= level < 10:
+        case level if 1 <= level:
             belongings = {
-                "wooden_stick": 1
+                "copper_dagger": 1,
+                "wooden_staff": 1
             }
+            if "copper_dagger" not in inventory_items and "wooden_staff" not in inventory_items:
+                belongings["wooden_stick"] = 1
+
         case _:
             # default values
             belongings = {
@@ -54,10 +69,9 @@ while True:
     if 0 != gold_qty:
         do_bank_deposit("gold", gold_qty)
 
-    inventory = get_character_parameter(character, "inventory")
-    print(inventory)
-
     do_bank_deposit_unnecessary(inventory, belongings)
+
+    do_bank_withdraw_belongings(inventory_items, belongings)
 
     # ======= INVENTORY LIMITS ======
 
@@ -205,24 +219,16 @@ while True:
         case level if 1 <= level <  2:
             # chicken (1)
             print ("=== fight chicken ===")
+            do_equip_to_monster("chicken")
             x, y = 0, 1
             do_move(x, y)
-            #do_unequip("weapon")
-            #do_unequip("body_armor")
-            ##do_equip("wooden_staff", "weapon")
-            #do_equip("sticky_sword", "weapon")
-            #do_equip("copper_armor", "body_armor")
             cycle_fight(10)
         case _:
             # default values
             # chicken (1)
             print ("=== fight chicken ===")
+            do_equip_to_monster("chicken")
             x, y = 0, 1
             do_move(x, y)
-            #do_unequip("weapon")
-            #do_unequip("body_armor")
-            ##do_equip("wooden_staff", "weapon")
-            #do_equip("sticky_sword", "weapon")
-            #do_equip("copper_armor", "body_armor")
             cycle_fight(10)
 

@@ -11,11 +11,26 @@ while True:
     level = get_character_parameter(character, "level")
     print ("level: ", level)
 
+    do_unequip_all()
+
+    inventory = get_character_parameter(character, "inventory")
+    print(inventory)
+
+    inventory_items = {}
+    for item in inventory:
+        inventory_items[item['code']] = item['quantity']
+
+    print("inventory_items:{}".format(inventory_items))
+
     match level:
-        case level if 1 <= level < 10:
+        case level if 1 <= level:
             belongings = {
-                "wooden_stick": 1
+                "copper_dagger": 1,
+                "wooden_staff": 1
             }
+            if "copper_dagger" not in inventory_items and "wooden_staff" not in inventory_items:
+                belongings["wooden_stick"] = 1
+
         case _:
             # default values
             belongings = {
@@ -37,11 +52,6 @@ while True:
     if 0 != gold_qty:
         do_bank_deposit("gold", gold_qty)
 
-    inventory = get_character_parameter(character, "inventory")
-    print(inventory)
-
-    do_bank_deposit_unnecessary(inventory, belongings)
-
     bank_info = get_bank_info()
     print (bank_info)
 
@@ -51,6 +61,23 @@ while True:
         buy_bank_expansion()
     else:
         print("do not have enough gold to buy bank expansion")
+
+    inventory = get_character_parameter(character, "inventory")
+    print(inventory)
+
+    do_bank_deposit_unnecessary(inventory, belongings)
+
+    bank_contents = get_bank_items()
+    print (bank_contents)
+
+    bank_items = {}
+    for i in bank_contents:
+        bank_items[i['code']] = i['quantity']
+
+    print("bank_items:")
+    print(bank_items)
+
+    do_bank_withdraw_belongings(inventory_items, belongings)
 
     bank_contents = get_bank_items()
     print (bank_contents)
@@ -103,12 +130,12 @@ while True:
 
     match weaponcrafting_level:
         case weaponcrafting_level if 1 <= weaponcrafting_level:
-            print("craft copper dagger")
-            target_items = ['copper_dagger']
+            print("craft copper dagger and wooden_staff")
+            target_items = ['copper_dagger', 'wooden_staff']
         case _:
             # default values
-            print("craft copper dagger (default values)")
-            target_items = ['copper_dagger']
+            print("craft copper dagger and wooden_staff (default values)")
+            target_items = ['copper_dagger', 'wooden_staff']
     print("target_items: {}".format(target_items))
 
     for target_item in target_items:
@@ -116,6 +143,8 @@ while True:
         match target_item:
             case target_item if "copper_dagger" == target_item:
                 requisites = {'copper': 6}
+            case target_item if "wooden_staff" == target_item:
+                requisites = {'wooden_stick': 1, 'ash_wood': 4}
             case _:
                 # default values
                 print("didn't found requisites")
@@ -395,6 +424,7 @@ while True:
 
     # chicken (1)
     print ("=== fight chicken ===")
+    do_equip_to_monster("chicken")
     x, y = 0, 1
     do_move(x, y)
     #do_unequip("weapon")
