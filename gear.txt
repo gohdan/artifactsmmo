@@ -2,29 +2,23 @@
 
 Boots:
 
-Copper boots (copper_boots) (copper 3)
-2 Haste
-2% Res Water
-2% Res Earth
-2% Res Fire
-2% Res Earth
+Copper boots (copper_boots) (copper 6)
+10 HP
+10 Wisdom
 
 Helmet:
 
-Copper Helmet (copper_helmet) (copper 3)
+Copper Helmet (copper_helmet) (copper 6)
 20 HP
-3% Damage Water
-3% Damage Earth
-3% Damage Fire
-3% Damage Air
+3% Damage
 
 Shield:
 
-Wooden Shield (wooden_shield) (ash_plank 3)
-3% Res Fire
-3% Res Earth
-3% Res Water
-3% Res Air
+Wooden Shield (wooden_shield) (ash_plank 6)
+2% Res Fire
+2% Res Earth
+2% Res Water
+2% Res Air
 
 === Gearcrafting 5 ===
 

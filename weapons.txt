@@ -1,13 +1,16 @@
 === Weaponcrafting 1 ===
 
-Wooden Stick (wooden_stick) (ash_plank 3)
+Wooden Stick (wooden_stick)
 4 Attack Earth
+5% Critical Strike
 
 Wooden Staff (wooden_staff) (wooden_stick 1, ash_wood 4)
 8 Attack Earth
+5% Critical Strike
 
-Copper Dagger (copper_dagger) (copper 3)
+Copper Dagger (copper_dagger) (copper 6)
 8 Attack Air
+35% Critical Strike
 
 === Weaponcrafting 5 ===
 
