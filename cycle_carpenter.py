@@ -134,6 +134,16 @@ while True:
     print("ash_limit:{}".format(ash_limit))
     print("ash_plank_qty:{}".format(ash_plank_qty))
 
+    ash_wood_in_bank_qty = get_item_in_bank_qty('ash_wood')
+    print("ash_wood_in_bank_qty:{}".format(ash_wood_in_bank_qty))
+    if ash_wood_in_bank_qty > 100:
+        ash_wood_in_bank_qty -= 100
+        if ash_wood_in_bank_qty > ash_limit:
+            do_bank_withdraw('ash_wood', ash_limit)
+            ash_limit = 0
+        else:
+            do_bank_withdraw('ash_wood', ash_wood_in_bank_qty)
+            ash_limit = ash_limit - ash_wood_in_bank_qty
 
     # ======= GATHERING ======
 
