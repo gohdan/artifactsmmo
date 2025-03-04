@@ -795,3 +795,24 @@ def get_inventory_items():
 
     return inventory_items
 
+def get_item_in_bank_qty(item):
+
+    print("*** get_item_in_bank_qty")
+
+    bank_contents = get_bank_items()
+    print (bank_contents)
+
+    bank_items = {}
+    for i in bank_contents:
+        bank_items[i['code']] = i['quantity']
+
+    print("bank_items:{}".format(bank_items))
+
+    if item in bank_items:
+        qty = bank_items[item]
+    else:
+        qty = 0
+    print("qty: {}".format(qty))
+
+    return qty
+

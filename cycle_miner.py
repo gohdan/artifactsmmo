@@ -149,8 +149,17 @@ while True:
     print ("iron_ore_in_steel_qty:", iron_ore_in_steel_qty)
     print ("coal_limit:", coal_limit)
     print ("steel_qty:", steel_qty)
-
  
+    copper_ore_in_bank_qty = get_item_in_bank_qty('copper_ore')
+    print("copper_ore_in_bank_qty:{}".format(copper_ore_in_bank_qty))
+    if 0 != copper_ore_in_bank_qty:
+        if copper_ore_in_bank_qty > copper_limit:
+            do_bank_withdraw('copper_ore', copper_limit)
+            copper_limit = 0
+        else:
+            do_bank_withdraw('copper_ore', copper_ore_in_bank_qty)
+            copper_limit = copper_limit - copper_ore_in_bank_qty
+
     # ======= GATHERING ======
 
     ## gold ore (mining 30)
