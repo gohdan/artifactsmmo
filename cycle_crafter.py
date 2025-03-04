@@ -148,19 +148,17 @@ while True:
                 requisites = {}
 
         print("requisites: {}".format(requisites))
-        for requisite in requisites:
-            if requisite in bank_items:
-                print("have {}: {} in bank".format(requisite, requisites[requisite]))
-                if requisites[requisite] > inventory_available:
-                    withdraw_qty = 0
-                else:
-                    withdraw_qty = requisites[requisite]
-                print("withdraw_qty: {}".format(withdraw_qty))
-                if 0 != withdraw_qty:
-                    withdraw[requisite] = withdraw.get(requisite, 0) + withdraw_qty
-                    craft_weapon[target_item] = craft_weapon.get(target_item, 0) + 1
-                    inventory_available = inventory_available - withdraw_qty
-                    print("inventory_available: {}".format(inventory_available))
+
+        if 1 == if_requisites_available(requisites, bank_items, inventory_available):
+            print("all requisites available")
+            craft_weapon[target_item] = craft_weapon.get(target_item, 0) + 1
+            for requisite in requisites:
+                withdraw[requisite] = withdraw.get(requisite, 0) + requisites[requisite]
+                bank_items[requisite] -= requisites[requisite]
+                inventory_available = inventory_available - requisites[requisite]
+
+    print("inventory_available: {}".format(inventory_available))
+    print("withdraw: {}".format(withdraw))
 
     print("craft_weapon: {}".format(craft_weapon))
 
@@ -198,19 +196,17 @@ while True:
                 requisites = {}
 
         print("requisites: {}".format(requisites))
-        for requisite in requisites:
-            if requisite in bank_items:
-                print("have {}: {} in bank".format(requisite, requisites[requisite]))
-                if requisites[requisite] > inventory_available:
-                    withdraw_qty = 0
-                else:
-                    withdraw_qty = requisites[requisite]
-                print("withdraw_qty: {}".format(withdraw_qty))
-                if 0 != withdraw_qty:
-                    withdraw[requisite] = withdraw.get(requisite, 0) + withdraw_qty
-                    craft_gear[target_item] = craft_gear.get(target_item, 0) + 1
-                    inventory_available = inventory_available - withdraw_qty
-                    print("inventory_available: {}".format(inventory_available))
+
+        if 1 == if_requisites_available(requisites, bank_items, inventory_available):
+            print("all requisites available")
+            craft_gear[target_item] = craft_gear.get(target_item, 0) + 1
+            for requisite in requisites:
+                withdraw[requisite] = withdraw.get(requisite, 0) + requisites[requisite]
+                bank_items[requisite] -= requisites[requisite]
+                inventory_available = inventory_available - requisites[requisite]
+
+    print("inventory_available: {}".format(inventory_available))
+    print("withdraw: {}".format(withdraw))
 
     print("craft_gear: {}".format(craft_gear))
 
@@ -244,19 +240,17 @@ while True:
                 requisites = {}
 
         print("requisites: {}".format(requisites))
-        for requisite in requisites:
-            if requisite in bank_items:
-                print("have {}: {} in bank".format(requisite, requisites[requisite]))
-                if requisites[requisite] > inventory_available:
-                    withdraw_qty = 0
-                else:
-                    withdraw_qty = requisites[requisite]
-                print("withdraw_qty: {}".format(withdraw_qty))
-                if 0 != withdraw_qty:
-                    withdraw[requisite] = withdraw.get(requisite, 0) + withdraw_qty
-                    craft_jewelry[target_item] = craft_jewelry.get(target_item, 0) + 1
-                    inventory_available = inventory_available - withdraw_qty
-                    print("inventory_available: {}".format(inventory_available))
+
+        if 1 == if_requisites_available(requisites, bank_items, inventory_available):
+            print("all requisites available")
+            craft_jewelry[target_item] = craft_jewelry.get(target_item, 0) + 1
+            for requisite in requisites:
+                withdraw[requisite] = withdraw.get(requisite, 0) + requisites[requisite]
+                bank_items[requisite] -= requisites[requisite]
+                inventory_available = inventory_available - requisites[requisite]
+
+    print("inventory_available: {}".format(inventory_available))
+    print("withdraw: {}".format(withdraw))
 
     print("craft_jewelry: {}".format(craft_jewelry))
 
@@ -297,19 +291,17 @@ while True:
                 requisites = {}
 
         print("requisites: {}".format(requisites))
-        for requisite in requisites:
-            if requisite in bank_items:
-                print("have {} in bank".format(requisite))
-                if bank_items[requisite] > inventory_available:
-                    withdraw_qty = inventory_available
-                else:
-                    withdraw_qty = bank_items[requisite]
-                print("withdraw_qty: {}".format(withdraw_qty))
-                if 0 != withdraw_qty:
-                    withdraw[requisite] = withdraw_qty
-                    craft_cooking[target_item] = withdraw_qty
-                    inventory_available = inventory_available - withdraw_qty
-                    print("inventory_available: {}".format(inventory_available))
+
+        if 1 == if_requisites_available(requisites, bank_items, inventory_available):
+            print("all requisites available")
+            craft_cooking[target_item] = craft_cooking.get(target_item, 0) + 1
+            for requisite in requisites:
+                withdraw[requisite] = withdraw.get(requisite, 0) + requisites[requisite]
+                bank_items[requisite] -= requisites[requisite]
+                inventory_available = inventory_available - requisites[requisite]
+
+    print("inventory_available: {}".format(inventory_available))
+    print("withdraw: {}".format(withdraw))
 
     print("craft_cooking: {}".format(craft_cooking))
 

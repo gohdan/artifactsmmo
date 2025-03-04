@@ -816,3 +816,31 @@ def get_item_in_bank_qty(item):
 
     return qty
 
+def if_requisites_available(requisites, bank_items, inventory_available):
+
+    print("*** if_requisites_available")
+
+    print("requisites: {}".format(requisites))
+    print("bank_items: {}".format(bank_items))
+    print("inventory_available: {}".format(inventory_available))
+
+    requisites_available = 1
+    requisites_qty = 0
+
+    for requisite in requisites:
+        print("requisite: {}".format(requisite))
+        if requisite in bank_items:
+            print("have {}: {} in bank".format(requisite, requisites[requisite]))
+            requisites_qty += requisites[requisite]
+            if requisites[requisite] > bank_items[requisite]:
+                print("not enough requisite in bank")
+                requisites_available = 0
+            if requisites_qty > inventory_available:
+                print("not enought space in inventory for all requisites")
+                requisites_available = 0
+        else:
+            print("don't have {} in bank".format(requisite))
+            requisites_available = 0
+
+    return requisites_available
+
