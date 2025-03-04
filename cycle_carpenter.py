@@ -88,7 +88,7 @@ while True:
             print ("gather ash")
             ash_limit = inventory_limit
             ash_plank_qty = (ash_limit - minimal_ash_wood_qty) // ash_wood_in_plank
-        case woodcutting_level if 11 <= woodcutting_level < 20:
+        case woodcutting_level if 10 <= woodcutting_level < 20:
             print ("gather ash and spruce")
 
             ash_limit = inventory_limit // 2
@@ -98,7 +98,7 @@ while True:
             spruce_plank_qty = spruce_limit // spruce_in_plank
             spruce_limit = spruce_plank_qty * spruce_in_plank
 
-        case woodcutting_level if 21 <= woodcutting_level:
+        case woodcutting_level if 20 <= woodcutting_level:
             print ("gather ash, spruce and birch")
 
             birch_limit = inventory_limit // 3
@@ -133,6 +133,8 @@ while True:
     print("minimal ash wood qty:{}".format(minimal_ash_wood_qty))
     print("ash_limit:{}".format(ash_limit))
     print("ash_plank_qty:{}".format(ash_plank_qty))
+
+    exit()
 
     ash_wood_in_bank_qty = get_item_in_bank_qty('ash_wood')
     print("ash_wood_in_bank_qty:{}".format(ash_wood_in_bank_qty))
