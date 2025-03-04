@@ -100,6 +100,10 @@ while True:
 
     # ======= DETERMINE: ALCHEMY ======
 
+    print("*** determine: alchemy ***")
+
+    craft_alchemy = {}
+
     alchemy_level = get_character_parameter(character, "alchemy_level")
     print ("alchemy level: ", alchemy_level)
 
