@@ -541,10 +541,12 @@ def do_rest(character):
 
     time.sleep(cooldown)
 
-def do_bank_deposit_unnecessary(inventory, belongins):
+def do_bank_deposit_unnecessary(belongins):
     print ("*** do_bank_deposit_unnecessary")
-    print ("belongings:", belongings)
-    print ("inventory:", inventory)
+    print ("belongings:{}".format(belongings))
+
+    inventory = get_character_parameter(character, "inventory")
+    print(inventory)
 
     for item in inventory:
         name = item['code']
@@ -662,7 +664,7 @@ def do_unequip_all():
     for slot in slots:
         do_unequip(slot)
 
-def do_bank_withdraw_belongings(inventory_items, belongings):
+def do_bank_withdraw_belongings(belongings):
 
     print("*** do_bank_withdraw_belongings")
 
@@ -674,7 +676,10 @@ def do_bank_withdraw_belongings(inventory_items, belongings):
         bank_items[i['code']] = i['quantity']
 
     print("bank_items:{}".format(bank_items))
+
+    inventory_items = get_inventory_items()
     print("inventory_items:{}".format(inventory_items))
+
     print("belongings:{}".format(belongings))
 
     for item in belongings:
@@ -774,4 +779,19 @@ def do_equip_to_monster(monster):
                 do_equip("copper_helmet", "helmet")
             if "copper_ring" in inventory_items:
                 do_equip("copper_ring", "ring1")
+
+def get_inventory_items():
+
+    print("*** get_inventory_items")
+
+    inventory = get_character_parameter(character, "inventory")
+    print(inventory)
+
+    inventory_items = {}
+    for item in inventory:
+        inventory_items[item['code']] = item['quantity']
+
+    print("inventory_items:{}".format(inventory_items))
+
+    return inventory_items
 
