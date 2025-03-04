@@ -16,21 +16,21 @@ Copper Dagger (copper_dagger) (copper 6)
 
 === Weaponcrafting 5 ===
 
-Fire Staff (fire_staff) (ash_plank 5, red_slimeball 2)
-16 Attack Fire
+Sticky Sword (sticky_sword) (copper 5, yellow_slimeball 2)
+16 Attack Earth
 5% Critical Strike
 
 Sticky Dagger (sticky_dagger) (copper 5, green_slimeball 2)
 12 Attack Air
 35% Critical Strike
 
-Sticky Sword (sticky_sword) (copper 5, yellow_slimeball 2)
-16 Attack Earth
-5% Critical Strike
-
 Water Bow (water_bow) (ash_plank: 5, blue_slimeball: 2)
 16 Attack Water
 35% Critical Strike
+
+Fire Staff (fire_staff) (ash_plank 5, red_slimeball 2)
+16 Attack Fire
+5% Critical Strike
 
 === Weaponcrafting 10 ===
 
