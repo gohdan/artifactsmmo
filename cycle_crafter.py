@@ -389,18 +389,6 @@ while True:
             case target_item if "fried_eggs" == target_item:
                 requisites = {'egg': 2}
 
-                if "egg" in bank_items:
-                    if bank_items['egg'] > inventory_available:
-                        withdraw_qty = inventory_available
-                    else:
-                        withdraw_qty = bank_items['egg']
-
-                    craft_cooking['fried_eggs'] = withdraw_qty // 2
-                    withdraw_qty = craft_cooking['fried_eggs'] * 2
-                    withdraw['egg'] = withdraw_qty
-                    bank_items['egg'] -= withdraw_qty
-                    inventory_available -= withdraw_qty
-
             case _:
                 # default values
                 print("didn't found requisites")
