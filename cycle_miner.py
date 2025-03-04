@@ -76,7 +76,7 @@ while True:
 
     # save some space for occasional drops
     print ("minimal empty inventory:", minimal_empty_inventory)
-    inventory_limit = inventory_max_items - minimal_empty_inventory - len(belongings)
+    inventory_limit = inventory_max_items - minimal_empty_inventory - sum(belongings.values())
     print ("inventory_limit: ", inventory_limit)
 
     mining_level = get_character_parameter(character, "mining_level")

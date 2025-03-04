@@ -93,7 +93,7 @@ while True:
 
     # save some space for monsters drop
     print ("minimal empty inventory:", minimal_empty_inventory)
-    inventory_limit = inventory_max_items - minimal_empty_inventory - len(belongings)
+    inventory_limit = inventory_max_items - minimal_empty_inventory - sum(belongings.values())
     print ("inventory_limit: ", inventory_limit)
 
     withdraw = {}
