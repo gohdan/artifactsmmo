@@ -134,8 +134,6 @@ while True:
     print("ash_limit:{}".format(ash_limit))
     print("ash_plank_qty:{}".format(ash_plank_qty))
 
-    exit()
-
     birch_wood_in_bank_qty = get_item_in_bank_qty('birch_wood')
     print("birch_wood_in_bank_qty:{}".format(birch_wood_in_bank_qty))
     if birch_wood_in_bank_qty > birch_limit:
