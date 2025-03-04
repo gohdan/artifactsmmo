@@ -745,6 +745,8 @@ def do_equip_to_monster(monster):
                 do_equip("copper_ring", "ring1")
 
         case monster if "yellow_slime" == monster:
+            if "sticky_dagger" in inventory_items:
+                do_equip("sticky_dagger", "weapon")
             if "copper_dagger" in inventory_items:
                 do_equip("copper_dagger", "weapon")
             elif "wooden_staff" in inventory_items:
@@ -765,6 +767,8 @@ def do_equip_to_monster(monster):
         case monster if "green_slime" == monster:
             if "wooden_staff" in inventory_items:
                 do_equip("wooden_staff", "weapon")
+            elif "sticky_dagger" in inventory_items:
+                do_equip("sticky_dagger", "weapon")
             elif "copper_dagger" in inventory_items:
                 do_equip("copper_dagger", "weapon")
             elif "wooden_stick" in inventory_items:

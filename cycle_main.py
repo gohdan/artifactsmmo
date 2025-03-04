@@ -16,7 +16,7 @@ while True:
     inventory_items = get_inventory_items()
 
     match level:
-        case level if 1 <= level:
+        case level if 1 <= level < 5:
             belongings = {
                 "copper_dagger": 1,
                 "wooden_staff": 1,
@@ -27,7 +27,17 @@ while True:
             }
             if "copper_dagger" not in inventory_items and "wooden_staff" not in inventory_items:
                 belongings["wooden_stick"] = 1
-
+        case level if 5 <= level:
+            belongings = {
+                "sticky_dagger": 1,
+                "wooden_staff": 1,
+                "copper_boots": 1,
+                "copper_helmet": 1,
+                "wooden_shield": 1,
+                "copper_ring": 1
+            }
+            if "sticky_dagger" not in inventory_items:
+                belongings["copper_dagger"] = 1
         case _:
             # default values
             belongings = {
