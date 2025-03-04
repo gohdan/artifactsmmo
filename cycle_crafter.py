@@ -164,7 +164,7 @@ while True:
     print("*** determine: weaponcrafting ***")
 
     craft_weapon = {}
-    target_items = {}
+    target_items = set()
 
     weaponcrafting_level = get_character_parameter(character, "weaponcrafting_level")
     print ("weaponcrafting level: ", weaponcrafting_level)
