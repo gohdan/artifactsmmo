@@ -10,7 +10,7 @@ minimal_empty_inventory = 15 # for occasional drop
 ash_wood_in_plank = 6
 minimal_ash_wood_qty = 4
 
-spruce_in_plank = 6
+spruce_in_plank = 10
 
 # default values are null
 ash_limit = 0
