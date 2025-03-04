@@ -216,17 +216,6 @@ while True:
     #do_equip("copper_armor", "body_armor")
     #cycle_fight(10)
 
-    ## green slime (4)
-    #print ("=== fight green slime ===")
-    #x, y = 3, -2
-    #do_move(x, y)
-    #do_unequip("weapon")
-    #do_unequip("body_armor")
-    ##do_equip("wooden_staff", "weapon")
-    #do_equip("sticky_sword", "weapon")
-    #do_equip("copper_armor", "body_armor")
-    #cycle_fight(10)
-
     match level:
         case level if 1 <= level <  2:
             # chicken (1)
@@ -236,7 +225,7 @@ while True:
             do_move(x, y)
             cycle_fight(10)
 
-        case level if 2 <= level:
+        case level if 2 <= level < 4:
             # yellow slime (2)
             print ("=== fight yellow slime ===")
             do_equip_to_monster("yellow_slime")
@@ -249,7 +238,29 @@ while True:
             do_equip_to_monster("chicken")
             x, y = 0, 1
             do_move(x, y)
+            cycle_fight(5)
+
+        case level if 4 <= level:
+            # green slime (4)
+            print ("=== fight green slime ===")
+            do_equip_to_monster("green_slime")
+            x, y = 3, -2
+            do_move(x, y)
             cycle_fight(10)
+
+            # yellow slime (2)
+            print ("=== fight yellow slime ===")
+            do_equip_to_monster("yellow_slime")
+            x, y = 1, -2
+            do_move(x, y)
+            cycle_fight(5)
+
+            # chicken (1)
+            print ("=== fight chicken ===")
+            do_equip_to_monster("chicken")
+            x, y = 0, 1
+            do_move(x, y)
+            cycle_fight(3)
 
         case _:
             # default values
