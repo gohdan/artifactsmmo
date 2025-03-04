@@ -83,6 +83,11 @@ while True:
     for i in bank_contents:
         bank_items[i['code']] = i['quantity']
 
+    concurrents = {'sticky_sword', 'sticky_dagger', 'water_bow', 'fire_staff', 'copper_armor', 'copper_legs_armor'}
+    for concurrent in concurrents:
+        if concurrent not in bank_items:
+            bank_items[concurrent] = 0
+
     print("bank_items:")
     print(bank_items)
 
@@ -159,6 +164,7 @@ while True:
     print("*** determine: weaponcrafting ***")
 
     craft_weapon = {}
+    target_items = {}
 
     weaponcrafting_level = get_character_parameter(character, "weaponcrafting_level")
     print ("weaponcrafting level: ", weaponcrafting_level)
@@ -169,7 +175,14 @@ while True:
             target_items = ['copper_dagger', 'wooden_staff']
         case weaponcrafting_level if 5 <= weaponcrafting_level:
             print("craft fire_staff, sticky_dagger, sticky_sword, water_bow")
-            target_items = ['fire_staff', 'water_bow', 'sticky_dagger', 'sticky_sword']
+            if (bank_items['sticky_sword'] <= bank_items['sticky_dagger']) and (bank_items['sticky_sword'] <= bank_items['copper_armor']) and (bank_items['sticky_sword'] <= bank_items['copper_legs_armor']):
+                target_items.add('sticky_sword')
+            if (bank_items['sticky_dagger'] <= bank_items['sticky_sword']) and (bank_items['sticky_dagger'] <= bank_items['copper_armor']) and (bank_items['sticky_dagger'] <= bank_items['copper_legs_armor']):
+                target_items.add('sticky_dagger')
+            if (bank_items['fire_staff'] <= bank_items['water_bow']):
+                target_items.add('fire_staff')
+            if (bank_items['water_bow'] <= bank_items['fire_staff']):
+                target_items.add('water_bow')
         case _:
             # default values
             print("craft copper dagger and wooden_staff (default values)")
@@ -179,10 +192,12 @@ while True:
     for target_item in target_items:
         print("checking requisites of {}".format(target_item))
         match target_item:
+            # 1 level
             case target_item if "wooden_staff" == target_item:
                 requisites = {'wooden_stick': 1, 'ash_wood': 4}
             case target_item if "copper_dagger" == target_item:
                 requisites = {'copper': 6}
+            # 5 level
             case target_item if "sticky_sword" == target_item:
                 requisites = {'yellow_slimeball': 2, 'copper': 5}
             case target_item if "sticky_dagger" == target_item:
@@ -226,7 +241,11 @@ while True:
             target_items = ['wooden_shield', 'copper_boots', 'copper_helmet']
         case gearcrafting_level if 5 <= gearcrafting_level:
             print("craft feather_coat, copper_armor, copper_legs_armor and satchel")
-            target_items = ['satchel', 'feather_coat', 'copper_armor', 'copper_legs_armor']
+            target_items = ['satchel', 'feather_coat']
+            if (bank_items['copper_armor'] <= bank_items['copper_legs_armor']) and (bank_items['copper_armor'] <= bank_items['sticky_sword']) and (bank_items['copper_armor'] <= bank_items['sticky_dagger']):
+                target_items.add('copper_armor')
+            if (bank_items['copper_legs_armor'] <= bank_items['copper_armor']) and (bank_items['copper_legs_armor'] <= bank_items['sticky_sword']) and (bank_items['copper_legs_armor'] <= bank_items['sticky_dagger']):
+                target_items.add('copper_legs_armor')
         case _:
             # default values
             print("craft wooden shield (default value)")
@@ -236,12 +255,14 @@ while True:
     for target_item in target_items:
         print("checking requisites of {}".format(target_item))
         match target_item:
+            # 1 level
             case target_item if "wooden_shield" == target_item:
                 requisites = {'ash_plank': 6}
             case target_item if "copper_boots" == target_item:
                 requisites = {'copper': 6}
             case target_item if "copper_helmet" == target_item:
                 requisites = {'copper': 6}
+            # 5 level
             case target_item if "feather_coat" == target_item:
                 requisites = {'feather': 5, 'ash_plank': 2}
             case target_item if "copper_armor" == target_item:
@@ -295,8 +316,10 @@ while True:
     for target_item in target_items:
         print("checking requisites of {}".format(target_item))
         match target_item:
+            # 1 level
             case target_item if "copper_ring" == target_item:
                 requisites = {'copper': 6}
+            # 5 level
             case target_item if "life_amulet" == target_item:
                 requisites = {'red_slimeball': 2, 'feather': 4}
             case _:
