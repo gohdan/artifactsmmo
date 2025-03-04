@@ -112,8 +112,11 @@ while True:
             print ("gather sunflower")
             sunflower_limit = 9
         case alchemy_level if 5 <= alchemy_level:
-            print ("gather sunflower, craft small health potion")
-            sunflower_limit = 9
+            print ("gather sunflower if needed, craft small health potion")
+            if bank_items['sunflower'] < 10:
+                sunflower_limit = 3
+            else:
+                sunflower_limit = 0
             target_items = ['small_health_potion']
         case _:
             # default values
