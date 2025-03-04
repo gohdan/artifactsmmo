@@ -104,17 +104,48 @@ while True:
     print ("alchemy level: ", alchemy_level)
 
     match alchemy_level:
-        case alchemy_level if 1 <= alchemy_level:
+        case alchemy_level if 1 <= alchemy_level < 5:
             print ("gather sunflower")
-            sunflower_limit = 10
+            sunflower_limit = 9
+        case alchemy_level if 5 <= alchemy_level:
+            print ("gather sunflower, craft small health potion")
+            sunflower_limit = 9
+            target_items = ['small_health_potion']
         case _:
             # default values
             print ("gather sunflower (default values)")
-            sunflower_limit = 10
+            sunflower_limit = 9
     print("sunflower_limit: {}".format(sunflower_limit))
 
     inventory_available = inventory_limit - sunflower_limit
     print("inventory_available: {}".format(inventory_available))
+
+    print("target_items: {}".format(target_items))
+
+    for target_item in target_items:
+        print("checking requisites of {}".format(target_item))
+        match target_item:
+            case target_item if "small_health_potion" == target_item:
+                requisites = {'sunflower': 3}
+            case _:
+                # default values
+                print("didn't found requisites")
+                requisites = {}
+
+        print("requisites: {}".format(requisites))
+
+        if 1 == if_requisites_available(requisites, bank_items, inventory_available):
+            print("all requisites available")
+            craft_alchemy[target_item] = craft_alchemy.get(target_item, 0) + 1
+            for requisite in requisites:
+                withdraw[requisite] = withdraw.get(requisite, 0) + requisites[requisite]
+                bank_items[requisite] -= requisites[requisite]
+                inventory_available = inventory_available - requisites[requisite]
+
+    print("inventory_available: {}".format(inventory_available))
+    print("withdraw: {}".format(withdraw))
+
+    print("craft_alchemy: {}".format(craft_alchemy))
 
     # ======= DETERMINE: WEAPONCRAFTING ======
 
@@ -126,9 +157,12 @@ while True:
     print ("weaponcrafting level: ", weaponcrafting_level)
 
     match weaponcrafting_level:
-        case weaponcrafting_level if 1 <= weaponcrafting_level:
-            print("craft copper dagger and wooden_staff")
+        case weaponcrafting_level if 1 <= weaponcrafting_level < 5:
+            print("craft copper_dagger and wooden_staff")
             target_items = ['copper_dagger', 'wooden_staff']
+        case weaponcrafting_level if 5 <= weaponcrafting_level:
+            print("craft fire_staff, sticky_dagger, sticky_sword, water_bow")
+            target_items = ['fire_staff', 'water_bow', 'sticky_dagger', 'sticky_sword']
         case _:
             # default values
             print("craft copper dagger and wooden_staff (default values)")
@@ -138,10 +172,18 @@ while True:
     for target_item in target_items:
         print("checking requisites of {}".format(target_item))
         match target_item:
-            case target_item if "copper_dagger" == target_item:
-                requisites = {'copper': 6}
             case target_item if "wooden_staff" == target_item:
                 requisites = {'wooden_stick': 1, 'ash_wood': 4}
+            case target_item if "copper_dagger" == target_item:
+                requisites = {'copper': 6}
+            case target_item if "sticky_sword" == target_item:
+                requisites = {'yellow_slimeball': 2, 'copper': 5}
+            case target_item if "sticky_dagger" == target_item:
+                requisites = {'green_slimeball': 2, 'copper': 5}
+            case target_item if "water_bow" == target_item:
+                requisites = {'blue_slimeball': 1, 'ash_plank': 5}
+            case target_item if "fire_staff" == target_item:
+                requisites = {'red_slimeball': 1, 'ash_plank': 5}
             case _:
                 # default values
                 print("didn't found requisites")
@@ -172,9 +214,12 @@ while True:
     print ("gearcrafting level: ", gearcrafting_level)
 
     match gearcrafting_level:
-        case gearcrafting_level if 1 <= gearcrafting_level:
+        case gearcrafting_level if 1 <= gearcrafting_level < 5:
             print("craft wooden shield, copper boots and copper helmet")
             target_items = ['wooden_shield', 'copper_boots', 'copper_helmet']
+        case gearcrafting_level if 5 <= gearcrafting_level:
+            print("craft feather_coat, copper_armor, copper_legs_armor and satchel")
+            target_items = ['satchel', 'feather_coat', 'copper_armor', 'copper_legs_armor']
         case _:
             # default values
             print("craft wooden shield (default value)")
@@ -190,6 +235,14 @@ while True:
                 requisites = {'copper': 6}
             case target_item if "copper_helmet" == target_item:
                 requisites = {'copper': 6}
+            case target_item if "feather_coat" == target_item:
+                requisites = {'feather': 5, 'ash_plank': 2}
+            case target_item if "copper_armor" == target_item:
+                requisites = {'copper': 5, 'feather': 2}
+            case target_item if "copper_legs_armor" == target_item:
+                requisites = {'copper': 5, 'feather': 2}
+            case target_item if "satchel" == target_item:
+                requisites = {'cowhide': 5, 'feather': 2, 'jasper_crystal': 1}
             case _:
                 # default values
                 print("didn't found requisites")
@@ -220,9 +273,12 @@ while True:
     print ("jewelrycrafting level: ", jewelrycrafting_level)
 
     match jewelrycrafting_level:
-        case jewelrycrafting_level if 1 <= jewelrycrafting_level:
+        case jewelrycrafting_level if 1 <= jewelrycrafting_level < 5:
             print("craft copper ring")
             target_items = ['copper_ring']
+        case jewelrycrafting_level if 5 <= jewelrycrafting_level:
+            print("craft life amulet")
+            target_items = ['life_amulet']
         case _:
             # default values
             print("craft copper ring (default values)")
@@ -234,6 +290,8 @@ while True:
         match target_item:
             case target_item if "copper_ring" == target_item:
                 requisites = {'copper': 6}
+            case target_item if "life_amulet" == target_item:
+                requisites = {'red_slimeball': 2, 'feather': 4}
             case _:
                 # default values
                 print("didn't found requisites")
@@ -269,9 +327,12 @@ while True:
     #do_crafting("cooked_beef")
 
     match cooking_level:
-        case cooking_level if 1 <= cooking_level:
+        case cooking_level if 1 <= cooking_level < 5:
             print("cook gudgeon and chicken")
             target_items = ['cooked_chicken', 'cooked_gudgeon']
+        case cooking_level if 5 <= cooking_level:
+            print("cook gudgeon, chicken, cooked_beef, fried_eggs")
+            target_items = ['cooked_chicken', 'cooked_gudgeon', 'cooked_beef', 'fried_eggs']
         case _:
             # default values
             print("cook gudgeon and chicken (default values)")
@@ -285,6 +346,10 @@ while True:
                 requisites = {'gudgeon': 1}
             case target_item if "cooked_chicken" == target_item:
                 requisites = {'raw_chicken': 1}
+            case target_item if "cooked_beef" == target_item:
+                requisites = {'raw_beef': 1}
+            case target_item if "fried_eggs" == target_item:
+                requisites = {'egg': 2}
             case _:
                 # default values
                 print("didn't found requisites")
@@ -332,6 +397,19 @@ while True:
     for item in craft_cooking:
         for i in range(0, craft_cooking[item]):
             print("crafting {} {} of {}".format(item, i+1, craft_cooking[item]))
+            do_crafting(item)
+        
+    # ======= ALCHEMY ======
+
+    print("move to workshop alchemy")
+    x, y = 2, 3
+    do_move(x, y)
+
+    print("craft_alchemy: {}".format(craft_alchemy))
+
+    for item in craft_alchemy:
+        for i in range(0, craft_alchemy[item]):
+            print("crafting {} {} of {}".format(item, i+1, craft_alchemy[item]))
             do_crafting(item)
 
     # ======= WEAPONCRAFTING ======
