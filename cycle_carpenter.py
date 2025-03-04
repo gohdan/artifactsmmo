@@ -136,16 +136,14 @@ while True:
 
     exit()
 
-    ash_wood_in_bank_qty = get_item_in_bank_qty('ash_wood')
-    print("ash_wood_in_bank_qty:{}".format(ash_wood_in_bank_qty))
-    if ash_wood_in_bank_qty > 100:
-        ash_wood_in_bank_qty -= 100
-        if ash_wood_in_bank_qty > ash_limit:
-            do_bank_withdraw('ash_wood', ash_limit)
-            ash_limit = 0
-        else:
-            do_bank_withdraw('ash_wood', ash_wood_in_bank_qty)
-            ash_limit = ash_limit - ash_wood_in_bank_qty
+    birch_wood_in_bank_qty = get_item_in_bank_qty('birch_wood')
+    print("birch_wood_in_bank_qty:{}".format(birch_wood_in_bank_qty))
+    if birch_wood_in_bank_qty > birch_limit:
+        do_bank_withdraw('birch_wood', birch_limit)
+        birch_limit = 0
+    else:
+        do_bank_withdraw('birch_wood', birch_wood_in_bank_qty)
+        birch_limit = birch_limit - birch_wood_in_bank_qty
 
     # ======= GATHERING ======
 
