@@ -350,52 +350,56 @@ while True:
             case target_item if "cooked_gudgeon" == target_item:
                 requisites = {'gudgeon': 1}
 
-                if bank_items['gudgeon'] > inventory_available:
-                    withdraw_qty = inventory_available
-                else:
-                    withdraw_qty = bank_items['gudgeon']
-                craft_cooking['cooked_gudgeon'] = withdraw_qty
-                withdraw['gudgeon'] = withdraw_qty
-                bank_items['gudgeon'] -= withdraw_qty
-                inventory_available -= withdraw_qty
+                if "gudgeon" in bank_items:
+                    if bank_items['gudgeon'] > inventory_available:
+                        withdraw_qty = inventory_available
+                    else:
+                        withdraw_qty = bank_items['gudgeon']
+                    craft_cooking['cooked_gudgeon'] = withdraw_qty
+                    withdraw['gudgeon'] = withdraw_qty
+                    bank_items['gudgeon'] -= withdraw_qty
+                    inventory_available -= withdraw_qty
 
             case target_item if "cooked_chicken" == target_item:
                 requisites = {'raw_chicken': 1}
 
-                if bank_items['raw_chicken'] > inventory_available:
-                    withdraw_qty = inventory_available
-                else:
-                    withdraw_qty = bank_items['raw_chicken']
-                craft_cooking['cooked_chicken'] = withdraw_qty
-                withdraw['raw_chicken'] = withdraw_qty
-                bank_items['raw_chicken'] -= withdraw_qty
-                inventory_available -= withdraw_qty
+                if "raw_chicken" in bank_items:
+                    if bank_items['raw_chicken'] > inventory_available:
+                        withdraw_qty = inventory_available
+                    else:
+                        withdraw_qty = bank_items['raw_chicken']
+                    craft_cooking['cooked_chicken'] = withdraw_qty
+                    withdraw['raw_chicken'] = withdraw_qty
+                    bank_items['raw_chicken'] -= withdraw_qty
+                    inventory_available -= withdraw_qty
 
             case target_item if "cooked_beef" == target_item:
                 requisites = {'raw_beef': 1}
 
-                if bank_items['raw_beef'] > inventory_available:
-                    withdraw_qty = inventory_available
-                else:
-                    withdraw_qty = bank_items['raw_beef']
-                craft_cooking['cooked_beef'] = withdraw_qty
-                withdraw['raw_beef'] = withdraw_qty
-                bank_items['raw_beef'] -= withdraw_qty
-                inventory_available -= withdraw_qty
+                if "raw_beef" in bank_items:
+                    if bank_items['raw_beef'] > inventory_available:
+                        withdraw_qty = inventory_available
+                    else:
+                        withdraw_qty = bank_items['raw_beef']
+                    craft_cooking['cooked_beef'] = withdraw_qty
+                    withdraw['raw_beef'] = withdraw_qty
+                    bank_items['raw_beef'] -= withdraw_qty
+                    inventory_available -= withdraw_qty
 
             case target_item if "fried_eggs" == target_item:
                 requisites = {'egg': 2}
 
-                if bank_items['egg'] > inventory_available:
-                    withdraw_qty = inventory_available
-                else:
-                    withdraw_qty = bank_items['egg']
+                if "egg" in bank_items:
+                    if bank_items['egg'] > inventory_available:
+                        withdraw_qty = inventory_available
+                    else:
+                        withdraw_qty = bank_items['egg']
 
-                craft_cooking['fried_eggs'] = withdraw_qty // 2
-                withdraw_qty = craft_cooking['fried_eggs'] * 2
-                withdraw['egg'] = withdraw_qty
-                bank_items['egg'] -= withdraw_qty
-                inventory_available -= withdraw_qty
+                    craft_cooking['fried_eggs'] = withdraw_qty // 2
+                    withdraw_qty = craft_cooking['fried_eggs'] * 2
+                    withdraw['egg'] = withdraw_qty
+                    bank_items['egg'] -= withdraw_qty
+                    inventory_available -= withdraw_qty
 
             case _:
                 # default values
