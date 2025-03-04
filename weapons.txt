@@ -1,8 +1,10 @@
-=== Weaponcrafting 1 ===
+=== Default ===
 
 Wooden Stick (wooden_stick)
 4 Attack Earth
 5% Critical Strike
+
+=== Weaponcrafting 1 ===
 
 Wooden Staff (wooden_staff) (wooden_stick 1, ash_wood 4)
 8 Attack Earth
