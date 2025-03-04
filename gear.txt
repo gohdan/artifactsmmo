@@ -24,24 +24,25 @@ Wooden Shield (wooden_shield) (ash_plank 6)
 
 Body armor:
 
-Feather Coat (feather_coat) (feather 5)
+Feather Coat (feather_coat) (feather 5, ash_plank 2)
 25 HP
 5% Damage Air
 5% Damage Water
 
-Copper Armor (copper_armor) (copper 5)
+Copper Armor (copper_armor) (copper 5, feather 2)
 25 HP
 5% Damage Earth
 5% Damage Fire
 
 Leg armor:
 
-Copper Legs Armor (copper_armor) (copper 4)
+Copper Legs Armor (copper_legs_armor) (copper 5, feather 2)
 25 HP
-1 Haste
-2% Damage Water
-2% Damage Earth
-2% Damage Fire
-2% Damage Air
+2% Damage
+
+Bag:
+
+Satchel (cowhide 5, feather 2, jasper_crystal 1)
+Increase your inventory space by 15.
 
 

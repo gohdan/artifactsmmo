@@ -5,5 +5,6 @@ Copper Ring (copper_ring) (copper 6)
 
 === Jewelrycrafting 5 ===
 
-Life amulet (life_amulet) (blue_slimeball 1, red_slimeball 1, cowhide 2)
-40 HP
+Life amulet (life_amulet) (red_slimeball 2, feather 4)
+30 HP
+

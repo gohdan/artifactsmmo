@@ -1,0 +1,6 @@
+=== Alchemy 5 ===
+
+Small health potion (small_health_potion) (sunflower 3)
+Restores 20HP at the start of the turn if the player has lost more than 50% of his health points.
+
+
