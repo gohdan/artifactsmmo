@@ -779,6 +779,10 @@ def do_equip_to_monster(monster):
             if "wooden_shield" in inventory_items:
                 do_equip("wooden_shield", "shield")
 
+            if "copper_armor" in inventory_items:
+                do_equip("copper_armor", "body_armor")
+            if "copper_legs_armor" in inventory_items:
+                do_equip("copper_legs_armor", "leg_armor")
             if "copper_boots" in inventory_items:
                 do_equip("copper_boots", "boots")
             if "copper_helmet" in inventory_items:

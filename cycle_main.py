@@ -34,7 +34,9 @@ while True:
                 "copper_boots": 1,
                 "copper_helmet": 1,
                 "wooden_shield": 1,
-                "copper_ring": 1
+                "copper_ring": 1,
+                "copper_armor": 1,
+                "copper_legs_armor": 1
             }
             if "sticky_dagger" not in inventory_items:
                 belongings["copper_dagger"] = 1
