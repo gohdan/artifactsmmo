@@ -30,7 +30,7 @@ while True:
         case level if 5 <= level:
             belongings = {
                 "sticky_dagger": 1,
-                "wooden_staff": 1,
+                "sticky_sword": 1,
                 "copper_boots": 1,
                 "copper_helmet": 1,
                 "wooden_shield": 1,
@@ -38,6 +38,8 @@ while True:
             }
             if "sticky_dagger" not in inventory_items:
                 belongings["copper_dagger"] = 1
+            if "sticky_sword" not in inventory_items:
+                belongings["wooden_staff"] = 1
         case _:
             # default values
             belongings = {

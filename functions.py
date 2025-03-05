@@ -765,7 +765,9 @@ def do_equip_to_monster(monster):
                 do_equip("copper_ring", "ring1")
 
         case monster if "green_slime" == monster:
-            if "wooden_staff" in inventory_items:
+            if "sticky_sword" in inventory_items:
+                do_equip("sticky_sword", "weapon")
+            elif "wooden_staff" in inventory_items:
                 do_equip("wooden_staff", "weapon")
             elif "sticky_dagger" in inventory_items:
                 do_equip("sticky_dagger", "weapon")
