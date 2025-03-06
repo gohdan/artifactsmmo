@@ -203,9 +203,9 @@ while True:
             case target_item if "sticky_dagger" == target_item:
                 requisites = {'green_slimeball': 2, 'copper': 5}
             case target_item if "water_bow" == target_item:
-                requisites = {'blue_slimeball': 1, 'ash_plank': 5}
+                requisites = {'blue_slimeball': 2, 'ash_plank': 5}
             case target_item if "fire_staff" == target_item:
-                requisites = {'red_slimeball': 1, 'ash_plank': 5}
+                requisites = {'red_slimeball': 2, 'ash_plank': 5}
             case _:
                 # default values
                 print("didn't found requisites")
