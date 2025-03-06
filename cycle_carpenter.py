@@ -8,7 +8,7 @@ minimal_empty_inventory = 15 # for occasional drop
 # ash_tree: 6 (ash_plank) + 4 (wooden_stick) + 2 (hardwood_plank)
 
 ash_wood_in_plank = 6
-minimal_ash_wood_qty = 4
+minimal_ash_qty = 4
 
 spruce_in_plank = 10
 
@@ -82,6 +82,9 @@ while True:
 
     woodcutting_level = get_character_parameter(character, "woodcutting_level")
     print ("woodcutting level: ", woodcutting_level)
+
+    minimal_ash_wood_qty = minimal_ash_qty
+    print("minimal_ash_wood_qty: {}".format(minimal_ash_wood_qty))
 
     match woodcutting_level:
         case woodcutting_level if 1 <= woodcutting_level <  10:
