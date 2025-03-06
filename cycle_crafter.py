@@ -83,7 +83,7 @@ while True:
     for i in bank_contents:
         bank_items[i['code']] = i['quantity']
 
-    concurrents = {'sticky_sword', 'sticky_dagger', 'water_bow', 'fire_staff', 'copper_armor', 'copper_legs_armor'}
+    concurrents = {'sticky_sword', 'sticky_dagger', 'water_bow', 'fire_staff', 'copper_armor', 'copper_legs_armor', 'feather_coat'}
     for concurrent in concurrents:
         if concurrent not in bank_items:
             bank_items[concurrent] = 0
@@ -179,9 +179,9 @@ while True:
                 target_items.append('sticky_sword')
             if (bank_items['sticky_dagger'] <= bank_items['sticky_sword']) and (bank_items['sticky_dagger'] <= bank_items['copper_armor']) and (bank_items['sticky_dagger'] <= bank_items['copper_legs_armor']):
                 target_items.append('sticky_dagger')
-            if (bank_items['fire_staff'] <= bank_items['water_bow']):
+            if (bank_items['fire_staff'] <= bank_items['water_bow']) and (bank_items['fire_staff'] <= bank_items['feather_coat']):
                 target_items.append('fire_staff')
-            if (bank_items['water_bow'] <= bank_items['fire_staff']):
+            if (bank_items['water_bow'] <= bank_items['fire_staff']) and (bank_items['water_bow'] <= bank_items['feather_coat']):
                 target_items.append('water_bow')
         case _:
             # default values
@@ -241,7 +241,9 @@ while True:
             target_items = ['wooden_shield', 'copper_boots', 'copper_helmet']
         case gearcrafting_level if 5 <= gearcrafting_level:
             print("craft feather_coat, copper_armor, copper_legs_armor and satchel")
-            target_items = ['satchel', 'feather_coat']
+            target_items = ['satchel']
+            if (bank_items['feather_coat'] <= bank_items['fire_staff']) and (bank_items['feather_coat'] <= bank_items['water_bow']):
+                target_items.append('feather_coat')
             if (bank_items['copper_armor'] <= bank_items['copper_legs_armor']) and (bank_items['copper_armor'] <= bank_items['sticky_sword']) and (bank_items['copper_armor'] <= bank_items['sticky_dagger']):
                 target_items.append('copper_armor')
             if (bank_items['copper_legs_armor'] <= bank_items['copper_armor']) and (bank_items['copper_legs_armor'] <= bank_items['sticky_sword']) and (bank_items['copper_legs_armor'] <= bank_items['sticky_dagger']):
