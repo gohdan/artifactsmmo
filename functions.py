@@ -844,6 +844,9 @@ def do_equip_to_monster(monster):
             if "copper_ring" in inventory_items:
                 do_equip("copper_ring", "ring1")
 
+            if "life_amulet" in inventory_items:
+                do_equip("life_amulet", "amulet")
+
         case monster if "cow" == monster:
             if "sticky_sword" in inventory_items:
                 do_equip("sticky_sword", "weapon")
@@ -866,6 +869,8 @@ def do_equip_to_monster(monster):
             if "copper_ring" in inventory_items:
                 do_equip("copper_ring", "ring1")
 
+            if "life_amulet" in inventory_items:
+                do_equip("life_amulet", "amulet")
 
 def get_inventory_items():
 
