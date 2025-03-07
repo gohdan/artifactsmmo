@@ -100,16 +100,6 @@ while True:
     #do_equip("feather_coat", "body_armor")
     #cycle_fight(10)
 
-    # cow (8)
-    #print ("=== fight cow ===")
-    #x, y = 0, 2
-    #do_move(x, y)
-    #do_unequip("weapon")
-    #do_unequip("body_armor")
-    ##do_equip("sticky_sword", "weapon")
-    #do_equip("iron_sword", "weapon")
-    #do_equip("copper_armor", "body_armor")
-    #cycle_fight(10)
 
     match level:
         case level if 1 <= level <  2:
@@ -144,11 +134,19 @@ while True:
             do_move(x, y)
             cycle_fight(10)
 
-        case level if 7 <= level:
+        case level if 7 <= level < 8:
             # red slime (7)
             print ("=== fight red slime ===")
             do_equip_to_monster("red_slime")
             x, y = 2, -2
+            do_move(x, y)
+            cycle_fight(10)
+
+        case level if 8 <= level:
+            # cow (8)
+            print ("=== fight cow ===")
+            do_equip_to_monster("cow")
+            x, y = 0, 2
             do_move(x, y)
             cycle_fight(10)
 
