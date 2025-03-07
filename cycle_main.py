@@ -29,6 +29,7 @@ while True:
                 belongings["wooden_stick"] = 1
         case level if 5 <= level:
             belongings = {
+                "water_bow": 1,
                 "sticky_dagger": 1,
                 "sticky_sword": 1,
                 "copper_boots": 1,
@@ -109,17 +110,6 @@ while True:
     #do_equip("iron_sword", "weapon")
     #do_equip("copper_armor", "body_armor")
     #cycle_fight(10)
-    
-    ## red slime (7)
-    #print ("=== fight red slime ===")
-    #x, y = 2, -2
-    #do_move(x, y)
-    #do_unequip("weapon")
-    #do_unequip("body_armor")
-    ##do_equip("sticky_sword", "weapon")
-    #do_equip("iron_sword", "weapon")
-    #do_equip("copper_armor", "body_armor")
-    #cycle_fight(10)
 
     match level:
         case level if 1 <= level <  2:
@@ -151,6 +141,14 @@ while True:
             print ("=== fight blue slime ===")
             do_equip_to_monster("blue_slime")
             x, y = 0, -2
+            do_move(x, y)
+            cycle_fight(10)
+
+        case level if 7 <= level:
+            # red slime (7)
+            print ("=== fight red slime ===")
+            do_equip_to_monster("red_slime")
+            x, y = 2, -2
             do_move(x, y)
             cycle_fight(10)
 

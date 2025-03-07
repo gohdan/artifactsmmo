@@ -816,6 +816,34 @@ def do_equip_to_monster(monster):
             if "copper_ring" in inventory_items:
                 do_equip("copper_ring", "ring1")
 
+        case monster if "red_slime" == monster:
+            if "water_bow" in inventory_items:
+                do_equip("water_bow", "weapon")
+            elif "sticky_sword" in inventory_items:
+                do_equip("sticky_sword", "weapon")
+            elif "sticky_dagger" in inventory_items:
+                do_equip("sticky_dagger", "weapon")
+            elif "copper_dagger" in inventory_items:
+                do_equip("copper_dagger", "weapon")
+            elif "wooden_staff" in inventory_items:
+                do_equip("wooden_staff", "weapon")
+            elif "wooden_stick" in inventory_items:
+                do_equip("wooden_stick", "weapon")
+
+            if "wooden_shield" in inventory_items:
+                do_equip("wooden_shield", "shield")
+
+            if "copper_armor" in inventory_items:
+                do_equip("copper_armor", "body_armor")
+            if "copper_legs_armor" in inventory_items:
+                do_equip("copper_legs_armor", "leg_armor")
+            if "copper_boots" in inventory_items:
+                do_equip("copper_boots", "boots")
+            if "copper_helmet" in inventory_items:
+                do_equip("copper_helmet", "helmet")
+            if "copper_ring" in inventory_items:
+                do_equip("copper_ring", "ring1")
+
 def get_inventory_items():
 
     print("*** get_inventory_items")
