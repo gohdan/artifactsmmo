@@ -29,6 +29,7 @@ while True:
                 belongings["wooden_stick"] = 1
         case level if 5 <= level:
             belongings = {
+                "fire_staff": 1,
                 "water_bow": 1,
                 "sticky_dagger": 1,
                 "sticky_sword": 1,

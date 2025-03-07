@@ -33,7 +33,7 @@ while True:
     inventory_items = get_inventory_items()
 
     match level:
-        case level if 1 <= level:
+        case level if 1 <= level < 5:
             belongings = {
                 "copper_dagger": 1,
                 "wooden_staff": 1,
@@ -44,7 +44,22 @@ while True:
             }
             if "copper_dagger" not in inventory_items and "wooden_staff" not in inventory_items:
                 belongings["wooden_stick"] = 1
-
+        case level if 5 <= level:
+            belongings = {
+                "water_bow": 1,
+                "sticky_dagger": 1,
+                "sticky_sword": 1,
+                "copper_boots": 1,
+                "copper_helmet": 1,
+                "wooden_shield": 1,
+                "copper_ring": 1,
+                "copper_armor": 1,
+                "copper_legs_armor": 1
+            }
+            if "sticky_dagger" not in inventory_items:
+                belongings["copper_dagger"] = 1
+            if "sticky_sword" not in inventory_items:
+                belongings["wooden_staff"] = 1
         case _:
             # default values
             belongings = {
@@ -240,7 +255,7 @@ while True:
             do_move(x, y)
             cycle_fight(5)
 
-        case level if 4 <= level:
+        case level if 4 <= level < 6:
             # green slime (4)
             print ("=== fight green slime ===")
             do_equip_to_monster("green_slime")
@@ -254,6 +269,35 @@ while True:
             x, y = 1, -2
             do_move(x, y)
             cycle_fight(5)
+
+            # chicken (1)
+            print ("=== fight chicken ===")
+            do_equip_to_monster("chicken")
+            x, y = 0, 1
+            do_move(x, y)
+            cycle_fight(3)
+
+        case level if 6 <= level:
+            # blue slime (6)
+            print ("=== fight blue slime ===")
+            do_equip_to_monster("blue_slime")
+            x, y = 0, -2
+            do_move(x, y)
+            cycle_fight(10)
+
+            # green slime (4)
+            print ("=== fight green slime ===")
+            do_equip_to_monster("green_slime")
+            x, y = 3, -2
+            do_move(x, y)
+            cycle_fight(5)
+
+            # yellow slime (2)
+            print ("=== fight yellow slime ===")
+            do_equip_to_monster("yellow_slime")
+            x, y = 1, -2
+            do_move(x, y)
+            cycle_fight(3)
 
             # chicken (1)
             print ("=== fight chicken ===")
