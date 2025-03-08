@@ -598,7 +598,9 @@ def get_bank_items():
         "Authorization": f"Bearer {token}"
     }
 
-    response = requests.get(url, headers=headers)
+    raw_data = f'{{"size" : "100"}}'
+
+    response = requests.get(url, headers=headers, data=raw_data)
 
     data = ""
 
