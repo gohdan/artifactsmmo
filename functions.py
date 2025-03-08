@@ -727,7 +727,9 @@ def do_equip_to_monster(monster):
 
     match monster:
         case monster if "chicken" == monster:
-            if "wooden_staff" in inventory_items:
+            if "sticky_sword" in inventory_items:
+                do_equip("sticky_sword", "weapon")
+            elif "wooden_staff" in inventory_items:
                 do_equip("wooden_staff", "weapon")
             elif "copper_dagger" in inventory_items:
                 do_equip("copper_dagger", "weapon")
