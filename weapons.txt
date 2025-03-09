@@ -34,15 +34,39 @@ Fire Staff (fire_staff) (ash_plank 5, red_slimeball 2)
 
 === Weaponcrafting 10 ===
 
-Iron dagger (iron_dagger) (copper 2, iron 6)
-24 Attack Air
-
-Greater Wooden Staff (greater_wooden_staff) (ash_plank 3, spruce_plank 4)
-24 Attack Water
-
-Iron sword (iron_sword) (iron 8)
+Iron sword (iron_sword) (iron 6, feather 2)
 24 Attack Earth
+5% Critical Strike
 
-Fire bow (fire_bow) (spruce_plank 4, red_slimeball 2)
-24 Attack Fire
+Iron dagger (iron_dagger) (iron 6, feather 2)
+17 Attack Air
+35% Critical Strike
+
+Greater Wooden Staff (greater_wooden_staff) (spruce_plank 6, blue_slimeball 2)
+24 Attack Water
+5% Critical Strike
+
+Fire bow (fire_bow) (spruce_plank 6, red_slimeball 2)
+17 Attack Fire
+35% Critical Strike
+
+Iron Pickaxe (iron_pickaxe) (spruce_plank 2, iron 8, jasper_crystal 1)
+Tool: Reduces cooldown by 10% when a character mines a resource.
+5 Attack Earth
+-10 % Cooldown
+
+Iron Axe (iron_axe) (spruce_plank 2, iron 8, jasper_crystal 1)
+Tool: Reduces cooldown by 10% when a character logs a tree.
+5 Attack Earth
+-10 % Cooldown
+
+Spruce Fishing Rod (spruce_fishing_rod) (spruce_plank 8, iron 2, jasper_crystal 1)
+Tool: Reduces cooldown by 10% when a character is fishing.
+5 Attack Water
+-10 % Cooldown
+
+Leather Gloves (leather_gloves) (ash_plank 2, cowhide 8, jasper_crystal 1)
+Tool: Reduces cooldown by 10% when a character harvest a plant.
+5 Attack Air
+-10 % Cooldown
 
