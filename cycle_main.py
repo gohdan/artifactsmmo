@@ -36,10 +36,16 @@ while True:
                 "copper_boots": 1,
                 "copper_helmet": 1,
                 "wooden_shield": 1,
-                "copper_ring": 1,
+                "copper_ring": 2,
                 "copper_armor": 1,
                 "copper_legs_armor": 1,
-                "life_amulet": 1
+                "life_amulet": 2,
+                "feather_coat": 1,
+                "small_health_potion": 10,
+                "cooked_gudgeon": 10,
+                "cooked_chicken": 10,
+                "cooked_beef": 10,
+                "fried_eggs": 10
             }
             if "sticky_dagger" not in inventory_items:
                 belongings["copper_dagger"] = 1
@@ -144,11 +150,19 @@ while True:
             do_move(x, y)
             cycle_fight(10)
 
-        case level if 8 <= level:
+        case level if 8 <= level < 10:
             # cow (8)
             print ("=== fight cow ===")
             do_equip_to_monster("cow")
             x, y = 0, 2
+            do_move(x, y)
+            cycle_fight(10)
+
+        case level if 10 <= level:
+            # mushmush (10)
+            print ("=== fight mushmush ===")
+            do_equip_to_monster("mushmush")
+            x, y = 5, 3
             do_move(x, y)
             cycle_fight(10)
 

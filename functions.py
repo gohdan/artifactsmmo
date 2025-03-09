@@ -115,17 +115,41 @@ def do_gathering():
     time.sleep(cooldown)
 
 def do_fight():
+    max_hp = get_character_parameter(character, "max_hp")
+    print ("max_hp: {}".format(max_hp))
 
     while True:
         hp = get_character_parameter(character, "hp")
-        max_hp = get_character_parameter(character, "max_hp")
+        hp_diff = max_hp - hp
 
-        print ("hp:", hp)
-        print ("max_hp:", max_hp)
+        print ("hp: {}".format(hp))
+        print ("hp_diff: {}".format(hp_diff))
 
-        if hp < max_hp:
-            print ("hp < max_hp, do rest")
-            do_rest(character)
+        if 0 != hp_diff:
+            print ("hp < max_hp")
+            inventory_items = get_inventory_items()
+            print("inventory_items:{}".format(inventory_items))
+
+            if "fried_eggs" in inventory_items or "cooked_beef" in inventory items or "cooked_chicken" in inventory_items or "cooked_gudgeon" in inventory_items:
+                print("have consumables, using to heal"
+                match hp_diff:
+                    case hp_diff if 1 <= hp_diff < 80:
+                        if "cooked_chicken" in inventory_items:
+                            use_item("cooked_chicken", 1)
+                        elif "cooked_gudgeon" in inventory_items:
+                            use_item("cooked_gudgeon", 1)
+                    case hp_diff if 80 <= hp_diff :
+                        if "cooked_beef" in inventory_items:
+                            use_item("cooked_beef", 1)
+                        elif "fried_eggs" in inventory_items:
+                            use_item("fried_eggs", 1)
+                        elif "cooked_chicken" in inventory_items:
+                            use_item("cooked_chicken", 1)
+                        elif "cooked_gudgeon" in inventory_items:
+                           use_item("cooked_gudgeon", 1)
+            else:
+                print("have no consumables, do rest")
+                do_rest(character)
         else:
             break
 
@@ -738,17 +762,32 @@ def do_equip_to_monster(monster):
             elif "wooden_stick" in inventory_items:
                 do_equip("wooden_stick", "weapon")
 
+            if "copper_armor" in inventory_items:
+                do_equip("copper_armor", "body_armor")
+
+            if "copper_ring" in inventory_items:
+                do_equip("copper_ring", "ring1")
+            if "copper_ring" in inventory_items:
+                do_equip("copper_ring", "ring2")
+            if "small_health_potion" in inventory_items:
+                do_equip("small_health_potion", "utility1")
+            if "small_health_potion" in inventory_items:
+                do_equip("small_health_potion", "utility2")
+
             if "wooden_shield" in inventory_items:
                 do_equip("wooden_shield", "shield")
-
+            if "copper_legs_armor" in inventory_items:
+                do_equip("copper_legs_armor", "leg_armor")
             if "copper_boots" in inventory_items:
                 do_equip("copper_boots", "boots")
             if "copper_helmet" in inventory_items:
                 do_equip("copper_helmet", "helmet")
-            if "copper_ring" in inventory_items:
-                do_equip("copper_ring", "ring1")
+            if "life_amulet" in inventory_items:
+                do_equip("life_amulet", "amulet")
 
         case monster if "yellow_slime" == monster:
+            # 25% Res Earth
+
             if "sticky_dagger" in inventory_items:
                 do_equip("sticky_dagger", "weapon")
             if "copper_dagger" in inventory_items:
@@ -758,17 +797,34 @@ def do_equip_to_monster(monster):
             elif "wooden_stick" in inventory_items:
                 do_equip("wooden_stick", "weapon")
 
+            if "feather_coat" in inventory_items:
+                do_equip("feather_coat", "body_armor")
+            elif "copper_armor" in inventory_items:
+                do_equip("copper_armor", "body_armor")
+
+            if "copper_ring" in inventory_items:
+                do_equip("copper_ring", "ring1")
+            if "copper_ring" in inventory_items:
+                do_equip("copper_ring", "ring2")
+            if "small_health_potion" in inventory_items:
+                do_equip("small_health_potion", "utility1")
+            if "small_health_potion" in inventory_items:
+                do_equip("small_health_potion", "utility2")
+
             if "wooden_shield" in inventory_items:
                 do_equip("wooden_shield", "shield")
-
+            if "copper_legs_armor" in inventory_items:
+                do_equip("copper_legs_armor", "leg_armor")
             if "copper_boots" in inventory_items:
                 do_equip("copper_boots", "boots")
             if "copper_helmet" in inventory_items:
                 do_equip("copper_helmet", "helmet")
-            if "copper_ring" in inventory_items:
-                do_equip("copper_ring", "ring1")
+            if "life_amulet" in inventory_items:
+                do_equip("life_amulet", "amulet")
 
         case monster if "green_slime" == monster:
+            # 25% Res Air
+
             if "sticky_sword" in inventory_items:
                 do_equip("sticky_sword", "weapon")
             elif "wooden_staff" in inventory_items:
@@ -780,21 +836,34 @@ def do_equip_to_monster(monster):
             elif "wooden_stick" in inventory_items:
                 do_equip("wooden_stick", "weapon")
 
-            if "wooden_shield" in inventory_items:
-                do_equip("wooden_shield", "shield")
-
             if "copper_armor" in inventory_items:
                 do_equip("copper_armor", "body_armor")
+            elif "feather_coat" in inventory_items:
+                do_equip("feather_coat", "body_armor")
+
+            if "copper_ring" in inventory_items:
+                do_equip("copper_ring", "ring1")
+            if "copper_ring" in inventory_items:
+                do_equip("copper_ring", "ring2")
+            if "small_health_potion" in inventory_items:
+                do_equip("small_health_potion", "utility1")
+            if "small_health_potion" in inventory_items:
+                do_equip("small_health_potion", "utility2")
+
+            if "wooden_shield" in inventory_items:
+                do_equip("wooden_shield", "shield")
             if "copper_legs_armor" in inventory_items:
                 do_equip("copper_legs_armor", "leg_armor")
             if "copper_boots" in inventory_items:
                 do_equip("copper_boots", "boots")
             if "copper_helmet" in inventory_items:
                 do_equip("copper_helmet", "helmet")
-            if "copper_ring" in inventory_items:
-                do_equip("copper_ring", "ring1")
+            if "life_amulet" in inventory_items:
+                do_equip("life_amulet", "amulet")
 
         case monster if "blue_slime" == monster:
+            # 25% Res Water
+
             if "sticky_sword" in inventory_items:
                 do_equip("sticky_sword", "weapon")
             elif "sticky_dagger" in inventory_items:
@@ -806,21 +875,34 @@ def do_equip_to_monster(monster):
             elif "wooden_stick" in inventory_items:
                 do_equip("wooden_stick", "weapon")
 
-            if "wooden_shield" in inventory_items:
-                do_equip("wooden_shield", "shield")
-
             if "copper_armor" in inventory_items:
                 do_equip("copper_armor", "body_armor")
+            elif "feather_coat" in inventory_items:
+                do_equip("feather_coat", "body_armor")
+
+            if "copper_ring" in inventory_items:
+                do_equip("copper_ring", "ring1")
+            if "copper_ring" in inventory_items:
+                do_equip("copper_ring", "ring2")
+            if "small_health_potion" in inventory_items:
+                do_equip("small_health_potion", "utility1")
+            if "small_health_potion" in inventory_items:
+                do_equip("small_health_potion", "utility2")
+
+            if "wooden_shield" in inventory_items:
+                do_equip("wooden_shield", "shield")
             if "copper_legs_armor" in inventory_items:
                 do_equip("copper_legs_armor", "leg_armor")
             if "copper_boots" in inventory_items:
                 do_equip("copper_boots", "boots")
             if "copper_helmet" in inventory_items:
                 do_equip("copper_helmet", "helmet")
-            if "copper_ring" in inventory_items:
-                do_equip("copper_ring", "ring1")
+            if "life_amulet" in inventory_items:
+                do_equip("life_amulet", "amulet")
 
         case monster if "red_slime" == monster:
+            # 25% Res Fire
+
             if "water_bow" in inventory_items:
                 do_equip("water_bow", "weapon")
             elif "sticky_sword" in inventory_items:
@@ -834,24 +916,34 @@ def do_equip_to_monster(monster):
             elif "wooden_stick" in inventory_items:
                 do_equip("wooden_stick", "weapon")
 
+            if "feather_coat" in inventory_items:
+                do_equip("feather_coat", "body_armor")
+            elif "copper_armor" in inventory_items:
+                do_equip("copper_armor", "body_armor")
+
+            if "copper_ring" in inventory_items:
+                do_equip("copper_ring", "ring1")
+            if "copper_ring" in inventory_items:
+                do_equip("copper_ring", "ring2")
+            if "small_health_potion" in inventory_items:
+                do_equip("small_health_potion", "utility1")
+            if "small_health_potion" in inventory_items:
+                do_equip("small_health_potion", "utility2")
+
             if "wooden_shield" in inventory_items:
                 do_equip("wooden_shield", "shield")
-
-            if "copper_armor" in inventory_items:
-                do_equip("copper_armor", "body_armor")
             if "copper_legs_armor" in inventory_items:
                 do_equip("copper_legs_armor", "leg_armor")
             if "copper_boots" in inventory_items:
                 do_equip("copper_boots", "boots")
             if "copper_helmet" in inventory_items:
                 do_equip("copper_helmet", "helmet")
-            if "copper_ring" in inventory_items:
-                do_equip("copper_ring", "ring1")
-
             if "life_amulet" in inventory_items:
                 do_equip("life_amulet", "amulet")
 
         case monster if "cow" == monster:
+            # -30% Res Earth, 30% Res Water
+
             if "sticky_sword" in inventory_items:
                 do_equip("sticky_sword", "weapon")
             elif "wooden_staff" in inventory_items:
@@ -859,20 +951,65 @@ def do_equip_to_monster(monster):
             elif "wooden_stick" in inventory_items:
                 do_equip("wooden_stick", "weapon")
 
-            if "wooden_shield" in inventory_items:
-                do_equip("wooden_shield", "shield")
-
             if "copper_armor" in inventory_items:
                 do_equip("copper_armor", "body_armor")
+            elif "feather_coat" in inventory_items:
+                do_equip("feather_coat", "body_armor")
+
+            if "copper_ring" in inventory_items:
+                do_equip("copper_ring", "ring1")
+            if "copper_ring" in inventory_items:
+                do_equip("copper_ring", "ring2")
+            if "small_health_potion" in inventory_items:
+                do_equip("small_health_potion", "utility1")
+            if "small_health_potion" in inventory_items:
+                do_equip("small_health_potion", "utility2")
+
+            if "wooden_shield" in inventory_items:
+                do_equip("wooden_shield", "shield")
             if "copper_legs_armor" in inventory_items:
                 do_equip("copper_legs_armor", "leg_armor")
             if "copper_boots" in inventory_items:
                 do_equip("copper_boots", "boots")
             if "copper_helmet" in inventory_items:
                 do_equip("copper_helmet", "helmet")
+            if "life_amulet" in inventory_items:
+                do_equip("life_amulet", "amulet")
+
+        case monster if "mushmush" == monster:
+            # -30% Res Earth, 30% Res Water
+
+            if "sticky_dagger" in inventory_items:
+                do_equip("sticky_dagger", "weapon")
+            if "copper_dagger" in inventory_items:
+                do_equip("copper_dagger", "weapon")
+            elif "wooden_staff" in inventory_items:
+                do_equip("wooden_staff", "weapon")
+            elif "wooden_stick" in inventory_items:
+                do_equip("wooden_stick", "weapon")
+
+            if "feather_coat" in inventory_items:
+                do_equip("feather_coat", "body_armor")
+            elif "copper_armor" in inventory_items:
+                do_equip("copper_armor", "body_armor")
+
             if "copper_ring" in inventory_items:
                 do_equip("copper_ring", "ring1")
+            if "copper_ring" in inventory_items:
+                do_equip("copper_ring", "ring2")
+            if "small_health_potion" in inventory_items:
+                do_equip("small_health_potion", "utility1")
+            if "small_health_potion" in inventory_items:
+                do_equip("small_health_potion", "utility2")
 
+            if "wooden_shield" in inventory_items:
+                do_equip("wooden_shield", "shield")
+            if "copper_legs_armor" in inventory_items:
+                do_equip("copper_legs_armor", "leg_armor")
+            if "copper_boots" in inventory_items:
+                do_equip("copper_boots", "boots")
+            if "copper_helmet" in inventory_items:
+                do_equip("copper_helmet", "helmet")
             if "life_amulet" in inventory_items:
                 do_equip("life_amulet", "amulet")
 
@@ -939,4 +1076,54 @@ def if_requisites_available(requisites, bank_items, inventory_available):
             requisites_available = 0
 
     return requisites_available
+
+def use_item(name, qty):
+    print ("use item")
+
+    print("name: {}, qty: {}".format(name, qty)
+
+    url = f"{server}/my/{character}/action/use"
+
+    headers = {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Authorization": f"Bearer {token}"
+    }
+
+    raw_data = f'{{"code" : {name}, "quantity": {qty}}}'
+
+    response = requests.post(url, headers=headers, data=raw_data)
+
+    cooldown = 1
+
+    if response.status_code == 404:
+        print("Item not found")
+    elif response.status_code == 476:
+        print("This item is not a consumable")
+    elif response.status_code == 478:
+        print("Missing item or insufficient quantity")
+    elif response.status_code == 486:
+        print("An action is already in progress by your character")
+    elif response.status_code == 496:
+        print("Character level is insufficient")
+    elif response.status_code == 498:
+        print("Character not found")
+    elif response.status_code == 499:
+        print("Character in cooldown")
+        cooldown = buy_bank_expansion(x, y);
+    elif response.status_code != 200:
+        print("An error occured while doing api request")
+        print("status code:", response.status_code)
+    else:
+        print("Request successful")
+        data = response.json()["data"]
+        cooldown = data["cooldown"]["total_seconds"]
+
+    print("Cooldown:", cooldown)
+    if cooldown is None:
+        print("cooldown is None, setting it to 60")
+        cooldown = 60
+        print("Cooldown:", cooldown)
+
+    time.sleep(cooldown)
 
