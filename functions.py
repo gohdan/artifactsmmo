@@ -115,43 +115,10 @@ def do_gathering():
     time.sleep(cooldown)
 
 def do_fight():
-    max_hp = get_character_parameter(character, "max_hp")
-    print ("max_hp: {}".format(max_hp))
 
-    while True:
-        hp = get_character_parameter(character, "hp")
-        hp_diff = max_hp - hp
+    print("*** do_fight ***")
 
-        print ("hp: {}".format(hp))
-        print ("hp_diff: {}".format(hp_diff))
-
-        if 0 != hp_diff:
-            print ("hp < max_hp")
-            inventory_items = get_inventory_items()
-            print("inventory_items:{}".format(inventory_items))
-
-            if "fried_eggs" in inventory_items or "cooked_beef" in inventory_items or "cooked_chicken" in inventory_items or "cooked_gudgeon" in inventory_items:
-                print("have consumables, using to heal")
-                match hp_diff:
-                    case hp_diff if 1 <= hp_diff < 80:
-                        if "cooked_chicken" in inventory_items:
-                            use_item("cooked_chicken", 1)
-                        elif "cooked_gudgeon" in inventory_items:
-                            use_item("cooked_gudgeon", 1)
-                    case hp_diff if 80 <= hp_diff :
-                        if "cooked_beef" in inventory_items:
-                            use_item("cooked_beef", 1)
-                        elif "fried_eggs" in inventory_items:
-                            use_item("fried_eggs", 1)
-                        elif "cooked_chicken" in inventory_items:
-                            use_item("cooked_chicken", 1)
-                        elif "cooked_gudgeon" in inventory_items:
-                           use_item("cooked_gudgeon", 1)
-            else:
-                print("have no consumables, do rest")
-                do_rest(character)
-        else:
-            break
+    do_heal();
 
     url = f"{server}/my/{character}/action/fight"
 
@@ -689,6 +656,10 @@ def do_unequip_all():
 
     print("*** do_unequip_all");
 
+    print("do heal - needed to unequip items that give additional hp")
+
+    do_heal()
+
     slots = {'weapon', 'shield', 'helmet', 'body_armor', 'leg_armor', 'boots', 'ring1', 'ring2', 'amulet', 'artifact1', 'artifact2', 'artifact3', 'utility1', 'utility2', 'bag', 'rune'}
 
     for slot in slots:
@@ -1094,7 +1065,7 @@ def use_item(name, qty):
         "Authorization": f"Bearer {token}"
     }
 
-    raw_data = f'{{"code" : {name}, "quantity": {qty}}}'
+    raw_data = f'{{"code" : "{name}", "quantity": "{qty}"}}'
 
     response = requests.post(url, headers=headers, data=raw_data)
 
@@ -1130,4 +1101,45 @@ def use_item(name, qty):
         print("Cooldown:", cooldown)
 
     time.sleep(cooldown)
+
+def do_heal():
+    print("*** do_heal ***")
+
+    max_hp = get_character_parameter(character, "max_hp")
+    print ("max_hp: {}".format(max_hp))
+
+    while True:
+        hp = get_character_parameter(character, "hp")
+        hp_diff = max_hp - hp
+
+        print ("hp: {}".format(hp))
+        print ("hp_diff: {}".format(hp_diff))
+
+        if 0 != hp_diff:
+            print ("hp < max_hp")
+            inventory_items = get_inventory_items()
+            print("inventory_items:{}".format(inventory_items))
+
+            if "fried_eggs" in inventory_items or "cooked_beef" in inventory_items or "cooked_chicken" in inventory_items or "cooked_gudgeon" in inventory_items:
+                print("have consumables, using to heal")
+                match hp_diff:
+                    case hp_diff if 1 <= hp_diff < 80:
+                        if "cooked_chicken" in inventory_items:
+                            use_item("cooked_chicken", 1)
+                        elif "cooked_gudgeon" in inventory_items:
+                            use_item("cooked_gudgeon", 1)
+                    case hp_diff if 80 <= hp_diff :
+                        if "cooked_beef" in inventory_items:
+                            use_item("cooked_beef", 1)
+                        elif "fried_eggs" in inventory_items:
+                            use_item("fried_eggs", 1)
+                        elif "cooked_chicken" in inventory_items:
+                            use_item("cooked_chicken", 1)
+                        elif "cooked_gudgeon" in inventory_items:
+                           use_item("cooked_gudgeon", 1)
+            else:
+                print("have no consumables, do rest")
+                do_rest(character)
+        else:
+            break
 
