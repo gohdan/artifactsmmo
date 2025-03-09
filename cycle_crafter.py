@@ -195,7 +195,7 @@ while True:
         case weaponcrafting_level if 1 <= weaponcrafting_level < 5:
             print("craft copper_dagger and wooden_staff")
             target_items = ['copper_dagger', 'wooden_staff']
-        case weaponcrafting_level if 5 <= weaponcrafting_level:
+        case weaponcrafting_level if 5 <= weaponcrafting_level < 10:
             print("craft fire_staff, sticky_dagger, sticky_sword, water_bow")
             if (bank_items['sticky_sword'] <= bank_items['sticky_dagger']) and (bank_items['sticky_sword'] <= bank_items['copper_armor']) and (bank_items['sticky_sword'] <= bank_items['copper_legs_armor']):
                 target_items.append('sticky_sword')
@@ -205,6 +205,27 @@ while True:
                 target_items.append('fire_staff')
             if (bank_items['water_bow'] <= bank_items['fire_staff']) and (bank_items['water_bow'] <= bank_items['feather_coat']):
                 target_items.append('water_bow')
+        case weaponcrafting_level if 10 <= weaponcrafting_level:
+            print("craft iron pickaxe, iron_axe, spruce_fishing_rod, leather_gloves, iron_sword, iron_dagger, greater_wooden_staff, fire_bow")
+            target_items = ['leather_gloves']
+
+            if (bank_items['iron_pickaxe'] <= bank_items['iron_axe']) and (bank_items['iron_pickaxe'] <= bank_items['spruce_fishing_rod']):
+                target_items.append('iron_pickaxe')
+            if (bank_items['iron_axe'] <= bank_items['iron_pickaxe']) and (bank_items['iron_axe'] <= bank_items['spruce_fishing_rod']):
+                target_items.append('iron_axe')
+            if (bank_items['spruce_fishing_rod'] <= bank_items['iron_axe']) and (bank_items['spruce_fishing_rod'] <= bank_items['iron_pickaxe']):
+                target_items.append('spruce_fishing_rod')
+
+            if (bank_items['iron_dagger'] <= bank_items['iron_sword']): 
+                target_items.append('iron_dagger')
+            if (bank_items['iron_sword'] <= bank_items['iron_dagger']): 
+                target_items.append('iron_sword')
+
+            if (bank_items['greater_wooden_staff'] <= bank_items['fire_bow']): 
+                target_items.append('greater_wooden_staff')
+            if (bank_items['fire_bow'] <= bank_items['greater_wooden_staff']): 
+                target_items.append('fire_bow')
+
         case _:
             # default values
             print("craft copper dagger and wooden_staff (default values)")
@@ -228,6 +249,23 @@ while True:
                 requisites = {'blue_slimeball': 2, 'ash_plank': 5}
             case target_item if "fire_staff" == target_item:
                 requisites = {'red_slimeball': 2, 'ash_plank': 5}
+            # 10 level
+            case target_item if "iron_sword" == target_item:
+                requisites = {'iron': 6, 'feather': 2}
+            case target_item if "iron_dagger" == target_item:
+                requisites = {'iron': 6, 'feather': 2}
+            case target_item if "greater_wooden_staff" == target_item:
+                requisites = {'spruce_plank': 6, 'blue_slimeball': 2}
+            case target_item if "fire_bow" == target_item:
+                requisites = {'spruce_plank': 6, 'red_slimeball': 2}
+            case target_item if "leather_gloves" == target_item:
+                requisites = {'ash_plank': 2, 'cowhide': 8, 'jasper_crystal': 1}
+            case target_item if "iron_pickaxe" == target_item:
+                requisites = {'spruce_plank': 2, 'iron': 8, 'jasper_crystal': 1}
+            case target_item if "iron_axe" == target_item:
+                requisites = {'spruce_plank': 2, 'iron': 8, 'jasper_crystal': 1}
+            case target_item if "spruce_fishing_rod" == target_item:
+                requisites = {'spruce_plank': 8, 'iron': 2, 'jasper_crystal': 1}
             case _:
                 # default values
                 print("didn't found requisites")
