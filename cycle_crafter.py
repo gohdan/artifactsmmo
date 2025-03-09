@@ -105,7 +105,7 @@ while True:
     for i in bank_contents:
         bank_items[i['code']] = i['quantity']
 
-    concurrents = {'sticky_sword', 'sticky_dagger', 'water_bow', 'fire_staff', 'copper_armor', 'copper_legs_armor', 'feather_coat'}
+    concurrents = {'sticky_sword', 'sticky_dagger', 'water_bow', 'fire_staff', 'copper_armor', 'copper_legs_armor', 'feather_coat', 'iron_sword', 'iron_dagger', 'greater_wooden_staff', 'fire_bow', 'iron_pickaxe', 'iron_axe', 'spruce_fishing_rod', 'leather_gloves'}
     for concurrent in concurrents:
         if concurrent not in bank_items:
             bank_items[concurrent] = 0
