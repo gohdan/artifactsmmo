@@ -1080,7 +1080,7 @@ def if_requisites_available(requisites, bank_items, inventory_available):
 def use_item(name, qty):
     print ("use item")
 
-    print("name: {}, qty: {}".format(name, qty)
+    print("name: {}, qty: {}".format(name, qty))
 
     url = f"{server}/my/{character}/action/use"
 
