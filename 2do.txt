@@ -1,5 +1,6 @@
 === 2DO ===
 
+Move from unequip all to get equip info from character data
 Determine best elemental weapon that is in inventory and equip it
 Determine best body armor that is in inventory and equip it
 
