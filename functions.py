@@ -130,7 +130,7 @@ def do_fight():
             inventory_items = get_inventory_items()
             print("inventory_items:{}".format(inventory_items))
 
-            if "fried_eggs" in inventory_items or "cooked_beef" in inventory items or "cooked_chicken" in inventory_items or "cooked_gudgeon" in inventory_items:
+            if "fried_eggs" in inventory_items or "cooked_beef" in inventory_items or "cooked_chicken" in inventory_items or "cooked_gudgeon" in inventory_items:
                 print("have consumables, using to heal"
                 match hp_diff:
                     case hp_diff if 1 <= hp_diff < 80:
