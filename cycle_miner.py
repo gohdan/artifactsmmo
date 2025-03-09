@@ -182,7 +182,7 @@ while True:
             do_bank_withdraw('copper_ore', copper_ore_in_bank_qty)
             copper_limit = copper_limit - copper_ore_in_bank_qty
 
-    iront_ore_in_bank_qty = get_item_in_bank_qty('iron_ore')
+    iron_ore_in_bank_qty = get_item_in_bank_qty('iron_ore')
     print("iron_ore_in_bank_qty:{}".format(iron_ore_in_bank_qty))
     if 0 != iron_ore_in_bank_qty:
         if iron_ore_in_bank_qty > iron_limit:
