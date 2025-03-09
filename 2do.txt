@@ -1,166 +1,189 @@
-=== DONE ===
+=== 2DO ===
+
+Determine best elemental weapon that is in inventory and equip it
+Determine best body armor that is in inventory and equip it
+
+Bank items paging
+
+Task Master
+Rune vendor
+Grand Exchange
+Items recycling
+Events
+
+
 
 Main:
-Fight flying serpent (12)
-Fight mushmush (10)
-Fight cow (8)
-Fight red slime (7)
-Fight blue slime (6)
 
-
+Fight Flying Serpent (12)
 
 Carpenter:
-Ash wood (Woodcutting 1)
-Ash wood => Ash plank (Woodcutting 1)
-Spruce wood (Woodcutting 10)
-Spruce wood => Spruce plank (Woodcutting 10)
-Birch wood (Woodcutting 20)
-Birch wood, ash wood => Hardwood plank (Woodcutting 20)
-Fight chicken (1)
-Fight yellow slime (2)
-Fight green slime (4)
-Fight blue slime (6)
+
+Gather dead wood (Woodcutting 30)
+Craft dead wood plank (Woodcutting 30)
 
 
 Miner:
-Copper ore (Mining 1)
-Copper ore => Copper (Mining 1)
-Iron ore (Mining 10)
-Iron ore => Iron (Mining 10)
-Coal (Mining 20)
-Coal, Iron ore => Steel (Mining 20)
-Gold ore (Mining 30)
-Gold ore => Gold (Mining 30)
-Fight chicken (1)
-Fight yellow slime (2)
-Fight green slime (4)
-Fight blue slime (6)
+
+Craft sapphire (Mining 20)
+Craft emerald (Mining 20)
+Craft ruby (Mining 20)
+Craft topaz (Mining 20)
+
+Gather gold ore (Mining 30)
+Craft gold (Mining 30)
+
 
 
 Fisher:
-Gudgeon (Fishing 1)
-Shrimp (Fishing 10)
-Trout (Fishing 20)
-Bass (Fishing 30)
-Fight chicken (1)
-Fight yellow slime (2)
-Fight green slime (4)
-Fight blue slime (6)
+
+Gather bass (Fishing 30)
+
 
 
 Crafter:
 
-Ash plank => Wooden stick (Weaponcrafting 1)
-Ash plank + Wooden stick => Wooden staff (Weaponcrafting 1)
-Copper => Copper dagger (Weaponcrafting 1)
-Ash plank => Wooden shield (Gearcrafting 1)
-Copper => Copper helmet (Gearcrafting 1)
-Copper => Copper boots (Gearcrafting 1)
-Copper => Copper ring (Jewelrycrafting 1)
-Feather => Feather coat (Gearcrafting 5)
-Copper => Copper armor (Gearcrafting 5)
-Copper => Copper legs armor (Gearcrafting 5)
-Copper, green slime ball => Sticky dagger (Weaponcrafting 5)
-Copper, yellow slime ball => Sticky sword (Weaponcrafting 5)
-Ash plank, blue slime ball => Water bow (Weaponcrafting 5)
-Ash plank, red slime ball => Fire staff (Weaponcrafting 5)
-Blue slimeball, red slimeball, cowhide => Life Amulet (Jewelrycrafting 5)
-Copper, iron => Iron dagger (Weaponcrafting 10)
-Ash plank, spruce plank => Greater wooden staff (Weaponcrafting 10)
-Iron => Iron sword (Weaponcrafting 10)
-Spruce plank, red slime ball => Fire bow (Weaponcrafting 10)
+Cooked shrimp (Cooking 10)
+Cheese (Cooking 10)
+Iron sword (Weaponcrafting 10)
+Greater wooden staff (Weaponcrafting 10)
+Iron dagger (Weaponcrafting 10)
+Fire bow (Weaponcrafting 10)
+Iron pickaxe (Weaponcrafting 10)
+Iron axe (Weaponcrafting 10)
+Spruce fishing rod (Weaponcrafting 10)
+Leather gloves (Weaponcrafting 10)
+Iron boots (Gearcrafting 10)
+Leather boots (Gearcrafting 10)
+Leather armor (Gearcrafting 10)
+Adventurer helmet (Gearcrafting 10)
+Iron armor (Gearcrafting 10)
+Iron legs armor (Gearcrafting 10)
+Adventurer vest (Gearcrafting 10)
+Iron helm (Gearcrafting 10)
+Leather hat (Gearcrafting 10)
+Slime shield (Gearcrafting 10)
+Leather legs armor (Gearcrafting 10)
+Fire & earth amulet (Jewelrycrafting 10)
+Air & water amulet (Jewelrycrafting 10)
+Iron ring (Jewelrycrafting 10)
+Earth boost potion (Alchemy 10)
+Air boost potion (Alchemy 10)
+Fire boost potion (Alchemy 10)
+Water boost postion (Alchemy 10)
 
-Gudgeon => Cooked gudgeon (Cooking 1)
-Raw chicken => Cooked chicken (Cooking 1)
-Raw beef => Cooked beef (Cooking 5)
-Shrimp => Cooked shrimp (Cooking 10)
+
+
+
+
+
+=== DONE ===
+
+Main:
+
+Fight yellow slime (2)
+Fight green slime (4)
+Fight blue slime (6)
+Fight red slime (7)
+Fight cow (8)
+Fight Fmushmush (10)
+
+
+
+Carpenter:
+
+Gather ash wood (Woodcutting 1)
+Craft ash plank (Woodcutting 1)
+
+Gather spruce wood (Woodcutting 10)
+Craft spruce plank (Woodcutting 10)
+
+Gather birch wood (Woodcutting 20)
+Craft hardwood plank (Woodcutting 20)
 
 Fight chicken (1)
 Fight yellow slime (2)
 Fight green slime (4)
 Fight blue slime (6)
-
-=== 2DO ===
-
-Actions:
-Deposit all items of certain type that is in inventory
-Withdraw items from bank only if there is enough of them
-Change equip only if it differs
-Before crafting check if there are all prerequisites in inventory 
-Get and equip consumables before fights
-Craft only items that are scarce
+Fight red slime (7)
+Fight cow (8)
 
 
 
-Crafting:
+Miner:
 
-Consumables - Cookcrafting 10:
-Cheese
-Fried Eggs
-Mushroom Soup
-Beef Stew
+Gather copper ore (Mining 1)
+Craft copper (Mining 1)
 
-Weapon - Weaponcrafting 15:
-Multislimes sword
-Mushstaff
-Mushmush bow
+Gather iron ore (Mining 10)
+Craft iron (Mining 10)
 
-Craft tools - Weaponcrafting 10:
-Iron pickaxe
-Iron axe
-Spruce fishing rod
+Gather coal (Mining 20)
+Craft steel (Mining 20)
 
-Boots - Gearcrafting 10:
-Iron boots
-Leather boots
-
-Helmet - Gearcrafting 10:
-Adventurer Helmet
-Iron Helm
-Leather Hat
-
-Shield - Gearcrafting 10:
-Slime Shield
-
-Ring - Jewelrycrafting 10:
-Iron ring
-
-Leg Armor - Gearcrafting 10:
-Adventurer pants
-Iron Legs Armor
-
-Body Armor - Gearcrafting 10:
-Leather Armor
-Iron Armor
-Adventurer Vest
-
-Amulet - Jewelrycrafting 10:
-Fire & Earth Amulet
-Air & Water Amulet
+Fight chicken (1)
+Fight yellow slime (2)
+Fight green slime (4)
+Fight blue slime (6)
+Fight red slime (7)
+Fight cow (8)
 
 
 
+Fisher:
 
-Monsters:
-Wolf (15)
-Skeleton (18)
-Pig (19)
-Ogre (20)
-Vampire (24)
-Bandit Lizard (25)
-Death Knight (28)
-Owlbear (30)
-Lich (30)
-Demon (30)
+Gather gudgeon (Fishing 1)
+Gather shrimp (Fishing 10)
+Gather trout (Fishing 20)
 
-
-
-Bank info - https://api.artifactsmmo.com/my/bank/items?page=1&size=100
-
-
-Task Master
+Fight chicken (1)
+Fight yellow slime (2)
+Fight green slime (4)
+Fight blue slime (6)
+Fight red slime (7)
+Fight cow (8)
 
 
 
-Grand Exchange
+Crafter:
+
+Buy bank extensions
+
+Cooked gudgeon (Cooking 1)
+Cooked chicken (Cooking 1)
+
+Gather sunflower (Alchemy 1)
+
+Wooden staff (Weaponcrafting 1)
+Copper dagger (Weaponcrafting 1)
+
+Wooden shield (Gearcrafting 1)
+Copper helmet (Gearcrafting 1)
+Copper boots (Gearcrafting 1)
+
+Copper ring (Jewelrycrafting 1)
+
+Cooked beef (Cooking 5)
+Fried eggs (Cooking 5)
+
+Craft small health potion (Alchemy 5)
+
+Sticky dagger (Weaponcrafting 5)
+Sticky sword (Weaponcrafting 5)
+Water bow (Weaponcrafting 5)
+Fire staff (Weaponcrafting 5)
+
+Satchel (Gearcrafting 5)
+Feather coat (Gearcrafting 5)
+Copper armor (Gearcrafting 5)
+Copper legs armor (Gearcrafting 5)
+
+Life Amulet (Jewelrycrafting 5)
+
+Fight chicken (1)
+Fight yellow slime (2)
+Fight green slime (4)
+Fight blue slime (6)
+Fight red slime (7)
+Fight cow (8)
 
