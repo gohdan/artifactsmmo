@@ -325,6 +325,10 @@ def do_unequip(slot):
 
     if response.status_code == 404:
         print("Item not found")
+    elif response.status_code == 478:
+        print("Missing item or insufficient quantity")
+    elif response.status_code == 483:
+        print("Character has no enough HP to unequip this item")
     elif response.status_code == 486:
         print("Character is locked. Action is already in progress")
     elif response.status_code == 491:
