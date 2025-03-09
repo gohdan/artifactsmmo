@@ -1130,7 +1130,7 @@ def do_heal():
                         elif "cooked_gudgeon" in inventory_items:
                             print("use cooked_gudgeon")
                             use_item("cooked_gudgeon", 1)
-                        else
+                        else:
                             print("have no suitable consumables, do rest")
                             do_rest(character)
                     case hp_diff if 80 <= hp_diff :
@@ -1147,7 +1147,7 @@ def do_heal():
                         elif "cooked_gudgeon" in inventory_items:
                             print("use cooked_gudgeon")
                             use_item("cooked_gudgeon", 1)
-                        else
+                        else:
                             print("have no suitable consumables, do rest")
                             do_rest(character)
                     case _:
