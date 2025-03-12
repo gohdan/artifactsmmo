@@ -45,4 +45,91 @@ Bag:
 Satchel (cowhide 5, feather 2, jasper_crystal 1)
 Increase your inventory space by 15.
 
+=== Gearcrafting 10 ===
+
+Body armor:
+
+Leather armor (leather_armor) (spruce_plank 4, cowhide 4)
+50 HP
+8% Damage Air
+8% Damage Water
+2% Res Fire
+2% Res Earth
+
+Iron armor (iron_armor) (iron 5, cowhide 3)
+50 HP
+8% Damage Earth
+8% Damage Fire
+2% Res Water
+2% Res Air
+
+Adventurer vest (adventurer_vest) (feather 2, cowhide 6, spruce_plank 4, yellow_slimeball 4)
+60 HP
+6% Damage
+20 Wisdom
+
+
+
+Helmet:
+
+Leather hat (leather_hat) (cowhide 5, yellow_slimeball 3)
+40 HP
+5% Damage Air
+5% Damage Water
+4% Res Water
+4% Res Air
+
+Iron helm (iron_helm) (iron 5, feather 3)
+40 HP
+5% Damage Fire
+5% Damage Earth
+4% Res Fire
+4% Res Earth
+
+Adventurer helmet (adventurer_helmet) (feather 4, cowhide 3, spruce_plank 3, mushroom 4)
+50 HP
+5% Damage
+15 Wisdom
+
+
+
+Legs armor:
+
+Leather legs armor (leather_legs_armor) (spruce_plank 5, cowhide 3)
+50 HP
+1 Haste
+5% Damage Air
+5% Damage Water
+
+Iron legs armor (iron_legs_armor) (iron 5, cowhide 3)
+50 HP
+1 Haste
+5% Damage Fire
+5% Damage Earth
+
+
+
+Boots:
+
+Leather boots (leather_boots) (ash_plank 4, cowhide 4)
+40 HP
+3 Haste
+5% Res Fire
+5% Res Earth
+
+Iron boots (iron_boots) (iron 5, feather 3)
+40 HP
+3 Haste
+5% Res Water
+5% Res Air
+
+
+
+Shield:
+
+Slime shield (slime_shield) (spruce_plank 6, red_slimeball 3, yellow_slimeball 3, green_slimeball 3, blue_slimeball 3)
+4% Res Fire
+4% Res Earth
+4% Res Water
+4% Res Air
 
