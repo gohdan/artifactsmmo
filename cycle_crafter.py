@@ -299,7 +299,7 @@ while True:
         case gearcrafting_level if 1 <= gearcrafting_level < 5:
             print("craft wooden shield, copper boots and copper helmet")
             target_items = ['wooden_shield', 'copper_boots', 'copper_helmet']
-        case gearcrafting_level if 5 <= gearcrafting_level:
+        case gearcrafting_level if 5 <= gearcrafting_level < 10:
             print("craft feather_coat, copper_armor, copper_legs_armor and satchel")
             target_items = ['satchel']
             if (bank_items['feather_coat'] <= bank_items['fire_staff']) and (bank_items['feather_coat'] <= bank_items['water_bow']):
@@ -308,6 +308,27 @@ while True:
                 target_items.append('copper_armor')
             if (bank_items['copper_legs_armor'] <= bank_items['copper_armor']) and (bank_items['copper_legs_armor'] <= bank_items['sticky_sword']) and (bank_items['copper_legs_armor'] <= bank_items['sticky_dagger']):
                 target_items.append('copper_legs_armor')
+        case gearcrafting_level if 10 <= gearcrafting_level:
+            print("craft leather and iron stuff")
+            target_items = ['slime_shield']
+            if (bank_items['leather_armor'] <= bank_items['iron_armor']) and (bank_items['leather_armor'] <= bank_items['adventurer_vest']):
+                target_items.append('leather_armor')
+            if (bank_items['iron_armor'] <= bank_items['leather_armor']) and (bank_items['iron_armor'] <= bank_items['adventurer_vest']):
+                target_items.append('iron_armor')
+            if (bank_items['adventurer_vest'] <= bank_items['leather_armor']) and (bank_items['adventurer_vest'] <= bank_items['iron_armor']):
+                target_items.append('adventurer_vest')
+
+            if (bank_items['leather_hat'] <= bank_items['iron_helm']) and (bank_items['leather_hat'] <= bank_items['adventurer_helmet']):
+                target_items.append('leather_hat')
+            if (bank_items['iron_helm'] <= bank_items['leather_hat']) and (bank_items['iron_helm'] <= bank_items['adventurer_helmet']):
+                target_items.append('iron_helm')
+            if (bank_items['adventurer_helmet'] <= bank_items['leather_hat']) and (bank_items['adventurer_helmet'] <= bank_items['iron_helm']):
+                target_items.append('adventurer_helmet')
+
+            if (bank_items['leather_boots'] <= bank_items['iron_boots']):
+                target_items.append('leather_boots')
+            if (bank_items['iron_boots'] <= bank_items['leather_boots']):
+                target_items.append('iron_boots')
         case _:
             # default values
             print("craft wooden shield (default value)")
@@ -333,6 +354,30 @@ while True:
                 requisites = {'copper': 5, 'feather': 2}
             case target_item if "satchel" == target_item:
                 requisites = {'cowhide': 5, 'feather': 2, 'jasper_crystal': 1}
+            # 10 level
+            case target_item if "leather_armor" == target_item:
+                requisites = {'spruce_plank': 4, 'cowhide': 4}
+            case target_item if "iron_armor" == target_item:
+                requisites = {'iron': 5, 'cowhide': 3}
+            case target_item if "adventurer_vest" == target_item:
+                requisites = {'feather': 2, 'cowhide': 6, 'spruce_plank': 4, 'yellow_slimeball': 4}
+            case target_item if "leather_hat" == target_item:
+                requisites = {'cowhide': 5, 'yellow_slimeball': 3}
+            case target_item if "iron_helm" == target_item:
+                requisites = {'iron': 5, 'feather': 3}
+            case target_item if "adventurer_helmet" == target_item:
+                requisites = {'feather': 4, 'cowhide': 3, 'spruce_plank': 3, 'mushroom': 4}
+            case target_item if "leather_legs_armor" == target_item:
+                requisites = {'spruce_plank': 5, 'cowhide': 3}
+            case target_item if "iron_legs_armor" == target_item:
+                requisites = {'iron': 5, 'cowhide': 3}
+            case target_item if "leather_boots" == target_item:
+                requisites = {'ash_plank': 4, 'cowhide': 4}
+            case target_item if "iron_boots" == target_item:
+                requisites = {'iron': 5, 'feather': 3}
+            case target_item if "slime_shield" == target_item:
+                requisites = {'spruce_plank': 5, 'red_slimeball': 3, 'yellow_slimeball': 3, 'green_slimeball': 3, 'blue_slimeball': 3}
+
             case _:
                 # default values
                 print("didn't found requisites")
