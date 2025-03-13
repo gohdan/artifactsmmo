@@ -209,6 +209,7 @@ while True:
             print("craft iron pickaxe, iron_axe, spruce_fishing_rod, leather_gloves, iron_sword, iron_dagger, greater_wooden_staff, fire_bow")
             target_items = ['leather_gloves']
 
+            # tools:
             if (bank_items['iron_pickaxe'] <= bank_items['iron_axe']) and (bank_items['iron_pickaxe'] <= bank_items['spruce_fishing_rod']):
                 target_items.append('iron_pickaxe')
             if (bank_items['iron_axe'] <= bank_items['iron_pickaxe']) and (bank_items['iron_axe'] <= bank_items['spruce_fishing_rod']):
@@ -216,14 +217,16 @@ while True:
             if (bank_items['spruce_fishing_rod'] <= bank_items['iron_axe']) and (bank_items['spruce_fishing_rod'] <= bank_items['iron_pickaxe']):
                 target_items.append('spruce_fishing_rod')
 
-            if (bank_items['iron_dagger'] <= bank_items['iron_sword']): 
+            # iron based:
+            if (bank_items['iron_dagger'] <= bank_items['iron_sword']) and (bank_items['iron_dagger'] <= bank_items['iron_armor']) and (bank_items['iron_dagger'] <= bank_items['iron_helm']) and (bank_items['iron_dagger'] <= bank_items['iron_boots']) and (bank_items['iron_dagger'] <= bank_items['iron_legs_armor']): 
                 target_items.append('iron_dagger')
-            if (bank_items['iron_sword'] <= bank_items['iron_dagger']): 
+            if (bank_items['iron_sword'] <= bank_items['iron_dagger']) and (bank_items['iron_sword'] <= bank_items['iron_armor']) and (bank_items['iron_sword'] <= bank_items['iron_helm']) and (bank_items['iron_dagger'] <= bank_items['iron_boots']) and (bank_items['iron_dagger'] <= bank_items['iron_legs_armor']): 
                 target_items.append('iron_sword')
 
-            if (bank_items['greater_wooden_staff'] <= bank_items['fire_bow']): 
+            # spruce_plank based:
+            if (bank_items['greater_wooden_staff'] <= bank_items['fire_bow']) and (bank_items['greater_wooden_staff'] <= bank_items['leather_armor']) and (bank_items['greater_wooden_staff'] <= bank_items['adventurer_vest']) and (bank_items['greater_wooden_staff'] <= bank_items['adventurer_helmet']) and (bank_items['greater_wooden_staff'] <= bank_items['leather_legs_armor']) and (bank_items['greater_wooden_staff'] <= bank_items['slime_shield']): 
                 target_items.append('greater_wooden_staff')
-            if (bank_items['fire_bow'] <= bank_items['greater_wooden_staff']): 
+            if (bank_items['fire_bow'] <= bank_items['greater_wooden_staff']) and (bank_items['fire_bow'] <= bank_items['leather_armor']) and (bank_items['fire_bow'] <= bank_items['adventurer_vest']) and (bank_items['fire_bow'] <= bank_items['adventurer_helmet']) and (bank_items['fire_bow'] <= bank_items['leather_legs_armor']) and (bank_items['fire_bow'] <= bank_items['slime_shield']): 
                 target_items.append('fire_bow')
 
         case _:
@@ -311,24 +314,31 @@ while True:
         case gearcrafting_level if 10 <= gearcrafting_level:
             print("craft leather and iron stuff")
             target_items = ['slime_shield']
-            if (bank_items['leather_armor'] <= bank_items['iron_armor']) and (bank_items['leather_armor'] <= bank_items['adventurer_vest']):
-                target_items.append('leather_armor')
-            if (bank_items['iron_armor'] <= bank_items['leather_armor']) and (bank_items['iron_armor'] <= bank_items['adventurer_vest']):
+
+            # based on iron:
+            if (bank_items['iron_armor'] <= bank_items['iron_boots']) and (bank_items['iron_armor'] <= bank_items['iron_legs_armor']) and (bank_items['iron_armor'] <= bank_items['iron_dagger']) and (bank_items['iron_armor'] <= bank_items['iron_sword']) and (bank_items['iron_armor'] <= bank_items['iron_helm']):
                 target_items.append('iron_armor')
-            if (bank_items['adventurer_vest'] <= bank_items['leather_armor']) and (bank_items['adventurer_vest'] <= bank_items['iron_armor']):
-                target_items.append('adventurer_vest')
-
-            if (bank_items['leather_hat'] <= bank_items['iron_helm']) and (bank_items['leather_hat'] <= bank_items['adventurer_helmet']):
-                target_items.append('leather_hat')
-            if (bank_items['iron_helm'] <= bank_items['leather_hat']) and (bank_items['iron_helm'] <= bank_items['adventurer_helmet']):
+            if (bank_items['iron_helm'] <= bank_items['iron_armor']) and (bank_items['iron_helm'] <= bank_items['iron_boots']) and (bank_items['iron_helm'] <= bank_items['iron_sword']) and (bank_items['iron_helm'] <= bank_items['iron_dagger']) and (bank_items['iron_helm'] <= bank_items['iron_boots']) and (bank_items['iron_helm'] <= bank_items['iron_legs_armor']):
                 target_items.append('iron_helm')
-            if (bank_items['adventurer_helmet'] <= bank_items['leather_hat']) and (bank_items['adventurer_helmet'] <= bank_items['iron_helm']):
-                target_items.append('adventurer_helmet')
-
-            if (bank_items['leather_boots'] <= bank_items['iron_boots']):
-                target_items.append('leather_boots')
-            if (bank_items['iron_boots'] <= bank_items['leather_boots']):
+            if (bank_items['iron_boots'] <= bank_items['iron_armor']) and (bank_items['iron_boots'] <= bank_items['iron_legs_armor']) and (bank_items['iron_boots'] <= bank_items['iron_dagger']) and (bank_items['iron_boots'] <= bank_items['iron_sword']) and (bank_items['iron_boots'] <= bank_items['iron_helm']):
                 target_items.append('iron_boots')
+            if (bank_items['iron_legs_armor'] <= bank_items['iron_armor']) and (bank_items['iron_legs_armor'] <= bank_items['iron_boots']) and (bank_items['iron_legs_armor'] <= bank_items['iron_dagger']) and (bank_items['iron_legs_armor'] <= bank_items['iron_sword']) and (bank_items['iron_legs_armor'] <= bank_items['iron_helm']):
+                target_items.append('iron_legs_armor')
+                                                                                                                                                                                                                                                         # based on spruce plank and cowhide:
+            if (bank_items['leather_armor'] <= bank_items['fire_bow']) and (bank_items['leather_armor'] <= bank_items['greater_wooden_staff']) and (bank_items['leather_armor'] <= bank_items['adventurer_vest']) and (bank_items['leather_armor'] <= bank_items['adventurer_helmet']) and (bank_items['leather_armor'] <= bank_items['leather_legs_armor']) and (bank_items['leather_armor'] <= bank_items['slime_shield']) and (bank_items['leather_armor'] <= bank_items['leather_hat']) and (bank_items['leather_armor'] <= bank_items['leather_boots']):
+                target_items.append('leather_armor')
+            if (bank_items['adventurer_vest'] <= bank_items['fire_bow']) and (bank_items['adventurer_vest'] <= bank_items['greater_wooden_staff']) and (bank_items['adventurer_vest'] <= bank_items['leather_armor']) and (bank_items['adventurer_vest'] <= bank_items['adventurer_helmet']) and (bank_items['adventurer_vest'] <= bank_items['leather_legs_armor']) and (bank_items['adventurer_vest'] <= bank_items['slime_shield']) and (bank_items['adventurer_vest'] <= bank_items['leather_hat']) and (bank_items['adventurer_vest'] <= bank_items['leather_boots']):
+                target_items.append('adventurer_vest')
+            if (bank_items['adventurer_helmet'] <= bank_items['fire_bow']) and (bank_items['adventurer_helmet'] <= bank_items['greater_wooden_staff']) and (bank_items['adventurer_helmet'] <= bank_items['leather_armor']) and (bank_items['adventurer_helmet'] <= bank_items['adventurer_vest']) and (bank_items['adventurer_helmet'] <= bank_items['leather_legs_armor']) and (bank_items['adventurer_helmet'] <= bank_items['slime_shield']) and (bank_items['adventurer_helmet'] <= bank_items['leather_hat']) and (bank_items['adventurer_helmet'] <= bank_items['leather_boots']):
+                target_items.append('adventurer_helmet')
+            if (bank_items['leather_legs_armor'] <= bank_items['fire_bow']) and (bank_items['leather_legs_armor'] <= bank_items['greater_wooden_staff']) and (bank_items['leather_legs_armor'] <= bank_items['leather_armor']) and (bank_items['leather_legs_armor'] <= bank_items['adventurer_vest']) and (bank_items['leather_legs_armor'] <= bank_items['adventurer_helmet']) and (bank_items['leather_legs_armor'] <= bank_items['slime_shield']) and (bank_items['leather_legs_armor'] <= bank_items['leather_hat']) and (bank_items['leather_legs_armor'] <= bank_items['leather_boots']):
+                target_items.append('leather_legs_armor')
+                                                                                                                                                                                                                                                        # based on cowhide:
+            if (bank_items['leather_hat'] <= bank_items['leather_boots']) and (bank_items['leather_hat'] <= bank_items['leather_armor']) and (bank_items['leather_hat'] <= bank_items['adventurer_vest']) and (bank_items['leather_hat'] <= bank_items['adventurer_helmet']) and (bank_items['leather_hat'] <= bank_items['leather_legs_armor']):
+                target_items.append('leather_hat')
+            if (bank_items['leather_boots'] <= bank_items['leather_hat']) and (bank_items['leather_boots'] <= bank_items['leather_armor']) and (bank_items['leather_boots'] <= bank_items['adventurer_vest']) and (bank_items['leather_boots'] <= bank_items['adventurer_helmet']) and (bank_items['leather_boots'] <= bank_items['leather_legs_armor']):
+                target_items.append('leather_boots')
+
         case _:
             # default values
             print("craft wooden shield (default value)")
