@@ -109,11 +109,6 @@ while True:
     inventory_limit = inventory_max_items
     print ("inventory_limit: ", inventory_limit)
 
-    # save some space for monsters drop
-    print ("minimal empty inventory:", minimal_empty_inventory)
-    inventory_limit = inventory_max_items - minimal_empty_inventory - sum(belongings.values())
-    print ("inventory_limit: ", inventory_limit)
-
     withdraw = {}
 
     # ======= DETERMINE: ALCHEMY ======
@@ -482,9 +477,12 @@ while True:
         case cooking_level if 1 <= cooking_level < 5:
             print("cook gudgeon and chicken")
             target_items = ['cooked_chicken', 'cooked_gudgeon']
-        case cooking_level if 5 <= cooking_level:
+        case cooking_level if 5 <= cooking_level < 10:
             print("cook gudgeon, chicken, cooked_beef, fried_eggs")
-            target_items = ['cooked_chicken', 'cooked_gudgeon', 'cooked_beef', 'fried_eggs']
+            target_items = ['fried_eggs', 'cooked_chicken', 'cooked_gudgeon', 'cooked_beef']
+        case cooking_level if 10 <= cooking_level:
+            print("cook gudgeon, chicken, cooked_beef, fried_eggs, cooked_shrimp, cheese")
+            target_items = ['cheese', 'fried_eggs', 'cooked_chicken', 'cooked_gudgeon', 'cooked_beef', 'cooked_shrimp']
         case _:
             # default values
             print("cook gudgeon and chicken (default values)")
@@ -502,10 +500,12 @@ while True:
                         withdraw_qty = inventory_available
                     else:
                         withdraw_qty = bank_items['gudgeon']
-                    craft_cooking['cooked_gudgeon'] = withdraw_qty
-                    withdraw['gudgeon'] = withdraw_qty
-                    bank_items['gudgeon'] -= withdraw_qty
-                    inventory_available -= withdraw_qty
+                    if 0 != withdraw_qty:
+                        craft_cooking['cooked_gudgeon'] = withdraw_qty
+                        withdraw['gudgeon'] = withdraw_qty
+                        bank_items['gudgeon'] -= withdraw_qty
+                        inventory_available -= withdraw_qty
+                requisites = {}
 
             case target_item if "cooked_chicken" == target_item:
                 requisites = {'raw_chicken': 1}
@@ -515,10 +515,12 @@ while True:
                         withdraw_qty = inventory_available
                     else:
                         withdraw_qty = bank_items['raw_chicken']
-                    craft_cooking['cooked_chicken'] = withdraw_qty
-                    withdraw['raw_chicken'] = withdraw_qty
-                    bank_items['raw_chicken'] -= withdraw_qty
-                    inventory_available -= withdraw_qty
+                    if 0 != withdraw_qty:
+                        craft_cooking['cooked_chicken'] = withdraw_qty
+                        withdraw['raw_chicken'] = withdraw_qty
+                        bank_items['raw_chicken'] -= withdraw_qty
+                        inventory_available -= withdraw_qty
+                requisites = {}
 
             case target_item if "cooked_beef" == target_item:
                 requisites = {'raw_beef': 1}
@@ -528,18 +530,32 @@ while True:
                         withdraw_qty = inventory_available
                     else:
                         withdraw_qty = bank_items['raw_beef']
-                    craft_cooking['cooked_beef'] = withdraw_qty
-                    withdraw['raw_beef'] = withdraw_qty
-                    bank_items['raw_beef'] -= withdraw_qty
-                    inventory_available -= withdraw_qty
+                    if 0 != withdraw_qty:
+                        craft_cooking['cooked_beef'] = withdraw_qty
+                        withdraw['raw_beef'] = withdraw_qty
+                        bank_items['raw_beef'] -= withdraw_qty
+                        inventory_available -= withdraw_qty
+                requisites = {}
 
             case target_item if "fried_eggs" == target_item:
                 requisites = {'egg': 2}
+
+            case target_item if "cheese" == target_item:
+                requisites = {'milk_bucket': 1}
 
             case _:
                 # default values
                 print("didn't found requisites")
                 requisites = {}
+
+        print("requisites: {}".format(requisites))
+        if bool(requisites) and (1 == if_requisites_available(requisites, bank_items, inventory_available)):
+            print("all requisites available")
+            craft_cooking[target_item] = craft_cooking.get(target_item, 0) + 1
+            for requisite in requisites:
+                withdraw[requisite] = withdraw.get(requisite, 0) + requisites[requisite]
+                bank_items[requisite] -= requisites[requisite]
+                inventory_available = inventory_available - requisites[requisite]
 
     print("inventory_available: {}".format(inventory_available))
     print("withdraw: {}".format(withdraw))
@@ -551,7 +567,8 @@ while True:
     print("withdraw: {}".format(withdraw))
     for i in withdraw:
         print("{}: {}".format(i, withdraw[i]))
-        do_bank_withdraw(i, withdraw[i])
+        if 0 != withdraw[i]:
+            do_bank_withdraw(i, withdraw[i])
             
     # ======= GATHERING ======
 
