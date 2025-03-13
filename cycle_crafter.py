@@ -637,7 +637,7 @@ while True:
     inventory = get_character_parameter(character, "inventory")
     print(inventory)
 
-    do_bank_deposit_unnecessary(belongings)
+    do_bank_deposit_all()
 
     bank_contents = get_bank_items()
     print (bank_contents)
