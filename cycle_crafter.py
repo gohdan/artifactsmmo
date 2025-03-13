@@ -434,7 +434,7 @@ while True:
                 target_items.append('iron_ring')
             if (bank_items['fire_and_earth_amulet'] <= bank_items['iron_ring']) and (bank_items['fire_and_earth_amulet'] <= bank_items['air_and_water_amulet']):
                 target_items.append('fire_and_earth_amulet')
-            if (bank_items['air_and_water_amulet'] <= bank_items['iron_ring']) and (bank_items[''] <= bank_items['fire_and_earth_amulet']):
+            if (bank_items['air_and_water_amulet'] <= bank_items['iron_ring']) and (bank_items['air_and_water_amulet'] <= bank_items['fire_and_earth_amulet']):
                 target_items.append('air_and_water_amulet')
         case _:
             # default values
