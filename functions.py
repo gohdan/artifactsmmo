@@ -1162,3 +1162,19 @@ def do_heal():
         else:
             break
 
+def do_bank_deposit_all():
+    print ("*** do_bank_deposit_all")
+
+    inventory = get_character_parameter(character, "inventory")
+    print(inventory)
+
+    for item in inventory:
+        name = item['code']
+        if "" != name:
+            qty = item['quantity']
+
+            print("{} qty: {}".format(name, qty))
+            if 0 < qty:
+                print("do deposit:", name, qty)
+                do_bank_deposit(name, qty)
+

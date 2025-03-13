@@ -84,19 +84,7 @@ while True:
     inventory = get_character_parameter(character, "inventory")
     print(inventory)
 
-    do_bank_deposit_unnecessary(belongings)
-
-    bank_contents = get_bank_items()
-    print (bank_contents)
-
-    bank_items = {}
-    for i in bank_contents:
-        bank_items[i['code']] = i['quantity']
-
-    print("bank_items:")
-    print(bank_items)
-
-    do_bank_withdraw_belongings(belongings)
+    do_bank_deposit_all()
 
     bank_contents = get_bank_items()
     print (bank_contents)
@@ -113,13 +101,13 @@ while True:
     print("bank_items:")
     print(bank_items)
 
-    # do equip to avoid full inventary
-    do_equip_to_monster("cow")
-
     # ======= INVENTORY LIMITS ======
 
     inventory_max_items = get_character_parameter(character, "inventory_max_items")
     print ("inventory_max_items: ", inventory_max_items)
+
+    inventory_limit = inventory_max_items
+    print ("inventory_limit: ", inventory_limit)
 
     # save some space for monsters drop
     print ("minimal empty inventory:", minimal_empty_inventory)
@@ -602,23 +590,6 @@ while True:
 
     # ======= WEAPONCRAFTING ======
 
-    # 1 full cycle of wood - ash_plank 15, ash_wood 4 (ash_wood 94)
-    # 1 cycle of wood - ash_plank 6 (ash_wood 36)
-    # 1 cycle of wood - spruce_plank 8
-    # 1 full cycle of copper - copper 26 (copper_ore 156)
-    # 1 cycle of copper - copper 14 (copper_ore 14 * 6 = 84)
-    # 1 cycle of iron - iron 14
-    # 1 cycle of feather - feather 5
-    # 1 cycle of yellow slime ball - yellow_slimeball 2
-    # 1 cycle of yellow slime ball - yellow_slimeball 0
-    # 1 cycle of green slime ball - green_slimeball 2
-    # 1 cycle of blue slime ball - blue_slimeball 3
-    # 1 cycle of blue slime ball - blue_slimeball 1
-    # 1 cycle of red slime ball - red_slimeball 3
-    # 1 cycle of cowhide - cowhide 2
-    # 1 cycle of raw beef - raw_beef 1
-    # 1 cycle of shrimp - shrimp 1
-
     print("move to workshop weaponcrafting")
     x, y = 2, 1
     do_move(x, y)
@@ -630,44 +601,7 @@ while True:
             print("crafting {} {} of {}".format(item, i+1, craft_weapon[item]))
             do_crafting(item)
 
-    # 10, iron: 8
-    #do_crafting("iron_sword")
-    # 10, ash_plank: 3, spruce_plank: 4
-    #do_crafting("greater_wooden_staff")
-    # 10, copper: 2, iron: 6
-    #do_crafting("iron_dagger")
-    # 10, spruce_plank: 4, red_slimeball: 2
-    #do_crafting("fire_bow")
-
-    # 5, ash_plank: 3, red_slimeball: 2
-    # do_crafting("fire_staff")
-    # 5, copper: 3, green_slimeball: 2
-    # do_crafting("sticky_dagger")
-    # 5, copper: 4, yellow_slimeball: 2
-    # do_crafting("sticky_sword")
-    # 5, ash_plank: 3, blue_slimeball: 2
-    # do_crafting("water_bow")
-
-    # 1, ash_plank: 3
-    #do_crafting("wooden_stick")
-    # 1, wooden_stick: 1, ash_wood: 4
-    #do_crafting("wooden_staff")
-    # 1, copper: 3
-    #do_crafting("copper_dagger")
-
-
-
     # ======= GEARCRAFTING ======
-
-    # 5, feather: 5
-    #do_crafting("feather_coat")
-    # 5, copper: 5
-    #do_crafting("copper_armor")
-    # 5, copper: 4
-    #do_crafting("copper_legs_armor")
-    # 1, copper: 4
-    # 5, blue_slimeball: 1, red_slimeball: 1, cowhide: 2
-    #do_crafting("life_amulet")
 
     print("move to workshop gearcrafting")
     x, y = 3, 1
@@ -686,10 +620,6 @@ while True:
     x, y = 1, 3
     do_move(x, y)
 
-    # 1, copper: 4
-    # 5, blue_slimeball: 1, red_slimeball: 1, cowhide: 2
-    #do_crafting("life_amulet")
-
     print("craft_jewelry: {}".format(craft_jewelry))
 
     for item in craft_jewelry:
@@ -697,19 +627,52 @@ while True:
             print("crafting {} {} of {}".format(item, i+1, craft_jewelry[item]))
             do_crafting(item)
 
-    # ======= FIGHTING ======
+    # ======= BANKING ======
 
-    ## blue slime (6)
-    #print ("=== fight blue slime ===")
-    #x, y = 0, -2
-    #do_move(x, y)
-    #do_unequip("weapon")
-    #do_unequip("body_armor")
-    ##do_equip("wooden_staff", "weapon")
-    ##do_equip("sticky_sword", "weapon")
-    #do_equip("iron_sword", "weapon")
-    #do_equip("copper_armor", "body_armor")
-    #cycle_fight(10)
+    # banking
+    print ("=== banking ===")
+    x, y = 4, 1
+    do_move(x, y)
+
+    inventory = get_character_parameter(character, "inventory")
+    print(inventory)
+
+    do_bank_deposit_unnecessary(belongings)
+
+    bank_contents = get_bank_items()
+    print (bank_contents)
+
+    bank_items = {}
+    for i in bank_contents:
+        bank_items[i['code']] = i['quantity']
+
+    print("bank_items:")
+    print(bank_items)
+
+    do_bank_withdraw_belongings(belongings)
+
+    bank_contents = get_bank_items()
+    print (bank_contents)
+
+    bank_items = {}
+    for i in bank_contents:
+        bank_items[i['code']] = i['quantity']
+
+    print("bank_items:")
+    print(bank_items)
+
+    inventory_max_items = get_character_parameter(character, "inventory_max_items")
+    print ("inventory_max_items: ", inventory_max_items)
+
+    inventory_limit = inventory_max_items
+    print ("inventory_limit: ", inventory_limit)
+
+    # save some space for monsters drop
+    print ("minimal empty inventory:", minimal_empty_inventory)
+    inventory_limit = inventory_max_items - minimal_empty_inventory - sum(belongings.values())
+    print ("inventory_limit: ", inventory_limit)
+
+    # ======= FIGHTING ======
 
     match level:
         case level if 1 <= level <  2:
