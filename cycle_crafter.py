@@ -524,16 +524,6 @@ while True:
                 print("didn't found requisites")
                 requisites = {}
 
-        print("requisites: {}".format(requisites))
-
-        if 1 == if_requisites_available(requisites, bank_items, inventory_available):
-            print("all requisites available")
-            craft_cooking[target_item] = craft_cooking.get(target_item, 0) + 1
-            for requisite in requisites:
-                withdraw[requisite] = withdraw.get(requisite, 0) + requisites[requisite]
-                bank_items[requisite] -= requisites[requisite]
-                inventory_available = inventory_available - requisites[requisite]
-
     print("inventory_available: {}".format(inventory_available))
     print("withdraw: {}".format(withdraw))
 
