@@ -124,17 +124,28 @@ while True:
         case alchemy_level if 1 <= alchemy_level < 5:
             print ("gather sunflower")
             sunflower_limit = 9
-        case alchemy_level if 5 <= alchemy_level:
+
+        case alchemy_level if 5 <= alchemy_level < 10:
             print ("gather sunflower if needed, craft small health potion")
             if bank_items['sunflower'] < 10:
                 sunflower_limit = 3
             else:
                 sunflower_limit = 0
             target_items = ['small_health_potion']
+
+        case alchemy_level if 10 <= alchemy_level:
+            print ("gather sunflower if needed, craft small health potion, earth, air fire and water boost potions")
+            if bank_items['sunflower'] < 15:
+                sunflower_limit = 7
+            else:
+                sunflower_limit = 0
+            target_items = ['small_health_potion', 'fire_boost_potion', 'water_boost_potion', 'earth_boost_potion', 'air_boost_potion']
+
         case _:
             # default values
             print ("gather sunflower (default values)")
             sunflower_limit = 9
+
     print("sunflower_limit: {}".format(sunflower_limit))
 
     inventory_available = inventory_limit - sunflower_limit
@@ -147,6 +158,14 @@ while True:
         match target_item:
             case target_item if "small_health_potion" == target_item:
                 requisites = {'sunflower': 3}
+            case target_item if "earth_boost_potion" == target_item:
+                requisites = {'yellow_slimeball': 1, 'sunflower': 1, 'algae': 1}
+            case target_item if "air_boost_potion" == target_item:
+                requisites = {'green_slimeball': 1, 'sunflower': 1, 'algae': 1}
+            case target_item if "fire_boost_potion" == target_item:
+                requisites = {'red_slimeball': 1, 'sunflower': 1, 'algae': 1}
+            case target_item if "water_boost_potion" == target_item:
+                requisites = {'blue_slimeball': 1, 'sunflower': 1, 'algae': 1}
             case _:
                 # default values
                 print("didn't found requisites")
