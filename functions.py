@@ -1123,7 +1123,7 @@ def do_heal():
 
         if 0 != hp_diff:
             print ("hp < max_hp")
-            if "fried_eggs" in inventory_items or "cooked_beef" in inventory_items or "cooked_chicken" in inventory_items or "cooked_gudgeon" in inventory_items:
+            if "fried_eggs" in inventory_items or "cooked_beef" in inventory_items or "cooked_chicken" in inventory_items or "cooked_gudgeon" in inventory_items or "cheese" in inventory_items or "cooked_shrimp" in inventory_items:
                 print("have consumables, using to heal")
                 match hp_diff:
                     case hp_diff if 1 <= hp_diff < 80:
@@ -1139,9 +1139,15 @@ def do_heal():
                             do_rest(character)
                     case hp_diff if 80 <= hp_diff :
                         print("80 <= hp_diff")
+                        if "cheese" in inventory_items:
+                            print("use cheese")
+                            use_item("cheese", 1)
                         if "cooked_beef" in inventory_items:
                             print("use cooked_beef")
                             use_item("cooked_beef", 1)
+                        if "cooked_shrimp" in inventory_items:
+                            print("use cooked_shrimp")
+                            use_item("cooked_shrimp", 1)
                         elif "fried_eggs" in inventory_items:
                             print("use fried_eggs")
                             use_item("fried_eggs", 1)
