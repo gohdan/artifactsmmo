@@ -44,8 +44,6 @@ Gather bass (Fishing 30)
 
 Crafter:
 
-Cooked shrimp (Cooking 10)
-Cheese (Cooking 10)
 Earth boost potion (Alchemy 10)
 Air boost potion (Alchemy 10)
 Fire boost potion (Alchemy 10)
@@ -180,6 +178,9 @@ Slime shield (Gearcrafting 10)
 Fire & earth amulet (Jewelrycrafting 10)
 Air & water amulet (Jewelrycrafting 10)
 Iron ring (Jewelrycrafting 10)
+
+Cooked shrimp (Cooking 10)
+Cheese (Cooking 10)
 
 Fight chicken (1)
 Fight yellow slime (2)

@@ -17,6 +17,8 @@ Fried eggs (fried_eggs) (egg: 2)
 === Cooking 10 ===
 
 Cooked Shrimp (cooked_shrimp) (shrimp: 1)
-Restores 20HP at the start of the turn if the player has lost more than 50% of his health points.
+150 HP (Heal)
 
+Cheese (cheese) (milk_bucket: 1)
+180 HP (Heal)
 
