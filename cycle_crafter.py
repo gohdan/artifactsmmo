@@ -377,7 +377,7 @@ while True:
             case target_item if "iron_boots" == target_item:
                 requisites = {'iron': 5, 'feather': 3}
             case target_item if "slime_shield" == target_item:
-                requisites = {'spruce_plank': 5, 'red_slimeball': 3, 'yellow_slimeball': 3, 'green_slimeball': 3, 'blue_slimeball': 3}
+                requisites = {'spruce_plank': 6, 'red_slimeball': 3, 'yellow_slimeball': 3, 'green_slimeball': 3, 'blue_slimeball': 3}
 
             case _:
                 # default values
