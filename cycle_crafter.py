@@ -113,6 +113,9 @@ while True:
     print("bank_items:")
     print(bank_items)
 
+    # do equip to avoid full inventary
+    do_equip_to_monster("cow")
+
     # ======= INVENTORY LIMITS ======
 
     inventory_max_items = get_character_parameter(character, "inventory_max_items")
