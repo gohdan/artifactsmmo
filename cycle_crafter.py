@@ -105,7 +105,7 @@ while True:
     for i in bank_contents:
         bank_items[i['code']] = i['quantity']
 
-    concurrents = {'sticky_sword', 'sticky_dagger', 'water_bow', 'fire_staff', 'copper_armor', 'copper_legs_armor', 'feather_coat', 'iron_sword', 'iron_dagger', 'greater_wooden_staff', 'fire_bow', 'iron_pickaxe', 'iron_axe', 'spruce_fishing_rod', 'leather_gloves', 'leather_armor', 'iron_armor', 'adventurer_vest', 'leather_hat', 'iron_helm', 'adventurer_helmet', 'leather_legs_armor', 'iron_legs_armor', 'leather_boots', 'iron_boots', 'slime_shield'}
+    concurrents = {'sticky_sword', 'sticky_dagger', 'water_bow', 'fire_staff', 'copper_armor', 'copper_legs_armor', 'feather_coat', 'iron_sword', 'iron_dagger', 'greater_wooden_staff', 'fire_bow', 'iron_pickaxe', 'iron_axe', 'spruce_fishing_rod', 'leather_gloves', 'leather_armor', 'iron_armor', 'adventurer_vest', 'leather_hat', 'iron_helm', 'adventurer_helmet', 'leather_legs_armor', 'iron_legs_armor', 'leather_boots', 'iron_boots', 'slime_shield', 'iron_ring', 'fire_and_earth_amulet', 'air_and_water_amulet'}
     for concurrent in concurrents:
         if concurrent not in bank_items:
             bank_items[concurrent] = 0
@@ -130,7 +130,7 @@ while True:
 
     # ======= DETERMINE: ALCHEMY ======
 
-    print("*** determine: alchemy ***")
+    print("*** DETERMINE: ALCHEMY ***")
 
     craft_alchemy = {}
 
@@ -186,7 +186,7 @@ while True:
 
     # ======= DETERMINE: WEAPONCRAFTING ======
 
-    print("*** determine: weaponcrafting ***")
+    print("*** DETERMINE: WEAPONCRAFTING ***")
 
     craft_weapon = {}
     target_items = list()
@@ -294,7 +294,7 @@ while True:
 
     # ======= DETERMINE: GEARCRAFTING ======
 
-    print("*** determine: gearcrafting ***")
+    print("*** DETERMINE: GEARCRAFTING ***")
 
     craft_gear = {}
 
@@ -413,7 +413,7 @@ while True:
 
     # ======= DETERMINE: JEWELRY ======
 
-    print("*** determine: jewelry ***")
+    print("*** DETERMINE: JEWELRY ***")
 
     craft_jewelry = {}
 
@@ -424,9 +424,18 @@ while True:
         case jewelrycrafting_level if 1 <= jewelrycrafting_level < 5:
             print("craft copper ring")
             target_items = ['copper_ring']
-        case jewelrycrafting_level if 5 <= jewelrycrafting_level:
+        case jewelrycrafting_level if 5 <= jewelrycrafting_level < 10:
             print("craft life amulet")
             target_items = ['life_amulet']
+        case jewelrycrafting_level if 10 <= jewelrycrafting_level:
+            print("craft iron_ring, fire_and_earth_amulet, air_and_water_amulet")
+            target_items = []
+            if (bank_items['iron_ring'] <= bank_items['fire_and_earth_amulet']) and (bank_items['iron_ring'] <= bank_items['air_and_water_amulet']):
+                target_items.append('iron_ring')
+            if (bank_items['fire_and_earth_amulet'] <= bank_items['iron_ring']) and (bank_items['fire_and_earth_amulet'] <= bank_items['air_and_water_amulet']):
+                target_items.append('fire_and_earth_amulet')
+            if (bank_items['air_and_water_amulet'] <= bank_items['iron_ring']) and (bank_items[''] <= bank_items['fire_and_earth_amulet']):
+                target_items.append('air_and_water_amulet')
         case _:
             # default values
             print("craft copper ring (default values)")
@@ -442,6 +451,13 @@ while True:
             # 5 level
             case target_item if "life_amulet" == target_item:
                 requisites = {'red_slimeball': 2, 'feather': 4}
+            # 10 level
+            case target_item if "iron_ring" == target_item:
+                requisites = {'iron': 6, 'feather': 2}
+            case target_item if "fire_and_earth_amulet" == target_item:
+                requisites = {'iron': 4, 'red_slimeball': 2, 'yellow_slimeball': 2}
+            case target_item if "air_and_water_amulet" == target_item:
+                requisites = {'iron': 4, 'green_slimeball': 2, 'blue_slimeball': 2}
             case _:
                 # default values
                 print("didn't found requisites")
@@ -464,7 +480,7 @@ while True:
 
     # ======= DETERMINE: COOKING ======
 
-    print("*** determine: cooking ***")
+    print("*** DETERMINE: COOKING ***")
 
     craft_cooking = {}
 
