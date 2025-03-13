@@ -585,7 +585,12 @@ def get_bank_info():
 def get_bank_items():
     print("*** get_bank_items")
 
-    url = f"{server}/my/bank/items"
+    page = 1
+    size = 100
+    print("page: {}, size: {}".format(page, size))
+
+    url = f"{server}/my/bank/items?page={page}&size={size}"
+    print("url: {}".format(url))
 
     headers = {
         "Content-Type": "application/json",
@@ -593,9 +598,7 @@ def get_bank_items():
         "Authorization": f"Bearer {token}"
     }
 
-    raw_data = f'{{"size" : "100"}}'
-
-    response = requests.get(url, headers=headers, data=raw_data)
+    response = requests.get(url, headers=headers)
 
     data = ""
 
