@@ -208,7 +208,8 @@ def do_bank_deposit(item, qty):
     else:
         print("Deposit successful")
         data = response.json()["data"]
-        print(*data["bank"], sep='\n')
+        #print(*data["bank"], sep='\n')
+        print("bank contents: {}".format(data["bank"]))
         cooldown = data["cooldown"]["total_seconds"]
 
     print("Cooldown:", cooldown)
