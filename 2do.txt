@@ -46,16 +46,10 @@ Crafter:
 
 Cooked shrimp (Cooking 10)
 Cheese (Cooking 10)
-Fire & earth amulet (Jewelrycrafting 10)
-Air & water amulet (Jewelrycrafting 10)
-Iron ring (Jewelrycrafting 10)
 Earth boost potion (Alchemy 10)
 Air boost potion (Alchemy 10)
 Fire boost potion (Alchemy 10)
 Water boost postion (Alchemy 10)
-
-
-
 
 
 
@@ -161,6 +155,31 @@ Copper armor (Gearcrafting 5)
 Copper legs armor (Gearcrafting 5)
 
 Life Amulet (Jewelrycrafting 5)
+
+Iron sword (Weaponcrafting 10)
+Iron dagger (Weaponcrafting 10)
+Greater Wooden Staff (Weaponcrafting 10)
+Fire bow (Weaponcrafting 10)
+Iron Pickaxe (Weaponcrafting 10)
+Iron Axe (Weaponcrafting 10)
+Spruce Fishing Rod (Weaponcrafting 10)
+Leather Gloves (Weaponcrafting 10)
+
+Leather armor (Gearcrafting 10)
+Iron armor (Gearcrafting 10)
+Adventurer vest (Gearcrafting 10)
+Leather hat (Gearcrafting 10)
+Iron helm (Gearcrafting 10)
+Adventurer helmet (Gearcrafting 10)
+Leather legs armor (Gearcrafting 10)
+Iron legs armor (Gearcrafting 10)
+Leather boots (Gearcrafting 10)
+Iron boots (Gearcrafting 10)
+Slime shield (Gearcrafting 10)
+
+Fire & earth amulet (Jewelrycrafting 10)
+Air & water amulet (Jewelrycrafting 10)
+Iron ring (Jewelrycrafting 10)
 
 Fight chicken (1)
 Fight yellow slime (2)
