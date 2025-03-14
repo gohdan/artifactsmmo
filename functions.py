@@ -956,40 +956,65 @@ def do_equip_to_monster(monster):
                 do_equip("life_amulet", "amulet")
 
         case monster if "mushmush" == monster:
-            # -30% Res Earth, 30% Res Water
+            # -30% Res Air, 20% Res Fire, 20% Res Earth, 16 Fire attack, 16 Water attack
 
-            if "sticky_dagger" in inventory_items:
+            if "iron_dagger" in inventory_items:
+                do_equip("iron_dagger", "weapon")
+            elif "sticky_dagger" in inventory_items:
                 do_equip("sticky_dagger", "weapon")
-            if "copper_dagger" in inventory_items:
+            elif "copper_dagger" in inventory_items:
                 do_equip("copper_dagger", "weapon")
             elif "wooden_staff" in inventory_items:
                 do_equip("wooden_staff", "weapon")
             elif "wooden_stick" in inventory_items:
                 do_equip("wooden_stick", "weapon")
 
-            if "feather_coat" in inventory_items:
+            if "slime_shield" in inventory_items:
+                do_equip("slime_shield", "shield")
+            elif "wooden_shield" in inventory_items:
+                do_equip("wooden_shield", "shield")
+
+            if "leather_armor" in inventory_items:
+                do_equip("leather_armor", "body_armor")
+            elif "adventurer_vest" in inventory_items:
+                do_equip("adventurer_vest", "body_armor")
+            elif "feather_coat" in inventory_items:
                 do_equip("feather_coat", "body_armor")
             elif "copper_armor" in inventory_items:
                 do_equip("copper_armor", "body_armor")
 
-            if "copper_ring" in inventory_items:
+            if "leather_hat" in inventory_items:
+                do_equip("leather_hat", "helmet")
+            elif "adventurer_helmet" in inventory_items:
+                do_equip("adventurer_helmet", "helmet")
+            elif "copper_helmet" in inventory_items:
+                do_equip("copper_helmet", "helmet")
+
+            if "leather_legs_armor" in inventory_items:
+                do_equip("leather_legs_armor", "leg_armor")
+            elif "copper_legs_armor" in inventory_items:
+                do_equip("copper_legs_armor", "leg_armor")
+
+            if "leather_boots" in inventory_items:
+                do_equip("leather_boots", "boots")
+            elif "copper_boots" in inventory_items:
+                do_equip("copper_boots", "boots")
+
+            if "iron_ring" in inventory_items:
+                do_equip("iron_ring", "ring1")
+                do_equip("iron_ring", "ring2")
+            elif "copper_ring" in inventory_items:
                 do_equip("copper_ring", "ring1")
-            if "copper_ring" in inventory_items:
                 do_equip("copper_ring", "ring2")
+
             if "small_health_potion" in inventory_items:
                 do_equip("small_health_potion", "utility1")
-            if "small_health_potion" in inventory_items:
-                do_equip("small_health_potion", "utility2")
+            if "air_boost_potion" in inventory_items:
+                do_equip("air_boost_potion", "utility2")
 
-            if "wooden_shield" in inventory_items:
-                do_equip("wooden_shield", "shield")
-            if "copper_legs_armor" in inventory_items:
-                do_equip("copper_legs_armor", "leg_armor")
-            if "copper_boots" in inventory_items:
-                do_equip("copper_boots", "boots")
-            if "copper_helmet" in inventory_items:
-                do_equip("copper_helmet", "helmet")
-            if "life_amulet" in inventory_items:
+            if "air_and_water_amulet" in inventory_items:
+                do_equip("air_and_water_amulet", "amulet")
+            elif "life_amulet" in inventory_items:
                 do_equip("life_amulet", "amulet")
 
 def get_inventory_items():
