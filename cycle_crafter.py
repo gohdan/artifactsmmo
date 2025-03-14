@@ -136,10 +136,26 @@ while True:
         case alchemy_level if 10 <= alchemy_level:
             print ("gather sunflower if needed, craft small health potion, earth, air fire and water boost potions")
             if bank_items['sunflower'] < 15:
-                sunflower_limit = 7
+                sunflower_limit = 3
             else:
                 sunflower_limit = 0
-            target_items = ['small_health_potion', 'fire_boost_potion', 'water_boost_potion', 'earth_boost_potion', 'air_boost_potion']
+            target_items = ['small_health_potion']
+
+            if (bank_items['adventurer_vest'] < 5) and (bank_items['leather_hat'] < 5) and (bank_items['slime_shield'] < 5):
+                target_items = ['earth_boost_potion']
+                sunflower_limit += 1
+
+            if (bank_items['slime_shield'] < 5):
+                target_items = ['air_boost_potion']
+                sunflower_limit += 1
+
+            if (bank_items['slime_shield'] < 5)and (bank_items['fire_bow'] < 5):
+                target_items = ['fire_boost_potion']
+                sunflower_limit += 1
+
+            if (bank_items['slime_shield'] < 5)and (bank_items['greater_wooden_staff'] < 5):
+                target_items = ['water_boost_potion']
+                sunflower_limit += 1
 
         case _:
             # default values
@@ -159,7 +175,7 @@ while True:
             case target_item if "small_health_potion" == target_item:
                 requisites = {'sunflower': 3}
             case target_item if "earth_boost_potion" == target_item:
-                requisites = {'yellow_slimeball': 1, 'sunflower': 1, 'algae': 1}
+                 requisites = {'yellow_slimeball': 1, 'sunflower': 1, 'algae': 1}
             case target_item if "air_boost_potion" == target_item:
                 requisites = {'green_slimeball': 1, 'sunflower': 1, 'algae': 1}
             case target_item if "fire_boost_potion" == target_item:
