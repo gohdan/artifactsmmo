@@ -3,4 +3,21 @@
 Small health potion (small_health_potion) (sunflower 3)
 Restores 20HP at the start of the turn if the player has lost more than 50% of his health points.
 
+=== Alchemy 10 ===
+
+Earth boost potion (earth_boost_potion) (yellow_slimeball 1, sunflower 1, algae 1)
+12% Damage Earth (Boost)
+Gives 12% earth damage at the start of fight.
+
+Air boost potion (air_boost_potion) (green_slimeball 1, sunflower 1, algae 1)
+12% Damage Air (Boost)
+Gives 12% air damage at the start of fight.
+
+Fire boost potion (fire_boost_potion) (red_slimeball 1, sunflower 1, algae 1)
+12% Damage Fire (Boost)
+Gives 12% fire damage at the start of fight.
+
+Water boost postion (water_boost_potion) (blue_slimeball 1, sunflower 1, algae 1)
+12% Damage Water (Boost)
+Gives 12% water damage at the start of fight.
 
