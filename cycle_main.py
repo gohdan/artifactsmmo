@@ -76,17 +76,17 @@ while True:
 
                 "iron_ring": 2,
 
-                "life_amulet": 1,
-                "fire_and_earth_amulet": 1,
+                #"life_amulet": 1,
+                #"fire_and_earth_amulet": 1,
                 "air_and_water_amulet": 1,
 
                 "small_health_potion": 10,
-                "cooked_gudgeon": 10,
-                "cooked_chicken": 10,
-                "cooked_beef": 10,
-                "fried_eggs": 10,
-                "cheese": 10,
-                "cooked_shrimp": 10
+                "cooked_gudgeon": 15,
+                "cooked_chicken": 5,
+                "cooked_beef": 5,
+                "fried_eggs": 5,
+                "cheese": 5,
+                "cooked_shrimp": 5
             }
             #if "fire_bow" not in inventory_items:
             #    belongings["fire_staff"] = 1
