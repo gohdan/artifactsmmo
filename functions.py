@@ -172,7 +172,7 @@ def do_bank_deposit(item, qty):
         url = f"{server}/my/{character}/action/bank/deposit/gold"
         raw_data = f'{{"quantity": {qty}}}'
     else:
-        url = f"{server}/my/{character}/action/bank/deposit"
+        url = f"{server}/my/{character}/action/bank/deposit/item"
         raw_data = f'{{"code" : "{item}", "quantity": {qty}}}'
 
     headers = {
@@ -229,7 +229,7 @@ def do_bank_withdraw(item, qty):
         url = f"{server}/my/{character}/action/bank/withdraw/gold"
         raw_data = f'{{"quantity": {qty}}}'
     else:
-        url = f"{server}/my/{character}/action/bank/withdraw"
+        url = f"{server}/my/{character}/action/bank/withdraw/item"
         raw_data = f'{{"code" : "{item}", "quantity": {qty}}}'
 
     headers = {
