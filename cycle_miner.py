@@ -104,6 +104,7 @@ while True:
     mining_level = get_character_parameter(character, "mining_level")
     print ("mining level: ", mining_level)
 
+    iron_qty = 0;
     match mining_level:
         case mining_level if 1 <= mining_level < 10:
             print ("gather copper")
