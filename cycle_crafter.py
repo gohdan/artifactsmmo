@@ -123,6 +123,7 @@ while True:
     match alchemy_level:
         case alchemy_level if 1 <= alchemy_level < 5:
             print ("gather sunflower")
+            target_items = []
             sunflower_limit = 9
 
         case alchemy_level if 5 <= alchemy_level < 10:
