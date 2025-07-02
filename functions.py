@@ -173,7 +173,7 @@ def do_bank_deposit(item, qty):
         raw_data = f'{{"quantity": {qty}}}'
     else:
         url = f"{server}/my/{character}/action/bank/deposit/item"
-        raw_data = f'{{"code" : "{item}", "quantity": {qty}}}'
+        raw_data = f'[{{"code":"{item}", "quantity":{qty}}}]'
 
     headers = {
         "Content-Type": "application/json",
@@ -230,7 +230,7 @@ def do_bank_withdraw(item, qty):
         raw_data = f'{{"quantity": {qty}}}'
     else:
         url = f"{server}/my/{character}/action/bank/withdraw/item"
-        raw_data = f'{{"code" : "{item}", "quantity": {qty}}}'
+        raw_data = f'[{{"code":"{item}", "quantity":{qty}}}]'
 
     headers = {
         "Content-Type": "application/json",
