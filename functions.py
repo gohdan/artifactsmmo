@@ -520,7 +520,7 @@ def do_rest(character):
         print("Character not found")
     elif response.status_code == 499:
         print("Character in cooldown")
-        cooldown = do_equip(slot);
+        cooldown = do_rest(character);
     elif response.status_code != 200:
         print("An error occured while doing api request")
         print("status code:", response.status_code)
