@@ -264,12 +264,12 @@ while True:
             case target_item if "wooden_staff" == target_item:
                 requisites = {'wooden_stick': 1, 'ash_wood': 4}
             case target_item if "copper_dagger" == target_item:
-                requisites = {'copper': 6}
+                requisites = {'copper_bar': 6}
             # 5 level
             case target_item if "sticky_sword" == target_item:
-                requisites = {'yellow_slimeball': 2, 'copper': 5}
+                requisites = {'yellow_slimeball': 2, 'copper_bar': 5}
             case target_item if "sticky_dagger" == target_item:
-                requisites = {'green_slimeball': 2, 'copper': 5}
+                requisites = {'green_slimeball': 2, 'copper_bar': 5}
             case target_item if "water_bow" == target_item:
                 requisites = {'blue_slimeball': 2, 'ash_plank': 5}
             case target_item if "fire_staff" == target_item:

@@ -10,17 +10,17 @@ Wooden Staff (wooden_staff) (wooden_stick 1, ash_wood 4)
 8 Attack Earth
 5% Critical Strike
 
-Copper Dagger (copper_dagger) (copper 6)
+Copper Dagger (copper_dagger) (copper_bar 6)
 8 Attack Air
 35% Critical Strike
 
 === Weaponcrafting 5 ===
 
-Sticky Sword (sticky_sword) (copper 5, yellow_slimeball 2)
+Sticky Sword (sticky_sword) (copper_bar 5, yellow_slimeball 2)
 16 Attack Earth
 5% Critical Strike
 
-Sticky Dagger (sticky_dagger) (copper 5, green_slimeball 2)
+Sticky Dagger (sticky_dagger) (copper_bar 5, green_slimeball 2)
 12 Attack Air
 35% Critical Strike
 

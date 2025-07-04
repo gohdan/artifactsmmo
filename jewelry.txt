@@ -1,6 +1,6 @@
 === Jewelrycrafting 1 ===
 
-Copper Ring (copper_ring) (copper 6)
+Copper Ring (copper_ring) (copper_bar 6)
 2% Damage
 
 === Jewelrycrafting 5 ===

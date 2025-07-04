@@ -2,13 +2,13 @@
 
 Boots:
 
-Copper boots (copper_boots) (copper 6)
+Copper boots (copper_boots) (copper_bar 6)
 10 HP
 10 Wisdom
 
 Helmet:
 
-Copper Helmet (copper_helmet) (copper 6)
+Copper Helmet (copper_helmet) (copper_bar 6)
 20 HP
 3% Damage
 
@@ -29,14 +29,14 @@ Feather Coat (feather_coat) (feather 5, ash_plank 2)
 5% Damage Air
 5% Damage Water
 
-Copper Armor (copper_armor) (copper 5, wool 2)
+Copper Armor (copper_armor) (copper_bar 5, wool 2)
 25 HP
 5% Damage Earth
 5% Damage Fire
 
 Leg armor:
 
-Copper Legs Armor (copper_legs_armor) (copper 5, feather 2)
+Copper Legs Armor (copper_legs_armor) (copper_bar 5, feather 2)
 25 HP
 2% Damage
 

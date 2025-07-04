@@ -245,7 +245,7 @@ while True:
     if 0 != iron_qty:
         cycle_crafting("iron", iron_qty)
     if 0 != copper_qty:
-        cycle_crafting("copper", copper_qty)
+        cycle_crafting("copper_bar", copper_qty)
 
     #cycle_crafting("gold", gold_qty)
 
