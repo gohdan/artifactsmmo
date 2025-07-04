@@ -241,7 +241,7 @@ while True:
     do_move(x, y)
 
     if 0 != steel_qty:
-        cycle_crafting("steel", steel_qty)
+        cycle_crafting("steel_bar", steel_qty)
     if 0 != iron_qty:
         cycle_crafting("iron_bar", iron_qty)
     if 0 != copper_qty:
