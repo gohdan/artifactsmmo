@@ -199,14 +199,6 @@ while True:
             do_move(x, y)
             cycle_fight(10)
 
-        case level if 5 <= level < 6:
-            # sheep (5)
-            print ("=== fight sheep ===")
-            do_equip_to_monster("sheep")
-            x, y = 5, 12
-            do_move(x, y)
-            cycle_fight(10)
-
         case level if 6 <= level < 7:
             # blue slime (6)
             print ("=== fight blue slime ===")
@@ -216,6 +208,14 @@ while True:
             cycle_fight(10)
 
         case level if 7 <= level < 8:
+            # sheep (5)
+            print ("=== fight sheep ===")
+            do_equip_to_monster("sheep")
+            x, y = 5, 12
+            do_move(x, y)
+            cycle_fight(10)
+
+        case level if 8 <= level < 9:
             # red slime (7)
             print ("=== fight red slime ===")
             do_equip_to_monster("red_slime")
@@ -223,7 +223,7 @@ while True:
             do_move(x, y)
             cycle_fight(10)
 
-        case level if 8 <= level < 10:
+        case level if 9 <= level < 10:
             # cow (8)
             print ("=== fight cow ===")
             do_equip_to_monster("cow")
