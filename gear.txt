@@ -56,7 +56,7 @@ Leather armor (leather_armor) (spruce_plank 4, cowhide 4)
 2% Res Fire
 2% Res Earth
 
-Iron armor (iron_armor) (iron 5, cowhide 3)
+Iron armor (iron_armor) (iron_bar 5, cowhide 3)
 50 HP
 8% Damage Earth
 8% Damage Fire
@@ -79,7 +79,7 @@ Leather hat (leather_hat) (cowhide 5, yellow_slimeball 3)
 4% Res Water
 4% Res Air
 
-Iron helm (iron_helm) (iron 5, wool 3)
+Iron helm (iron_helm) (iron_bar 5, wool 3)
 40 HP
 5% Damage Fire
 5% Damage Earth
@@ -101,7 +101,7 @@ Leather legs armor (leather_legs_armor) (spruce_plank 5, cowhide 3)
 5% Damage Air
 5% Damage Water
 
-Iron legs armor (iron_legs_armor) (iron 5, cowhide 3)
+Iron legs armor (iron_legs_armor) (iron_bar 5, cowhide 3)
 50 HP
 1 Haste
 5% Damage Fire
@@ -117,7 +117,7 @@ Leather boots (leather_boots) (ash_plank 4, cowhide 4)
 5% Res Fire
 5% Res Earth
 
-Iron boots (iron_boots) (iron 5, feather 3)
+Iron boots (iron_boots) (iron_bar 5, feather 3)
 40 HP
 3 Haste
 5% Res Water

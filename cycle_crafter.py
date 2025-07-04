@@ -276,9 +276,9 @@ while True:
                 requisites = {'red_slimeball': 2, 'ash_plank': 5}
             # 10 level
             case target_item if "iron_sword" == target_item:
-                requisites = {'iron': 6, 'feather': 2}
+                requisites = {'iron_bar': 6, 'feather': 2}
             case target_item if "iron_dagger" == target_item:
-                requisites = {'iron': 6, 'feather': 2}
+                requisites = {'iron_bar': 6, 'feather': 2}
             case target_item if "greater_wooden_staff" == target_item:
                 requisites = {'spruce_plank': 6, 'blue_slimeball': 2}
             case target_item if "fire_bow" == target_item:
@@ -286,11 +286,11 @@ while True:
             case target_item if "leather_gloves" == target_item:
                 requisites = {'ash_plank': 2, 'cowhide': 8, 'jasper_crystal': 1}
             case target_item if "iron_pickaxe" == target_item:
-                requisites = {'spruce_plank': 2, 'iron': 8, 'jasper_crystal': 1}
+                requisites = {'spruce_plank': 2, 'iron_bar': 8, 'jasper_crystal': 1}
             case target_item if "iron_axe" == target_item:
-                requisites = {'spruce_plank': 2, 'iron': 8, 'jasper_crystal': 1}
+                requisites = {'spruce_plank': 2, 'iron_bar': 8, 'jasper_crystal': 1}
             case target_item if "spruce_fishing_rod" == target_item:
-                requisites = {'spruce_plank': 8, 'iron': 2, 'jasper_crystal': 1}
+                requisites = {'spruce_plank': 8, 'iron_bar': 2, 'jasper_crystal': 1}
             case _:
                 # default values
                 print("didn't found requisites")
@@ -390,23 +390,23 @@ while True:
             case target_item if "leather_armor" == target_item:
                 requisites = {'spruce_plank': 4, 'cowhide': 4}
             case target_item if "iron_armor" == target_item:
-                requisites = {'iron': 5, 'cowhide': 3}
+                requisites = {'iron_bar': 5, 'cowhide': 3}
             case target_item if "adventurer_vest" == target_item:
                 requisites = {'wool': 2, 'cowhide': 6, 'spruce_plank': 4, 'yellow_slimeball': 4}
             case target_item if "leather_hat" == target_item:
                 requisites = {'cowhide': 5, 'yellow_slimeball': 3}
             case target_item if "iron_helm" == target_item:
-                requisites = {'iron': 5, 'wool': 3}
+                requisites = {'iron_bar': 5, 'wool': 3}
             case target_item if "adventurer_helmet" == target_item:
                 requisites = {'feather': 4, 'cowhide': 3, 'spruce_plank': 3, 'mushroom': 4}
             case target_item if "leather_legs_armor" == target_item:
                 requisites = {'spruce_plank': 5, 'cowhide': 3}
             case target_item if "iron_legs_armor" == target_item:
-                requisites = {'iron': 5, 'cowhide': 3}
+                requisites = {'iron_bar': 5, 'cowhide': 3}
             case target_item if "leather_boots" == target_item:
                 requisites = {'ash_plank': 4, 'cowhide': 4}
             case target_item if "iron_boots" == target_item:
-                requisites = {'iron': 5, 'feather': 3}
+                requisites = {'iron_bar': 5, 'feather': 3}
             case target_item if "slime_shield" == target_item:
                 requisites = {'spruce_plank': 6, 'red_slimeball': 3, 'yellow_slimeball': 3, 'green_slimeball': 3, 'blue_slimeball': 3}
 
@@ -472,11 +472,11 @@ while True:
                 requisites = {'red_slimeball': 2, 'feather': 4}
             # 10 level
             case target_item if "iron_ring" == target_item:
-                requisites = {'iron': 6, 'wool': 2}
+                requisites = {'iron_bar': 6, 'wool': 2}
             case target_item if "fire_and_earth_amulet" == target_item:
-                requisites = {'iron': 4, 'red_slimeball': 2, 'yellow_slimeball': 2}
+                requisites = {'iron_bar': 4, 'red_slimeball': 2, 'yellow_slimeball': 2}
             case target_item if "air_and_water_amulet" == target_item:
-                requisites = {'iron': 4, 'green_slimeball': 2, 'blue_slimeball': 2}
+                requisites = {'iron_bar': 4, 'green_slimeball': 2, 'blue_slimeball': 2}
             case _:
                 # default values
                 print("didn't found requisites")

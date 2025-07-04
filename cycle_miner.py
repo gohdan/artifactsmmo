@@ -243,7 +243,7 @@ while True:
     if 0 != steel_qty:
         cycle_crafting("steel", steel_qty)
     if 0 != iron_qty:
-        cycle_crafting("iron", iron_qty)
+        cycle_crafting("iron_bar", iron_qty)
     if 0 != copper_qty:
         cycle_crafting("copper_bar", copper_qty)
 

@@ -34,11 +34,11 @@ Fire Staff (fire_staff) (ash_plank 5, red_slimeball 2)
 
 === Weaponcrafting 10 ===
 
-Iron sword (iron_sword) (iron 6, feather 2)
+Iron sword (iron_sword) (iron_bar 6, feather 2)
 24 Attack Earth
 5% Critical Strike
 
-Iron dagger (iron_dagger) (iron 6, feather 2)
+Iron dagger (iron_dagger) (iron_bar 6, feather 2)
 17 Attack Air
 35% Critical Strike
 
@@ -50,17 +50,17 @@ Fire bow (fire_bow) (spruce_plank 6, red_slimeball 2)
 17 Attack Fire
 35% Critical Strike
 
-Iron Pickaxe (iron_pickaxe) (spruce_plank 2, iron 8, jasper_crystal 1)
+Iron Pickaxe (iron_pickaxe) (spruce_plank 2, iron_bar 8, jasper_crystal 1)
 Tool: Reduces cooldown by 10% when a character mines a resource.
 5 Attack Earth
 -10 % Cooldown
 
-Iron Axe (iron_axe) (spruce_plank 2, iron 8, jasper_crystal 1)
+Iron Axe (iron_axe) (spruce_plank 2, iron_bar 8, jasper_crystal 1)
 Tool: Reduces cooldown by 10% when a character logs a tree.
 5 Attack Earth
 -10 % Cooldown
 
-Spruce Fishing Rod (spruce_fishing_rod) (spruce_plank 8, iron 2, jasper_crystal 1)
+Spruce Fishing Rod (spruce_fishing_rod) (spruce_plank 8, iron_bar 2, jasper_crystal 1)
 Tool: Reduces cooldown by 10% when a character is fishing.
 5 Attack Water
 -10 % Cooldown
