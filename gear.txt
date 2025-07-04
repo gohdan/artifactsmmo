@@ -29,7 +29,7 @@ Feather Coat (feather_coat) (feather 5, ash_plank 2)
 5% Damage Air
 5% Damage Water
 
-Copper Armor (copper_armor) (copper 5, feather 2)
+Copper Armor (copper_armor) (copper 5, wool 2)
 25 HP
 5% Damage Earth
 5% Damage Fire
@@ -63,7 +63,7 @@ Iron armor (iron_armor) (iron 5, cowhide 3)
 2% Res Water
 2% Res Air
 
-Adventurer vest (adventurer_vest) (feather 2, cowhide 6, spruce_plank 4, yellow_slimeball 4)
+Adventurer vest (adventurer_vest) (wool 2, cowhide 6, spruce_plank 4, yellow_slimeball 4)
 60 HP
 6% Damage
 20 Wisdom
@@ -79,7 +79,7 @@ Leather hat (leather_hat) (cowhide 5, yellow_slimeball 3)
 4% Res Water
 4% Res Air
 
-Iron helm (iron_helm) (iron 5, feather 3)
+Iron helm (iron_helm) (iron 5, wool 3)
 40 HP
 5% Damage Fire
 5% Damage Earth

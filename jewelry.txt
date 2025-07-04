@@ -10,7 +10,7 @@ Life amulet (life_amulet) (red_slimeball 2, feather 4)
 
 === Jewelrycrafting 10 ===
 
-Iron ring (iron_ring) (iron 6, feather 2)
+Iron ring (iron_ring) (iron 6, wool 2)
 4% Damage
 
 Fire & Earth Amulet (fire_and_earth_amulet) (iron 4, red_slimeball 2, yellow_slimeball 2)

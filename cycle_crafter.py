@@ -381,7 +381,7 @@ while True:
             case target_item if "feather_coat" == target_item:
                 requisites = {'feather': 5, 'ash_plank': 2}
             case target_item if "copper_armor" == target_item:
-                requisites = {'copper': 5, 'feather': 2}
+                requisites = {'copper': 5, 'wool': 2}
             case target_item if "copper_legs_armor" == target_item:
                 requisites = {'copper': 5, 'feather': 2}
             case target_item if "satchel" == target_item:
@@ -392,11 +392,11 @@ while True:
             case target_item if "iron_armor" == target_item:
                 requisites = {'iron': 5, 'cowhide': 3}
             case target_item if "adventurer_vest" == target_item:
-                requisites = {'feather': 2, 'cowhide': 6, 'spruce_plank': 4, 'yellow_slimeball': 4}
+                requisites = {'wool': 2, 'cowhide': 6, 'spruce_plank': 4, 'yellow_slimeball': 4}
             case target_item if "leather_hat" == target_item:
                 requisites = {'cowhide': 5, 'yellow_slimeball': 3}
             case target_item if "iron_helm" == target_item:
-                requisites = {'iron': 5, 'feather': 3}
+                requisites = {'iron': 5, 'wool': 3}
             case target_item if "adventurer_helmet" == target_item:
                 requisites = {'feather': 4, 'cowhide': 3, 'spruce_plank': 3, 'mushroom': 4}
             case target_item if "leather_legs_armor" == target_item:
@@ -472,7 +472,7 @@ while True:
                 requisites = {'red_slimeball': 2, 'feather': 4}
             # 10 level
             case target_item if "iron_ring" == target_item:
-                requisites = {'iron': 6, 'feather': 2}
+                requisites = {'iron': 6, 'wool': 2}
             case target_item if "fire_and_earth_amulet" == target_item:
                 requisites = {'iron': 4, 'red_slimeball': 2, 'yellow_slimeball': 2}
             case target_item if "air_and_water_amulet" == target_item:
@@ -751,7 +751,36 @@ while True:
             do_move(x, y)
             cycle_fight(5)
 
-        case level if 4 <= level < 6:
+        case level if 4 <= level < 5:
+            # green slime (4)
+            print ("=== fight green slime ===")
+            do_equip_to_monster("green_slime")
+            x, y = 3, -2
+            do_move(x, y)
+            cycle_fight(10)
+
+            # yellow slime (2)
+            print ("=== fight yellow slime ===")
+            do_equip_to_monster("yellow_slime")
+            x, y = 1, -2
+            do_move(x, y)
+            cycle_fight(5)
+
+            # chicken (1)
+            print ("=== fight chicken ===")
+            do_equip_to_monster("chicken")
+            x, y = 0, 1
+            do_move(x, y)
+            cycle_fight(3)
+
+        case level if 5 <= level < 6:
+            # sheep (5)
+            print ("=== fight sheep ===")
+            do_equip_to_monster("sheep")
+            x, y = 5, 12
+            do_move(x, y)
+            cycle_fight(10)
+
             # green slime (4)
             print ("=== fight green slime ===")
             do_equip_to_monster("green_slime")
@@ -780,6 +809,13 @@ while True:
             x, y = 0, -2
             do_move(x, y)
             cycle_fight(10)
+
+            # sheep (5)
+            print ("=== fight sheep ===")
+            do_equip_to_monster("sheep")
+            x, y = 5, 12
+            do_move(x, y)
+            cycle_fight(5)
 
             # green slime (4)
             print ("=== fight green slime ===")
@@ -816,6 +852,13 @@ while True:
             x, y = 0, -2
             do_move(x, y)
             cycle_fight(5)
+
+            # sheep (5)
+            print ("=== fight sheep ===")
+            do_equip_to_monster("sheep")
+            x, y = 5, 12
+            do_move(x, y)
+            cycle_fight(3)
 
             # green slime (4)
             print ("=== fight green slime ===")
@@ -857,6 +900,13 @@ while True:
             print ("=== fight blue slime ===")
             do_equip_to_monster("blue_slime")
             x, y = 0, -2
+            do_move(x, y)
+            cycle_fight(3)
+
+            # sheep (5)
+            print ("=== fight sheep ===")
+            do_equip_to_monster("sheep")
+            x, y = 5, 12
             do_move(x, y)
             cycle_fight(3)
 

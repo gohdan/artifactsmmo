@@ -261,7 +261,36 @@ while True:
             do_move(x, y)
             cycle_fight(5)
 
-        case level if 4 <= level < 6:
+        case level if 4 <= level < 5:
+            # green slime (4)
+            print ("=== fight green slime ===")
+            do_equip_to_monster("green_slime")
+            x, y = 3, -2
+            do_move(x, y)
+            cycle_fight(10)
+
+            # yellow slime (2)
+            print ("=== fight yellow slime ===")
+            do_equip_to_monster("yellow_slime")
+            x, y = 1, -2
+            do_move(x, y)
+            cycle_fight(5)
+
+            # chicken (1)
+            print ("=== fight chicken ===")
+            do_equip_to_monster("chicken")
+            x, y = 0, 1
+            do_move(x, y)
+            cycle_fight(3)
+
+        case level if 5 <= level < 6:
+            # sheep (5)
+            print ("=== fight sheep ===")
+            do_equip_to_monster("sheep")
+            x, y = 5, 12
+            do_move(x, y)
+            cycle_fight(10)
+
             # green slime (4)
             print ("=== fight green slime ===")
             do_equip_to_monster("green_slime")
@@ -290,6 +319,13 @@ while True:
             x, y = 0, -2
             do_move(x, y)
             cycle_fight(10)
+
+            # sheep (5)
+            print ("=== fight sheep ===")
+            do_equip_to_monster("sheep")
+            x, y = 5, 12
+            do_move(x, y)
+            cycle_fight(5)
 
             # green slime (4)
             print ("=== fight green slime ===")
@@ -326,6 +362,13 @@ while True:
             x, y = 0, -2
             do_move(x, y)
             cycle_fight(5)
+
+            # sheep (5)
+            print ("=== fight sheep ===")
+            do_equip_to_monster("sheep")
+            x, y = 5, 12
+            do_move(x, y)
+            cycle_fight(3)
 
             # green slime (4)
             print ("=== fight green slime ===")
@@ -367,6 +410,13 @@ while True:
             print ("=== fight blue slime ===")
             do_equip_to_monster("blue_slime")
             x, y = 0, -2
+            do_move(x, y)
+            cycle_fight(3)
+
+            # sheep (5)
+            print ("=== fight sheep ===")
+            do_equip_to_monster("sheep")
+            x, y = 5, 12
             do_move(x, y)
             cycle_fight(3)
 

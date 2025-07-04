@@ -840,6 +840,45 @@ def do_equip_to_monster(monster):
             if "life_amulet" in inventory_items:
                 do_equip("life_amulet", "amulet")
 
+        case monster if "sheep" == monster:
+            # 10% Res Fire, 10% Res Earth, 10% Res Water, 10% Res Air
+
+            if "sticky_sword" in inventory_items:
+                do_equip("sticky_sword", "weapon")
+            elif "wooden_staff" in inventory_items:
+                do_equip("wooden_staff", "weapon")
+            elif "sticky_dagger" in inventory_items:
+                do_equip("sticky_dagger", "weapon")
+            elif "copper_dagger" in inventory_items:
+                do_equip("copper_dagger", "weapon")
+            elif "wooden_stick" in inventory_items:
+                do_equip("wooden_stick", "weapon")
+
+            if "copper_armor" in inventory_items:
+                do_equip("copper_armor", "body_armor")
+            elif "feather_coat" in inventory_items:
+                do_equip("feather_coat", "body_armor")
+
+            if "copper_ring" in inventory_items:
+                do_equip("copper_ring", "ring1")
+            if "copper_ring" in inventory_items:
+                do_equip("copper_ring", "ring2")
+            if "small_health_potion" in inventory_items:
+                do_equip("small_health_potion", "utility1")
+            if "small_health_potion" in inventory_items:
+                do_equip("small_health_potion", "utility2")
+
+            if "wooden_shield" in inventory_items:
+                do_equip("wooden_shield", "shield")
+            if "copper_legs_armor" in inventory_items:
+                do_equip("copper_legs_armor", "leg_armor")
+            if "copper_boots" in inventory_items:
+                do_equip("copper_boots", "boots")
+            if "copper_helmet" in inventory_items:
+                do_equip("copper_helmet", "helmet")
+            if "life_amulet" in inventory_items:
+                do_equip("life_amulet", "amulet")
+
         case monster if "blue_slime" == monster:
             # 25% Res Water
 

@@ -12,6 +12,14 @@ Green slime (4)
 12 Air attack
 25% Res Air
 
+Sheep (5)
+120 HP
+14 Earth Attack
+10% Res Fire
+10% Res Earth
+10% Res Water
+10% Res Air
+
 Blue slime (6)
 120 HP
 15 Water attack
