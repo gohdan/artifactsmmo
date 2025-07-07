@@ -2,6 +2,8 @@ import requests
 import time
 import json
 from collections import OrderedDict
+from requests_toolbelt.utils import dump
+from tenacity import retry
 
 with open("_auth_data.py") as auth_data:
     exec(auth_data.read())
@@ -25,6 +27,32 @@ server = "https://api.artifactsmmo.com"
 
 cooldown = 60
 
+def do_api_request(**kwargs):
+    print("doing API request")
+
+    request = {}
+    request['type'] = ""
+    request['url'] = ""
+    request['headers'] = ""
+    request['data'] = ""
+
+    for k,v in kwargs.items():
+        #print("%s = %s" % (k, v))
+        request[k] = v
+
+    @retry(wait=3)
+    def api_call(request):
+        print("api call")
+        resp = getattr(requests, request['type'])(request['url'], headers=request['headers'], data=request['data'])
+        #data = dump.dump_all(resp)
+        #print(data.decode('utf-8'))
+        return resp
+
+    response = api_call(request)
+
+    return response
+    
+
 def do_move(x, y):
 
     print("moving to x:", x, ", y:", y)
@@ -38,7 +66,7 @@ def do_move(x, y):
 
     raw_data = f'{{"x" : {x}, "y": {y}}}'
 
-    response = requests.post(url, headers=headers, data=raw_data)
+    response = do_api_request(type="post", url=url, headers=headers, data=raw_data)
 
     cooldown = 60
 
@@ -80,7 +108,7 @@ def do_gathering():
         "Authorization": f"Bearer {token}"
     }
 
-    response = requests.post(url, headers=headers)
+    response = do_api_request(type="post", url=url, headers=headers)
 
     cooldown = 60
 
@@ -128,7 +156,7 @@ def do_fight():
         "Authorization": f"Bearer {token}"
     }
 
-    response = requests.post(url, headers=headers)
+    response = do_api_request(type="post", url=url, headers=headers)
 
     cooldown = 60
 
@@ -181,7 +209,7 @@ def do_bank_deposit(item, qty):
         "Authorization": f"Bearer {token}"
     }
 
-    response = requests.post(url, headers=headers, data=raw_data)
+    response = do_api_request(type="post", url=url, headers=headers, data=raw_data)
 
     cooldown = 1
 
@@ -238,7 +266,7 @@ def do_bank_withdraw(item, qty):
         "Authorization": f"Bearer {token}"
     }
 
-    response = requests.post(url, headers=headers, data=raw_data)
+    response = do_api_request(type="post", url=url, headers=headers, data=raw_data)
 
     cooldown = 1
 
@@ -287,7 +315,7 @@ def do_unequip(slot):
 
     raw_data = f'{{"slot" : "{slot}"}}'
 
-    response = requests.post(url, headers=headers, data=raw_data)
+    response = do_api_request(type="post", url=url, headers=headers, data=raw_data)
 
     cooldown = 1
 
@@ -341,7 +369,7 @@ def do_equip(code, slot):
 
     raw_data = f'{{"code" : "{code}", "slot" : "{slot}"}}'
 
-    response = requests.post(url, headers=headers, data=raw_data)
+    response = do_api_request(type="post", url=url, headers=headers, data=raw_data)
 
     cooldown = 1
 
@@ -394,7 +422,7 @@ def do_crafting(code):
 
     raw_data = f'{{"code" : "{code}"}}'
 
-    response = requests.post(url, headers=headers, data=raw_data)
+    response = do_api_request(type="post", url=url, headers=headers, data=raw_data)
 
     cooldown = 1
 
@@ -470,7 +498,7 @@ def get_characters_array():
         "Authorization": f"Bearer {token}"
     }
 
-    response = requests.get(url, headers=headers)
+    response = do_api_request(type="get", url=url, headers=headers)
 
     if response.status_code != 200:
         print("An error occured while doing api request")
@@ -510,7 +538,7 @@ def do_rest(character):
         "Authorization": f"Bearer {token}"
     }
 
-    response = requests.post(url, headers=headers)
+    response = do_api_request(type="post", url=url, headers=headers)
 
     cooldown = 1
 
@@ -568,7 +596,7 @@ def get_bank_info():
         "Authorization": f"Bearer {token}"
     }
 
-    response = requests.get(url, headers=headers)
+    response = do_api_request(type="get", url=url, headers=headers)
 
     data = ""
 
@@ -599,7 +627,7 @@ def get_bank_items():
         "Authorization": f"Bearer {token}"
     }
 
-    response = requests.get(url, headers=headers)
+    response = do_api_request(type="get", url=url, headers=headers)
 
     data = ""
 
@@ -624,7 +652,7 @@ def buy_bank_expansion():
         "Authorization": f"Bearer {token}"
     }
 
-    response = requests.post(url, headers=headers)
+    response = do_api_request(type="post", url=url, headers=headers)
 
     cooldown = 1
 
@@ -1135,7 +1163,7 @@ def use_item(name, qty):
 
     raw_data = f'{{"code" : "{name}", "quantity": "{qty}"}}'
 
-    response = requests.post(url, headers=headers, data=raw_data)
+    response = do_api_request(type="post", url=url, headers=headers, data=raw_data)
 
     cooldown = 1
 
