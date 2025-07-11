@@ -47,8 +47,10 @@ def do_api_request(**kwargs):
         #data = dump.dump_all(resp)
         #print(data.decode('utf-8'))
         return resp
-
-    response = api_call(request)
+    while True:
+        response = api_call(request)
+        if not response.status_code == 502:
+            break
 
     return response
     
