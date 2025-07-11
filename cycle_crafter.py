@@ -466,7 +466,7 @@ while True:
         match target_item:
             # 1 level
             case target_item if "copper_ring" == target_item:
-                requisites = {'copper': 6}
+                requisites = {'copper_bar': 6}
             # 5 level
             case target_item if "life_amulet" == target_item:
                 requisites = {'red_slimeball': 2, 'feather': 4}
