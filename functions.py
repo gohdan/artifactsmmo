@@ -58,48 +58,59 @@ def do_api_request(**kwargs):
 def do_move(x, y):
 
     print("moving to x:", x, ", y:", y)
-    url = f"{server}/my/{character}/action/move"
 
-    headers = {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        "Authorization": f"Bearer {token}"
-    }
+    x_cur = get_character_parameter(character, "x")
+    y_cur = get_character_parameter(character, "y")
 
-    raw_data = f'{{"x" : {x}, "y": {y}}}'
-
-    response = do_api_request(type="post", url=url, headers=headers, data=raw_data)
-
-    cooldown = 60
-
-    if response.status_code == 404:
-        print("Map not found")
-    elif response.status_code == 486:
-        print("Character is locked. Action is already in progress")
-    elif response.status_code == 490:
-        print("Character already at destination")
-        cooldown = 0;
-    elif response.status_code == 498:
-        print("Character not found")
-    elif response.status_code == 499:
-        print("Character in cooldown")
-        cooldown = do_move(x, y);
-    elif response.status_code != 200:
-        print("An error occured while doing api request")
-        print("status code:", response.status_code)
-        cooldown = do_move(x, y);
+    print("current coords: x:", x_cur, ", y:", y_cur)
+    
+    if x == x_cur and y == y_cur:
+        print("character already is in target area, not moving")
     else:
-        print("Move successful")
-        data = response.json()["data"]
-        cooldown = data["cooldown"]["total_seconds"]
+        print("character is not in the target area, moving")
 
-    print("Cooldown:", cooldown)
-    if cooldown is None:
-        print("cooldown is None, setting it to 60")
+        url = f"{server}/my/{character}/action/move"
+
+        headers = {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Authorization": f"Bearer {token}"
+        }
+
+        raw_data = f'{{"x" : {x}, "y": {y}}}'
+
+        response = do_api_request(type="post", url=url, headers=headers, data=raw_data)
+
         cooldown = 60
-        print("Cooldown:", cooldown)
 
-    time.sleep(cooldown)
+        if response.status_code == 404:
+            print("Map not found")
+        elif response.status_code == 486:
+            print("Character is locked. Action is already in progress")
+        elif response.status_code == 490:
+            print("Character already at destination")
+            cooldown = 0;
+        elif response.status_code == 498:
+            print("Character not found")
+        elif response.status_code == 499:
+            print("Character in cooldown")
+            cooldown = do_move(x, y);
+        elif response.status_code != 200:
+            print("An error occured while doing api request")
+            print("status code:", response.status_code)
+            cooldown = do_move(x, y);
+        else:
+            print("Move successful")
+            data = response.json()["data"]
+            cooldown = data["cooldown"]["total_seconds"]
+
+        print("Cooldown:", cooldown)
+        if cooldown is None:
+            print("cooldown is None, setting it to 60")
+            cooldown = 60
+            print("Cooldown:", cooldown)
+
+        time.sleep(cooldown)
 
 def do_gathering():
     url = f"{server}/my/{character}/action/gathering"
@@ -468,19 +479,11 @@ def cycle_gathering(iterations):
       print("gathering", i_human, "/", iterations)
       do_gathering()
 
-def cycle_fight(iterations):
+def cycle_fight(monster, iterations):
     for i in range (iterations):
       i_human = i+1
-      #print("equip consumables")
-      #do_equip("cooked_shrimp", "consumable1")
-      #do_equip("cooked_beef", "consumable1")
-      #do_equip("cooked_chicken", "consumable1")
-      #do_equip("cooked_gudgeon", "consumable1")
-      #do_equip("cooked_shrimp", "consumable2")
-      #do_equip("cooked_beef", "consumable2")
-      #do_equip("cooked_chicken", "consumable2")
-      #do_equip("cooked_gudgeon", "consumable2")
-      print("fight {} / {}".format(i_human, iterations))
+      print("fight {}: {} / {}".format(monster, i_human, iterations))
+      go_to_monster(monster)
       do_fight()
 
 def cycle_crafting(code, iterations):
@@ -1278,4 +1281,38 @@ def do_bank_deposit_all():
             if 0 < qty:
                 print("do deposit:", name, qty)
                 do_bank_deposit(name, qty)
+
+def go_to_monster(monster):
+    print ("*** go_to_monster")
+
+    print ("monster: {}".format(monster))
+
+    match monster:
+        case monster if "chicken" == monster:
+            x, y = 0, 1
+        case monster if "yellow_slime" == monster:
+            x, y = 1, -2
+        case monster if "green_slime" == monster:
+            x, y = 3, -2
+        case monster if "blue_slime" == monster:
+            x, y = 0, -2
+        case monster if "sheep" == monster:
+            x, y = 5, 12
+        case monster if "red_slime" == monster:
+            x, y = 2, -2
+        case monster if "cow" == monster:
+            x, y = 0, 2
+        case monster if "mushmush" == monster:
+            x, y = 5, 3
+
+    do_move(x,y)
+
+
+def go_fight(monster, times):
+    print ("*** go_fight")
+
+    print("monster: {}, times: {}".format(monster, times))
+
+    do_equip_to_monster(monster)
+    cycle_fight(monster, times)
 

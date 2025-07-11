@@ -163,88 +163,50 @@ while True:
     #do_equip("feather_coat", "body_armor")
     #cycle_fight(10)
 
-    ## mushmush (10)
-    #print ("=== fight mushmush ===")
-    #x, y = 5, 3
-    #do_move(x, y)
-    #do_unequip("weapon")
-    #do_unequip("body_armor")
-    #do_equip("iron_dagger", "weapon")
-    #do_equip("feather_coat", "body_armor")
-    #cycle_fight(10)
-
-
     match level:
         case level if 1 <= level <  2:
             # chicken (1)
             print ("=== fight chicken ===")
-            do_equip_to_monster("chicken")
-            x, y = 0, 1
-            do_move(x, y)
-            cycle_fight(10)
+            go_fight("chicken", 10)
 
         case level if 2 <= level < 4:
             # yellow slime (2)
             print ("=== fight yellow slime ===")
-            do_equip_to_monster("yellow_slime")
-            x, y = 1, -2
-            do_move(x, y)
-            cycle_fight(10)
+            go_fight("yellow_slime", 10)
 
         case level if 4 <= level < 6:
             # green slime (4)
             print ("=== fight green slime ===")
-            do_equip_to_monster("green_slime")
-            x, y = 3, -2
-            do_move(x, y)
-            cycle_fight(10)
+            go_fight("green_slime", 10)
 
         case level if 6 <= level < 8:
             # blue slime (6)
             print ("=== fight blue slime ===")
-            do_equip_to_monster("blue_slime")
-            x, y = 0, -2
-            do_move(x, y)
-            cycle_fight(10)
+            go_fight("blue_slime", 10)
 
         case level if 8 <= level < 9:
             # sheep (5)
             print ("=== fight sheep ===")
-            do_equip_to_monster("sheep")
-            x, y = 5, 12
-            do_move(x, y)
-            cycle_fight(10)
+            go_fight("sheep", 10)
 
         case level if 9 <= level < 10:
             # red slime (7)
             print ("=== fight red slime ===")
-            do_equip_to_monster("red_slime")
-            x, y = 2, -2
-            do_move(x, y)
-            cycle_fight(10)
+            go_fight("red_slime", 10)
 
         case level if 10 <= level < 11:
             # cow (8)
             print ("=== fight cow ===")
-            do_equip_to_monster("cow")
-            x, y = 0, 2
-            do_move(x, y)
-            cycle_fight(10)
+            go_fight("cow", 10)
 
         case level if 11 <= level:
             # mushmush (10)
             print ("=== fight mushmush ===")
-            do_equip_to_monster("mushmush")
-            x, y = 5, 3
-            do_move(x, y)
-            cycle_fight(10)
+            go_fight("mushmush", 10)
 
         case _:
             # default values
             # chicken (1)
             print ("=== fight chicken ===")
-            do_equip_to_monster("chicken")
-            x, y = 0, 1
-            do_move(x, y)
-            cycle_fight(10)
+            go_fight("chicken", 10)
 
