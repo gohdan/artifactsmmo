@@ -53,10 +53,10 @@ while True:
                 belongings["wooden_staff"] = 1
         case level if 10 <= level:
             belongings = {
-                #"fire_bow": 1,
-                #"greater_wooden_staff": 1,
+                "fire_bow": 1,
+                "greater_wooden_staff": 1,
                 "iron_dagger": 1,
-                #"iron_sword": 1,
+                "iron_sword": 1,
 
                 "slime_shield": 1,
 
@@ -88,33 +88,45 @@ while True:
                 "cheese": 5,
                 "cooked_shrimp": 5
             }
-            #if "fire_bow" not in inventory_items:
-            #    belongings["fire_staff"] = 1
-            #if "greater_wooden_staff" not in inventory_items:
-            #    belongings["water_bow"] = 1
-            #if "iron_dagger" not in inventory_items:
-            #    belongings["sticky_dagger"] = 1
-            #if "iron_sword" not in inventory_items:
-            #    belongings["sticky_sword"] = 1
 
-            #if "leather_boots" not in inventory_items and "iron_boots" not in inventory_items:
-            #    belongings["copper_boots"] = 1
-            #if "leather_hat" not in inventory_items and "iron_helm" not in inventory_items and "adventurer_helmet" not in inventory_items:
-            #    belongings["copper_helmet"] = 1
+            if "leather_boots" not in inventory_items and "iron_boots" not in inventory_items:
+                belongings["copper_boots"] = 1
+            if "leather_hat" not in inventory_items and "iron_helm" not in inventory_items and "adventurer_helmet" not in inventory_items:
+                belongings["copper_helmet"] = 1
 
-            #if "slime_shield" not in inventory_items:
-            #    belongings["wooden_shield"] = 1
+            if "slime_shield" not in inventory_items:
+                belongings["wooden_shield"] = 1
 
-            #if "iron_armor" not in inventory_items:
-            #    belongings["copper_armor"] = 1
-            #if "leather_armor" not in inventory_items:
-            #    belongings["feather_coat"] = 1
+            if "iron_armor" not in inventory_items:
+                belongings["copper_armor"] = 1
+            if "leather_armor" not in inventory_items:
+                belongings["feather_coat"] = 1
 
-            #if "leather_legs_armor" not in inventory_items and "iron_legs_armor" not in inventory_items:
-            #    belongings["copper_legs_armor"] = 1
+            if "leather_legs_armor" not in inventory_items and "iron_legs_armor" not in inventory_items:
+                belongings["copper_legs_armor"] = 1
 
-            #if "iron_ring" not in inventory_items:
-            #    belongings["copper_ring"] = 2
+            if "iron_ring" not in inventory_items:
+                belongings["copper_ring"] = 2
+
+            # Damage: Air
+            if "iron_dagger" not in inventory_items and "sticky_dagger" not in inventory_items:
+                belongings["copper_dagger"] = 1
+            elif "iron_dagger" not in inventory_items:
+                belongings["sticky_dagger"] = 1
+
+            # Damage: Earth 
+            if "iron_sword" not in inventory_items and "sticky_sword" not in inventory_items:
+                belongings["wooden_staff"] = 1
+            elif "iron_sword" not in inventory_items:
+                belongings["sticky_sword"] = 1
+
+            # Damage: Water
+            if "greater_wooden_staff" not in inventory_items:
+                belongings["water_bow"] = 1
+
+            # Damage: Fire
+            if "fire_bow" not in inventory_items:
+                belongings["fire_staff"] = 1
 
         case _:
             # default values
