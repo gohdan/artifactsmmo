@@ -60,24 +60,24 @@ while True:
 
                 "slime_shield": 1,
 
-                #"iron_armor": 1,
+                "iron_armor": 1,
                 "leather_armor": 1,
-                #"adventurer_vest": 1,
+                "adventurer_vest": 1,
 
                 "leather_hat": 1,
-                #"iron_helm": 1,
-                #"adventurer_helmet": 1,
+                "iron_helm": 1,
+                "adventurer_helmet": 1,
 
                 "leather_legs_armor": 1,
-                #"iron_legs_armor": 1,
+                "iron_legs_armor": 1,
 
                 "leather_boots": 1,
-                #"iron_boots": 1,
+                "iron_boots": 1,
 
                 "iron_ring": 2,
 
-                #"life_amulet": 1,
-                #"fire_and_earth_amulet": 1,
+                "life_amulet": 1,
+                "fire_and_earth_amulet": 1,
                 "air_and_water_amulet": 1,
 
                 "small_health_potion": 10,
