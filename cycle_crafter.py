@@ -374,16 +374,16 @@ while True:
             case target_item if "wooden_shield" == target_item:
                 requisites = {'ash_plank': 6}
             case target_item if "copper_boots" == target_item:
-                requisites = {'copper': 6}
+                requisites = {'copper_bar': 6}
             case target_item if "copper_helmet" == target_item:
-                requisites = {'copper': 6}
+                requisites = {'copper_bar': 6}
             # 5 level
             case target_item if "feather_coat" == target_item:
                 requisites = {'feather': 5, 'ash_plank': 2}
             case target_item if "copper_armor" == target_item:
-                requisites = {'copper': 5, 'wool': 2}
+                requisites = {'copper_bar': 5, 'wool': 2}
             case target_item if "copper_legs_armor" == target_item:
-                requisites = {'copper': 5, 'feather': 2}
+                requisites = {'copper_bar': 5, 'feather': 2}
             case target_item if "satchel" == target_item:
                 requisites = {'cowhide': 5, 'feather': 2, 'jasper_crystal': 1}
             # 10 level
