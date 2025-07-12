@@ -201,17 +201,17 @@ while True:
             print ("=== fight sheep ===")
             go_fight("sheep", 10)
 
-        case level if 9 <= level < 11:
+        case level if 9 <= level < 12:
             # red slime (7)
             print ("=== fight red slime ===")
             go_fight("red_slime", 10)
 
-        case level if 11 <= level < 12:
+        case level if 12 <= level < 13:
             # cow (8)
             print ("=== fight cow ===")
             go_fight("cow", 10)
 
-        case level if 12 <= level:
+        case level if 13 <= level:
             # mushmush (10)
             print ("=== fight mushmush ===")
             go_fight("mushmush", 10)
