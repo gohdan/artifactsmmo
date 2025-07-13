@@ -49,8 +49,10 @@ def do_api_request(**kwargs):
         return resp
     while True:
         response = api_call(request)
-        if not response.status_code == 502:
+        if not response.status_code == 502 and not response.status_code == 429:
             break
+        else
+            time.sleep(10)
 
     return response
     
