@@ -579,6 +579,21 @@ while True:
             case target_item if "cheese" == target_item:
                 requisites = {'milk_bucket': 1}
 
+            case target_item if "cooked_shrimp" == target_item:
+                requisites = {'shrimp': 1}
+
+                if "shrimp" in bank_items:
+                    if bank_items['shrimp'] > inventory_available:
+                        withdraw_qty = inventory_available
+                    else:
+                        withdraw_qty = bank_items['shrimp']
+                    if 0 != withdraw_qty:
+                        craft_cooking['cooked_shrimp'] = withdraw_qty
+                        withdraw['shrimp'] = withdraw_qty
+                        bank_items['shrimp'] -= withdraw_qty
+                        inventory_available -= withdraw_qty
+                requisites = {}
+
             case _:
                 # default values
                 print("didn't found requisites")
