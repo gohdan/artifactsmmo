@@ -995,7 +995,9 @@ def do_equip_to_monster(monster):
         case monster if "cow" == monster:
             # -30% Res Earth, 30% Res Water
 
-            if "sticky_sword" in inventory_items:
+            if "iron_sword" in inventory_items:
+                do_equip("iron_sword", "weapon")
+            elif "sticky_sword" in inventory_items:
                 do_equip("sticky_sword", "weapon")
             elif "wooden_staff" in inventory_items:
                 do_equip("wooden_staff", "weapon")
