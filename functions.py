@@ -51,7 +51,7 @@ def do_api_request(**kwargs):
         response = api_call(request)
         if not response.status_code == 502 and not response.status_code == 429:
             break
-        else
+        else:
             time.sleep(10)
 
     return response
