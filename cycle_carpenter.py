@@ -252,7 +252,7 @@ while True:
 
             # chicken (1)
             print ("=== fight chicken ===")
-            go_fight("chicken", 3)
+            go_fight("chicken", 4)
 
         case level if 5 <= level < 6:
             # green slime (4)
@@ -265,7 +265,7 @@ while True:
 
             # chicken (1)
             print ("=== fight chicken ===")
-            go_fight("chicken", 3)
+            go_fight("chicken", 4)
 
         case level if 6 <= level < 7:
             # blue slime (6)
@@ -282,7 +282,7 @@ while True:
 
             # chicken (1)
             print ("=== fight chicken ===")
-            go_fight("chicken", 3)
+            go_fight("chicken", 4)
 
         case level if 7 <= level < 8:
             # sheep (5)
@@ -307,7 +307,7 @@ while True:
 
             # chicken (1)
             print ("=== fight chicken ===")
-            go_fight("chicken", 3)
+            go_fight("chicken", 4)
 
         case level if 8 <= level:
             # cow (8)
@@ -336,7 +336,7 @@ while True:
 
             # chicken (1)
             print ("=== fight chicken ===")
-            go_fight("chicken", 3)
+            go_fight("chicken", 4)
 
         case _:
             # default values
