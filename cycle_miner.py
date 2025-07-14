@@ -127,7 +127,7 @@ while True:
 
             copper_limit = inventory_limit // 3
             copper_qty = copper_limit // copper_ore_in_copper_qty
-            copper_limit = copper_qty * copper_ore_in_copper_qty
+            copper_limit = copper_qty * copper_ore_in_copper_qty + copper_ore_in_copper_qty
 
             iron_limit = inventory_limit // 3
             iron_qty = iron_limit // iron_ore_in_iron_qty
@@ -144,7 +144,7 @@ while True:
 
             copper_limit = inventory_limit // 3
             copper_qty = copper_limit // copper_ore_in_copper_qty
-            copper_limit = copper_qty * copper_ore_in_copper_qty
+            copper_limit = copper_qty * copper_ore_in_copper_qty + copper_ore_in_copper_qty
 
             iron_limit = inventory_limit // 3
             iron_qty = iron_limit // iron_ore_in_iron_qty
