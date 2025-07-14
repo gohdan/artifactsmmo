@@ -35,6 +35,7 @@ while True:
     match level:
         case level if 1 <= level < 5:
             belongings = {
+                "copper_axe": 1,
                 "copper_dagger": 1,
                 "wooden_staff": 1,
                 "copper_boots": 1,
@@ -46,6 +47,7 @@ while True:
                 belongings["wooden_stick"] = 1
         case level if 5 <= level:
             belongings = {
+                "copper_axe": 1,
                 "water_bow": 1,
                 "sticky_dagger": 1,
                 "sticky_sword": 1,
@@ -168,6 +170,8 @@ while True:
         birch_limit = birch_limit - birch_wood_in_bank_qty
 
     # ======= GATHERING ======
+
+    do_equip("copper_axe", "weapon")
 
     # birch tree (woodcutting 20)
     if 0 != birch_limit:

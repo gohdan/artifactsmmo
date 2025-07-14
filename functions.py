@@ -27,6 +27,8 @@ server = "https://api.artifactsmmo.com"
 
 cooldown = 60
 
+equipment_slots = {'weapon', 'shield', 'helmet', 'body_armor', 'leg_armor', 'boots', 'ring1', 'ring2', 'amulet', 'artifact1', 'artifact2', 'artifact3', 'utility1', 'utility2', 'bag', 'rune'}
+
 def do_api_request(**kwargs):
     print("doing API request")
 
@@ -699,9 +701,7 @@ def do_unequip_all():
 
     do_heal()
 
-    slots = {'weapon', 'shield', 'helmet', 'body_armor', 'leg_armor', 'boots', 'ring1', 'ring2', 'amulet', 'artifact1', 'artifact2', 'artifact3', 'utility1', 'utility2', 'bag', 'rune'}
-
-    for slot in slots:
+    for slot in equipment_slots:
         do_unequip(slot)
 
 def do_bank_withdraw_belongings(belongings):
@@ -1320,3 +1320,30 @@ def go_fight(monster, times):
     do_equip_to_monster(monster)
     cycle_fight(monster, times)
 
+def character_has(char_type, item):
+
+    print ("*** character_has")
+    print ("character type: ", char_type)
+    print ("item: ", item)
+
+    if_has = 0
+    data = get_characters_array()
+
+    char_name = characters[char_type]
+    print("character name: ", char_name)
+
+    for char in data:
+        name = char['name']
+        if name == char_name:
+            for inv in char['inventory']:
+                if inv['code'] == item:
+                    if_has = 1
+                    print("has in inventory:", item)
+            for slot in equipment_slots:
+                slot_name=slot+"_slot"
+                if char[slot_name] == item:
+                    if_has = 1
+                    print("has in equipment:", item)
+            break
+
+    return if_has;

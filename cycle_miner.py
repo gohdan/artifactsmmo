@@ -33,6 +33,7 @@ while True:
     match level:
         case level if 1 <= level < 5:
             belongings = {
+                "copper_pickaxe": 1,
                 "copper_dagger": 1,
                 "wooden_staff": 1,
                 "copper_boots": 1,
@@ -44,6 +45,7 @@ while True:
                 belongings["wooden_stick"] = 1
         case level if 5 <= level:
             belongings = {
+                "copper_pickaxe": 1,
                 "fire_staff": 1,
                 "water_bow": 1,
                 "sticky_dagger": 1,
@@ -211,6 +213,8 @@ while True:
     #x, y = 10, -4
     #do_move(x, y)
     #cycle_gathering(gold_ore_limit)
+
+    do_equip("copper_pickaxe", "weapon")
 
     # coal (mining 20)
     if 0 != coal_limit:

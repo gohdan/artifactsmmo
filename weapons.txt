@@ -14,6 +14,27 @@ Copper Dagger (copper_dagger) (copper_bar 6)
 8 Attack Air
 35% Critical Strike
 
+Apprentice Gloves (tool) (apprentice_gloves) (feather 6)
+5 Attack Air
+-10% Cooldown
+Simple cloth gloves worn by beginner alchemists. They provide a small boost to harvesting efficiency.
+
+Copper Axe (copper_axe) (tool) (copper_bar 6)
+5 Attack Earth
+-10% Cooldown
+A simple axe with a copper head. It's not particularly powerful, but it makes chopping trees a bit faster.
+
+Copper Pickaxe (copper_pickaxe) (tool) (copper_bar 6)
+5 Attack Earth
+-10% Cooldown
+A basic pickaxe with a copper head. It's not very durable, but it helps beginners mine a bit faster.
+
+Fishing Net (fishing_net) (tool) (ash_plank 6)
+5 Attack Water
+-10% Cooldown
+A simple net woven from ash wood planks. Makes catching fish slightly easier for novice fishers.
+
+
 === Weaponcrafting 5 ===
 
 Sticky Sword (sticky_sword) (copper_bar 5, yellow_slimeball 2)

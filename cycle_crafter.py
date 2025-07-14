@@ -18,6 +18,7 @@ while True:
     match level:
         case level if 1 <= level < 5:
             belongings = {
+                "apprentice_gloves": 1,
                 "copper_dagger": 1,
                 "wooden_staff": 1,
                 "copper_boots": 1,
@@ -29,6 +30,7 @@ while True:
                 belongings["wooden_stick"] = 1
         case level if 5 <= level:
             belongings = {
+                "apprentice_gloves": 1,
                 "fire_staff": 1,
                 "water_bow": 1,
                 "sticky_dagger": 1,
@@ -257,6 +259,15 @@ while True:
             target_items = ['copper_dagger', 'wooden_staff']
     print("target_items: {}".format(target_items))
 
+    if not character_has("crafter", "apprentice_gloves"):
+        target_items.insert(0,"apprentice_gloves")
+    if not character_has("carpenter", "copper_axe"):
+        target_items.insert(0, "copper_axe")
+    if not character_has("miner", "copper_pickaxe"):
+        target_items.insert(0, "copper_pickaxe")
+    if not character_has("fisher", "fishing_net"):
+        target_items.insert(0, "fishing_net")
+
     for target_item in target_items:
         print("checking requisites of {}".format(target_item))
         match target_item:
@@ -265,6 +276,14 @@ while True:
                 requisites = {'wooden_stick': 1, 'ash_wood': 4}
             case target_item if "copper_dagger" == target_item:
                 requisites = {'copper_bar': 6}
+            case target_item if "apprentice_gloves" == target_item:
+                requisites = {'feather': 6}
+            case target_item if "copper_axe" == target_item:
+                requisites = {'copper_bar': 6}
+            case target_item if "copper_pickaxe" == target_item:
+                requisites = {'copper_bar': 6}
+            case target_item if "fishing_net" == target_item:
+                requisites = {'ash_plank': 6}
             # 5 level
             case target_item if "sticky_sword" == target_item:
                 requisites = {'yellow_slimeball': 2, 'copper_bar': 5}
@@ -626,6 +645,7 @@ while True:
     # sunflower (alchemy 1)
     if 0 != sunflower_limit:
         print("=== gather sunflower ===")
+        do_equip("apprentice_gloves", "weapon")
         x, y = 2, 2
         do_move(x, y)
         cycle_gathering(sunflower_limit)

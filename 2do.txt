@@ -128,6 +128,11 @@ Gather sunflower (Alchemy 1)
 Wooden staff (Weaponcrafting 1)
 Copper dagger (Weaponcrafting 1)
 
+Apprentice Gloves (Weaponcrafting 1)
+Copper Axe (Weaponcrafting 1)
+Copper Pickaxe (Weaponcrafting 1)
+Fishing Net (Weaponcrafting 1)
+
 Wooden shield (Gearcrafting 1)
 Copper helmet (Gearcrafting 1)
 Copper boots (Gearcrafting 1)

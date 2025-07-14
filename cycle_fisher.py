@@ -24,6 +24,7 @@ while True:
     match level:
         case level if 1 <= level < 5:
             belongings = {
+                "fishing_net": 1,
                 "copper_dagger": 1,
                 "wooden_staff": 1,
                 "copper_boots": 1,
@@ -35,6 +36,7 @@ while True:
                 belongings["wooden_stick"] = 1
         case level if 5 <= level:
             belongings = {
+                "fishing_net": 1,
                 "fire_staff": 1,
                 "water_bow": 1,
                 "sticky_dagger": 1,
@@ -130,6 +132,8 @@ while True:
     #x, y = -3, 6
     #do_move(x, y)
     #cycle_gathering(inventory_limit)
+
+    do_equip("fishing_net", "weapon")
 
     # trout (fishing 20)
     if 0 != trout_qty:
