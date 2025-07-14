@@ -2,7 +2,7 @@
 
 Boots:
 
-Copper boots (copper_boots) (copper_bar 6)
+Copper boots (copper_boots) (copper_bar 8)
 10 HP
 10 Wisdom
 

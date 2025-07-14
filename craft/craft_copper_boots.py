@@ -10,7 +10,7 @@ x, y = 4, 1
 do_move(x, y)
 
 print("withdraw copper")
-do_bank_withdraw("copper_bar", 6)
+do_bank_withdraw("copper_bar", 8)
 
 print("move to workshop gearcrafting")
 x, y = 3, 1

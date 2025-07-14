@@ -374,7 +374,7 @@ while True:
             case target_item if "wooden_shield" == target_item:
                 requisites = {'ash_plank': 6}
             case target_item if "copper_boots" == target_item:
-                requisites = {'copper_bar': 6}
+                requisites = {'copper_bar': 8}
             case target_item if "copper_helmet" == target_item:
                 requisites = {'copper_bar': 6}
             # 5 level
