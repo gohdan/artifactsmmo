@@ -1011,10 +1011,13 @@ def do_equip_to_monster(monster):
             elif "feather_coat" in inventory_items:
                 do_equip("feather_coat", "body_armor")
 
+            if "iron_ring" in inventory_items:
+                do_equip("iron_ring", "ring1")
+                do_equip("iron_ring", "ring2")
             if "copper_ring" in inventory_items:
                 do_equip("copper_ring", "ring1")
-            if "copper_ring" in inventory_items:
                 do_equip("copper_ring", "ring2")
+
             if "small_health_potion" in inventory_items:
                 do_equip("small_health_potion", "utility1")
             if "small_health_potion" in inventory_items:
