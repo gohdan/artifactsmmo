@@ -284,13 +284,13 @@ while True:
     #cycle_crafting("gold", gold_qty)
 
     if 0 != ruby_stone_qty:
-        do_crafting(ruby)
+        do_crafting("ruby")
     if 0 != emerald_stone_qty:
-        do_crafting(emerald)
+        do_crafting("emerald")
     if 0 != sapphire_stone_qty:
-        do_crafting(sapphire)
+        do_crafting("sapphire")
     if 0 != topaz_stone_qty:
-        do_crafting(topaz)
+        do_crafting("topaz")
 
     # ======= FIGHTING ======
 
