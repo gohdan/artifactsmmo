@@ -81,12 +81,18 @@ while True:
                 "air_and_water_amulet": 1,
 
                 "small_health_potion": 10,
-                "cooked_gudgeon": 15,
-                "cooked_chicken": 5,
-                "cooked_beef": 5,
-                "fried_eggs": 5,
-                "cheese": 5,
-                "cooked_shrimp": 5
+
+                "air_boost_potion": 10,
+                "earth_boost_potion": 10,
+                "fire_boost_potion": 10,
+                "water_boost_potion": 10,
+
+                "cooked_gudgeon": 10,
+                "cooked_chicken": 10,
+                "cooked_beef": 10,
+                "fried_eggs": 10,
+                "cheese": 10,
+                "cooked_shrimp": 10
             }
 
             if "leather_boots" not in inventory_items and "iron_boots" not in inventory_items:
