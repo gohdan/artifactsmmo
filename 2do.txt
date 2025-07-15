@@ -26,11 +26,6 @@ Craft dead wood plank (Woodcutting 30)
 
 Miner:
 
-Craft sapphire (Mining 20)
-Craft emerald (Mining 20)
-Craft ruby (Mining 20)
-Craft topaz (Mining 20)
-
 Gather gold ore (Mining 30)
 Craft gold (Mining 30)
 
@@ -91,6 +86,12 @@ Craft iron (Mining 10)
 
 Gather coal (Mining 20)
 Craft steel (Mining 20)
+
+Craft sapphire (Mining 20)
+Craft emerald (Mining 20)
+Craft ruby (Mining 20)
+Craft topaz (Mining 20)
+
 
 Fight chicken (1)
 Fight yellow slime (2)

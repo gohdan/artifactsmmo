@@ -16,6 +16,11 @@ iron_limit = 0
 coal_limit = 0
 steel_limit = 0
 
+ruby_stone_qty = 0
+emerald_stone_qty = 0
+sapphire_stone_qty = 0
+topaz_stone_qty = 0
+
 # x6
 #gold_ore_limit = 30
 #gold_qty = 5
@@ -206,6 +211,31 @@ while True:
             do_bank_withdraw('coal', coal_in_bank_qty)
             coal_limit = coal_limit - coal_in_bank_qty
 
+    if mining_level >= 20:
+        ruby_stone_in_bank_qty = get_item_in_bank_qty('ruby_stone')
+        print("ruby_stone_in_bank_qty:{}".format(ruby_stone_in_bank_qty))
+        if 0 != ruby_stone_in_bank_qty:
+            do_bank_withdraw('ruby_stone', 1)
+        ruby_stone_qty = 1
+
+        emerald_stone_in_bank_qty = get_item_in_bank_qty('emerald_stone')
+        print("emerald_stone_in_bank_qty:{}".format(emerald_stone_in_bank_qty))
+        if 0 != emerald_stone_in_bank_qty:
+            do_bank_withdraw('emerald_stone', 1)
+        emerald_stone_qty = 1
+
+        sapphire_stone_in_bank_qty = get_item_in_bank_qty('sapphire_stone')
+        print("sapphire_stone_in_bank_qty:{}".format(sapphire_stone_in_bank_qty))
+        if 0 != sapphire_stone_in_bank_qty:
+            do_bank_withdraw('sapphire_stone', 1)
+        sapphire_stone_qty = 1
+
+        topaz_stone_in_bank_qty = get_item_in_bank_qty('topaz_stone')
+        print("topaz_stone_in_bank_qty:{}".format(topaz_stone_in_bank_qty))
+        if 0 != topaz_stone_in_bank_qty:
+            do_bank_withdraw('topaz_stone', 1)
+        topaz_stone_qty = 1
+
     # ======= GATHERING ======
 
     ## gold ore (mining 30)
@@ -252,6 +282,15 @@ while True:
         cycle_crafting("copper_bar", copper_qty)
 
     #cycle_crafting("gold", gold_qty)
+
+    if 0 != ruby_stone_qty:
+        do_crafting(ruby)
+    if 0 != emerald_stone_qty:
+        do_crafting(emerald)
+    if 0 != sapphire_stone_qty:
+        do_crafting(sapphire)
+    if 0 != topaz_stone_qty:
+        do_crafting(topaz)
 
     # ======= FIGHTING ======
 
