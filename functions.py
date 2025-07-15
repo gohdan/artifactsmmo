@@ -159,7 +159,7 @@ def do_gathering():
 
     time.sleep(cooldown)
 
-def do_fight():
+def do_fight(monster):
 
     print("*** do_fight ***")
 
@@ -190,7 +190,7 @@ def do_fight():
         print("Character not found")
     elif response.status_code == 499:
         print("Character in cooldown")
-        cooldown = do_fight();
+        cooldown = do_fight(monster);
     elif response.status_code == 598:
         print("Monster not found on this map")
     elif response.status_code != 200:
@@ -490,7 +490,7 @@ def cycle_fight(monster, iterations):
       i_human = i+1
       print("fight {}: {} / {}".format(monster, i_human, iterations))
       go_to_monster(monster)
-      do_fight()
+      do_fight(monster)
 
 def cycle_crafting(code, iterations):
     for i in range (iterations):
