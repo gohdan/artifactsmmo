@@ -165,6 +165,8 @@ def do_fight():
 
     do_heal();
 
+    do_equip_to_monster(monster)
+
     url = f"{server}/my/{character}/action/fight"
 
     headers = {
@@ -754,7 +756,7 @@ def do_equip_to_monster(monster):
 
     print("monster:{}".format(monster))
 
-    do_unequip_all()
+    #do_unequip_all()
 
     inventory = get_character_parameter(character, "inventory")
     print(inventory)
@@ -1337,7 +1339,7 @@ def go_fight(monster, times):
 
     print("monster: {}, times: {}".format(monster, times))
 
-    do_equip_to_monster(monster)
+    #do_equip_to_monster(monster)
     cycle_fight(monster, times)
 
 def character_has(char_type, item):
