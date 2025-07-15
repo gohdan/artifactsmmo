@@ -1241,17 +1241,34 @@ def do_heal():
                         else:
                             print("have no suitable consumables, do rest")
                             do_rest(character)
-                    case hp_diff if 80 <= hp_diff :
+                    case hp_diff if 80 <= hp_diff < 150:
                         print("80 <= hp_diff")
-                        if "cheese" in inventory_items:
-                            print("use cheese")
-                            use_item("cheese", 1)
                         if "cooked_beef" in inventory_items:
                             print("use cooked_beef")
                             use_item("cooked_beef", 1)
+                        elif "fried_eggs" in inventory_items:
+                            print("use fried_eggs")
+                            use_item("fried_eggs", 1)
+                        elif "cooked_chicken" in inventory_items:
+                            print("use cooked_chicken")
+                            use_item("cooked_chicken", 1)
+                        elif "cooked_gudgeon" in inventory_items:
+                            print("use cooked_gudgeon")
+                            use_item("cooked_gudgeon", 1)
+                        else:
+                            print("have no suitable consumables, do rest")
+                            do_rest(character)
+                    case hp_diff if 150 <= hp_diff:
+                        print("150 <= hp_diff")
+                        if "cheese" in inventory_items:
+                            print("use cheese")
+                            use_item("cheese", 1)
                         if "cooked_shrimp" in inventory_items:
                             print("use cooked_shrimp")
                             use_item("cooked_shrimp", 1)
+                        if "cooked_beef" in inventory_items:
+                            print("use cooked_beef")
+                            use_item("cooked_beef", 1)
                         elif "fried_eggs" in inventory_items:
                             print("use fried_eggs")
                             use_item("fried_eggs", 1)
