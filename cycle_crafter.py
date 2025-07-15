@@ -259,13 +259,13 @@ while True:
             target_items = ['copper_dagger', 'wooden_staff']
     print("target_items: {}".format(target_items))
 
-    if not character_has("crafter", "apprentice_gloves"):
+    if not character_has("crafter", "apprentice_gloves") and "apprentice_gloves" not in bank_items:
         target_items.insert(0,"apprentice_gloves")
-    if not character_has("carpenter", "copper_axe"):
+    if not character_has("carpenter", "copper_axe") and "copper_axe" not in bank_items:
         target_items.insert(0, "copper_axe")
-    if not character_has("miner", "copper_pickaxe"):
+    if not character_has("miner", "copper_pickaxe") and "copper_pickaxe" not in bank_items:
         target_items.insert(0, "copper_pickaxe")
-    if not character_has("fisher", "fishing_net"):
+    if not character_has("fisher", "fishing_net") and "fishing_net" not in bank_items:
         target_items.insert(0, "fishing_net")
 
     for target_item in target_items:
