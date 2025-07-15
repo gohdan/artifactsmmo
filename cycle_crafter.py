@@ -144,21 +144,21 @@ while True:
                 sunflower_limit = 0
             target_items = ['small_health_potion']
 
-            if (bank_items['adventurer_vest'] < 5) and (bank_items['leather_hat'] < 5) and (bank_items['slime_shield'] < 5):
-                target_items = ['earth_boost_potion']
-                sunflower_limit += 1
+            #if (bank_items['adventurer_vest'] < 5) and (bank_items['leather_hat'] < 5) and (bank_items['slime_shield'] < 5):
+            target_items.append('earth_boost_potion')
+            sunflower_limit += 1
 
-            if (bank_items['slime_shield'] < 5):
-                target_items = ['air_boost_potion']
-                sunflower_limit += 1
+            #if (bank_items['slime_shield'] < 5):
+            target_items.append('air_boost_potion')
+            sunflower_limit += 1
 
-            if (bank_items['slime_shield'] < 5)and (bank_items['fire_bow'] < 5):
-                target_items = ['fire_boost_potion']
-                sunflower_limit += 1
+            #if (bank_items['slime_shield'] < 5)and (bank_items['fire_bow'] < 5):
+            target_items.append('fire_boost_potion')
+            sunflower_limit += 1
 
-            if (bank_items['slime_shield'] < 5)and (bank_items['greater_wooden_staff'] < 5):
-                target_items = ['water_boost_potion']
-                sunflower_limit += 1
+            #if (bank_items['slime_shield'] < 5)and (bank_items['greater_wooden_staff'] < 5):
+            target_items.append('water_boost_potion')
+            sunflower_limit += 1
 
         case _:
             # default values
