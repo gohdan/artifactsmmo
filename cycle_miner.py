@@ -136,37 +136,61 @@ while True:
 
     iron_qty = 0;
     steel_qty = 0;
+
+    crafter_weaponcrafting_level = get_character_parameter(characters["crafter"], "weaponcrafting_level")
+    crafter_gearcrafting_level = get_character_parameter(characters["crafter"], "gearcrafting_level")
+    crafter_jewelrycrafting_level = get_character_parameter(characters["crafter"], "jewelrycrafting_level")
+
+    copper_bar_in_bank_qty = get_item_in_bank_qty("copper_bar")
+    print("copper_bar_in_bank_qty:{}".format(copper_bar_in_bank_qty))
+
+    need_copper_bars = 0
+    if crafter_weaponcrafting_level < 10 or crafter_gearcrafting_level < 10 or crafter_jewelrycrafting_level < 5:
+        if copper_bar_in_bank_qty <= 10:
+            need_copper_bars = 1
+    print("need_copper_bars: {}".format(need_copper_bars))
+
     match mining_level:
         case mining_level if 1 <= mining_level < 10:
             print ("gather copper")
             copper_qty = inventory_limit // copper_ore_in_copper_qty
             copper_limit = copper_qty * copper_ore_in_copper_qty
+
         case mining_level if 10 <= mining_level < 20:
-            print ("gather copper and iron")
+            if 1 == need_copper_bars:
+                print ("gather copper")
+                copper_qty = inventory_limit // copper_ore_in_copper_qty
+                copper_limit = copper_qty * copper_ore_in_copper_qty
+            else:
+                print ("gather copper and iron")
+                copper_limit = inventory_limit // 2
+                copper_qty = copper_limit // copper_ore_in_copper_qty
+                copper_limit = copper_qty * copper_ore_in_copper_qty
 
-            copper_limit = inventory_limit // 2
-            copper_qty = copper_limit // copper_ore_in_copper_qty
-            copper_limit = copper_qty * copper_ore_in_copper_qty
-
-            iron_limit = inventory_limit - copper_limit
-            iron_qty = iron_limit // iron_ore_in_iron_qty
-            iron_limit = iron_qty * iron_ore_in_iron_qty
+                iron_limit = inventory_limit - copper_limit
+                iron_qty = iron_limit // iron_ore_in_iron_qty
+                iron_limit = iron_qty * iron_ore_in_iron_qty
 
         case mining_level if 20 <= mining_level < 30:
-            print ("gather copper, iron and coal")
+            if 1 == need_copper_bars:
+                print ("gather copper")
+                copper_qty = inventory_limit // copper_ore_in_copper_qty
+                copper_limit = copper_qty * copper_ore_in_copper_qty
+            else:
+                print ("gather copper, iron and coal")
 
-            copper_limit = inventory_limit // 3
-            copper_qty = copper_limit // copper_ore_in_copper_qty
-            copper_limit = copper_qty * copper_ore_in_copper_qty + copper_ore_in_copper_qty
+                copper_limit = inventory_limit // 3
+                copper_qty = copper_limit // copper_ore_in_copper_qty
+                copper_limit = copper_qty * copper_ore_in_copper_qty
 
-            iron_limit = inventory_limit // 3
-            iron_qty = iron_limit // iron_ore_in_iron_qty
-            iron_limit = iron_qty * iron_ore_in_iron_qty
+                iron_limit = inventory_limit // 3
+                iron_qty = iron_limit // iron_ore_in_iron_qty
+                iron_limit = iron_qty * iron_ore_in_iron_qty
 
-            steel_limit = inventory_limit - copper_limit - iron_limit
-            steel_qty = steel_limit // (coal_in_steel_qty + iron_ore_in_steel_qty)
-            coal_limit = steel_qty * coal_in_steel_qty
-            iron_limit = iron_limit + steel_qty * iron_ore_in_steel_qty
+                steel_limit = inventory_limit - copper_limit - iron_limit
+                steel_qty = steel_limit // (coal_in_steel_qty + iron_ore_in_steel_qty)
+                coal_limit = steel_qty * coal_in_steel_qty
+                iron_limit = iron_limit + steel_qty * iron_ore_in_steel_qty
 
         case mining_level if 30 <= mining_level:
             print ("gather copper, iron, coal and gold")

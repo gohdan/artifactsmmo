@@ -80,13 +80,14 @@ Fight cow (8)
 Miner:
 
 Gather copper ore (Mining 1)
-Craft copper (Mining 1)
+Craft copper bars (Mining 1)
+Also gather copper ore and craft copper bars if crafter skills aren't hight enough, he needs to craft copper items and there's enough copper bars in bank
 
 Gather iron ore (Mining 10)
-Craft iron (Mining 10)
+Craft iron bars (Mining 10)
 
 Gather coal (Mining 20)
-Craft steel (Mining 20)
+Craft steel bars(Mining 20)
 
 Craft sapphire (Mining 20)
 Craft emerald (Mining 20)
