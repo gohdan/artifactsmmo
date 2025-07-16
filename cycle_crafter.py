@@ -113,6 +113,11 @@ while True:
 
     withdraw = {}
 
+    weaponcrafting_level = get_character_parameter(character, "weaponcrafting_level")
+    print ("weaponcrafting level: ", weaponcrafting_level)
+    gearcrafting_level = get_character_parameter(character, "gearcrafting_level")
+    print ("gearcrafting level: ", gearcrafting_level)
+
     # ======= DETERMINE: ALCHEMY ======
 
     print("*** DETERMINE: ALCHEMY ***")
@@ -212,7 +217,6 @@ while True:
     craft_weapon = {}
     target_items = list()
 
-    weaponcrafting_level = get_character_parameter(character, "weaponcrafting_level")
     print ("weaponcrafting level: ", weaponcrafting_level)
 
     match weaponcrafting_level:
@@ -221,13 +225,13 @@ while True:
             target_items = ['copper_dagger', 'wooden_staff']
         case weaponcrafting_level if 5 <= weaponcrafting_level < 10:
             print("craft fire_staff, sticky_dagger, sticky_sword, water_bow")
-            if (bank_items['sticky_sword'] <= bank_items['sticky_dagger']) and (bank_items['sticky_sword'] <= bank_items['copper_armor']) and (bank_items['sticky_sword'] <= bank_items['copper_legs_armor']):
+            if (bank_items['sticky_sword'] <= bank_items['sticky_dagger']) and ((5 <= gearcrafting_level < 10) and (bank_items['sticky_sword'] <= bank_items['copper_armor']) and (bank_items['sticky_sword'] <= bank_items['copper_legs_armor'])):
                 target_items.append('sticky_sword')
-            if (bank_items['sticky_dagger'] <= bank_items['sticky_sword']) and (bank_items['sticky_dagger'] <= bank_items['copper_armor']) and (bank_items['sticky_dagger'] <= bank_items['copper_legs_armor']):
+            if (bank_items['sticky_dagger'] <= bank_items['sticky_sword']) and ((5 <= gearcrafting_level < 10) and (bank_items['sticky_dagger'] <= bank_items['copper_armor']) and (bank_items['sticky_dagger'] <= bank_items['copper_legs_armor'])):
                 target_items.append('sticky_dagger')
-            if (bank_items['fire_staff'] <= bank_items['water_bow']) and (bank_items['fire_staff'] <= bank_items['feather_coat']):
+            if (bank_items['fire_staff'] <= bank_items['water_bow']) and ((5 <= gearcrafting_level < 10) and (bank_items['fire_staff'] <= bank_items['feather_coat'])):
                 target_items.append('fire_staff')
-            if (bank_items['water_bow'] <= bank_items['fire_staff']) and (bank_items['water_bow'] <= bank_items['feather_coat']):
+            if (bank_items['water_bow'] <= bank_items['fire_staff']) and ((5 <= gearcrafting_level < 10) and (bank_items['water_bow'] <= bank_items['feather_coat'])):
                 target_items.append('water_bow')
         case weaponcrafting_level if 10 <= weaponcrafting_level:
             print("craft iron_sword, iron_dagger, greater_wooden_staff, fire_bow")
@@ -338,7 +342,6 @@ while True:
 
     craft_gear = {}
 
-    gearcrafting_level = get_character_parameter(character, "gearcrafting_level")
     print ("gearcrafting level: ", gearcrafting_level)
 
     match gearcrafting_level:
@@ -348,11 +351,11 @@ while True:
         case gearcrafting_level if 5 <= gearcrafting_level < 10:
             print("craft feather_coat, copper_armor, copper_legs_armor and satchel")
             target_items = ['satchel']
-            if (bank_items['feather_coat'] <= bank_items['fire_staff']) and (bank_items['feather_coat'] <= bank_items['water_bow']):
+            if ((5 <= weaponcrafting_level < 10) and bank_items['feather_coat'] <= bank_items['fire_staff']) and (bank_items['feather_coat'] <= bank_items['water_bow']):
                 target_items.append('feather_coat')
-            if (bank_items['copper_armor'] <= bank_items['copper_legs_armor']) and (bank_items['copper_armor'] <= bank_items['sticky_sword']) and (bank_items['copper_armor'] <= bank_items['sticky_dagger']):
+            if (bank_items['copper_armor'] <= bank_items['copper_legs_armor']) and ((5 <= weaponcrafting_level < 10) and (bank_items['copper_armor'] <= bank_items['sticky_sword']) and (bank_items['copper_armor'] <= bank_items['sticky_dagger'])):
                 target_items.append('copper_armor')
-            if (bank_items['copper_legs_armor'] <= bank_items['copper_armor']) and (bank_items['copper_legs_armor'] <= bank_items['sticky_sword']) and (bank_items['copper_legs_armor'] <= bank_items['sticky_dagger']):
+            if (bank_items['copper_legs_armor'] <= bank_items['copper_armor']) and ((5 <= weaponcrafting_level < 10) and (bank_items['copper_legs_armor'] <= bank_items['sticky_sword']) and (bank_items['copper_legs_armor'] <= bank_items['sticky_dagger'])):
                 target_items.append('copper_legs_armor')
         case gearcrafting_level if 10 <= gearcrafting_level:
             print("craft leather and iron stuff")
