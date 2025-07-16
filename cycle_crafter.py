@@ -230,16 +230,8 @@ while True:
             if (bank_items['water_bow'] <= bank_items['fire_staff']) and (bank_items['water_bow'] <= bank_items['feather_coat']):
                 target_items.append('water_bow')
         case weaponcrafting_level if 10 <= weaponcrafting_level:
-            print("craft iron pickaxe, iron_axe, spruce_fishing_rod, leather_gloves, iron_sword, iron_dagger, greater_wooden_staff, fire_bow")
-            target_items = ['leather_gloves']
-
-            # tools:
-            if (bank_items['iron_pickaxe'] <= bank_items['iron_axe']) and (bank_items['iron_pickaxe'] <= bank_items['spruce_fishing_rod']):
-                target_items.append('iron_pickaxe')
-            if (bank_items['iron_axe'] <= bank_items['iron_pickaxe']) and (bank_items['iron_axe'] <= bank_items['spruce_fishing_rod']):
-                target_items.append('iron_axe')
-            if (bank_items['spruce_fishing_rod'] <= bank_items['iron_axe']) and (bank_items['spruce_fishing_rod'] <= bank_items['iron_pickaxe']):
-                target_items.append('spruce_fishing_rod')
+            print("craft iron_sword, iron_dagger, greater_wooden_staff, fire_bow")
+            target_items = []
 
             # iron based:
             if (bank_items['iron_dagger'] <= bank_items['iron_sword']) and (bank_items['iron_dagger'] <= bank_items['iron_armor']) and (bank_items['iron_dagger'] <= bank_items['iron_helm']) and (bank_items['iron_dagger'] <= bank_items['iron_boots']) and (bank_items['iron_dagger'] <= bank_items['iron_legs_armor']) and (bank_items['iron_dagger'] <= bank_items['iron_ring']) and (bank_items['iron_dagger'] <= bank_items['air_and_water_amulet']) and (bank_items['iron_dagger'] <= bank_items['fire_and_earth_amulet']): 
@@ -252,6 +244,16 @@ while True:
                 target_items.append('greater_wooden_staff')
             if (bank_items['fire_bow'] <= bank_items['greater_wooden_staff']) and (bank_items['fire_bow'] <= bank_items['leather_armor']) and (bank_items['fire_bow'] <= bank_items['adventurer_vest']) and (bank_items['fire_bow'] <= bank_items['adventurer_helmet']) and (bank_items['fire_bow'] <= bank_items['leather_legs_armor']) and (bank_items['fire_bow'] <= bank_items['slime_shield']): 
                 target_items.append('fire_bow')
+
+            # tools
+            if not character_has("crafter", "leather_gloves") and "leather_gloves" not in bank_items:
+                target_items.insert(0,"leather_gloves")
+            if not character_has("carpenter", "iron_axe") and "iron_axe" not in bank_items:
+                target_items.insert(0, "iron_axe")
+            if not character_has("miner", "iron_pickaxe") and "iron_pickaxe" not in bank_items:
+                target_items.insert(0, "iron_pickaxe")
+            if not character_has("fisher", "spruce_fishing_rod") and "spruce_fishing_rod" not in bank_items:
+                target_items.insert(0, "spruce_fishing_rod")
 
         case _:
             # default values
