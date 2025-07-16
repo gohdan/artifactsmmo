@@ -42,7 +42,7 @@ def do_api_request(**kwargs):
         #print("%s = %s" % (k, v))
         request[k] = v
 
-    @retry(wait=3)
+    @retry(wait=10)
     def api_call(request):
         print("api call")
         resp = getattr(requests, request['type'])(request['url'], headers=request['headers'], data=request['data'])
