@@ -551,9 +551,12 @@ while True:
         case cooking_level if 5 <= cooking_level < 10:
             print("cook gudgeon, chicken, cooked_beef, fried_eggs")
             target_items = ['fried_eggs', 'cooked_chicken', 'cooked_gudgeon', 'cooked_beef']
-        case cooking_level if 10 <= cooking_level:
+        case cooking_level if 10 <= cooking_level < 20:
             print("cook gudgeon, chicken, cooked_beef, fried_eggs, cooked_shrimp, cheese")
             target_items = ['cheese', 'fried_eggs', 'cooked_chicken', 'cooked_gudgeon', 'cooked_beef', 'cooked_shrimp']
+        case cooking_level if 20 <= cooking_level:
+            print("cook gudgeon, chicken, cooked_beef, fried_eggs, cooked_shrimp, cheese, cooked_trout")
+            target_items = ['cheese', 'fried_eggs', 'cooked_chicken', 'cooked_gudgeon', 'cooked_beef', 'cooked_shrimp', 'cooked_trout']
         case _:
             # default values
             print("cook gudgeon and chicken (default values)")
@@ -626,6 +629,21 @@ while True:
                         craft_cooking['cooked_shrimp'] = withdraw_qty
                         withdraw['shrimp'] = withdraw_qty
                         bank_items['shrimp'] -= withdraw_qty
+                        inventory_available -= withdraw_qty
+                requisites = {}
+
+            case target_item if "cooked_trout" == target_item:
+                requisites = {'trout': 1}
+
+                if "trout" in bank_items:
+                    if bank_items['trout'] > inventory_available:
+                        withdraw_qty = inventory_available
+                    else:
+                        withdraw_qty = bank_items['trout']
+                    if 0 != withdraw_qty:
+                        craft_cooking['cooked_trout'] = withdraw_qty
+                        withdraw['trout'] = withdraw_qty
+                        bank_items['trout'] -= withdraw_qty
                         inventory_available -= withdraw_qty
                 requisites = {}
 
