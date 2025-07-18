@@ -1,5 +1,6 @@
 === 2DO ===
 
+Have in inventory only necessary fighting items to do not use all slots
 Equip Wisdom items before using skills to get more XP
 Move from unequip all to get equip info from character data
 Determine best elemental weapon that is in inventory and equip it
@@ -17,7 +18,8 @@ Events
 
 Main:
 
-Fight Flying Serpent (12)
+Fight wolf (15)
+
 
 Carpenter:
 
@@ -54,7 +56,7 @@ Fight blue slime (6)
 Fight red slime (7)
 Fight cow (8)
 Fight Mushmush (10)
-
+Fight Flying Snake (12)
 
 
 Carpenter:

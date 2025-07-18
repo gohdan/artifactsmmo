@@ -217,10 +217,15 @@ while True:
             print ("=== fight cow ===")
             go_fight("cow", 10)
 
-        case level if 19 <= level:
+        case level if 19 <= level < 20:
             # mushmush (10)
             print ("=== fight mushmush ===")
             go_fight("mushmush", 10)
+
+        case level if 20 <= level:
+            # flying_snake (10)
+            print ("=== fight flying_snake ===")
+            go_fight("flying_snake", 10)
 
         case _:
             # default values

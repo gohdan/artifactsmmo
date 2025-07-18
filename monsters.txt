@@ -45,11 +45,21 @@ Mushmush (10)
 20% Res Earth
 -30% Res Air
 
-Flying Serpent (12)
+Flying Snake (12)
 360 HP
 34 Air attack
 5% Critical Strike
 -20% Res Fire
 -20% Res Water
 40% Res Air
+
+Wolf (15)
+400 HP
+12 Water attack
+12 Air attack
+50% Critical strike
+-10% Res Fire
+-10% Res Earth
+10% Res Water
+10% Res Air
 

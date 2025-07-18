@@ -1098,6 +1098,74 @@ def do_equip_to_monster(monster):
             elif "life_amulet" in inventory_items:
                 do_equip("life_amulet", "amulet")
 
+        case monster if "flying_snake" == monster:
+            # -20% Res Fire, -20% Res Water, 40% Res Air, 34 Air attack
+
+            if "greater_wooden_staff" in inventory_items:
+                do_equip("greater_wooden_staff", "weapon")
+            elif "fire_bow" in inventory_items:
+                do_equip("fire_bow", "weapon")
+            elif "fire_staff" in inventory_items:
+                do_equip("fire_staff", "weapon")
+            elif "water_bow" in inventory_items:
+                do_equip("water_bow", "weapon")
+            elif "copper_dagger" in inventory_items:
+                do_equip("copper_dagger", "weapon")
+
+            if "slime_shield" in inventory_items:
+                do_equip("slime_shield", "shield")
+            elif "wooden_shield" in inventory_items:
+                do_equip("wooden_shield", "shield")
+
+            if "iron_armor" in inventory_items:
+                do_equip("iron_armor", "body_armor")
+            elif "leather_armor" in inventory_items:
+                do_equip("leather_armor", "body_armor")
+            elif "feather_coat" in inventory_items:
+                do_equip("feather_coat", "body_armor")
+            elif "copper_armor" in inventory_items:
+                do_equip("copper_armor", "body_armor")
+
+            if "leather_hat" in inventory_items:
+                do_equip("leather_hat", "helmet")
+            elif "iron_helm" in inventory_items:
+                do_equip("iron_helm", "helmet")
+            elif "copper_helmet" in inventory_items:
+                do_equip("copper_helmet", "helmet")
+
+            if "leather_legs_armor" in inventory_items:
+                do_equip("leather_legs_armor", "leg_armor")
+            elif "iron_legs_armor" in inventory_items:
+                do_equip("iron_legs_armor", "leg_armor")
+            elif "copper_legs_armor" in inventory_items:
+                do_equip("copper_legs_armor", "leg_armor")
+
+            if "iron_boots" in inventory_items:
+                do_equip("iron_boots", "boots")
+            elif "leather_boots" in inventory_items:
+                do_equip("leather_boots", "boots")
+            elif "copper_boots" in inventory_items:
+                do_equip("copper_boots", "boots")
+
+            if "iron_ring" in inventory_items:
+                do_equip("iron_ring", "ring1")
+                do_equip("iron_ring", "ring2")
+            elif "copper_ring" in inventory_items:
+                do_equip("copper_ring", "ring1")
+                do_equip("copper_ring", "ring2")
+
+            if "small_health_potion" in inventory_items:
+                do_equip("small_health_potion", "utility1")
+            if "air_boost_potion" in inventory_items:
+                do_equip("air_boost_potion", "utility2")
+
+            if "fire_and_earth_amulet" in inventory_items:
+                do_equip("fire_and_earth_amulet", "amulet")
+            elif "air_and_water_amulet" in inventory_items:
+                do_equip("air_and_water_amulet", "amulet")
+            elif "life_amulet" in inventory_items:
+                do_equip("life_amulet", "amulet")
+
 def get_inventory_items():
 
     print("*** get_inventory_items")
@@ -1330,6 +1398,8 @@ def go_to_monster(monster):
             x, y = 0, 2
         case monster if "mushmush" == monster:
             x, y = 5, 3
+        case monster if "flying_snake" == monster:
+            x, y = 5, 4
 
     do_move(x,y)
 
