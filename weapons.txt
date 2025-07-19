@@ -67,6 +67,8 @@ Greater Wooden Staff (greater_wooden_staff) (spruce_plank 6, blue_slimeball 2)
 24 Attack Water
 5% Critical Strike
 
+Tools:
+
 Fire bow (fire_bow) (spruce_plank 6, red_slimeball 2)
 17 Attack Fire
 35% Critical Strike

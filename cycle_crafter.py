@@ -865,7 +865,7 @@ while True:
 
             # blue slime (6)
             print ("=== fight blue slime ===")
-            go_fight("blue_slime", 5)
+            go_fight("blue_slime", 6)
 
             # green slime (4)
             print ("=== fight green slime ===")
@@ -894,7 +894,7 @@ while True:
 
             # blue slime (6)
             print ("=== fight blue slime ===")
-            go_fight("blue_slime", 5)
+            go_fight("blue_slime", 6)
 
             # green slime (4)
             print ("=== fight green slime ===")
