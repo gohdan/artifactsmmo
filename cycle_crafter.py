@@ -127,6 +127,7 @@ while True:
     alchemy_level = get_character_parameter(character, "alchemy_level")
     print ("alchemy level: ", alchemy_level)
 
+    nettle_leaf_limit = 0
     match alchemy_level:
         case alchemy_level if 1 <= alchemy_level < 5:
             print ("gather sunflower")
@@ -141,8 +142,8 @@ while True:
                 sunflower_limit = 0
             target_items = ['small_health_potion']
 
-        case alchemy_level if 10 <= alchemy_level:
-            print ("gather sunflower if needed, craft small health potion, earth, air fire and water boost potions")
+        case alchemy_level if 10 <= alchemy_level < 20:
+            print ("gather sunflower if needed, craft small health potion, earth, air, fire and water boost potions")
             if bank_items['sunflower'] < 15:
                 sunflower_limit = 3
             else:
@@ -165,14 +166,47 @@ while True:
             target_items.append('water_boost_potion')
             sunflower_limit += 1
 
+        case alchemy_level if 20 <= alchemy_level:
+            print ("gather sunflower if needed, gather nettle_leaf, craft earth, air, fire and water boost potions, minor health potion and small antidote")
+            if bank_items['sunflower'] < 15:
+                sunflower_limit = 3
+            else:
+                sunflower_limit = 0
+
+            nettle_leaf_limit = 10
+
+            target_items = ['']
+
+            #if (bank_items['adventurer_vest'] < 5) and (bank_items['leather_hat'] < 5) and (bank_items['slime_shield'] < 5):
+            target_items.append('earth_boost_potion')
+            sunflower_limit += 1
+
+            #if (bank_items['slime_shield'] < 5):
+            target_items.append('air_boost_potion')
+            sunflower_limit += 1
+
+            #if (bank_items['slime_shield'] < 5)and (bank_items['fire_bow'] < 5):
+            target_items.append('fire_boost_potion')
+            sunflower_limit += 1
+
+            #if (bank_items['slime_shield'] < 5)and (bank_items['greater_wooden_staff'] < 5):
+            target_items.append('water_boost_potion')
+            sunflower_limit += 1
+
+            target_items.append('minor_health_potion')
+            nettle_leaf_limit += 2
+
+            target_items.append('small_antidote')
+            nettle_leaf_limit += 1
         case _:
             # default values
             print ("gather sunflower (default values)")
             sunflower_limit = 9
 
     print("sunflower_limit: {}".format(sunflower_limit))
+    print("nettle_leaf_limit: {}".format(nettle_leaf_limit))
 
-    inventory_available = inventory_limit - sunflower_limit
+    inventory_available = inventory_limit - sunflower_limit - nettle_leaf_limit
     print("inventory_available: {}".format(inventory_available))
 
     print("target_items: {}".format(target_items))
@@ -190,6 +224,10 @@ while True:
                 requisites = {'red_slimeball': 1, 'sunflower': 1, 'algae': 1}
             case target_item if "water_boost_potion" == target_item:
                 requisites = {'blue_slimeball': 1, 'sunflower': 1, 'algae': 1}
+            case target_item if "minor_health_potion" == target_item:
+                requisites = {'nettle_leaft': 2, 'algae': 1}
+            case target_item if "small_antidote" == target_item:
+                requisites = {'milk_bucket': 1, 'sap': 1, 'nettle_leaf': 1}
             case _:
                 # default values
                 print("didn't found requisites")
@@ -684,6 +722,14 @@ while True:
         do_move(x, y)
         cycle_gathering(sunflower_limit)
         
+    # nettle_leaf (alchemy 20)
+    if 0 != nettle_leaf_limit:
+        print("=== gather nettle_leaf ===")
+        do_equip("apprentice_gloves", "weapon")
+        x, y = 7, 14
+        do_move(x, y)
+        cycle_gathering(nettle_leaf_limit)
+
     # ======= COOKING ======
 
     print("move to workshop cooking")

@@ -129,6 +129,7 @@ Cooked gudgeon (Cooking 1)
 Cooked chicken (Cooking 1)
 
 Gather sunflower (Alchemy 1)
+Gather nettle leaf (Alchemy 20)
 
 Wooden staff (Weaponcrafting 1)
 Copper dagger (Weaponcrafting 1)
@@ -193,6 +194,9 @@ Earth boost potion (Alchemy 10)
 Air boost potion (Alchemy 10)
 Fire boost potion (Alchemy 10)
 Water boost postion (Alchemy 10)
+
+Minor health potion (Alchemy 20)
+Small antidote (Alchemy 20)
 
 Fight chicken (1)
 Fight yellow slime (2)
