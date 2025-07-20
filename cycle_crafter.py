@@ -225,7 +225,7 @@ while True:
             case target_item if "water_boost_potion" == target_item:
                 requisites = {'blue_slimeball': 1, 'sunflower': 1, 'algae': 1}
             case target_item if "minor_health_potion" == target_item:
-                requisites = {'nettle_leaft': 2, 'algae': 1}
+                requisites = {'nettle_leaf': 2, 'algae': 1}
             case target_item if "small_antidote" == target_item:
                 requisites = {'milk_bucket': 1, 'sap': 1, 'nettle_leaf': 1}
             case _:
