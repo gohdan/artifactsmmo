@@ -14,6 +14,8 @@ Copper Dagger (copper_dagger) (copper_bar 6)
 8 Attack Air
 35% Critical Strike
 
+Tools:
+
 Apprentice Gloves (tool) (apprentice_gloves) (feather 6)
 5 Attack Air
 -10% Cooldown
@@ -67,11 +69,11 @@ Greater Wooden Staff (greater_wooden_staff) (spruce_plank 6, blue_slimeball 2)
 24 Attack Water
 5% Critical Strike
 
-Tools:
-
 Fire bow (fire_bow) (spruce_plank 6, red_slimeball 2)
 17 Attack Fire
 35% Critical Strike
+
+Tools:
 
 Iron Pickaxe (iron_pickaxe) (spruce_plank 2, iron_bar 8, jasper_crystal 1)
 Tool: Reduces cooldown by 10% when a character mines a resource.

@@ -18,7 +18,7 @@ Events
 
 Main:
 
-Fight wolf (15)
+Fight Highwayman
 
 
 Carpenter:
@@ -57,7 +57,7 @@ Fight red slime (7)
 Fight cow (8)
 Fight Mushmush (10)
 Fight Flying Snake (12)
-
+Fight wolf (15)
 
 Carpenter:
 

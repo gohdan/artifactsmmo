@@ -63,3 +63,12 @@ Wolf (15)
 10% Res Water
 10% Res Air
 
+Highwayman (15)
+380 HP
+25 Air attack
+35% Critical strike
+10% Res Fire
+10% Res Earth
+-10% Res Water
+-10% Res Air
+
