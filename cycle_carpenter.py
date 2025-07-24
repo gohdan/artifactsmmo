@@ -7,20 +7,23 @@ minimal_empty_inventory = 15 # for occasional drop
 
 # ash_tree: 6 (ash_plank) + 4 (wooden_stick) + 2 (hardwood_plank)
 
-ash_wood_in_plank = 6
 minimal_ash_qty = 4
 
+ash_wood_in_plank = 6
 spruce_in_plank = 10
+birch_in_plank = 6
+ash_in_hardwood_plank = 4
+dead_wood_in_plank = 10
 
 # default values are null
 ash_limit = 0
+ash_plank_qty = 0
 spruce_limit = 0
 spruce_plank_qty = 0
 birch_limit = 0
 hardwood_plank_qty = 0
-
-birch_in_plank = 6
-ash_in_hardwood_plank = 4
+dead_wood_limit = 0
+dead_wood_plank_qty = 0
 
 while True:
     # ======= CHARACTER INFO ======
@@ -124,7 +127,7 @@ while True:
             spruce_plank_qty = spruce_limit // spruce_in_plank
             spruce_limit = spruce_plank_qty * spruce_in_plank
 
-        case woodcutting_level if 20 <= woodcutting_level:
+        case woodcutting_level if 20 <= woodcutting_level < 30:
             print ("gather ash, spruce and birch")
 
             birch_limit = inventory_limit // 3
@@ -140,11 +143,34 @@ while True:
             ash_limit = inventory_limit - birch_limit - spruce_limit
             ash_plank_qty = (ash_limit - minimal_ash_wood_qty) // ash_wood_in_plank
 
+        case woodcutting_level if 30 <= woodcutting_level:
+            print ("gather spruce, birch and dead tree")
+
+            dead_wood_limit = inventory_limit // 2
+            dead_wood_plank_qty = dead_wood_limit // dead_wood_in_plank
+            dead_wood_limit = dead_wood_plank_qty * dead_wood_in_plank
+
+            birch_limit = inventory_limit // 3
+            hardwood_plank_qty = birch_limit // birch_in_plank
+            birch_limit = hardwood_plank_qty * birch_in_plank
+
+            spruce_limit = inventory_limit - dead_wood_limit - birch_limit
+            if (spruce_limit <= spruce_in_plank):
+                spruce_limit = spruce_in_plank
+                spruce_plank_qty = 1
+            else:
+                spruce_plank_qty = spruce_limit // spruce_in_plank
+                spruce_limit = spruce_plank_qty * spruce_in_plank
+
         case _:
             # default values
             print ("gather ash (non-matching woodcutting level)")
             ash_limit = inventory_limit
             ash_plank_qty = (ash_limit  - minimal_ash_wood_qty) // ash_wood_in_plank
+
+    print("dead wood in plank:{}".format(dead_wood_in_plank))
+    print("dead wood limit:{}".format(dead_wood_limit))
+    print("dead wood plank qty:{}".format(dead_wood_plank_qty))
 
     print("ash_in_hardwood_plank:{}".format(ash_in_hardwood_plank))
     print("birch in hardwood plank:{}".format(birch_in_plank))
@@ -169,9 +195,25 @@ while True:
         do_bank_withdraw('birch_wood', birch_wood_in_bank_qty)
         birch_limit = birch_limit - birch_wood_in_bank_qty
 
+    dead_wood_in_bank_qty = get_item_in_bank_qty('dead_wood')
+    print("dead_wood_in_bank_qty:{}".format(dead_wood_in_bank_qty))
+    if dead_wood_in_bank_qty > dead_wood_limit:
+        do_bank_withdraw('dead_wood', dead_wood_limit)
+        dead_wood_limit = 0
+    else:
+        do_bank_withdraw('dead_wood', dead_wood_in_bank_qty)
+        dead_wood_limit = dead_wood_limit - dead_wood_in_bank_qty
+
     # ======= GATHERING ======
 
     do_equip("copper_axe", "weapon")
+
+    # dead tree (woodcutting 30)
+    if 0 != dead_wood_limit:
+        print("=== gather dead tree ===")
+        x, y = 9, 6
+        do_move(x, y)
+        cycle_gathering(dead_wood_limit)
 
     # birch tree (woodcutting 20)
     if 0 != birch_limit:
@@ -201,6 +243,9 @@ while True:
     x, y = -2, -3
     do_move(x, y)
 
+    print("dead_wood in plank:{}".format(dead_wood_in_plank))
+    print("dead_wood_plank_qty:{}".format(dead_wood_plank_qty))
+
     print("ash_in_hardwood_plank:{}".format(ash_in_hardwood_plank))
     print("birch in hardwood plank:{}".format(birch_in_plank))
     print("hardwood_plank_qty:{}".format(hardwood_plank_qty))
@@ -210,6 +255,11 @@ while True:
 
     print("ash wood in ash plank:{}".format(ash_wood_in_plank))
     print("ash_plank_qty:{}".format(ash_plank_qty))
+
+    inventory_items = get_inventory_items()
+
+    if 0 != dead_wood_plank_qty:
+       cycle_crafting("dead_wood_plank", dead_wood_plank_qty)
 
     inventory_items = get_inventory_items()
 

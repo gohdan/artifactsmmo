@@ -70,6 +70,9 @@ Craft spruce plank (Woodcutting 10)
 Gather birch wood (Woodcutting 20)
 Craft hardwood plank (Woodcutting 20)
 
+Gather dead wood (Woodcutting 30)
+Craft dead wood plank (Woodcutting 30)
+
 Fight chicken (1)
 Fight yellow slime (2)
 Fight green slime (4)
