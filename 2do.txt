@@ -18,13 +18,13 @@ Events
 
 Main:
 
-Fight Highwayman
+Fight Skeleton (18)
 
 
 Carpenter:
 
-Gather dead wood (Woodcutting 30)
-Craft dead wood plank (Woodcutting 30)
+Gather Cursed Tree (34)
+
 
 
 Miner:
@@ -58,6 +58,7 @@ Fight cow (8)
 Fight Mushmush (10)
 Fight Flying Snake (12)
 Fight wolf (15)
+Fight Highwayman (15)
 
 Carpenter:
 
