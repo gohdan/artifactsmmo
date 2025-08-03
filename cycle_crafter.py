@@ -592,9 +592,12 @@ while True:
         case cooking_level if 10 <= cooking_level < 20:
             print("cook gudgeon, chicken, cooked_beef, fried_eggs, cooked_shrimp, cheese")
             target_items = ['cheese', 'fried_eggs', 'cooked_chicken', 'cooked_gudgeon', 'cooked_beef', 'cooked_shrimp']
-        case cooking_level if 20 <= cooking_level:
+        case cooking_level if 20 <= cooking_level < 30:
             print("cook gudgeon, chicken, cooked_beef, fried_eggs, cooked_shrimp, cheese, cooked_trout")
             target_items = ['cheese', 'fried_eggs', 'cooked_chicken', 'cooked_gudgeon', 'cooked_beef', 'cooked_shrimp', 'cooked_trout']
+        case cooking_level if 30 <= cooking_level :
+            print("cook gudgeon, chicken, cooked_beef, fried_eggs, cooked_shrimp, cheese, cooked_trout, cooked_bass")
+            target_items = ['cheese', 'fried_eggs', 'cooked_chicken', 'cooked_gudgeon', 'cooked_beef', 'cooked_shrimp', 'cooked_trout', 'cooked_bass']
         case _:
             # default values
             print("cook gudgeon and chicken (default values)")
@@ -682,6 +685,21 @@ while True:
                         craft_cooking['cooked_trout'] = withdraw_qty
                         withdraw['trout'] = withdraw_qty
                         bank_items['trout'] -= withdraw_qty
+                        inventory_available -= withdraw_qty
+                requisites = {}
+
+            case target_item if "cooked_bass" == target_item:
+                requisites = {'bass': 1}
+
+                if "bass" in bank_items:
+                    if bank_items['bass'] > inventory_available:
+                        withdraw_qty = inventory_available
+                    else:
+                        withdraw_qty = bank_items['bass']
+                    if 0 != withdraw_qty:
+                        craft_cooking['cooked_bass'] = withdraw_qty
+                        withdraw['bass'] = withdraw_qty
+                        bank_items['bass'] -= withdraw_qty
                         inventory_available -= withdraw_qty
                 requisites = {}
 
