@@ -166,7 +166,7 @@ while True:
             target_items.append('water_boost_potion')
             sunflower_limit += 1
 
-        case alchemy_level if 20 <= alchemy_level:
+        case alchemy_level if 20 <= alchemy_level < 30:
             print ("gather sunflower if needed, gather nettle_leaf, craft earth, air, fire and water boost potions, minor health potion and small antidote")
             if bank_items['sunflower'] < 15:
                 sunflower_limit = 3
@@ -198,6 +198,45 @@ while True:
 
             target_items.append('small_antidote')
             nettle_leaf_limit += 1
+
+        case alchemy_level if 30 <= alchemy_level:
+            print ("gather sunflower if needed, gather nettle_leaf, craft earth, air, fire and water boost potions, health potion, small antidote, antidote")
+            if bank_items['sunflower'] < 15:
+                sunflower_limit = 3
+            else:
+                sunflower_limit = 0
+
+            if bank_items['nettle_leaf'] < 15:
+                nettle_leaf_limit = 3
+            else:
+                nettle_leaf_limit = 0
+
+            target_items = ['']
+
+            #if (bank_items['adventurer_vest'] < 5) and (bank_items['leather_hat'] < 5) and (bank_items['slime_shield'] < 5):
+            target_items.append('earth_boost_potion')
+            sunflower_limit += 1
+
+            #if (bank_items['slime_shield'] < 5):
+            target_items.append('air_boost_potion')
+            sunflower_limit += 1
+
+            #if (bank_items['slime_shield'] < 5)and (bank_items['fire_bow'] < 5):
+            target_items.append('fire_boost_potion')
+            sunflower_limit += 1
+
+            #if (bank_items['slime_shield'] < 5)and (bank_items['greater_wooden_staff'] < 5):
+            target_items.append('water_boost_potion')
+            sunflower_limit += 1
+
+            target_items.append('health_potion')
+            nettle_leaf_limit += 2
+            sunflower_limit += 1
+
+            target_items.append('small_antidote')
+            nettle_leaf_limit += 1
+
+            target_items.append('antidote')
         case _:
             # default values
             print ("gather sunflower (default values)")
@@ -228,6 +267,10 @@ while True:
                 requisites = {'nettle_leaf': 2, 'algae': 1}
             case target_item if "small_antidote" == target_item:
                 requisites = {'milk_bucket': 1, 'sap': 1, 'nettle_leaf': 1}
+            case target_item if "health_potion" == target_item:
+                requisites = {'nettle_leaf': 2, 'sunflower': 1, 'sap': 1}
+            case target_item if "antidote" == target_item:
+                requisites = {'strangold_bar': 2, 'maple_sap': 1, 'glowstem_leaf': 1}
             case _:
                 # default values
                 print("didn't found requisites")
