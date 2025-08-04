@@ -282,7 +282,7 @@ while True:
     # gold ore (mining 30)
     if 0 != gold_limit:
         print("=== gather gold ===")
-        x, y = 10, -4
+        x, y = 6, -3
         do_move(x, y)
         cycle_gathering(gold_limit)
 
