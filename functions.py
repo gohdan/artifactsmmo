@@ -1308,10 +1308,10 @@ def do_equip_to_monster(monster):
         case monster if "skeleton" == monster:
             # -10% Res Water, -10% Res Air, 30% Res Fire, 26 Fire attack, 18 Earth attack
 
-            if "greater_wooden_staff" in inventory_items:
-                do_equip("greater_wooden_staff", "weapon")
-            elif "iron_dagger" in inventory_items:
+            if "iron_dagger" in inventory_items:
                 do_equip("iron_dagger", "weapon")
+            elif "greater_wooden_staff" in inventory_items:
+                do_equip("greater_wooden_staff", "weapon")
             elif "water_bow" in inventory_items:
                 do_equip("water_bow", "weapon")
             elif "sticky_dagger" in inventory_items:
