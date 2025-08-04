@@ -227,7 +227,7 @@ while True:
             print ("=== fight flying_snake ===")
             go_fight("flying_snake", 10)
 
-        case level if 23 <= level:
+        case level if 23 <= level < 26:
             import random
             randval = random.randint(1, 2)
             if 1 == randval:
@@ -238,6 +238,11 @@ while True:
                 # highwayman (15)
                 print ("=== fight highwayman ===")
                 go_fight("highwayman", 10)
+
+        case level if 26 <= level:
+                # skeleton (18)
+                print ("=== fight skeleton ===")
+                go_fight("skeleton", 10)
 
         case _:
             # default values
