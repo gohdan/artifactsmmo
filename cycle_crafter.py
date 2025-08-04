@@ -570,7 +570,7 @@ while True:
             if (bank_items['mushmush_wizard_hat'] <= bank_items['adventurer_boots']):
                 target_items.append('mushmush_wizard_hat')
             if (bank_items['adventurer_boots'] <= bank_items['mushmush_wizard_hat']):
-                target_items.append('mushmush_wizard_hat')
+                target_items.append('adventurer_boots')
 
         case _:
             # default values
