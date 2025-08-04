@@ -347,7 +347,7 @@ while True:
 
             # yellow slime (2)
             print ("=== fight yellow slime ===")
-            go_fight("yellow_slime", 5)
+            go_fight("yellow_slime", 6)
 
             # chicken (1)
             print ("=== fight chicken ===")
@@ -360,7 +360,7 @@ while True:
 
             # yellow slime (2)
             print ("=== fight yellow slime ===")
-            go_fight("yellow_slime", 5)
+            go_fight("yellow_slime", 6)
 
             # chicken (1)
             print ("=== fight chicken ===")
@@ -377,7 +377,7 @@ while True:
 
             # yellow slime (2)
             print ("=== fight yellow slime ===")
-            go_fight("yellow_slime", 3)
+            go_fight("yellow_slime", 4)
 
             # chicken (1)
             print ("=== fight chicken ===")
@@ -402,7 +402,7 @@ while True:
 
             # yellow slime (2)
             print ("=== fight yellow slime ===")
-            go_fight("yellow_slime", 3)
+            go_fight("yellow_slime", 4)
 
             # chicken (1)
             print ("=== fight chicken ===")
@@ -431,7 +431,7 @@ while True:
 
             # yellow slime (2)
             print ("=== fight yellow slime ===")
-            go_fight("yellow_slime", 3)
+            go_fight("yellow_slime", 4)
 
             # chicken (1)
             print ("=== fight chicken ===")
