@@ -55,6 +55,8 @@ while True:
 
         case level if 10 <= level:
             belongings = {
+                "apprentice_gloves": 1,
+
                 "fire_bow": 1,
                 "greater_wooden_staff": 1,
                 "iron_dagger": 1,
