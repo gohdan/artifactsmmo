@@ -23,3 +23,25 @@ Air & Water Amulet (air_and_water_amulet) (iron_bar 4, green_slimeball 2, blue_s
 5% Damage Water
 5% Damage Air
 
+=== Jewelrycrafting 15 ===
+
+Air ring (air_ring) (iron_bar 5, green_slimeball 4, flying_wing 3)
+8% Damage Air
+
+Earth ring (earth_ring) (iron_bar 5, yellow slimeball 4, flying_wing 3)
+8% Damage Earth 
+
+Fire ring (fire_ring) (iron_bar 5, red_slimeball 4, flying_wing 3)
+8% Damage Fire
+
+Water ring (water_ring) (iron_bar 5, blue_slimeball 4, flying_wing 3)
+8% Damage Water
+
+Life ring (life_ring) (iron_bar 8, cloth 2, mushroom 5)
+25 HP
+20 Wisdom 
+
+Wisdom amulet (wisdom_amulet) (spruce_plank 4, green_cloth 3, snake_hide 3, jasper_crystal 1)
+30 HP
+60 Wisdom 
+

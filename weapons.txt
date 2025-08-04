@@ -95,3 +95,23 @@ Tool: Reduces cooldown by 10% when a character harvest a plant.
 5 Attack Air
 -10 % Cooldown
 
+
+=== Weaponcrafting 15 ===
+
+Multislimes Sword (multislimes_sword) (iron_bar 5, red_slimeball 2, blue_slimeball 2, yellow_slimeball 2, green_slimeball 2, jasper_crystal 1)
+8 Attack Air
+8 Attack Water
+8 Attack Fire
+8 Attack Earth
+24 % Critical Strike 
+
+Mushstaff (mushstaff) (spruce_plank 5, mushroom 4, green_cloth 2, jasper_crystal 1)
+15 Attack Fire
+15 Attack Earth
+24 % Critical Strike 
+
+Mushmush Bow (mushmush_bow) (spruce_plank 5, wolf_hair 2, mushroom 4, jasper_crystal 1)
+12 Attack Air
+12 Attack Water
+35 % Critical Strike 
+

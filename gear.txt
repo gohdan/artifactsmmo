@@ -133,3 +133,36 @@ Slime shield (slime_shield) (spruce_plank 6, red_slimeball 3, yellow_slimeball 3
 4% Res Water
 4% Res Air
 
+
+
+=== Gearcrafting 15 ===
+
+Mushmush wizard hat (mushmush_wizard_hat) (cowhide 4, wolf_hair 4, mushroom 6)
+50 HP
+3% Critical Strike
+10% Damage Fire
+10% Damage Earth 
+
+Adventurer Boots (adventurer_boots) (wolf_hair 5, mushroom 5, spruce_plank 5)
+60 HP
+4 Haste
+20 Wisdom
+20 Prospecting
+
+Lucky Wizard Hat (lucky_wizard_hat) (green_cloth 4, flying_wing 6, snakeskin 3)
+50 HP
+3% Critical Strike
+10% Damage Air
+10% Damage Water 
+
+Mushmush Jacket (mushmush_jacket) (hard_leather 3, flying_wing 6, mushroom 6)
+60 HP
+3% Critical Strike
+10% Damage
+10 Wisdom 
+
+Adventurer Pants (adventurer_pants) (ash_plank 7, hard_leather 3, green_cloth 3, cloth 2)
+60 HP
+5% Damage
+20 Wisdom 
+

@@ -72,3 +72,20 @@ Highwayman (15)
 -10% Res Water
 -10% Res Air
 
+Skeleton (18)
+480 HP
+26 Fire attack
+18 Earth attack
+5% Critical Strike
+30% Res Fire
+-10% Res Water
+-10% Res Air 
+
+Pig (19)
+480 HP
+30 Water attack
+30% Critical Strike
+-10 % Res Earth
+40 % Res Water 
+-3, -3
+
