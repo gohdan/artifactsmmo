@@ -217,27 +217,27 @@ while True:
             print ("=== fight cow ===")
             go_fight("cow", 10)
 
-        case level if 19 <= level < 20:
+        case level if 19 <= level:
             # mushmush (10)
             print ("=== fight mushmush ===")
             go_fight("mushmush", 10)
 
-        case level if 20 <= level < 23:
-            # flying_snake (10)
-            print ("=== fight flying_snake ===")
-            go_fight("flying_snake", 10)
+        #case level if 20 <= level < 23:
+        #    # flying_snake (10)
+        #    print ("=== fight flying_snake ===")
+        #    go_fight("flying_snake", 10)
 
-        case level if 23 <= level:
-            import random
-            randval = random.randint(1, 2)
-            if 1 == randval:
-                # wolf (15)
-                print ("=== fight wolf ===")
-                go_fight("wolf", 10)
-            else:
-                # highwayman (15)
-                print ("=== fight highwayman ===")
-                go_fight("highwayman", 10)
+        #case level if 23 <= level:
+        #    import random
+        #    randval = random.randint(1, 2)
+        #    if 1 == randval:
+        #        # wolf (15)
+        #        print ("=== fight wolf ===")
+        #        go_fight("wolf", 10)
+        #    else:
+        #        # highwayman (15)
+        #        print ("=== fight highwayman ===")
+        #        go_fight("highwayman", 10)
 
         #case level if 26 <= level:
         #        # skeleton (18)
