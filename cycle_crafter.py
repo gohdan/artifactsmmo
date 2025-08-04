@@ -95,7 +95,7 @@ while True:
     for i in bank_contents:
         bank_items[i['code']] = i['quantity']
 
-    concurrents = {'sticky_sword', 'sticky_dagger', 'water_bow', 'fire_staff', 'copper_armor', 'copper_legs_armor', 'feather_coat', 'iron_sword', 'iron_dagger', 'greater_wooden_staff', 'fire_bow', 'iron_pickaxe', 'iron_axe', 'spruce_fishing_rod', 'leather_gloves', 'leather_armor', 'iron_armor', 'adventurer_vest', 'leather_hat', 'iron_helm', 'adventurer_helmet', 'leather_legs_armor', 'iron_legs_armor', 'leather_boots', 'iron_boots', 'slime_shield', 'iron_ring', 'fire_and_earth_amulet', 'air_and_water_amulet'}
+    concurrents = {'sticky_sword', 'sticky_dagger', 'water_bow', 'fire_staff', 'copper_armor', 'copper_legs_armor', 'feather_coat', 'iron_sword', 'iron_dagger', 'greater_wooden_staff', 'fire_bow', 'iron_pickaxe', 'iron_axe', 'spruce_fishing_rod', 'leather_gloves', 'leather_armor', 'iron_armor', 'adventurer_vest', 'leather_hat', 'iron_helm', 'adventurer_helmet', 'leather_legs_armor', 'iron_legs_armor', 'leather_boots', 'iron_boots', 'slime_shield', 'iron_ring', 'fire_and_earth_amulet', 'air_and_water_amulet', 'mushmush_wizard_hat', 'adventurer_boots'}
     for concurrent in concurrents:
         if concurrent not in bank_items:
             bank_items[concurrent] = 0
@@ -449,7 +449,7 @@ while True:
                 if (bank_items['copper_legs_armor'] <= bank_items['copper_armor']):
                     target_items.append('copper_legs_armor')
 
-        case gearcrafting_level if 10 <= gearcrafting_level:
+        case gearcrafting_level if 10 <= gearcrafting_level < 15:
             print("craft leather and iron stuff")
             target_items = ['slime_shield']
 
@@ -476,6 +476,15 @@ while True:
                 target_items.append('leather_hat')
             if (bank_items['leather_boots'] <= bank_items['leather_hat']) and (bank_items['leather_boots'] <= bank_items['leather_armor']) and (bank_items['leather_boots'] <= bank_items['adventurer_vest']) and (bank_items['leather_boots'] <= bank_items['adventurer_helmet']) and (bank_items['leather_boots'] <= bank_items['leather_legs_armor']):
                 target_items.append('leather_boots')
+
+        case gearcrafting_level if 15 <= gearcrafting_level:
+            print("craft mushmush_wizard_hat and adventurer_boots")
+            target_items = []
+           # based on wolf_hair and mushroom:
+            if (bank_items['mushmush_wizard_hat'] <= bank_items['adventurer_boots']):
+                target_items.append('mushmush_wizard_hat')
+            if (bank_items['adventurer_boots'] <= bank_items['mushmush_wizard_hat']):
+                target_items.append('mushmush_wizard_hat')
 
         case _:
             # default values
@@ -525,7 +534,11 @@ while True:
                 requisites = {'iron_bar': 5, 'feather': 3}
             case target_item if "slime_shield" == target_item:
                 requisites = {'spruce_plank': 6, 'red_slimeball': 3, 'yellow_slimeball': 3, 'green_slimeball': 3, 'blue_slimeball': 3}
-
+            # 15 level
+            case target_item if "mushmush_wizard_hat" == target_item:
+                requisites = {'cowhide': 4, 'wolf_hair': 4, 'mushroom': 6}
+            case target_item if "adventurer_boots" == target_item:
+                requisites = {'wolf_hair': 5, 'mushroom': 5, 'spruce_plank': 5}
             case _:
                 # default values
                 print("didn't found requisites")
