@@ -34,7 +34,7 @@ while True:
             }
             if "copper_dagger" not in inventory_items and "wooden_staff" not in inventory_items:
                 belongings["wooden_stick"] = 1
-        case level if 5 <= level:
+        case level if 5 <= level < 10:
             belongings = {
                 "fishing_net": 1,
                 "fire_staff": 1,
@@ -58,6 +58,90 @@ while True:
                 belongings["copper_dagger"] = 1
             if "sticky_sword" not in inventory_items:
                 belongings["wooden_staff"] = 1
+
+        case level if 10 <= level:
+            belongings = {
+                "fire_bow": 1,
+                "greater_wooden_staff": 1,
+                "iron_dagger": 1,
+                "iron_sword": 1,
+
+                "slime_shield": 1,
+
+                "iron_armor": 1,
+                "leather_armor": 1,
+                "adventurer_vest": 1,
+
+                "leather_hat": 1,
+                "iron_helm": 1,
+                "adventurer_helmet": 1,
+
+                "leather_legs_armor": 1,
+                "iron_legs_armor": 1,
+
+                "leather_boots": 1,
+                "iron_boots": 1,
+
+                "iron_ring": 2,
+
+                "life_amulet": 1,
+                "fire_and_earth_amulet": 1,
+                "air_and_water_amulet": 1,
+
+                "small_health_potion": 10,
+
+                "air_boost_potion": 10,
+                "earth_boost_potion": 10,
+                "fire_boost_potion": 10,
+                "water_boost_potion": 10,
+
+                "cooked_gudgeon": 10,
+                "cooked_chicken": 10,
+                "cooked_beef": 10,
+                "fried_eggs": 10,
+                "cheese": 10,
+                "cooked_shrimp": 10
+            }
+
+            if "leather_boots" not in inventory_items and "iron_boots" not in inventory_items:
+                belongings["copper_boots"] = 1
+            if "leather_hat" not in inventory_items and "iron_helm" not in inventory_items and "adventurer_helmet" not in inventory_items:
+                belongings["copper_helmet"] = 1
+
+            if "slime_shield" not in inventory_items:
+                belongings["wooden_shield"] = 1
+
+            if "iron_armor" not in inventory_items:
+                belongings["copper_armor"] = 1
+            if "leather_armor" not in inventory_items:
+                belongings["feather_coat"] = 1
+
+            if "leather_legs_armor" not in inventory_items and "iron_legs_armor" not in inventory_items:
+                belongings["copper_legs_armor"] = 1
+
+            if "iron_ring" not in inventory_items:
+                belongings["copper_ring"] = 2
+
+            # Damage: Air
+            if "iron_dagger" not in inventory_items and "sticky_dagger" not in inventory_items:
+                belongings["copper_dagger"] = 1
+            elif "iron_dagger" not in inventory_items:
+                belongings["sticky_dagger"] = 1
+
+            # Damage: Earth 
+            if "iron_sword" not in inventory_items and "sticky_sword" not in inventory_items:
+                belongings["wooden_staff"] = 1
+            elif "iron_sword" not in inventory_items:
+                belongings["sticky_sword"] = 1
+
+            # Damage: Water
+            if "greater_wooden_staff" not in inventory_items:
+                belongings["water_bow"] = 1
+
+            # Damage: Fire
+            if "fire_bow" not in inventory_items:
+                belongings["fire_staff"] = 1
+
         case _:
             # default values
             belongings = {
@@ -243,6 +327,39 @@ while True:
             # cow (8)
             print ("=== fight cow ===")
             go_fight("cow", 10)
+
+            # sheep (5)
+            print ("=== fight sheep ===")
+            go_fight("sheep", 3)
+
+            # red slime (7)
+            print ("=== fight red slime ===")
+            go_fight("red_slime", 5)
+
+            # blue slime (6)
+            print ("=== fight blue slime ===")
+            go_fight("blue_slime", 8)
+
+            # green slime (4)
+            print ("=== fight green slime ===")
+            go_fight("green_slime", 3)
+
+            # yellow slime (2)
+            print ("=== fight yellow slime ===")
+            go_fight("yellow_slime", 4)
+
+            # chicken (1)
+            print ("=== fight chicken ===")
+            go_fight("chicken", 6)
+
+        case level if 19 <= level < 20:
+            # mushmush (10)
+            print ("=== fight mushmush ===")
+            go_fight("mushmush", 10)
+
+            # cow (8)
+            print ("=== fight cow ===")
+            go_fight("cow", 5)
 
             # sheep (5)
             print ("=== fight sheep ===")
